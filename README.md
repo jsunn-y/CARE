@@ -1,5 +1,5 @@
 # BERC
-BERC: Bencharmks for Enzyme Retrieval and Classifcation
+BERC: Benchmarks for Enzyme Retrieval and Classifcation
 
 ## 1 env
 
