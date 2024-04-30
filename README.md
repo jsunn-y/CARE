@@ -1,5 +1,5 @@
-# BERC
-BERC: Benchmarks for Enzyme Retrieval and Classification
+# CARE
+CARE: Benchmarks for Classification and Retrieval of Enzymes
 
 ## 1 env
 
