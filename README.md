@@ -1,5 +1,5 @@
 # CARE
-CARE: Benchmarks for Classification and Retrieval of Enzymes
+CARE: Benchmarks for the Classification and Retrieval of Enzymes
 
 ## 1 env
 
