@@ -4,9 +4,9 @@ CARE: Benchmarks for the Classification and Retrieval of Enzymes
 ## 1 env
 
 ```
-#for BERC datasets, splitting, and analysis
-conda create -n BERC_analysis python=3.8 -y
-conda activate BERC_analysis
+#for CARE datasets, splitting, and analysis
+conda create -n CARE_analysis python=3.8 -y
+conda activate CARE_analysis
 conda install -c rdkit rdkit=2020.03.3 -y
 #conda install -c tmap tmap -y
 #pip install rxnfp
@@ -15,7 +15,7 @@ pip install -U scikit-learn
 pip install simpletransformers "transformers==4.30.2"
 pip install seaborn
 
-#BERC benchmarking is done through other pacakges
+#CARE benchmarking is done through other pacakges
 #BLAST
 
 #for CREEP model training and evaluation
