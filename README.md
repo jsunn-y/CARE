@@ -1,5 +1,5 @@
-# BERP
-BERP: Benchmarks for Enzyme-Reaction Prediction
+# BERC
+BERC: Bencharmks for Enzyme Retrieval and Classifcation
 
 ## 1 env
 
