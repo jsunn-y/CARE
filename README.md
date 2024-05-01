@@ -5,14 +5,11 @@ CARE: Benchmarks for the Classification and Retrieval of Enzymes
 
 ```
 #for CARE datasets, splitting, and analysis
-conda create -n CARE_analysis python=3.8 -y
-conda activate CARE_analysis
+conda create -n CARE_processing python=3.8 -y
+conda activate CARE_processing
 conda install -c rdkit rdkit=2020.03.3 -y
-#conda install -c tmap tmap -y
-#pip install rxnfp
-pip install -U scikit-learn
-#pip install simpletransformers==0.61.13
-pip install simpletransformers "transformers==4.30.2"
+conda install -c conda-forge -c bioconda mmseqs2
+pip install pandas
 pip install seaborn
 
 #CARE benchmarking is done through other pacakges
