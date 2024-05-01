@@ -9,7 +9,8 @@ datasets--chao1224--ProteinDT/
 *.npy
 *.pth
 *.npz
-generate_datasets_splits/data/
+generate_datasets_splits/raw_data/
+generate_datasets_splits/clustering/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
