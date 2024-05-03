@@ -55,24 +55,19 @@ if __name__ == "__main__":
     parser.add_argument("--num_workers", type=int, default=0)
 
     parser.add_argument("--SSL_emb_dim", type=int, default=256)
-    parser.add_argument("--dataset_folder", type=str)
-    parser.add_argument("--dataset", type=str)
+    # parser.add_argument("--dataset_folder", type=str)
+    parser.add_argument("--dataset", type=str, default="easy_reaction_test", choices=["easy_reaction_test", "medium_reaction_test", "hard_reaction_test"])
     parser.add_argument("--modality", type=str, default="protein", choices=["protein", "reaction", "text"])
-    parser.add_argument("--protein_backbone_model", type=str, default="ProtT5", choices=["ProtBERT", "ProtBERT_BFD", "ProtT5"])
+    parser.add_argument("--protein_backbone_model", type=str, default="ProtT5", choices=["ProtT5"])
     parser.add_argument("--text_backbone_model", type=str, default="SciBERT")
     parser.add_argument("--reaction_backbone_model", type=str, default="rxnfp")
     parser.add_argument("--protein_max_sequence_len", type=int, default=512)
     parser.add_argument("--text_max_sequence_len", type=int, default=512)
     parser.add_argument("--reaction_max_sequence_len", type=int, default=512)
-    parser.add_argument("--run_clustering", dest="run_clustering", action="store_true")
-    parser.add_argument("--no_AMP", dest="use_AMP", action="store_false")
-    parser.set_defaults(use_AMP=True)
+    parser.add_argument("--get_cluster_centers", dest="get_cluster_centers", action="store_true")
+    parser.set_defaults(run_clustering=False)
     parser.add_argument("--verbose", dest="verbose", action="store_true")
     parser.set_defaults(verbose=True)
-    
-    parser.add_argument("--use_AMP", dest="use_AMP", action="store_true")
-    parser.add_argument("--no_AMP", dest="use_AMP", action="store_false")
-    parser.set_defaults(use_AMP=True)
 
     parser.add_argument("--pretrained_folder", type=str, default=None)
 
@@ -94,15 +89,8 @@ if __name__ == "__main__":
         args.backbone_model = args.protein_backbone_model
         args.max_sequence_len = args.protein_max_sequence_len
         ##### Load pretrained protein model
-        if args.protein_backbone_model == "ProtBERT":
-            protein_tokenizer = BertTokenizer.from_pretrained("Rostlab/prot_bert", do_lower_case=False, chache_dir="../../data/temp_pretrained_ProtBert")
-            protein_model = BertModel.from_pretrained("Rostlab/prot_bert", cache_dir="../../data/temp_pretrained_ProtBert")
-        elif args.protein_backbone_model == "ProtBERT_BFD":
-            protein_tokenizer = BertTokenizer.from_pretrained("Rostlab/prot_bert_bfd", do_lower_case=False, chache_dir="../../data/temp_pretrained_ProtBert_BFD")
-            protein_model = BertModel.from_pretrained("Rostlab/prot_bert_bfd", cache_dir="../../data/temp_pretrained_ProtBert_BFD")
-        elif args.protein_backbone_model == "ProtT5":
-            protein_tokenizer = T5Tokenizer.from_pretrained('Rostlab/prot_t5_xl_half_uniref50-enc', do_lower_case=False, cache_dir="../../data/temp_pretrained_prot_t5_xl_half_uniref50-enc")
-            protein_model = T5EncoderModel.from_pretrained("Rostlab/prot_t5_xl_half_uniref50-enc", cache_dir="../../data/temp_pretrained_prot_t5_xl_half_uniref50-enc")
+        protein_tokenizer = T5Tokenizer.from_pretrained('Rostlab/prot_t5_xl_half_uniref50-enc', do_lower_case=False, cache_dir="../../CREEP/data/pretrained_ProtT5")
+        protein_model = T5EncoderModel.from_pretrained("Rostlab/prot_t5_xl_half_uniref50-enc", cache_dir="../../CREEP/data/pretrained_ProtT5")
         protein_dim = 1024
         input_model_path = os.path.join(args.pretrained_folder, "protein_model.pth")
         print("Loading protein model from {}...".format(input_model_path))
@@ -124,8 +112,8 @@ if __name__ == "__main__":
         args.backbone_model = args.reaction_backbone_model
         args.max_sequence_len = args.reaction_max_sequence_len
         #### Load pretrained reaction model
-        reaction_tokenizer = SmilesTokenizer.from_pretrained("/disk1/jyang4/repos/rxnfp/rxnfp/models/transformers/bert_pretrained/vocab.txt")
-        reaction_model = BertModel.from_pretrained("/disk1/jyang4/repos/rxnfp/rxnfp/models/transformers/bert_pretrained")
+        reaction_tokenizer = SmilesTokenizer.from_pretrained("../../CREEP/data/rxnfp_pretrained/vocab.txt")
+        reaction_model = BertModel.from_pretrained("../../CREEP/data/rxnfp_pretrained")
         reaction_dim = 256
         input_model_path = os.path.join(args.pretrained_folder, "reaction_model.pth")
         print("Loading reaction model from {}...".format(input_model_path))
@@ -147,8 +135,8 @@ if __name__ == "__main__":
         args.backbone_model = args.text_backbone_model
         args.max_sequence_len = args.text_max_sequence_len
         ##### Load pretrained text model
-        text_tokenizer = AutoTokenizer.from_pretrained('allenai/scibert_scivocab_uncased', cache_dir="../../data/temp_pretrained_SciBert")
-        text_model = AutoModel.from_pretrained('allenai/scibert_scivocab_uncased', cache_dir="../../data/temp_pretrained_SciBert")
+        text_tokenizer = AutoTokenizer.from_pretrained('allenai/scibert_scivocab_uncased', cache_dir="../../CREEP/data/pretrained_SciBert")
+        text_model = AutoModel.from_pretrained('allenai/scibert_scivocab_uncased', cache_dir="../../CREEP/data/pretrained_SciBert")
         text_dim  = 768
         input_model_path = os.path.join(args.pretrained_folder, "text_model.pth")
         print("Loading text model from {}...".format(input_model_path))
@@ -180,8 +168,14 @@ if __name__ == "__main__":
     model.eval()
     model.to(device)
 
-    path="../../data/PECT/{}/{}.csv".format(args.dataset_folder, args.dataset)
-    #path="../../data/PECT/test_240423/" + args.dataset + ".csv"
+    if args.dataset == "all_proteins":
+        file="../../processed_data/protein2EC.csv"
+        df = pd.read_csv(file)
+        unique_protein_indices = np.loadtxt("../../processed_data/unique_protein_indices.txt", dtype=int)
+        df = df.iloc[unique_protein_indices].reset_index()
+    else:
+        file="../../splits/task2/{}.csv".format(args.dataset)
+        df = pd.read_csv(file)
 
     ##### Load pretrained facilitator model
     # if args.use_facilitator:
@@ -196,7 +190,7 @@ if __name__ == "__main__":
     #     facilitator_distribution_model.eval()
 
     dataset = SingleModalityDataset(
-        path=path,
+        file=file,
         tokenizer=tokenizer,
         max_sequence_len=args.max_sequence_len,
         modality=args.modality
@@ -206,7 +200,7 @@ if __name__ == "__main__":
     repr_array = extract(dataloader, AMP=args.use_AMP)
 
     assert args.pretrained_folder is not None
-    output_folder = os.path.join(args.pretrained_folder, "step_02_extract_representation")
+    output_folder = os.path.join(args.pretrained_folder, "representations")
     os.makedirs(output_folder, exist_ok=True)
 
     saved_file_path = os.path.join(output_folder, args.dataset + "_representations")
@@ -227,6 +221,27 @@ if __name__ == "__main__":
         
     np.save(saved_file_path, results)
 
-    # df = pd.DataFrame({"protein_sequence": protein_seq_list, "text_sequence": text_seq_list, "reaction_sequence": reaction_seq_list})
-    #don't save for now
-    #df.to_csv(os.path.join(output_folder, "pairs.tsv"), index=False, sep="\t")
+    if args.get_cluster_centers:
+        df['index'] = df.index
+        ec2index = df.groupby('EC number')['index'].apply(list).to_frame().to_dict()['index']
+        EClist = pd.read_csv('../../processed_data/text2EC.csv')['EC number'].values
+
+        cluster_centers = np.zeros((len(ec2index), repr_array.shape[1]))
+        for i, ec in enumerate(EClist):
+            #average together the embeddings for each EC number
+            indices = ec2index[ec]
+            cluster_centers[i] = np.mean(repr_array[indices], axis=0)
+
+            saved_file_path = os.path.join(output_folder, args.dataset + "_cluster_centers")
+            #if the file exists, load it
+            if os.path.exists(saved_file_path + ".npy"):
+                results = np.load(saved_file_path + ".npy", allow_pickle=True).item()
+            else:
+                results = {}
+
+            if args.modality == "protein":
+                results["protein_repr_array"] = cluster_centers
+            elif args.modality == "reaction":
+                results["reaction_repr_array"] = cluster_centers
+            elif args.modality == "text":
+                results["text_repr_array"] = cluster_centers

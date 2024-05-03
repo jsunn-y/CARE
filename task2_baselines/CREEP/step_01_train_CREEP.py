@@ -19,7 +19,6 @@ from ProteinDT.datasets import CREEPDatasetMineBatch
 from ProteinDT.utils.tokenization import SmilesTokenizer
 import sys
 
-#make a logger to save save everything from the terminal to a txt
 class Logger:
     def __init__(self, filename, mode='a'):
         self.terminal = sys.stdout
@@ -30,9 +29,6 @@ class Logger:
         self.log.write(message)
 
     def flush(self):
-        # This flush method is needed for python 3 compatibility.
-        # This handles the flush command by doing nothing.
-        # You might want to specify some extra behavior here.
         self.terminal.flush()
         self.log.flush()
 
@@ -219,23 +215,13 @@ if __name__ == "__main__":
     parser.add_argument("--use_three_modalities", dest="use_three_modalities", action="store_true")
     parser.add_argument("--use_two_modalities", dest="use_three_modalities", action="store_false")
     parser.set_defaults(use_three_modalities=True)
-
     parser.add_argument("--alpha_contrastive", type=float, default=1)
     parser.add_argument("--alpha_generative", type=float, default=0)
-
     parser.add_argument("--normalize", dest="normalize", action="store_true")
     parser.add_argument("--no_normalize", dest="normalize", action="store_false")
     parser.set_defaults(normalize=False)
-
     parser.add_argument("--verbose", dest="verbose", action="store_true")
     parser.set_defaults(verbose=False)
-    
-    parser.add_argument("--use_AMP", dest="use_AMP", action="store_true")
-    parser.add_argument("--no_AMP", dest="use_AMP", action="store_false")
-    parser.add_argument("--load_pretrained", dest="load_pretrained", action="store_true")
-    parser.set_defaults(use_AMP=True)
-    parser.set_defaults(load_pretrained=False)
-
     parser.add_argument("--output_model_dir", type=str, default=None)
 
     args = parser.parse_args()
@@ -259,40 +245,22 @@ if __name__ == "__main__":
 
     #use huggingface to load the pretrained protein language model
     if args.protein_backbone_model == "ProtT5":
-        protein_tokenizer = T5Tokenizer.from_pretrained('Rostlab/prot_t5_xl_half_uniref50-enc', do_lower_case=False, cache_dir="../../CREEP/pretrained_data/pretrained_ProtT5")
-        protein_model = T5EncoderModel.from_pretrained("Rostlab/prot_t5_xl_half_uniref50-enc", cache_dir="../../CREEP/pretrained_data/pretrained_ProtT5")
+        protein_tokenizer = T5Tokenizer.from_pretrained('Rostlab/prot_t5_xl_half_uniref50-enc', do_lower_case=False, cache_dir="../../CREEP/data/pretrained_ProtT5")
+        protein_model = T5EncoderModel.from_pretrained("Rostlab/prot_t5_xl_half_uniref50-enc", cache_dir="../../CREEP/data/pretrained_ProtT5")
     protein_dim = 1024
-    # if args.load_pretrained:
-    #     state_dict = torch.load('/disk1/jyang4/repos/ProteinDT_submission/output/ProteinDT/ProtT5_encoder/protein_model.pth', map_location='cpu')
-    #     protein_model.load_state_dict(state_dict)
-
 
     #use huggingface to load the pretrained text language model
-    text_tokenizer = AutoTokenizer.from_pretrained('allenai/scibert_scivocab_uncased', cache_dir="../../CREEP/pretrained_data/pretrained_SciBert")
-    text_model = AutoModel.from_pretrained('allenai/scibert_scivocab_uncased', cache_dir="../../CREEP/pretrained_data/pretrained_SciBert")
-    # if args.load_pretrained:
-    #     state_dict = torch.load('/disk1/jyang4/repos/ProteinDT_submission/output/ProteinDT/ProtT5_encoder/text_model.pth', map_location='cpu')
-    #     text_model.load_state_dict(state_dict)
+    text_tokenizer = AutoTokenizer.from_pretrained('allenai/scibert_scivocab_uncased', cache_dir="../../CREEP/data/pretrained_SciBert")
+    text_model = AutoModel.from_pretrained('allenai/scibert_scivocab_uncased', cache_dir="../../CREEP/data/pretrained_SciBert")
     text_dim  = 768
     
     #reaction embeddings
-    #consider using the finetuning the model for EC classification beforehand
-    reaction_tokenizer = SmilesTokenizer.from_pretrained("../../CREEP/pretrained_data/rxnfp_pretrained/vocab.txt")
-    reaction_model = BertModel.from_pretrained("../../CREEP/pretrained_data/rxnfp_pretrained")
-    # load_CLEANed = True
-    # if args.load_pretrained:
-    #     state_dict = torch.load('/disk1/jyang4/repos/ProteinDT_submission/examples/finetuning_rxnfp/finetuned_level1_epoch1_level2_epoch3.pth', map_location='cpu')
-    #     reaction_model.load_state_dict(state_dict)
+    reaction_tokenizer = SmilesTokenizer.from_pretrained("../../CREEP/data/rxnfp_pretrained/vocab.txt")
+    reaction_model = BertModel.from_pretrained("../../CREEP/data/rxnfp_pretrained")
     reaction_dim = 256
 
     protein2latent_model = nn.Linear(protein_dim, args.SSL_emb_dim)
-    # if args.load_pretrained:
-    #     state_dict = torch.load('/disk1/jyang4/repos/ProteinDT_submission/output/ProteinDT/ProtT5_encoder/protein2latent_model.pth', map_location='cpu')
-    #     protein2latent_model.load_state_dict(state_dict)
     text2latent_model = nn.Linear(text_dim, args.SSL_emb_dim)
-    # if args.load_pretrained:
-    #     state_dict = torch.load('/disk1/jyang4/repos/ProteinDT_submission/output/ProteinDT/ProtT5_encoder/text2latent_model.pth', map_location='cpu')
-    #     text2latent_model.load_state_dict(state_dict)
     reaction2latent_model = nn.Linear(reaction_dim, args.SSL_emb_dim)
 
     reaction2protein_facilitator_model = AEFacilitatorModel(args.SSL_emb_dim)

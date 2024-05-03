@@ -30,21 +30,22 @@ class SingleModalityDataset(Dataset):
     Loops through triplets of (protein-sequence, text, reaction) from test datasets.
     Used for extraction of representations.
     """
-    def __init__(self, path, tokenizer, max_sequence_len, modality = 'protein'):
-        self.path = path
+    def __init__(self, file, tokenizer, max_sequence_len, modality = 'protein'):
+        self.file = file
         self.modality = modality
         self.tokenizer = tokenizer
         self.max_sequence_len = max_sequence_len
-        self.df = pd.read_csv(path).reset_index()
+        self.df = pd.read_csv(file).reset_index()
 
         if modality == 'protein':
-            self.sequence_list = self.df['sequence'].values.tolist()
+            self.sequence_list = self.df['Sequence'].values.tolist()
             self.sequence_list = [" ".join(protein_sequence) for protein_sequence in self.sequence_list]
             #self.df['sequence'] = self.sequence_list
         elif modality == 'reaction':
-            self.sequence_list = self.df['reaction_smiles'].values.tolist()
+            self.sequence_list = self.df['Reaction'].values.tolist()
         elif modality == 'text':
-            self.ec2text = pd.read_csv('../../data/PECT/full_datasets/EC2GOtext.csv').set_index('EC').to_dict()['desc']
+            text2EC_df = pd.read_csv('../../processed_data/text2EC.csv')
+            self.ec2text = text2EC_df.set_index('EC number').to_dict()['Text']
             self.sequence_list = self.df['brenda'].map(self.ec2text).values.tolist()
         return
 
@@ -87,7 +88,7 @@ class CREEPDatasetMineBatch(Dataset):
         
         #load the train indices from a txt and subsample the reactions
         train_indices = np.loadtxt(split_file, dtype=int)
-        reaction2EC_df = reaction2EC_df[train_indices]
+        reaction2EC_df = reaction2EC_df.iloc[train_indices]
 
         self.ec2text = text2EC_df.set_index('EC number').to_dict()['Text'] #one to one mapping
         self.ec2rxns = reaction2EC_df.groupby('EC number')['Reaction'].apply(list).to_frame().to_dict()['Reaction']
