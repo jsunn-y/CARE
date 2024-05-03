@@ -199,7 +199,7 @@ if __name__ == "__main__":
     )
     dataloader = DataLoader(dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.num_workers)
 
-    # repr_array = extract(dataloader)
+    repr_array = extract(dataloader)
 
     assert args.pretrained_folder is not None
     output_folder = os.path.join(args.pretrained_folder, "representations")
@@ -207,23 +207,23 @@ if __name__ == "__main__":
 
     saved_file_path = os.path.join(output_folder, args.dataset + "_representations")
 
-    # #if the file exists, load it
-    # if os.path.exists(saved_file_path + ".npy"):
-    #     results = np.load(saved_file_path + ".npy", allow_pickle=True).item()
-    # else:
-    #     results = {}
+    #if the file exists, load it
+    if os.path.exists(saved_file_path + ".npy"):
+        results = np.load(saved_file_path + ".npy", allow_pickle=True).item()
+    else:
+        results = {}
 
-    # #TODO: don't save all the tensors if you don't need them all
-    # if args.modality == "protein":
-    #     results["protein_repr_array"] = repr_array
-    # elif args.modality == "reaction":
-    #     results["reaction_repr_array"] = repr_array
-    # elif args.modality == "text":
-    #     results["text_repr_array"] = repr_array
+    #TODO: don't save all the tensors if you don't need them all
+    if args.modality == "protein":
+        results["protein_repr_array"] = repr_array
+    elif args.modality == "reaction":
+        results["reaction_repr_array"] = repr_array
+    elif args.modality == "text":
+        results["text_repr_array"] = repr_array
         
-    #np.save(saved_file_path, results)
+    np.save(saved_file_path, results)
 
-    repr_array = np.load(saved_file_path + ".npy", allow_pickle=True).item()["protein_repr_array"]
+    # repr_array = np.load(saved_file_path + ".npy", allow_pickle=True).item()["protein_repr_array"]
 
     if args.get_cluster_centers:
         df['index'] = df.index
@@ -243,7 +243,7 @@ if __name__ == "__main__":
             indices = ec2index[ec]
             cluster_centers[i] = np.mean(repr_array[indices], axis=0)
 
-        saved_file_path = os.path.join(output_folder, args.dataset + "_cluster_centers")
+        saved_file_path = os.path.join(output_folder, "all_ECs_cluster_centers")
         #if the file exists, load it
         if os.path.exists(saved_file_path + ".npy"):
             results = np.load(saved_file_path + ".npy", allow_pickle=True).item()

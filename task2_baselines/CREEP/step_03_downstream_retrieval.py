@@ -32,7 +32,7 @@ import pandas as pd
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--query_dataset", type=str, choices=['easy_reaction', 'medium_reaction', 'hard_reaction'])
+    parser.add_argument("--query_dataset", type=str, choices=['easy_reaction_test', 'medium_reaction_test', 'hard_reaction_test'])
     parser.add_argument("--reference_dataset", type=str, default='all_ECs', choices=['all_ECs', 'all_proteins', 'all_reactions'])
 
     parser.add_argument("-k", type=int, default=10) #number to evaluate
@@ -47,11 +47,11 @@ if __name__ == "__main__":
     random.seed(args.seed)
     os.environ['PYTHONHASHSEED'] = str(args.seed)
     np.random.seed(args.seed)
-    torch.manual_seed(args.seed)
-    torch.cuda.manual_seed(args.seed)
-    torch.cuda.manual_seed_all(args.seed)
-    torch.backends.cudnn.deterministic = True
-    torch.backends.cudnn.benchmark = True
+    # torch.manual_seed(args.seed)
+    # torch.cuda.manual_seed(args.seed)
+    # torch.cuda.manual_seed_all(args.seed)
+    # torch.backends.cudnn.deterministic = True
+    # torch.backends.cudnn.benchmark = True
 
     # device = torch.device("cuda:" + str(args.device)) if torch.cuda.is_available() else torch.device("cpu")
 
@@ -73,7 +73,7 @@ if __name__ == "__main__":
         reference_EC_list = reference_df['EC number'].values
     
     root = args.pretrained_folder + "/representations/"
-    query_df = pd.read_csv('../../splits/task2/' + args.query_dataset + '_test.csv')
+    query_df = pd.read_csv('../../splits/task2/' + args.query_dataset + '.csv')
 
     #load the reference representations
     if args.reference_dataset=='all_ECs':
