@@ -43,9 +43,9 @@ We propose Contrastive Reatction-EnzymE Pretraining, as summaried in our mansucr
 
 For example, for one of the splits.
 
-1. Go to the folder `task1_baselines/CREEP/`. Set the output directory with `export OUTPUT_DIR=output/easy_split`. Run finetuning training with default parameters:
+1. Go to the folder `task2_baselines/CREEP/`. Set the output directory with `export OUTPUT_DIR=output/easy_split`. Run finetuning training with default parameters:
 ```
-python step_01_train_CREEP.py --output_model_dir="$OUTPUT_DIR" --split=easy_train
+python step_01_train_CREEP.py --output_model_dir="$OUTPUT_DIR" --train_split=easy_train
 ```
 Note that our batch size of 16 is optimized for a single 80GB GPU. Training for 30 epochs took about 18 hrs on a single H100 GPU. Training outputs will be saved in the ouput directory.
 
