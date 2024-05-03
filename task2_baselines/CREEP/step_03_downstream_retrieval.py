@@ -18,51 +18,34 @@ from transformers import BertModel, BertTokenizer
 from torch.utils.data import DataLoader
 
 #from utils import TextDataset, TextProteinPairDataset, evaluate
-from CREEP.models import ProteinTextModel, GaussianFacilitatorModel
-from CREEP.datasets import SwissProtCLAPDataset
+# from CREEP.models import ProteinTextModel, GaussianFacilitatorModel
+# from CREEP.datasets import SwissProtCLAPDataset
 
-def print_results(args, label, indices):
-    print('\n' + label + ' N=' + str(len(indices)))
-    print('{} to {} retreival accuracy (k={}): {}'.format(args.query_modality, args.reference_modality, args.k, np.mean(corrects[indices])))
-    print('Average EC ranking to find: {}'.format(np.mean(rankings[indices]))) 
-    print('EC Classification accuracy (k=1): {}'.format(np.mean(np.array(query_EC_list)[indices] == np.array(predicted_ECs)[indices])))
-    #print('Average sequence identity: {}'.format(np.mean(sequence_identities[indices])))
-    return
+# def print_results(args, label, indices):
+#     print('\n' + label + ' N=' + str(len(indices)))
+#     print('{} to {} retreival accuracy (k={}): {}'.format(args.query_modality, args.reference_modality, args.k, np.mean(corrects[indices])))
+#     print('Average EC ranking to find: {}'.format(np.mean(rankings[indices]))) 
+#     print('EC Classification accuracy (k=1): {}'.format(np.mean(np.array(query_EC_list)[indices] == np.array(predicted_ECs)[indices])))
+#     #print('Average sequence identity: {}'.format(np.mean(sequence_identities[indices])))
+#     return
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--device", type=int, default=0)
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--batch_size", type=int, default=8)
-    parser.add_argument("--num_workers", type=int, default=8)
+    parser.add_argument("--query_dataset", type=str, choices=['easy_reaction', 'medium_reaction', 'hard_reaction'])
+    parser.add_argument("--reference_dataset", type=str, default='all_ECs', choices=['all_ECs', 'all_proteins', 'all_reactions'])
 
-    parser.add_argument("--SSL_emb_dim", type=int, default=256)
-    parser.add_argument("--query_dataset", type=str, default='SwissProtEnzymeCLAP')
-    parser.add_argument("--reference_dataset", type=str, default='SwissProtEnzymeCLAP')
-    # parser.add_argument("--protein_backbone_model", type=str, default="ProtBERT_BFD", choices=["ProtBERT", "ProtBERT_BFD"])
-    # parser.add_argument("--protein_max_sequence_len", type=int, default=512)
-    # parser.add_argument("--text_max_sequence_len", type=int, default=512)
-    parser.add_argument("-k", type=int, default=10) #number to query
-    
-    parser.add_argument("--verbose", dest="verbose", action="store_true")
-    parser.set_defaults(verbose=False)
-    
-    parser.add_argument("--use_AMP", dest="use_AMP", action="store_true")
-    parser.add_argument("--no_AMP", dest="use_AMP", action="store_false")
-    parser.set_defaults(use_AMP=True)
+    parser.add_argument("-k", type=int, default=10) #number to evaluate
+
     parser.add_argument("--use_cluster_center", dest="use_cluster_center", action="store_true")
-    parser.set_defaults(use_cluster_center=False)
-        
+    parser.set_defaults(use_cluster_center=True)
     parser.add_argument("--pretrained_folder", type=str, default=None)
-    parser.add_argument("--facilitator_distribution", type=str, default="Gaussian", choices=["Gaussian"])
     parser.add_argument("--query_modality", type=str, default="reaction", choices=["text", "reaction", "protein"])
     parser.add_argument("--reference_modality", type=str, default="protein", choices=["text", "reaction", "protein"])
-    #parser.add_argument("--use_full_dataset", dest="use_full_dataset", action="store_true")
-    # parser.set_defaults(use_full_dataset=True)
 
     args = parser.parse_args()
     print("arguments", args)
-    step_03_folder = os.path.join(args.pretrained_folder, "step_03_Gaussian_10")
+    # step_03_folder = os.path.join(args.pretrained_folder, "step_03_Gaussian_10")
 
     random.seed(args.seed)
     os.environ['PYTHONHASHSEED'] = str(args.seed)
@@ -73,7 +56,7 @@ if __name__ == "__main__":
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = True
 
-    device = torch.device("cuda:" + str(args.device)) if torch.cuda.is_available() else torch.device("cpu")
+    # device = torch.device("cuda:" + str(args.device)) if torch.cuda.is_available() else torch.device("cpu")
 
     data_folder = 'retrieval_results'
 
@@ -81,24 +64,25 @@ if __name__ == "__main__":
     output_folder = os.path.join(args.pretrained_folder, data_folder)
     os.makedirs(output_folder, exist_ok=True)
 
-    if args.reference_dataset == 'SwissProtEnzymeCLAP':
-        reference_df = pd.read_csv('/disk1/jyang4/repos/ProteinDT_submission/data/SwissProtEnzymeCLAP/processed_data/EnzymeCLAP_240319.csv', index_col=0)
-    else:
-        reference_df = pd.read_csv('../../data/PECT/test_sets/' + args.reference_dataset + '.csv')
+    if args.reference_dataset == 'all_ECs':
+        reference_EC_list = np.loadtxt('../../processed_data/EC_list.txt', dtype=str)
+    if args.reference_dataset == 'all_proteins':
+        reference_df = pd.read_csv('../../processed_data/protein2EC.csv')
+        unique_indices = np.loadtxt('../../processed_data/unique_protein_indices.txt', dtype=int)
+        reference_df = reference_df.iloc[unique_indices]
+        reference_EC_list = reference_df['EC number'].values
+    elif args.reference_dataset == 'all_reactions':
+        reference_df = pd.read_csv('../../processed_data/reaction2EC.csv')
+        reference_EC_list = reference_df['EC number'].values
     
-    root = args.pretrained_folder + "/step_02_extract_representation/"
-
-    if args.query_dataset == 'SwissProtEnzymeCLAP':
-        query_df = pd.read_csv('/disk1/jyang4/repos/ProteinDT_submission/data/SwissProtEnzymeCLAP/processed_data/EnzymeCLAP_240319.csv', index_col=0)
-    else:
-        query_df = pd.read_csv('../../data/PECT/test_240423/' + args.query_dataset + '.csv')
+    root = args.pretrained_folder + "/representations/"
+    query_df = pd.read_csv('../../splits/task2/' + args.query_dataset + '_test.csv')
 
     #load the reference representations
     if args.use_cluster_center:
         reference_representation_file = os.path.join(root, args.reference_dataset + "_cluster_centers.npy")
     else:
         reference_representation_file = os.path.join(root, args.reference_dataset + "_representations.npy")
-    
     reference_representation_data = np.load(reference_representation_file, allow_pickle=True).item()
     
     #load the representations to be queried
@@ -113,33 +97,22 @@ if __name__ == "__main__":
 
     d = reference_repr_array.shape[1]  #dimension
 
-    #modality2column_dict = {'protein': 'sequence', 'text': 'reacti0n_eq', 'reaction': 'reaction_smiles'}
-    ec2text = pd.read_csv('../../data/PECT/full_datasets/EC2GOtext.csv').set_index('EC').to_dict()['desc']
+    ec2text = pd.read_csv('../../processed_data/text2EC.csv').set_index('EC number').to_dict()['Text']
 
     if args.query_modality == 'text':
-        query_df['desc'] = query_df['brenda'].map(ec2text)
+        query_df['Text'] = query_df['EC number'].map(ec2text)
 
-    modality2column_dict = {'protein': 'sequence', 'text': 'desc', 'reaction': 'reaction_smiles'}
+    modality2column_dict = {'protein': 'Sequence', 'text': 'Text', 'reaction': 'Reaction'}
 
     k = args.k #find the k nearest neighbors
 
     query_inmodality_list = query_df[modality2column_dict[args.query_modality]].values #not sure if this is still used
-    #query_outmodality_list = query_df[modality2column_dict[args.reference_modality]].values
-    #query_protein_list = query_df['sequence'].values
-
-    #reference_inmodality_list = reference_df[modality2column_dict[args.query_modality]].values
-    #reference_outmodality_list = reference_df[modality2column_dict[args.reference_modality]].values
-
-    #right now it's just random proteins so its probably not the best metric for sequence identity but thats ok
-    #reference_protein_list = reference_df['sequence'].values
-
-    query_EC_list = query_df['brenda'].values
-    reference_EC_list = reference_df['brenda'].values
+    query_EC_list = query_df['EC number'].values
     
-    sequence_identities = []
-    corrects = []
-    predicted_ECs = []
-    rankings = [] #keeps track of rnaking where the query is in
+    # sequence_identities = []
+    # corrects = []
+    # predicted_ECs = []
+    # rankings = [] #keeps track of rnaking where the query is in
     all_indices = np.zeros((len(query_EC_list), len(reference_EC_list)))
     all_similarities = np.zeros((len(query_EC_list), len(reference_EC_list)))
 
@@ -156,62 +129,52 @@ if __name__ == "__main__":
             query_EC_index = query_EC_index[0]
         
         #print(query_EC_index)
-        
         sorted_indices = np.argsort(similarity, axis=1)[:, ::-1][0] #sort in descending order
         all_indices[i] = sorted_indices
         all_similarities[i] = similarity
 
         #print(sorted_indices)
         #print(np.where(sorted_indices == query_EC_index)[0][0])
-        rankings.append(np.where(sorted_indices == query_EC_index)[0][0] + 1)
+        
+        #rankings.append(np.where(sorted_indices == query_EC_index)[0][0] + 1)
+        
         #print(positions)
         
-        top_indices = sorted_indices[:k] #take the top k indices
+        #top_indices = sorted_indices[:k] #take the top k indices
 
-        #nearest_queries_inmodality = reference_inmodality_list[I[i]]
-        nearest_ECs = reference_EC_list[top_indices]
-        predicted_ECs.append(reference_EC_list[top_indices[0]]) #for the top hit using EC
+        # #nearest_queries_inmodality = reference_inmodality_list[I[i]]
+        # nearest_ECs = reference_EC_list[top_indices]
+        # predicted_ECs.append(reference_EC_list[top_indices[0]]) #for the top hit using EC
 
-        #correct = query_inmodality in nearest_queries_inmodality
-        correct = query_EC in nearest_ECs #for now measure correct 
-        corrects.append(correct)
+        # #correct = query_inmodality in nearest_queries_inmodality
+        # correct = query_EC in nearest_ECs #for now measure correct 
+        # corrects.append(correct)
 
         #protein_top_hit = reference_protein_list[top_indices[0]]
 
         #seq_identity = 1-levenshtein_distance(query_protein, protein_top_hit)/max(len(query_protein), len(protein_top_hit))
         #sequence_identities.append(seq_identity)
 
-    sequence_identities = np.array(sequence_identities)
-    corrects = np.array(corrects)
-    accuracy = np.mean(corrects)
+    # sequence_identities = np.array(sequence_identities)
+    # corrects = np.array(corrects)
+    # accuracy = np.mean(corrects)
 
-    rankings = np.array(rankings)
+    # rankings = np.array(rankings)
 
     #results = pd.DataFrame({'correct': corrects, 'sequence_identity': sequence_identities, 'true_EC': query_EC_list, 'predicted_EC': predicted_ECs, 'rankings': rankings})
     #results = pd.DataFrame({'correct': corrects, 'true_EC': query_EC_list, 'predicted_EC': predicted_ECs, 'rankings': rankings})
-    results = pd.DataFrame({'predicted_EC': predicted_ECs, 'rankings': rankings})
-    results.to_csv(os.path.join(output_folder, args.query_dataset + "_" + args.query_modality + "2" + args.reference_modality + "_retrieval_results.csv"))
+    
+    # results = pd.DataFrame({'predicted_EC': predicted_ECs, 'rankings': rankings})
+    # results.to_csv(os.path.join(output_folder, args.query_dataset + "_" + args.query_modality + "2" + args.reference_modality + "_retrieval_results.csv"))
     #np.save(os.path.join(output_folder, args.query_dataset + "_" + args.query_modality + "2" + args.reference_modality + "_retrieval_indices.npy"), all_indices)
     np.save(os.path.join(output_folder, args.query_dataset + "_" + args.query_modality + "2" + args.reference_modality + "_retrieval_similarities.npy"), all_similarities)
     
-    label = 'Average Performance'
+    #label = 'Average Performance'
     # print(len(corrects), len(sequence_identities), len(query_EC_list), len(predicted_ECs))
-    indices = np.arange(len(corrects)) #added this to just loop over everything
+    #indices = np.arange(len(corrects)) #added this to just loop over everything
     #print(len(corrects))
-    print_results(args, label, indices)
+    #print_results(args, label, indices)
 
-    # if args.query_dataset == args.reference_dataset:
-    #     label = 'Easy'
-    #     indices = reference_df[(reference_df['seq_in_train']==True) & (reference_df['EC_in_train']==True)].index.values
-    #     print_results(args, label, indices)
-
-    #     label = 'Medium'
-    #     indices = reference_df[(reference_df['seq_in_train']==False) & (reference_df['EC_in_train']==True)].index.values
-    #     print_results(args, label, indices)
-
-    #     label = 'Hard'
-    #     indices = reference_df[(reference_df['seq_in_train']==False) & (reference_df['EC_in_train']==False)].index.values
-    #     print_results(args, label, indices)
 
 
         

@@ -56,7 +56,7 @@ if __name__ == "__main__":
 
     parser.add_argument("--SSL_emb_dim", type=int, default=256)
     # parser.add_argument("--dataset_folder", type=str)
-    parser.add_argument("--dataset", type=str, default="easy_reaction_test", choices=["easy_reaction_test", "medium_reaction_test", "hard_reaction_test"])
+    parser.add_argument("--dataset", type=str, default="easy_reaction_test", choices=["all_proteins", "easy_reaction_test", "medium_reaction_test", "hard_reaction_test"])
     parser.add_argument("--modality", type=str, default="protein", choices=["protein", "reaction", "text"])
     parser.add_argument("--protein_backbone_model", type=str, default="ProtT5", choices=["ProtT5"])
     parser.add_argument("--text_backbone_model", type=str, default="SciBERT")
@@ -224,24 +224,31 @@ if __name__ == "__main__":
     if args.get_cluster_centers:
         df['index'] = df.index
         ec2index = df.groupby('EC number')['index'].apply(list).to_frame().to_dict()['index']
-        EClist = pd.read_csv('../../processed_data/text2EC.csv')['EC number'].values
+        EClist = np.loadtxt("../../processed_data/EC_list.txt", dtype=str)
 
-        cluster_centers = np.zeros((len(ec2index), repr_array.shape[1]))
+        #temporary line to just check if the code runs
+        #EClist = [ec for ec in EClist if ec in ec2index.keys()]
+        assert len(EClist) == len(ec2index.keys())
+        
+        cluster_centers = np.zeros((len(EClist), repr_array.shape[1]))
         for i, ec in enumerate(EClist):
             #average together the embeddings for each EC number
             indices = ec2index[ec]
             cluster_centers[i] = np.mean(repr_array[indices], axis=0)
 
-            saved_file_path = os.path.join(output_folder, args.dataset + "_cluster_centers")
-            #if the file exists, load it
-            if os.path.exists(saved_file_path + ".npy"):
-                results = np.load(saved_file_path + ".npy", allow_pickle=True).item()
-            else:
-                results = {}
+        saved_file_path = os.path.join(output_folder, args.dataset + "_cluster_centers")
+        #if the file exists, load it
+        if os.path.exists(saved_file_path + ".npy"):
+            results = np.load(saved_file_path + ".npy", allow_pickle=True).item()
+        else:
+            results = {}
 
-            if args.modality == "protein":
-                results["protein_repr_array"] = cluster_centers
-            elif args.modality == "reaction":
-                results["reaction_repr_array"] = cluster_centers
-            elif args.modality == "text":
-                results["text_repr_array"] = cluster_centers
+        if args.modality == "protein":
+            results["protein_repr_array"] = cluster_centers
+        elif args.modality == "reaction":
+            results["reaction_repr_array"] = cluster_centers
+        elif args.modality == "text":
+            results["text_repr_array"] = cluster_centers
+
+        print(cluster_centers.shape)
+        np.save(saved_file_path, results)

@@ -46,7 +46,7 @@ class SingleModalityDataset(Dataset):
         elif modality == 'text':
             text2EC_df = pd.read_csv('../../processed_data/text2EC.csv')
             self.ec2text = text2EC_df.set_index('EC number').to_dict()['Text']
-            self.sequence_list = self.df['brenda'].map(self.ec2text).values.tolist()
+            self.sequence_list = self.df['EC number'].map(self.ec2text).values.tolist()
         return
 
     def __getitem__(self, index):
