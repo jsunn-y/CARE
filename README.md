@@ -12,9 +12,7 @@ conda create -n CARE_processing python=3.8 -y
 conda activate CARE_processing
 conda install -c rdkit rdkit=2020.03.3 -y
 conda install -c conda-forge -c bioconda mmseqs2
-pip install scipy
-pip install pandas
-pip install seaborn
+pip install scipy pandas seaborn
 
 #CARE benchmarking is done through other pacakges
 #BLAST
@@ -24,10 +22,7 @@ cd CREEP
 conda create -n CREEP python=3.8
 conda activate CREEP
 
-pip install pandas
-pip install torch==2.2.0 
-pip install transformers==4.39.1
-pip install sentencepiece
+pip install pandas torch==2.2.0 transformers==4.39.1 sentencepiece
 pip install -e .
 #pip install lxml #doesn't look like you need this
 ```
@@ -51,6 +46,11 @@ For example, for one of the splits.
 ```
 python step_01_train_CREEP.py --output_model_dir="$OUTPUT_DIR" --train_split=easy_reaction_train
 ```
+Or
+```
+python step_01_train_CREEP.py --output_model_dir=output/easy_split --train_split=easy_reaction_train
+```
+
 Note that our batch size of 16 is optimized for a single 80GB GPU. Training for 30 epochs took about 18 hrs on a single H100 GPU. Training outputs will be saved in the ouput directory.
 
 2. For extracting the reference protein representations and their cluster centers: 

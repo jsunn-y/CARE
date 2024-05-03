@@ -3,9 +3,3 @@ num of ECs: 18
 num of reactions: 18
 num of proteins: 149788
 Epoch 1
-save model with loss: 1.77311
-CL Loss: 1.77311	CL Acc: 0.58912	Generative Loss: 0.32781	Total Loss: 1.77311	Time: 20.66793
-Epoch 2
-save model with loss: 0.56667
-CL Loss: 0.56667	CL Acc: 0.79022	Generative Loss: 0.32835	Total Loss: 0.56667	Time: 21.68564
-Epoch 3
