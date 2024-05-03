@@ -16,12 +16,13 @@ pip install seaborn
 #BLAST
 
 #for CREEP model training and evaluation
+cd CREEP
 conda create -n CREEP python=3.8
 conda activate CREEP
+
 pip install pandas
-#conda install -y numpy networkx scikit-learn
 pip install torch==2.2.0 
-pip install transformers==4.30.2 #might need a newer version 
+pip install transformers==4.39.1
 pip install sentencepiece
 pip install lxml
 pip install -e .
