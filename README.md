@@ -41,33 +41,29 @@ pip install -e .
 We propose Contrastive Reatction-EnzymE Pretraining, as summaried in our mansucript. CREEP training and retrieval is performed with three steps: 
 (1) contrastive representation alignment by finetuning lanugage models from different modalities, (2) extraction of protein and reaction representations using the finetuned models, and (3) retrieval of proteins using a similarity search in the embedding space.
 
-1. Go to the folder `task1_baselines/CREEP/`. Set the output directory with `export OUTPUT_DIR=output/default`. Run finetuning training with default parameters:
-```
-python step_01_train_CREEP.py --output_model_dir="$OUTPUT_DIR"
-```
-Note that our batch size of 16 is optimized for a single 80GB GPU. Training for 30 epochs took about 18 hrs on a single H100 GPU.
+For example, for one of the splits.
 
-For extracting the reference protein representations: 
+1. Go to the folder `task1_baselines/CREEP/`. Set the output directory with `export OUTPUT_DIR=output/easy_split`. Run finetuning training with default parameters:
 ```
-python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset_folder=processed_data --dataset=all_proteins --modality=protein
+python step_01_train_CREEP.py --output_model_dir="$OUTPUT_DIR" --split=easy_train
 ```
+Note that our batch size of 16 is optimized for a single 80GB GPU. Training for 30 epochs took about 18 hrs on a single H100 GPU. Training outputs will be saved in the ouput directory.
 
-2. For extracting the query reaction representations for each test set: 
+2. For extracting the reference protein representations and their cluster centers: 
 ```
-for dataset in rxn2ec_easy_test rxn2ec_medium_test rxn2ec_hard_test
-do
-    python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset_folder=test_240423 --dataset=$dataset --modality=reaction
-    python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset_folder=test_240423 --dataset=$dataset --modality=text
-done
+python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=all_proteins --modality=protein --get_cluster_centers
 ```
+For extracting the query reaction representations for each test set: 
+```
+python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=easy --modality=reaction
+python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=easy --modality=text
+```
+Representations will be svaed in the output directory under `representations`.
 
 3. Finally, run the retrieval similarity search:
 ```
-for dataset in rxn2ec_easy_test rxn2ec_medium_test rxn2ec_hard_test
-do
-python step_03_downstream_retrieval.py --pretrained_folder="$OUTPUT_DIR" --query_dataset=$dataset --reference_dataset=all_ECs --query_modality=reaction --reference_modality=protein -k=10 --use_cluster_center
-python step_03_downstream_retrieval.py --pretrained_folder="$OUTPUT_DIR" --query_dataset=$dataset --reference_dataset=all_ECs --query_modality=text --reference_modality=protein -k=10 --use_cluster_center
-done
+python step_03_downstream_retrieval.py --pretrained_folder="$OUTPUT_DIR" --query_dataset=easy --reference_dataset=all_ECs --query_modality=reaction --reference_modality=protein -k=10 --use_cluster_center
+python step_03_downstream_retrieval.py --pretrained_folder="$OUTPUT_DIR" --query_dataset=easy --reference_dataset=all_ECs --query_modality=text --reference_modality=protein -k=10 --use_cluster_center
 ```
 
 ### CLIPZyme
