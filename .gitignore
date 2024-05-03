@@ -1,3 +1,6 @@
+# Remove log files
+*log.txt
+
 # adtl
 *.npy
 *.npz
