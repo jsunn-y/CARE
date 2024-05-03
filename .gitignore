@@ -1,16 +1,14 @@
 # adtl
 data/
-datasets--chao1224--ProteinDT/
 output/
 .locks/
-models--chao1224--ProteinDT/
-datasets--chao1224--ProteinDT/
-*.csv
 *.npy
 *.pth
 *.npz
 generate_datasets_splits/raw_data/
 generate_datasets_splits/clustering/
+CREEP/data/pretrained_ProtT5/
+CREEP/data/pretrained_SciBert/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
