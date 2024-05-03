@@ -1,7 +1,7 @@
 # CARE
 CARE: Benchmarks for the Classification and Retrieval of Enzymes
 
-## 1 env
+## Installation
 
 ```
 git clone https://github.com/jsunn-y/CARE/
