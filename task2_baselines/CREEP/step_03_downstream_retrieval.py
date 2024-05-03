@@ -17,9 +17,9 @@ from transformers import AutoModel, AutoTokenizer
 from transformers import BertModel, BertTokenizer
 from torch.utils.data import DataLoader
 
-from utils import TextDataset, TextProteinPairDataset, evaluate
-from ProteinDT.models import ProteinTextModel, GaussianFacilitatorModel
-from ProteinDT.datasets import SwissProtCLAPDataset
+#from utils import TextDataset, TextProteinPairDataset, evaluate
+from CREEP.models import ProteinTextModel, GaussianFacilitatorModel
+from CREEP.datasets import SwissProtCLAPDataset
 
 def print_results(args, label, indices):
     print('\n' + label + ' N=' + str(len(indices)))

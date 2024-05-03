@@ -14,9 +14,9 @@ from transformers import AutoModel, AutoTokenizer
 from transformers import BertModel, BertTokenizer, T5Tokenizer, T5EncoderModel#, BertForMaskedLM
 from torch.utils.data import DataLoader
 
-from ProteinDT.models import CREEPModel, AEFacilitatorModel
-from ProteinDT.datasets import CREEPDatasetMineBatch
-from ProteinDT.utils.tokenization import SmilesTokenizer
+from CREEP.models import CREEPModel, AEFacilitatorModel
+from CREEP.datasets import CREEPDatasetMineBatch
+from CREEP.utils.tokenization import SmilesTokenizer
 import sys
 
 class Logger:
@@ -192,10 +192,9 @@ if __name__ == "__main__":
     parser.add_argument("--epochs", type=int, default=40)
     parser.add_argument("--batch_size", type=int, default=16)
     parser.add_argument("--num_workers", type=int, default=0)
-
     parser.add_argument("--SSL_emb_dim", type=int, default=256)
     parser.add_argument("--dataset_path", type=str, default='../../processed_data/')
-    parser.add_argument("--train_split", type=str, default='easy_train')
+    parser.add_argument("--train_split", type=str, default='easy_reaction_train', choices=['easy_reaction_train', 'medium_reaction_train', 'hard_reaction_train'])
     parser.add_argument("--protein_backbone_model", type=str, default="ProtT5", choices=["ProtT5"])
     parser.add_argument("--text_backbone_model", type=str, default="SciBERT")
     parser.add_argument("--reaction_backbone_model", type=str, default="rxnfp")
@@ -216,7 +215,7 @@ if __name__ == "__main__":
     parser.add_argument("--use_two_modalities", dest="use_three_modalities", action="store_false")
     parser.set_defaults(use_three_modalities=True)
     parser.add_argument("--alpha_contrastive", type=float, default=1)
-    parser.add_argument("--alpha_generative", type=float, default=0)
+    parser.add_argument("--alpha_generative", type=float, default=0) #don't use this loss for now
     parser.add_argument("--normalize", dest="normalize", action="store_true")
     parser.add_argument("--no_normalize", dest="normalize", action="store_false")
     parser.set_defaults(normalize=False)
@@ -255,8 +254,8 @@ if __name__ == "__main__":
     text_dim  = 768
     
     #reaction embeddings
-    reaction_tokenizer = SmilesTokenizer.from_pretrained("../../CREEP/data/rxnfp_pretrained/vocab.txt")
-    reaction_model = BertModel.from_pretrained("../../CREEP/data/rxnfp_pretrained")
+    reaction_tokenizer = SmilesTokenizer.from_pretrained("../../CREEP/data/pretrained_rxnfp/vocab.txt")
+    reaction_model = BertModel.from_pretrained("../../CREEP/data/pretrained_rxnfp")
     reaction_dim = 256
 
     protein2latent_model = nn.Linear(protein_dim, args.SSL_emb_dim)
@@ -269,15 +268,15 @@ if __name__ == "__main__":
     #bring it all together
     model = CREEPModel(protein_model, text_model, reaction_model, protein2latent_model, text2latent_model, reaction2latent_model, reaction2protein_facilitator_model, protein2reaction_facilitator_model, args.protein_backbone_model, args.text_backbone_model, args.reaction_backbone_model)
 
-    if torch.cuda.device_count() > 1:
-        # parallel models
-        print("Let's use", torch.cuda.device_count(), "GPUs!")
-        model = nn.DataParallel(model)
-        neo_batch_size = args.batch_size * torch.cuda.device_count()
-        print("batch size from {} to {}".format(args.batch_size, neo_batch_size))
-        args.batch_size = neo_batch_size
-    else:
-        device = torch.device("cuda:" + str(args.device)) if torch.cuda.is_available() else torch.device("cpu")
+    # if torch.cuda.device_count() > 1:
+    #     # parallel models
+    #     print("Let's use", torch.cuda.device_count(), "GPUs!")
+    #     model = nn.DataParallel(model)
+    #     neo_batch_size = args.batch_size * torch.cuda.device_count()
+    #     print("batch size from {} to {}".format(args.batch_size, neo_batch_size))
+    #     args.batch_size = neo_batch_size
+    # else:
+    device = torch.device("cuda:" + str(args.device)) if torch.cuda.is_available() else torch.device("cpu")
     model.to(device)
 
     model_param_group = [
@@ -295,15 +294,14 @@ if __name__ == "__main__":
 
     dataset = CREEPDatasetMineBatch(
     dataset_path=args.dataset_path,
-    split_file="../../splits/task2/" + args.split + "reaction_train_indices.txt",
+    split_file="../../splits/task2/" + args.train_split + "_indices.txt",
     protein_tokenizer=protein_tokenizer,
     text_tokenizer=text_tokenizer,
     protein_max_sequence_len=args.protein_max_sequence_len,
     text_max_sequence_len=args.text_max_sequence_len,
     reaction_tokenizer=reaction_tokenizer,
     reaction_max_sequence_len=args.reaction_max_sequence_len,
-    n_neg=args.batch_size - 1,
-    loop_over_unique_EC=args.loop_over_unique_EC
+    n_neg=args.batch_size - 1
     )
     
     #batch size is 1 when mining the batch

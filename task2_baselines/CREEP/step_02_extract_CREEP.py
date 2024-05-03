@@ -15,9 +15,9 @@ from transformers import AutoModel, AutoTokenizer
 from transformers import BertModel, BertTokenizer, T5EncoderModel, T5Tokenizer
 from torch.utils.data import DataLoader
 
-from ProteinDT.models import SingleModalityModel
-from ProteinDT.datasets import SingleModalityDataset
-from ProteinDT.utils.tokenization import SmilesTokenizer
+from CREEP.models import SingleModalityModel
+from CREEP.datasets import SingleModalityDataset
+from CREEP.utils.tokenization import SmilesTokenizer
 
 @torch.no_grad()
 def extract(dataloader, AMP=True):
@@ -112,8 +112,8 @@ if __name__ == "__main__":
         args.backbone_model = args.reaction_backbone_model
         args.max_sequence_len = args.reaction_max_sequence_len
         #### Load pretrained reaction model
-        reaction_tokenizer = SmilesTokenizer.from_pretrained("../../CREEP/data/rxnfp_pretrained/vocab.txt")
-        reaction_model = BertModel.from_pretrained("../../CREEP/data/rxnfp_pretrained")
+        reaction_tokenizer = SmilesTokenizer.from_pretrained("../../CREEP/data/pretrained_rxnfp/vocab.txt")
+        reaction_model = BertModel.from_pretrained("../../CREEP/data/pretrained_rxnfp")
         reaction_dim = 256
         input_model_path = os.path.join(args.pretrained_folder, "reaction_model.pth")
         print("Loading reaction model from {}...".format(input_model_path))
@@ -197,7 +197,7 @@ if __name__ == "__main__":
     )
     dataloader = DataLoader(dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.num_workers)
 
-    repr_array = extract(dataloader, AMP=args.use_AMP)
+    repr_array = extract(dataloader)
 
     assert args.pretrained_folder is not None
     output_folder = os.path.join(args.pretrained_folder, "representations")

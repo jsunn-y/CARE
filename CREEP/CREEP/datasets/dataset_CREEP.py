@@ -73,8 +73,7 @@ class CREEPDatasetMineBatch(Dataset):
     Ensures that the rest of the batch is negative protein examples.
     Used for training
     """
-    def __init__(self, dataset_path, split_file, protein_tokenizer, text_tokenizer, reaction_tokenizer, protein_max_sequence_len, text_max_sequence_len, reaction_max_sequence_len, n_neg, loop_over_unique_EC=False, promiscuous_weight = 0.3):
-        self.promiscuous_weight = promiscuous_weight
+    def __init__(self, dataset_path, split_file, protein_tokenizer, text_tokenizer, reaction_tokenizer, protein_max_sequence_len, text_max_sequence_len, reaction_max_sequence_len, n_neg):
         self.protein_tokenizer = protein_tokenizer
         self.text_tokenizer = text_tokenizer
         self.reaction_tokenizer = reaction_tokenizer
@@ -107,13 +106,13 @@ class CREEPDatasetMineBatch(Dataset):
 
         self.n_negs = n_neg
         self.batch_size = n_neg + 1
-        self.loop_over_unique_ec = loop_over_unique_EC
-        #loop by unique ECs
-        if loop_over_unique_EC:
-            self.full_list = []
-            for ec in self.ec2rxns.keys(): #alternatively loop through all unique ECs instead of protein sequences
-                if '-' not in ec:
-                    self.full_list.append(ec)
+        # self.loop_over_unique_ec = loop_over_unique_EC
+        # #loop by unique ECs
+        # if loop_over_unique_EC:
+        self.full_list = []
+        for ec in self.ec2rxns.keys(): #alternatively loop through all unique ECs instead of protein sequences
+            if '-' not in ec:
+                self.full_list.append(ec)
         return
     
     def sample_protein(self, ec):
@@ -145,8 +144,8 @@ class CREEPDatasetMineBatch(Dataset):
 
     def __getitem__(self, index):
 
-        if self.loop_over_unique_ec:
-            anchor_ec = self.full_list[index]
+        # if self.loop_over_unique_ec:
+        anchor_ec = self.full_list[index]
             # anchor_protein_sequence = self.sample_protein(anchor_ec)
             #anchor_text = self.ec2text[anchor_ec]
 
