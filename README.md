@@ -4,11 +4,15 @@ CARE: Benchmarks for the Classification and Retrieval of Enzymes
 ## 1 env
 
 ```
+git clone https://github.com/jsunn-y/CARE/
+cd CARE
+
 #for CARE datasets, splitting, and analysis
 conda create -n CARE_processing python=3.8 -y
 conda activate CARE_processing
 conda install -c rdkit rdkit=2020.03.3 -y
 conda install -c conda-forge -c bioconda mmseqs2
+pip install scipy
 pip install pandas
 pip install seaborn
 
@@ -24,8 +28,8 @@ pip install pandas
 pip install torch==2.2.0 
 pip install transformers==4.39.1
 pip install sentencepiece
-pip install lxml
 pip install -e .
+#pip install lxml #doesn't look like you need this
 ```
 ## Dataset curation and splitting
 
@@ -45,7 +49,7 @@ For example, for one of the splits.
 
 1. Go to the folder `task2_baselines/CREEP/`. Set the output directory with `export OUTPUT_DIR=output/easy_split`. Run finetuning training with default parameters:
 ```
-python step_01_train_CREEP.py --output_model_dir="$OUTPUT_DIR" --train_split=easy_train
+python step_01_train_CREEP.py --output_model_dir="$OUTPUT_DIR" --train_split=easy_reaction_train
 ```
 Note that our batch size of 16 is optimized for a single 80GB GPU. Training for 30 epochs took about 18 hrs on a single H100 GPU. Training outputs will be saved in the ouput directory.
 
@@ -53,16 +57,18 @@ Note that our batch size of 16 is optimized for a single 80GB GPU. Training for 
 ```
 python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=all_proteins --modality=protein --get_cluster_centers
 ```
+Note that this will take 0.5-1 hours on a single H100 GPU.
+
 For extracting the query reaction representations for each test set: 
 ```
-python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=easy --modality=reaction
-python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=easy --modality=text
+python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=easy_reaction_test --modality=reaction
+python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=easy_reaction_test --modality=text
 ```
 Representations will be svaed in the output directory under `representations`.
 
 3. Finally, run the retrieval similarity search:
 ```
-python step_03_downstream_retrieval.py --pretrained_folder="$OUTPUT_DIR" --query_dataset=easy --reference_dataset=all_ECs --query_modality=reaction --reference_modality=protein -k=10 --use_cluster_center
+python step_03_downstream_retrieval.py --pretrained_folder="$OUTPUT_DIR" --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=reaction --reference_modality=protein -k=10 --use_cluster_center
 python step_03_downstream_retrieval.py --pretrained_folder="$OUTPUT_DIR" --query_dataset=easy --reference_dataset=all_ECs --query_modality=text --reference_modality=protein -k=10 --use_cluster_center
 ```
 
