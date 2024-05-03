@@ -1,0 +1,11 @@
+arguments Namespace(CL_loss='EBM_NCE', CL_neg_samples=1, SSL_emb_dim=256, T=0.1, alpha_contrastive=1, alpha_generative=0, batch_size=16, dataset_path='../../processed_data/', decay=0, device=0, epochs=40, normalize=False, num_workers=0, output_model_dir='output/easy_split', protein_backbone_model='ProtT5', protein_lr=1e-05, protein_lr_scale=1, protein_max_sequence_len=512, reaction_backbone_model='rxnfp', reaction_lr=1e-05, reaction_lr_scale=1, reaction_max_sequence_len=512, seed=42, text_backbone_model='SciBERT', text_lr=1e-05, text_lr_scale=0.1, text_max_sequence_len=512, train_split='easy_reaction_train', use_three_modalities=True, verbose=False)
+num of ECs: 18
+num of reactions: 18
+num of proteins: 149788
+Epoch 1
+save model with loss: 1.77311
+CL Loss: 1.77311	CL Acc: 0.58912	Generative Loss: 0.32781	Total Loss: 1.77311	Time: 20.66793
+Epoch 2
+save model with loss: 0.56667
+CL Loss: 0.56667	CL Acc: 0.79022	Generative Loss: 0.32835	Total Loss: 0.56667	Time: 21.68564
+Epoch 3

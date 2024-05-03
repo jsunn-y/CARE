@@ -3,19 +3,19 @@ import random
 import numpy as np
 import argparse
 from tqdm import tqdm
-import time
-import faiss
+# import time
+# import faiss
 import pandas as pd
-from Levenshtein import distance as levenshtein_distance
+#from Levenshtein import distance as levenshtein_distance
 
-import torch
-import torch.nn as nn
-import torch.optim as optim
-import torch.nn.functional as F
+# import torch
+# import torch.nn as nn
+# import torch.optim as optim
+# import torch.nn.functional as F
 
-from transformers import AutoModel, AutoTokenizer
-from transformers import BertModel, BertTokenizer
-from torch.utils.data import DataLoader
+# from transformers import AutoModel, AutoTokenizer
+# from transformers import BertModel, BertTokenizer
+# from torch.utils.data import DataLoader
 
 #from utils import TextDataset, TextProteinPairDataset, evaluate
 # from CREEP.models import ProteinTextModel, GaussianFacilitatorModel
@@ -36,9 +36,6 @@ if __name__ == "__main__":
     parser.add_argument("--reference_dataset", type=str, default='all_ECs', choices=['all_ECs', 'all_proteins', 'all_reactions'])
 
     parser.add_argument("-k", type=int, default=10) #number to evaluate
-
-    parser.add_argument("--use_cluster_center", dest="use_cluster_center", action="store_true")
-    parser.set_defaults(use_cluster_center=True)
     parser.add_argument("--pretrained_folder", type=str, default=None)
     parser.add_argument("--query_modality", type=str, default="reaction", choices=["text", "reaction", "protein"])
     parser.add_argument("--reference_modality", type=str, default="protein", choices=["text", "reaction", "protein"])
@@ -79,7 +76,7 @@ if __name__ == "__main__":
     query_df = pd.read_csv('../../splits/task2/' + args.query_dataset + '_test.csv')
 
     #load the reference representations
-    if args.use_cluster_center:
+    if args.reference_dataset=='all_ECs':
         reference_representation_file = os.path.join(root, args.reference_dataset + "_cluster_centers.npy")
     else:
         reference_representation_file = os.path.join(root, args.reference_dataset + "_representations.npy")

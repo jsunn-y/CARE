@@ -1,10 +1,7 @@
 # adtl
-data/
-output/
-.locks/
 *.npy
-*.pth
 *.npz
+*.pth
 generate_datasets_splits/raw_data/
 generate_datasets_splits/clustering/
 CREEP/data/pretrained_ProtT5/
