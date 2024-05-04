@@ -10,6 +10,7 @@ generate_datasets_splits/clustering/
 CREEP/data/pretrained_ProtT5/
 CREEP/data/pretrained_SciBert/
 task2_baselines/CREEP/output/
+task1_baselines/BLAST/data/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
