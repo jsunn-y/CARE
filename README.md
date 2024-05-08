@@ -72,4 +72,6 @@ python step_03_downstream_retrieval.py --pretrained_folder="$OUTPUT_DIR" --query
 python step_03_downstream_retrieval.py --pretrained_folder="$OUTPUT_DIR" --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=text --reference_modality=protein
 ```
 The outputs will be saved under `rettieval_results` and can be further analyzed and visualized in `retrieval_analysis_metrics.ipynb`.
+
+
 ### CLIPZyme
