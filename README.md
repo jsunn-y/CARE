@@ -12,7 +12,8 @@ conda create -n CARE_processing python=3.8 -y
 conda activate CARE_processing
 conda install -c rdkit rdkit=2020.03.3 -y
 conda install -c conda-forge -c bioconda mmseqs2
-pip install scipy pandas seaborn
+pip install scipy pandas seaborn npysearch
+pip install seaborn
 
 #CARE benchmarking is done through other pacakges
 #BLAST
@@ -72,6 +73,18 @@ python step_03_downstream_retrieval.py --pretrained_folder="$OUTPUT_DIR" --query
 python step_03_downstream_retrieval.py --pretrained_folder="$OUTPUT_DIR" --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=text --reference_modality=protein
 ```
 The outputs will be saved under `rettieval_results` and can be further analyzed and visualized in `retrieval_analysis_metrics.ipynb`.
+
+### ProtInfer
+
+https://github.com/google-research/proteinfer
+
+```
+conda create --name proteinfer python=3.7 -y
+conda activate proteinfer
+git clone https://github.com/google-research/proteinfer
+cd ~/proteinfer
+pip3 install -r requirements.txt
+```
 
 
 ### CLIPZyme
