@@ -8,6 +8,7 @@
 *.png
 generate_datasets_splits/raw_data/
 generate_datasets_splits/clustering/
+processed_data/
 CREEP/data/pretrained_ProtT5/
 CREEP/data/pretrained_SciBert/
 task2_baselines/CREEP/output/
