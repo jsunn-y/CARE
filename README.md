@@ -68,9 +68,10 @@ python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=easy
 Representations will be svaed in the output directory under `representations`.
 
 3. Run the retrieval similarity search:
+Go back a folder (retrieval similarity search can be run on any representations that are formatted in the same way as those from CREEP step 2.
 ```
-python step_03_downstream_retrieval.py --pretrained_folder="$OUTPUT_DIR" --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=reaction --reference_modality=protein
-python step_03_downstream_retrieval.py --pretrained_folder="$OUTPUT_DIR" --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=text --reference_modality=protein
+python downstream_retrieval.py --pretrained_folder=CREEP/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=reaction --reference_modality=protein
+python downstream_retrieval.py --pretrained_folder=CREEP/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=text --reference_modality=protein
 ```
 The outputs will be saved under `rettieval_results` and can be further analyzed and visualized in `retrieval_analysis_metrics.ipynb`.
 
@@ -88,3 +89,10 @@ pip3 install -r requirements.txt
 
 
 ### CLIPZyme
+Process the representations into the same format as CREEP using ``.
+
+Then run the retrieval similarity search form `task2_baselines`
+```
+python downstream_retrieval.py --pretrained_folder=CLIPZyme/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=reaction --reference_modality=protein
+```
+The outputs will similarly be saved under `rettieval_results` and can be further analyzed and visualized in `retrieval_analysis_metrics.ipynb`.
