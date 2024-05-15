@@ -62,18 +62,18 @@ if __name__ == "__main__":
     os.makedirs(output_folder, exist_ok=True)
 
     if args.reference_dataset == 'all_ECs':
-        reference_EC_list = np.loadtxt('../../processed_data/EC_list.txt', dtype=str)
+        reference_EC_list = np.loadtxt('../processed_data/EC_list.txt', dtype=str)
     if args.reference_dataset == 'all_proteins':
-        reference_df = pd.read_csv('../../processed_data/protein2EC.csv')
+        reference_df = pd.read_csv('../processed_data/protein2EC.csv')
         # unique_indices = np.loadtxt('../../processed_data/unique_protein_indices.txt', dtype=int)
         # reference_df = reference_df.iloc[unique_indices]
         reference_EC_list = reference_df['EC number'].values
     elif args.reference_dataset == 'all_reactions':
-        reference_df = pd.read_csv('../../processed_data/reaction2EC.csv')
+        reference_df = pd.read_csv('../processed_data/reaction2EC.csv')
         reference_EC_list = reference_df['EC number'].values
     
     root = args.pretrained_folder + "/representations/"
-    query_df = pd.read_csv('../../splits/task2/' + args.query_dataset + '.csv')
+    query_df = pd.read_csv('../splits/task2/' + args.query_dataset + '.csv')
 
     #load the reference representations
     if args.reference_dataset=='all_ECs':
@@ -94,7 +94,7 @@ if __name__ == "__main__":
 
     d = reference_repr_array.shape[1]  #dimension
 
-    ec2text = pd.read_csv('../../processed_data/text2EC.csv').set_index('EC number').to_dict()['Text']
+    ec2text = pd.read_csv('../processed_data/text2EC.csv').set_index('EC number').to_dict()['Text']
 
     if args.query_modality == 'text':
         query_df['Text'] = query_df['EC number'].map(ec2text)
