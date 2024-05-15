@@ -64,7 +64,7 @@ if __name__ == "__main__":
     if args.reference_dataset == 'all_ECs':
         reference_EC_list = np.loadtxt('../processed_data/EC_list.txt', dtype=str)
     if args.reference_dataset == 'all_proteins':
-        reference_df = pd.read_csv('../processed_data/protein2EC.csv')
+        reference_df = pd.read_csv('../processed_data/protein2EC_clustered50.csv')
         # unique_indices = np.loadtxt('../../processed_data/unique_protein_indices.txt', dtype=int)
         # reference_df = reference_df.iloc[unique_indices]
         reference_EC_list = reference_df['EC number'].values

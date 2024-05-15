@@ -82,12 +82,13 @@ class CREEPDatasetMineBatch(Dataset):
         self.reaction_max_sequence_len = reaction_max_sequence_len
 
         protein2EC_df = pd.read_csv(dataset_path + 'protein2EC.csv')
-        reaction2EC_df = pd.read_csv(dataset_path + 'reaction2EC.csv')
+        #reaction2EC_df = pd.read_csv(dataset_path + 'reaction2EC.csv')
+        reaction2EC_df = pd.read_csv(split_file)
         text2EC_df = pd.read_csv(dataset_path + 'text2EC.csv')
         
         #load the train indices from a txt and subsample the reactions
-        train_indices = np.loadtxt(split_file, dtype=int)
-        reaction2EC_df = reaction2EC_df.iloc[train_indices]
+        #train_indices = np.loadtxt(split_file, dtype=int)
+        #reaction2EC_df = reaction2EC_df.iloc[train_indices]
 
         self.ec2text = text2EC_df.set_index('EC number').to_dict()['Text'] #one to one mapping
         self.ec2rxns = reaction2EC_df.groupby('EC number')['Reaction'].apply(list).to_frame().to_dict()['Reaction']

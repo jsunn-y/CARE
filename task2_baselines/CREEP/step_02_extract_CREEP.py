@@ -169,7 +169,7 @@ if __name__ == "__main__":
     model.to(device)
 
     if args.dataset == "all_proteins":
-        file="../../processed_data/protein2EC.csv"
+        file="../../processed_data/protein2EC_clustered50.csv" #used the ones clustered at 50% identity to speed things up
         df = pd.read_csv(file)
 
         #don't subsample to only unique indices because this will remove some of the EC classes

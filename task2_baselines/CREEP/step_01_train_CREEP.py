@@ -294,7 +294,7 @@ if __name__ == "__main__":
 
     dataset = CREEPDatasetMineBatch(
     dataset_path=args.dataset_path,
-    split_file="../../splits/task2/" + args.train_split + "_indices.txt",
+    split_file="../../splits/task2/" + args.train_split + ".csv",
     protein_tokenizer=protein_tokenizer,
     text_tokenizer=text_tokenizer,
     protein_max_sequence_len=args.protein_max_sequence_len,
