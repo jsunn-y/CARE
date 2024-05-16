@@ -52,7 +52,7 @@ Or
 python step_01_train_CREEP.py --output_model_dir=output/easy_split --train_split=easy_reaction_train
 ```
 
-Note that our batch size of 16 is optimized for a single 80GB GPU. Training for 30 epochs took about 18 hrs on a single H100 GPU. Training outputs will be saved in the ouput directory.
+Note that our batch size of 16 is optimized for a single 80GB GPU. Training for 40 epochs took about 24 hrs on a single H100 GPU. Training outputs will be saved in the `output` directory.
 
 2. For extracting the reference protein representations and their cluster centers: 
 ```
