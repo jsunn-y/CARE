@@ -293,8 +293,8 @@ if __name__ == "__main__":
     optimal_loss = 1e10
 
     dataset = CREEPDatasetMineBatch(
-    dataset_path=args.dataset_path,
-    split_file="../../splits/task2/" + args.train_split + ".csv",
+    dataset_path=args.dataset_path, #path to processed complete data
+    train_file="../../splits/task2/" + args.train_split + ".csv", #path to reaction2EC train data
     protein_tokenizer=protein_tokenizer,
     text_tokenizer=text_tokenizer,
     protein_max_sequence_len=args.protein_max_sequence_len,

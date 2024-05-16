@@ -73,7 +73,7 @@ class CREEPDatasetMineBatch(Dataset):
     Ensures that the rest of the batch is negative protein examples.
     Used for training
     """
-    def __init__(self, dataset_path, split_file, protein_tokenizer, text_tokenizer, reaction_tokenizer, protein_max_sequence_len, text_max_sequence_len, reaction_max_sequence_len, n_neg):
+    def __init__(self, dataset_path, train_file, protein_tokenizer, text_tokenizer, reaction_tokenizer, protein_max_sequence_len, text_max_sequence_len, reaction_max_sequence_len, n_neg):
         self.protein_tokenizer = protein_tokenizer
         self.text_tokenizer = text_tokenizer
         self.reaction_tokenizer = reaction_tokenizer
@@ -83,7 +83,7 @@ class CREEPDatasetMineBatch(Dataset):
 
         protein2EC_df = pd.read_csv(dataset_path + 'protein2EC.csv')
         #reaction2EC_df = pd.read_csv(dataset_path + 'reaction2EC.csv')
-        reaction2EC_df = pd.read_csv(split_file)
+        reaction2EC_df = pd.read_csv(train_file)
         text2EC_df = pd.read_csv(dataset_path + 'text2EC.csv')
         
         #load the train indices from a txt and subsample the reactions
