@@ -116,7 +116,10 @@ if __name__ == "__main__":
     for i, (query_inmodality, query_EC) in enumerate(zip(query_inmodality_list, query_EC_list)):
         #compute the dot product similarity between the query and the reference
         query_repr = query_repr_array[i].reshape(1, -1)
-        similarity = np.dot(query_repr, reference_repr_array.T)
+        normalization = np.linalg.norm(query_repr) * np.linalg.norm(reference_repr_array, axis=1)
+        #replace zeros with 1
+        normalization[normalization == 0] = 1 #normalizing to cosine similarity doesn't work when there are too many zeros
+        similarity = np.dot(query_repr, reference_repr_array.T)/normalization 
 
         #check if the query is in the reference
         query_EC_index = np.where(reference_EC_list == query_EC)[0]
