@@ -58,6 +58,11 @@ Note that our batch size of 16 is optimized for a single 80GB GPU. Training for 
 ```
 python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=all_proteins --modality=protein --get_cluster_centers
 ```
+For similarity baseline, you'll need the the reaction representation cluster centers from the train set as well.
+```
+python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=easy_reaction_train --modality=reaction --get_cluster_centers
+```
+
 Note that this will take 0.5-1 hours on a single H100 GPU.
 
 For extracting the query reaction representations for each test set: 
