@@ -31,11 +31,18 @@ pip install -e .
 
 ## Baselines for task 1 (protein to EC/reaction classification)
 
+Outputs from task 1 models should be CSV files where each row is part of the test set, and each row is associated with a ranking of EC numbers ranked from best to worst. An example of this file is: 
+
+This CSV can be analyzed for accuracy and other performance metrics using `classification_analysis_metrics.ipynb`
+
 ### BLAST
 
 ### CLEAN
+Instructions for retraining and performing inference with CLEAN can be found in `task1_baselines/CLEAN/CARE_forCLEAN.ipynb` Outputs from model training and inference are found in `task1_baselines/CLEAN`. For training, we did not perform any clustering, and we used the recommended training parameters with triplet margin loss.
 
 ## Baselines for task 2 (reaction to EC/protein retrieval)
+
+Outputs from CREEP, CLIPZyme, and the Similarity Baseline will outputting in the format of npy files containing arrays of representations. A similarity search can be performed to obtain a ranking of EC numbers, using `task2_baselines/tabulate_results.ipynb` The outputs will be csv files saved to their respective folders.
 
 ### CREEP
 We propose Contrastive Reatction-EnzymE Pretraining, as summaried in our mansucript. CREEP training and retrieval is performed with three steps: 
