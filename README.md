@@ -1,7 +1,7 @@
 # CARE
 CARE: Benchmarks for the Classification and Retrieval of Enzymes
 
-## Installation
+# Installation
 
 ```
 git clone https://github.com/jsunn-y/CARE/
@@ -27,7 +27,10 @@ pip install pandas torch==2.2.0 transformers==4.39.1 sentencepiece
 pip install -e .
 #pip install lxml #doesn't look like you need this
 ```
-## Dataset curation and splitting
+# Dataset curation and splitting
+
+# Benchmarking
+Accuracy metrics for benchmarking can be obtained and visualized using ``.
 
 ## Baselines for task 1 (protein to EC/reaction classification)
 
@@ -40,9 +43,29 @@ This CSV can be analyzed for accuracy and other performance metrics using `class
 ### CLEAN
 Instructions for retraining and performing inference with CLEAN can be found in `task1_baselines/CLEAN/CARE_forCLEAN.ipynb` Outputs from model training and inference are found in `task1_baselines/CLEAN`. For training, we did not perform any clustering, and we used the recommended training parameters with triplet margin loss.
 
+### ProtInfer
+
+https://github.com/google-research/proteinfer
+
+```
+conda create --name proteinfer python=3.7 -y
+conda activate proteinfer
+git clone https://github.com/google-research/proteinfer
+cd ~/proteinfer
+pip3 install -r requirements.txt
+```
+
+
+### Pika
+Protein language model querying.
+```
+yes | conda create --name pika python=3.10
+pip install git+https://github.com/EMCarrami/Pika.git
+```
+
 ## Baselines for task 2 (reaction to EC/protein retrieval)
 
-Outputs from CREEP, CLIPZyme, and the Similarity Baseline will outputting in the format of npy files containing arrays of representations. A similarity search can be performed to obtain a ranking of EC numbers, using `task2_baselines/tabulate_results.ipynb` The outputs will be csv files saved to their respective folders.
+Outputs from CREEP, CLIPZyme, and the Similarity Baseline will outputting in the format of npy files containing arrays of representations. A similarity search can be performed to obtain a ranking of EC numbers, using `task2_baselines/tabulate_results.ipynb` The outputs will be csv files saved to their respective folders. 
 
 ### CREEP
 We propose Contrastive Reatction-EnzymE Pretraining, as summaried in our mansucript. CREEP training and retrieval is performed with three steps: 
@@ -85,37 +108,18 @@ Go back a folder (retrieval similarity search can be run on any representations 
 python downstream_retrieval.py --pretrained_folder=CREEP/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=reaction --reference_modality=protein
 python downstream_retrieval.py --pretrained_folder=CREEP/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=text --reference_modality=protein
 ```
-The outputs will be saved under `rettieval_results` and can be further analyzed and visualized in `retrieval_analysis_metrics.ipynb`.
-
-### ProtInfer
-
-https://github.com/google-research/proteinfer
-
-```
-conda create --name proteinfer python=3.7 -y
-conda activate proteinfer
-git clone https://github.com/google-research/proteinfer
-cd ~/proteinfer
-pip3 install -r requirements.txt
-```
-
+The outputs will be saved under `retrieval_results` and can be further analyzed and visualized in `retrieval_analysis_metrics.ipynb`.
 
 ### CLIPZyme
-Process the representations into the same format as CREEP using ``.
+First process the data and download the necessary protein structures from the AF database. Optionally retrain the model using sequences clustered at 50% sequence identity.
+
+Extract and process the representations of reaction and protein modalities into the same format as CREEP using `inference.ipynb`.
 
 Then run the retrieval similarity search form `task2_baselines`
 ```
 python downstream_retrieval.py --pretrained_folder=CLIPZyme/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=reaction --reference_modality=protein
 ```
-The outputs will similarly be saved under `rettieval_results` and can be further analyzed and visualized in `retrieval_analysis_metrics.ipynb`.
-
-
-### Pika
-Protein language model querying.
-```
-yes | conda create --name pika python=3.10
-pip install git+https://github.com/EMCarrami/Pika.git
-```
+The outputs will similarly be saved under `retrieval_results` and can be further analyzed and visualized in `retrieval_analysis_metrics.ipynb`.
 
 ### Chemcrow
 
