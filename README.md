@@ -30,13 +30,11 @@ pip install -e .
 # Dataset curation and splitting
 
 # Benchmarking
-Accuracy metrics for benchmarking can be obtained and visualized using ``.
+Accuracy metrics for benchmarking can be obtained and visualized using `analysis.ipynb`. Required format for analysis of one baseline is a csv file where each row is part of the test set, and each row is associated with a ranking of EC numbers ranked from best to worst. An example of this file is: 
 
 ## Baselines for task 1 (protein to EC/reaction classification)
 
-Outputs from task 1 models should be CSV files where each row is part of the test set, and each row is associated with a ranking of EC numbers ranked from best to worst. An example of this file is: 
-
-This CSV can be analyzed for accuracy and other performance metrics using `classification_analysis_metrics.ipynb`
+The required CSV for performance analysis using can be obtained for each method as follows:
 
 ### BLAST
 
@@ -65,7 +63,7 @@ pip install git+https://github.com/EMCarrami/Pika.git
 
 ## Baselines for task 2 (reaction to EC/protein retrieval)
 
-Outputs from CREEP, CLIPZyme, and the Similarity Baseline will outputting in the format of npy files containing arrays of representations. A similarity search can be performed to obtain a ranking of EC numbers, using `task2_baselines/tabulate_results.ipynb` The outputs will be csv files saved to their respective folders. 
+Outputs from CREEP, CLIPZyme, and the Similarity Baseline will outputting in the format of npy files containing arrays of representations. A similarity search can be performed to obtain a ranking of EC numbers, using `task2_baselines/tabulate_results.ipynb` The outputs will be csv files saved to their respective folders, to be used for performance analysis. Refer to each model below for details on their specific implementation. 
 
 ### CREEP
 We propose Contrastive Reatction-EnzymE Pretraining, as summaried in our mansucript. CREEP training and retrieval is performed with three steps: 
