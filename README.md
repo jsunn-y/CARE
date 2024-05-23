@@ -28,6 +28,11 @@ pip install -e .
 #pip install lxml #doesn't look like you need this
 ```
 # Dataset curation and splitting
+Code used to generates the datasets and splits for this work can be found in the jupyter notebooks in `generate_dataset_splits`.
+
+The outputs from these notebooks include the complete datasets found in `processed_data` and the train and test splits found in `splits`.
+
+The table below summarizes which files should be used for each train-test split described in the work.
 
 # Benchmarking
 Accuracy metrics for benchmarking can be obtained and visualized using `analysis.ipynb`. Required format for analysis of one baseline is a csv file where each row is part of the test set, and each row is associated with a ranking of EC numbers ranked from best to worst. An example of this file is: 
