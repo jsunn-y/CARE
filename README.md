@@ -37,6 +37,8 @@ The table below summarizes which files should be used for each train-test split 
 # Benchmarking
 Accuracy metrics for benchmarking can be obtained and visualized using `analysis.ipynb`. Required format for analysis of one baseline is a csv file where each row is part of the test set, and each row is associated with a ranking of EC numbers ranked from best to worst. An example of this file is: 
 
+Additional performance metrics besides k=1 accuracy from the paper can be found in this notebook. 
+
 ## Baselines for task 1 (protein to EC/reaction classification)
 
 The required CSV for performance analysis using can be obtained for each method as follows:
