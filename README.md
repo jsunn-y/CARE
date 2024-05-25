@@ -57,7 +57,7 @@ After training, performance metrics for benchmarking can be obtained using `perf
 Performance analysis can be performed in most environments with minimal packages. The standard performance metric is k=1 classification/retrieval accuracy, but we also provide code to calculate other metrics in this notebook. The output for k=1 accuracy should look something like this:
 | Method | Level 4 Accuracy (X.X.X.X) | Level 3 Accuracy (X.X.X.-) | Level 2 Accuracy (X.X.-.-) | Level 1 Accuracy (X.-.-.-) |
 |:--------|:-------:|:-------:|:-------:|:-------:|
-| |   |  |  |
+| Name |  54.1 | 60.4 | 81.0 | 95.5 |
 
 
 ## Baselines for task 1 (protein to EC classification)
