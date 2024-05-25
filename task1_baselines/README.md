@@ -1,6 +1,6 @@
 ## Baselines for task 1 (protein to EC/reaction classification)
 
-The results of EC classification for each method and each split is found in `results_summary` as CSVs, for use in downstream performance analysis. To reproduce the steps to generate each classification result for each method explored in this study:
+The results of EC classification for each method and each split is found in `results_summary` as .csv files, for use in downstream performance analysis. To reproduce the steps to generate each classification result for each method explored in this study:
 
 ### BLAST
 
