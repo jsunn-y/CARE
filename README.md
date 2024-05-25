@@ -49,13 +49,13 @@ The table below summarizes which files should be used for each train-test split 
 Alteratively, the steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits).
 
 ## Performance Evaluation
-After training, accuracy metrics for benchmarking can be obtained and visualized using `analysis.ipynb`. Required format for analysis of one baseline is a csv file where each row is part of the test set, and each row is associated with a ranking of EC numbers ranked from best to worst. An example of this file is: 
+After training, performance metrics for benchmarking can be obtained using `analysis.ipynb`. Required format for analysis of one baseline is a csv file where each row is part of the test set, and each row is associated with a ranking of EC numbers ranked from best to worst. An example of this file is: 
 
-Accuracy analysis can be performed in most environments with minimal packages. Additional performance metrics besides k=1 accuracy (from our study) can be found in this notebook. 
+Performance analysis can be performed in most environments with minimal packages. The standard performance metric is k=1 classification/retrieval accuracy, but we also provide code to calculate other metrics in this notebook. 
 
 ## Baselines for task 1 (protein to EC/reaction classification)
-
+Detailed recommendations for benchmarking on Task 1 can be found [here](task1_baselines).
 
 ## Baselines for task 2 (reaction to EC/protein retrieval)
 
-Outputs from CREEP, CLIPZyme, and the Similarity Baseline will outputting in the format of npy files containing arrays of representations. A similarity search can be performed to obtain a ranking of EC numbers, using `task2_baselines/tabulate_results.ipynb` The outputs will be csv files saved to their respective folders, to be used for performance analysis. Refer to each model below for details on their specific implementation. 
+Detailed instructions and recommendations for benchmarking on Task 2 can be found [here](task2_baselines).
