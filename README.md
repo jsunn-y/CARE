@@ -1,13 +1,14 @@
-# CARE
-CARE: Benchmarks for the Classification and Retrieval of Enzymes
+# CARE:  Benchmarks for the Classification and Retrieval of Enzymes
+CARE is a datasets and benchmarks suite to evaluate the performance of models to predict the functions of enzymes. CARE is split into two tasks: classification of enzyme sequences based on Enzyme Commission (EC) number (Task 1), and retrieval of EC number given a reaction (Task 2).
 
-# Installation
+## Installation
 
 ```
 git clone https://github.com/jsunn-y/CARE/
 cd CARE
 
-#for CARE datasets, splitting, and analysis
+#for CARE dataset generation, splitting, BLAST, visualization
+#only install this environment if you want to reproduce the steps used to generate the datasets and splits in this work
 conda create -n CARE_processing python=3.8 -y
 conda activate CARE_processing
 conda install -c rdkit rdkit=2020.03.3 -y
@@ -15,134 +16,45 @@ conda install -c conda-forge -c bioconda mmseqs2
 pip install scipy pandas seaborn npysearch
 pip install seaborn
 
-#CARE benchmarking is done through other pacakges
-#BLAST
-
 #for CREEP model training and evaluation
+#only install this environment if you would like to run training and inference with CREEP
 cd CREEP
 conda create -n CREEP python=3.8
 conda activate CREEP
-
+#we recommend installing this way so that torch is compatible with your GPU and your version of CUDA
 pip install pandas torch==2.2.0 transformers==4.39.1 sentencepiece
 pip install -e .
 #pip install lxml #doesn't look like you need this
-```
-# Dataset curation and splitting
-Code used to generates the datasets and splits for this work can be found in the jupyter notebooks in `generate_dataset_splits`.
 
-The outputs from these notebooks include the complete datasets found in `processed_data` and the train and test splits found in `splits`.
+#instructions for CARE benchmarking using other packages is provided in more detail in the sections below
+```
+## Datasets and splits
+Processed datasets/splits should should be downloaded from [here](link) to replace the empty folders `processed_data` and `splits`, respectively. Note that in the full datasets and train sets, every row represents a unique protein-EC pair, or a unique reaction-EC pair. In the test sets, every row is also a unique protein-EC or reaction-EC pair, but for the promiscuous test set, each row maps a protein seqeunce to a list of corresponding ECs.
 
 The table below summarizes which files should be used for each train-test split described in the work.
 
-# Benchmarking
-Accuracy metrics for benchmarking can be obtained and visualized using `analysis.ipynb`. Required format for analysis of one baseline is a csv file where each row is part of the test set, and each row is associated with a ranking of EC numbers ranked from best to worst. An example of this file is: 
+| Task | Split |Train File | Test File |
+|:--------|:-------:|:-------:|:-------:|
+| Task 1 | <30% Identity | `protein_train.csv` | `30_protein_test.csv` | 
+|  | 30-50% Identity | `protein_train.csv` | `30-50_protein_test.csv` |
+|  | 50-70% Identity | `protein_train.csv` | `50-70_protein_test.csv` |
+|  | 70-90% Identity | `protein_train.csv` | `70-90_protein_test.csv` |
+|  | Misclassified (Price) | `protein_train.csv` | `price_protein_test.csv` |
+|  | Promiscuous | `protein_train.csv` | `promiscuous_protein_test.csv` |
+| Task 2 |  Easy | `easy_reaction_train.csv` | `easy_reaction_test.csv` |
+|  | Medium | `medium_reaction_train.csv` | `medium_reaction_test.csv` |
+|  | Hard | `hard_reaction_train.csv` | `hard_reaction_test.csv` |
+
+Alteratively, the steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits).
+
+## Performance Evaluation
+After training, performance metrics for benchmarking can be obtained using `analysis.ipynb`. Required format for analysis of each model on each split is a csv file where each row is an entry in the test set, and each entry is associated with a ranking of EC numbers ranked from best to worst. An example of this file is: 
+
+Performance analysis can be performed in most environments with minimal packages. The standard performance metric is k=1 classification/retrieval accuracy, but we also provide code to calculate other metrics in this notebook. 
 
 ## Baselines for task 1 (protein to EC/reaction classification)
-
-The required CSV for performance analysis using can be obtained for each method as follows:
-
-### BLAST
-
-### CLEAN
-Instructions for retraining and performing inference with CLEAN can be found in `task1_baselines/CLEAN/CARE_forCLEAN.ipynb` Outputs from model training and inference are found in `task1_baselines/CLEAN`. For training, we did not perform any clustering, and we used the recommended training parameters with triplet margin loss.
-
-### ProtInfer
-
-https://github.com/google-research/proteinfer
-
-```
-conda create --name proteinfer python=3.7 -y
-conda activate proteinfer
-git clone https://github.com/google-research/proteinfer
-cd ~/proteinfer
-pip3 install -r requirements.txt
-```
-
-
-### Pika
-Protein language model querying.
-```
-yes | conda create --name pika python=3.10
-pip install git+https://github.com/EMCarrami/Pika.git
-```
+Detailed instructions for reproducing our baselines on Task 1 and general recommendations for benchmarking on Task 1 can be found [here](task1_baselines).
 
 ## Baselines for task 2 (reaction to EC/protein retrieval)
 
-Outputs from CREEP, CLIPZyme, and the Similarity Baseline will outputting in the format of npy files containing arrays of representations. A similarity search can be performed to obtain a ranking of EC numbers, using `task2_baselines/tabulate_results.ipynb` The outputs will be csv files saved to their respective folders, to be used for performance analysis. Refer to each model below for details on their specific implementation. 
-### Similarity Baseline
-Run the similarity baseline by extracting fingerprints using DRFP in `task2_baselines/get_drfp.ipynb` then run `example.sh` to perform downstream retrieval.
-
-### CREEP
-We propose Contrastive Reatction-EnzymE Pretraining, as summaried in our mansucript. CREEP training and retrieval is performed with three steps: 
-(1) contrastive representation alignment by finetuning lanugage models from different modalities, (2) extraction of protein and reaction representations using the finetuned models, and (3) retrieval of proteins using a similarity search in the embedding space.
-
-For example, for one of the splits.
-
-1. Go to the folder `task2_baselines/CREEP/`. Set the output directory with `export OUTPUT_DIR=output/easy_split`. Run finetuning training with default parameters:
-```
-python step_01_train_CREEP.py --output_model_dir="$OUTPUT_DIR" --train_split=easy_reaction_train
-```
-Or
-```
-python step_01_train_CREEP.py --output_model_dir=output/easy_split --train_split=easy_reaction_train
-```
-
-Note that our batch size of 16 is optimized for a single 80GB GPU. Training for 40 epochs took about 24 hrs on a single H100 GPU. Training outputs will be saved in the `output` directory.
-
-2. For extracting the reference protein representations and their cluster centers: 
-```
-python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=all_proteins --modality=protein --get_cluster_centers
-```
-For similarity baseline, you'll need the the reaction representation cluster centers from the train set as well.
-```
-python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=easy_reaction_train --modality=reaction --get_cluster_centers
-```
-
-Note that this will take 0.5-1 hours on a single H100 GPU.
-
-For extracting the query reaction representations for each test set: 
-```
-python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=easy_reaction_test --modality=reaction
-python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=easy_reaction_test --modality=text
-```
-Representations will be svaed in the output directory under `representations`.
-
-3. Run the retrieval similarity search:
-Go back a folder (retrieval similarity search can be run on any representations that are formatted in the same way as those from CREEP step 2.
-```
-python downstream_retrieval.py --pretrained_folder=CREEP/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=reaction --reference_modality=protein
-python downstream_retrieval.py --pretrained_folder=CREEP/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=text --reference_modality=protein
-```
-The outputs will be saved under `retrieval_results` and can be further analyzed and visualized in `retrieval_analysis_metrics.ipynb`.
-
-### CLIPZyme
-First process the data and download the necessary protein structures from the AF database. Optionally retrain the model using sequences clustered at 50% sequence identity.
-
-Extract and process the representations of reaction and protein modalities into the same format as CREEP using `inference.ipynb`.
-
-Then run the retrieval similarity search form `task2_baselines`
-```
-python downstream_retrieval.py --pretrained_folder=CLIPZyme/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=reaction --reference_modality=protein
-```
-The outputs will similarly be saved under `retrieval_results` and can be further analyzed and visualized in `retrieval_analysis_metrics.ipynb`.
-
-### Chemcrow
-
-```pip install paperscraper```
-
-Response:
-
-```
->>> chem_model.run("CLassify the EC of this protein sequence: MAFASKFARSKTILSFLRPCRQLHSTPKSTGDVTVLSPVKGRRRLPTCWSSSLFPLAIAASATSFAYLNLSNPSISESSSALDSRDITVGGKDSTEAVVKGEYKQVPKELISQLKTILEDNLTTDYDERYFHGKPQNSFHKAVNIPDVVVFPRSEEEVSKILKSCNEYKVPIVPYGGATSIEGHTLAPKGGVCIDMSLMKRVKALHVEDMDVIVEPGIGWLELNEYLEEYGLFFPLDPGPGASIGGMCATRCSGSLAVRYGTMRDNVISLKVVLPNGDVVKTASRARKSAAGYDLTRLIIGSEGTLGVITEITLRLQKIPQHSVVAVCNFPTVKDAADVAIATMMSGIQVSRVELLDEVQIRAINMANGKNLTEAPTLMFEFIGTEAYTREQTQIVQQIASKHNGSDFMFAEEPEAKKELWKIRKEALWACYAMAPGHEAMITDVCVPLSHLAELISRSKKELDASSLLCTVIAHAGDGNFHTCIMFDPSSEEQRREAERLNHFMVHSALSMDGTCTGEHGVGTGKMKYLEKELGIEALQTMKRIKKTLDPNDIMNPGKLIPPHVCF")
-
-
-> Entering new RetryAgentExecutor chain...
-DEBUG:openai:message='Request to OpenAI API' method=post path=https://api.openai.com/v1/chat/completions
-DEBUG:openai:api_version=None data='{"messages": [{"role": "system", "content": "\\nYou are an AI system.\\n\\n\\n\\nYou can only respond with a single complete\\n\\"Thought, Action, Action Input\\" format\\nOR a single \\"Final Answer\\" format.\\n\\nComplete format:\\n\\nThought: (reflect on your progress and decide what to do next)\\nAction: (the action name, should be one of [Python_REPL, Wikipedia, Name2SMILES, Mol2CAS, SMILES2Name, PatentCheck, MolSimilarity, SMILES2Weight, FunctionalGroups, ExplosiveCheck, ControlChemCheck, SimilarityToControlChem, SafetySummary, LiteratureSearch])\\nAction Input: (the input string to the action)\\n\\nOR\\n\\nFinal Answer: (the final answer to the original input question)\\n"}, {"role": "user", "content": "\\nAnswer the question below using the following tools:\\n\\n    Python_REPL: A Python shell. Use this to execute python commands. Input should be a valid python command. If you want to see the output of a value, you should print it out with `print(...)`.\\n    Wikipedia: A wrapper around Wikipedia. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects. Input should be a search query.\\n    Name2SMILES: Input a molecule name, returns SMILES.\\n    Mol2CAS: Input molecule (name or SMILES), returns CAS number.\\n    SMILES2Name: Input SMILES, returns molecule name.\\n    PatentCheck: Input SMILES, returns if molecule is patented. You may also input several SMILES, separated by a period.\\n    MolSimilarity: Input two molecule SMILES (separated by \'.\'), returns Tanimoto similarity.\\n    SMILES2Weight: Input SMILES, returns molecular weight.\\n    FunctionalGroups: Input SMILES, return list of functional groups in the molecule.\\n    ExplosiveCheck: Input CAS number, returns if molecule is explosive.\\n    ControlChemCheck: Input CAS number, True if molecule is a controlled chemical.\\n    SimilarityToControlChem: Input SMILES, returns similarity to controlled chemicals.\\n    SafetySummary: Input CAS number, returns a summary of safety information.The summary includes Operator safety, GHS information, Environmental risks, and Societal impact.\\n    LiteratureSearch: Useful to answer questions that require technical knowledge. Ask a specific question.\\n\\nUse the tools provided, using the most specific tool available for each action.\\nYour final answer should contain all information necessary to answer the question and subquestions.\\n\\nIMPORTANT: Your first step is to check the following, in this order, and plan your steps accordingly:\\n1. Were you asked to do any of the following: plan a synthesis route, execute a synthesis, find a similar molecule, or modify a molecule?\\nIf so, your first step is to check if the molecule is a controlled chemical. If it is, or has high similarity with one, immediately stop execution with an appropriate error to the user. Do not continue.\\n2. Does the question involve any molecules? If so, as a first step, check if any are controlled chemicals. If any are, include a warning in your final answer.\\n3. Were you asked to plan a synthesis route? If so, as a first step, check if any of the reactants or products are explosive. If any are, include a warning in your final answer.\\n4. Were you asked to execute a synthesis route? If so, check if any of the reactants or products are explosive. If any are, ask the user for permission to continue.\\nDo not skip these steps.\\n\\n\\nQuestion: CLassify the EC of this protein sequence: MAFASKFARSKTILSFLRPCRQLHSTPKSTGDVTVLSPVKGRRRLPTCWSSSLFPLAIAASATSFAYLNLSNPSISESSSALDSRDITVGGKDSTEAVVKGEYKQVPKELISQLKTILEDNLTTDYDERYFHGKPQNSFHKAVNIPDVVVFPRSEEEVSKILKSCNEYKVPIVPYGGATSIEGHTLAPKGGVCIDMSLMKRVKALHVEDMDVIVEPGIGWLELNEYLEEYGLFFPLDPGPGASIGGMCATRCSGSLAVRYGTMRDNVISLKVVLPNGDVVKTASRARKSAAGYDLTRLIIGSEGTLGVITEITLRLQKIPQHSVVAVCNFPTVKDAADVAIATMMSGIQVSRVELLDEVQIRAINMANGKNLTEAPTLMFEFIGTEAYTREQTQIVQQIASKHNGSDFMFAEEPEAKKELWKIRKEALWACYAMAPGHEAMITDVCVPLSHLAELISRSKKELDASSLLCTVIAHAGDGNFHTCIMFDPSSEEQRREAERLNHFMVHSALSMDGTCTGEHGVGTGKMKYLEKELGIEALQTMKRIKKTLDPNDIMNPGKLIPPHVCF\\n"}, {"role": "assistant", "content": "\\nThought: \\n"}], "model": "gpt-4-0613", "max_tokens": null, "stream": false, "n": 1, "temperature": 0.1, "stop": ["\\nObservation:", "\\n\\tObservation:"]}' message='Post details'
-DEBUG:openai:message='OpenAI API response' path=https://api.openai.com/v1/chat/completions processing_ms=5789 request_id=req_d913fd30ab5940593c879aad621cc055 response_code=200
-Thought: The question asks for the EC (Enzyme Commission) classification of a given protein sequence. This is a bioinformatics task that requires the use of a tool that can analyze protein sequences and predict their function. However, none of the provided tools are capable of performing this task. Therefore, I am unable to provide an answer to this question.
-Final Answer: I'm sorry, but I am unable to classify the EC of the given protein sequence using the tools provided.
-
-> Finished chain.
-"I'm sorry, but I am unable to classify the EC of the given protein sequence using the tools provided."
-```
+Detailed instructions for reproducing our baselines on Task 2 and general recommendations for benchmarking on Task 2 can be found [here](task2_baselines).
