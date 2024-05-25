@@ -1,4 +1,5 @@
 ## Baselines for task 2 (reaction to EC/protein retrieval)
+Outputs from CREEP, CLIPZyme, and the Similarity Baseline will outputting in the format of npy files containing arrays of representations. A similarity search can be performed to obtain a ranking of EC numbers, using `task2_baselines/tabulate_results.ipynb` The outputs will be csv files saved to their respective folders, to be used for performance analysis. Refer to each model below for details on their specific implementation. 
 
 ### Similarity Baseline
 Run the similarity baseline by extracting fingerprints using DRFP in `task2_baselines/get_drfp.ipynb` then run `example.sh` to perform downstream retrieval.
