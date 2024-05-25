@@ -41,6 +41,9 @@ The table below summarizes which files should be used for each train-test split 
 |  | 70-90% Identity | `protein_train.csv` | `70-90_protein_test.csv` |
 |  | Misclassified (Price) | `protein_train.csv` | `price_protein_test.csv` |
 |  | Promiscuous | `protein_train.csv` | `promiscuous_protein_test.csv` |
+
+| Task | Split |Train File | Test File |
+|:--------|:-------:|:-------:|:-------:|
 | Task 2 |  Easy | `easy_reaction_train.csv` | `easy_reaction_test.csv` |
 |  | Medium | `medium_reaction_train.csv` | `medium_reaction_test.csv` |
 |  | Hard | `hard_reaction_train.csv` | `hard_reaction_test.csv` |
