@@ -12,40 +12,32 @@ Alternatively, these results can be reproduced at a high level by following thes
 Refer to each model below for details on their specific implementation:
 
 ### Similarity Baseline
-(2) Extract fingerprints using DRFP in `task2_baselines/get_drfp.ipynb` 
-(3) Run `example.sh` to perform a similarity search
+2. Extract fingerprints using DRFP in `task2_baselines/get_drfp.ipynb`
+3. Run `example.sh` to perform a similarity search
 
 ### CREEP
 Contrastive Reaction-EnzymE Pretraining (CREEP)
 
-For example, for one of the splits.
+All of the terminal commands needed to run the scripts are provided in `CREEP/example.sh`, but an example is also provided here for convenience.
 
-1. Go to the folder `task2_baselines/CREEP/`. Set the output directory with `export OUTPUT_DIR=output/easy_split`. Run finetuning training with default parameters:
-```
-python step_01_train_CREEP.py --output_model_dir="$OUTPUT_DIR" --train_split=easy_reaction_train
-```
-Or
+1. Go to the folder `task2_baselines/CREEP/`. Run finetuning training with default parameters:
 ```
 python step_01_train_CREEP.py --output_model_dir=output/easy_split --train_split=easy_reaction_train
 ```
 
-Note that our batch size of 16 is optimized for a single 80GB GPU. Training for 40 epochs took about 24 hrs on a single H100 GPU. Training outputs will be saved in the `output` directory.
+Note that our batch size of 16 is optimized for a single 80GB GPU. Training for 40 epochs took about 36 hrs on a single H100 GPU. Training outputs will be saved in the `CREEP/output` directory. Various training parameters can be tuned using the argparser.
 
 2. For extracting the reference protein representations and their cluster centers: 
 ```
-python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=all_proteins --modality=protein --get_cluster_centers
-```
-For similarity baseline, you'll need the the reaction representation cluster centers from the train set as well.
-```
-python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=easy_reaction_train --modality=reaction --get_cluster_centers
+python step_02_extract_CREEP.py --pretrained_folder=output/easy_split --dataset=all_proteins --modality=protein --get_cluster_centers
 ```
 
 Note that this will take 0.5-1 hours on a single H100 GPU.
 
 For extracting the query reaction representations for each test set: 
 ```
-python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=easy_reaction_test --modality=reaction
-python step_02_extract_CREEP.py --pretrained_folder="$OUTPUT_DIR" --dataset=easy_reaction_test --modality=text
+python step_02_extract_CREEP.py --pretrained_folder=easy_split --dataset=easy_reaction_test --modality=reaction
+python step_02_extract_CREEP.py --pretrained_folder=easy_split --dataset=easy_reaction_test --modality=text
 ```
 Representations will be svaed in the output directory under `representations`.
 
@@ -55,7 +47,7 @@ Go back a folder (retrieval similarity search can be run on any representations 
 python downstream_retrieval.py --pretrained_folder=CREEP/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=reaction --reference_modality=protein
 python downstream_retrieval.py --pretrained_folder=CREEP/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=text --reference_modality=protein
 ```
-The outputs will be saved under `retrieval_results` and can be further analyzed and visualized in `retrieval_analysis_metrics.ipynb`.
+The outputs will be saved under `retrieval_results`.
 
 ### CLIPZyme
 First process the data and download the necessary protein structures from the AF database. Optionally retrain the model using sequences clustered at 50% sequence identity.
