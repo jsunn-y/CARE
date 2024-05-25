@@ -2,7 +2,7 @@
 CARE is a datasets and benchmarks suite to evaluate the performance of models to predict the functions of enzymes. CARE is split into two tasks: classification of enzyme sequences based on Enzyme Commission (EC) number (Task 1), and retrieval of EC number given a reaction (Task 2).
 
 ## Installation
-If you are only interested in using the datasets and train-test splits in CARE, skip the installation steps below and directly download the data from [here](link).
+If you are only interested in using the datasets and train-test splits in CARE, skip the installation steps below and directly download the data from [here](link). If you are interested in the reproducing the generation, training and inference, and analyses in our study, then proceed to clone this repo and install the relevant environments below:
 
 ```
 git clone https://github.com/jsunn-y/CARE/
