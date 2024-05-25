@@ -75,3 +75,6 @@ Thought: The question asks for the EC (Enzyme Commission) classification of a gi
 Final Answer: I'm sorry, but I am unable to classify the EC of the given protein sequence using the tools provided.
 
 > Finished chain.
+
+"I'm sorry, but I am unable to classify the EC of the given protein sequence using the tools provided."
+```
