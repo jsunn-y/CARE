@@ -69,4 +69,4 @@ Detailed instructions for reproducing our baselines on Task 1 and general recomm
 Detailed instructions for reproducing our baselines on Task 2 and general recommendations for benchmarking on Task 2 can be found [here](task2_baselines).
 
 ### CREEP
-We introduce Contrastive Reaction-EnzymE Pretraining (CREEP), which is a model that can perform enzyme retreival by aligning representations from different modalities (reaction, protein, and optionally textual description). The model is found under `CREEP`, while example usage is found under `task2_baselines/CREEP`.
+We introduce Contrastive Reaction-EnzymE Pretraining (CREEP), which is one of the first models that can perform Task 2 by aligning representations from different modalities (reaction, protein, and optionally textual description). The model is found under `CREEP`, while example usage is found under `task2_baselines/CREEP`.
