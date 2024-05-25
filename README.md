@@ -1,6 +1,8 @@
 # CARE
 CARE: Benchmarks for the Classification and Retrieval of Enzymes
 
+CARE is a datasets and benchmarks suite to evaluate the performance of models to predict the functions of enzymes. CARE is split into two tasks: classification of enzyme sequences based on Enzyme Commission (EC) number (Task 1), and retrieval of EC number given a reaction (Task 2).
+
 ## Installation
 
 ```
@@ -27,10 +29,8 @@ pip install -e .
 
 #instructions for CARE benchmarking using other packages is provided in more detail in the sections below
 ```
-## Dataset curation and splitting
-Code used to generates the datasets and splits for this work can be found in the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits).
-
-The outputs from these notebooks include the complete datasets found in `processed_data` and the train and test splits found in `splits`. The processed datasets/split should should be downloaded from [here](link) to replace the empty folders `processed_data` and `splits`, respectively. Note that in the full datasets and train sets, every row represents a unique protein-EC pair, or a unique reaction-EC pair. In the test sets, every row is also a unique protein-EC or reaction-EC pair, but for the promiscuous test set, each row maps a protein seqeunce to a list of corresponding ECs.
+## Datasets and splits
+Processed datasets/splits should should be downloaded from [here](link) to replace the empty folders `processed_data` and `splits`, respectively. Note that in the full datasets and train sets, every row represents a unique protein-EC pair, or a unique reaction-EC pair. In the test sets, every row is also a unique protein-EC or reaction-EC pair, but for the promiscuous test set, each row maps a protein seqeunce to a list of corresponding ECs.
 
 The table below summarizes which files should be used for each train-test split described in the work.
 
@@ -46,10 +46,12 @@ The table below summarizes which files should be used for each train-test split 
 |  | Medium | `medium_reaction_train.csv` | `medium_reaction_test.csv` |
 |  | Hard | `hard_reaction_train.csv` | `hard_reaction_test.csv` |
 
-## Performance Evaluation
-Accuracy metrics for benchmarking can be obtained and visualized using `analysis.ipynb`. Required format for analysis of one baseline is a csv file where each row is part of the test set, and each row is associated with a ranking of EC numbers ranked from best to worst. An example of this file is: 
+Alteratively, the steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits).
 
-Accuracy analysis can be performed in most environments with minimal packages. Additional performance metrics besides k=1 accuracy from the paper can be found in this notebook. 
+## Performance Evaluation
+After training, accuracy metrics for benchmarking can be obtained and visualized using `analysis.ipynb`. Required format for analysis of one baseline is a csv file where each row is part of the test set, and each row is associated with a ranking of EC numbers ranked from best to worst. An example of this file is: 
+
+Accuracy analysis can be performed in most environments with minimal packages. Additional performance metrics besides k=1 accuracy (from our study) can be found in this notebook. 
 
 ## Baselines for task 1 (protein to EC/reaction classification)
 
