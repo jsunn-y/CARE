@@ -58,6 +58,7 @@ Performance analysis can be performed in most environments with minimal packages
 | Method | Level 4 Accuracy (X.X.X.X) | Level 3 Accuracy (X.X.X.-) | Level 2 Accuracy (X.X.-.-) | Level 1 Accuracy (X.-.-.-) |
 |:--------|:-------:|:-------:|:-------:|:-------:|
 | Name |  54.1 | 60.4 | 81.0 | 95.5 |
+| ... |   | |  |  |
 
 
 ## Baselines for task 1 (protein to EC classification)
