@@ -2,6 +2,7 @@
 CARE is a datasets and benchmarks suite to evaluate the performance of models to predict the functions of enzymes. CARE is split into two tasks: classification of enzyme sequences based on Enzyme Commission (EC) number (Task 1), and retrieval of EC number given a reaction (Task 2).
 
 ## Installation
+If you are only interested in using the datasets and train-test splits in CARE, skip the installation steps below and directly download the data from [here](link).
 
 ```
 git clone https://github.com/jsunn-y/CARE/
@@ -16,7 +17,7 @@ conda install -c conda-forge -c bioconda mmseqs2
 pip install scipy pandas seaborn npysearch
 pip install seaborn
 
-#for CREEP model training and evaluation
+#for CREEP model training and inference
 #only install this environment if you would like to run training and inference with CREEP
 cd CREEP
 conda create -n CREEP python=3.8
