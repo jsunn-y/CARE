@@ -30,16 +30,18 @@ pip install -e .
 ## Dataset curation and splitting
 Code used to generates the datasets and splits for this work can be found in the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits).
 
-The outputs from these notebooks include the complete datasets found in `processed_data` and the train and test splits found in `splits`. The processed datasets/split should should be downloaded from [here](link) to replace the empty folders `processed_data` and `splits`, respectively. 
+The outputs from these notebooks include the complete datasets found in `processed_data` and the train and test splits found in `splits`. The processed datasets/split should should be downloaded from [here](link) to replace the empty folders `processed_data` and `splits`, respectively. Note that in the full datasets and train sets, every row represents a unique protein-EC pair, or a unique reaction-EC pair. In the test sets, every row is also a unique protein-EC or reaction-EC pair, but for the promiscuous test set, each row maps a protein seqeunce to a list of corresponding ECs.
 
 The table below summarizes which files should be used for each train-test split described in the work.
 
 | Task | Split |Train File | Test File |
 |:--------|:-------:|:-------:|:-------:|
-| Task 1 | Training Set | `datasetA_imputed_all.csv` `datasetAX_desc.csv` `datasetAX_fing.csv`| None | 
-| | 1 million screening | `datasetB.csv` | `datasetBX_fing.csv` |
-|  | 8 million screening | `datasetC_0.csv` | `datasetC_1-8.csv` `datasetCX_fing_0-8.csv` |
-|  | 1 thousand screening | `datasetD.csv` `datasetDX_fing.csv` | None |
+| Task 1 | <30% Identity | `protein_train.csv` | `30_protein_test.csv` | 
+| | 30-50% Identity | `protein_train.csv` | `30-50_protein_test.csv` |
+|  | 50-70% Identity | `protein_train.csv` | `50-70_protein_test.csv` |
+|  | 70-90% Identity | `protein_train.csv` | `70-90_protein_test.csv` |
+|  | Misclassified (Price) | `protein_train.csv` | `price_protein_test.csv` |
+|  | Promiscuous | `protein_train.csv` | `promiscuous_protein_test.csv` |
 | Task 2 | Training Set | `datasetA_imputed_all.csv` `datasetAX_desc.csv` `datasetAX_fing.csv`| None | 
 |  | 1 million screening | `datasetB.csv` | `datasetBX_fing.csv` |
 | | 8 million screening | `datasetC_0.csv` | `datasetC_1-8.csv` `datasetCX_fing_0-8.csv` |
