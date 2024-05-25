@@ -1,11 +1,11 @@
 ## Baselines for task 1 (protein to EC/reaction classification)
 
-The required CSV for performance analysis using can be obtained for each method as follows:
+The results of EC classification for each method and each split is found in `results_summary` as CSVs, for use in downstream performance analysis. To reproduce the steps to generate each classification result for each method explored in this study:
 
 ### BLAST
 
 ### CLEAN
-Instructions for retraining and performing inference with CLEAN can be found in `task1_baselines/CLEAN/CARE_forCLEAN.ipynb` Outputs from model training and inference are found in `task1_baselines/CLEAN`. For training, we did not perform any clustering, and we used the recommended training parameters with triplet margin loss.
+Outputs from model training and inference in our study are found in `CLEAN`. Alternatively, instructions for reproducing our retraining and inference procedure can be found in `task1_baselines/CLEAN/CARE_forCLEAN.ipynb`, which is performed within the [CLEAN package](https://github.com/tttianhao/CLEAN/tree/main). For training, we did not perform any clustering, and we used the recommended training parameters with triplet margin loss.
 
 ### ProtInfer
 
