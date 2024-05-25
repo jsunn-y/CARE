@@ -3,13 +3,11 @@ The results of EC retrieval for each method and each split is found in `results_
 
 Alternatively, these results can be reproduced at a high level by following these steps: 
 
-(1) Model trainining for CREEP, CLIPZyme. Similarity baseline can skip to step 2.
 
-(2) Extract representations in the format of .npy files containing arrays of representations from multiple modalities (such as protein, reaction, and text).
-
-(3) A similarity search between the train and test set is performed using `downstream_retrieval.py`. Retrieval similarites are outputed as .npy arrays under the respective method and model folder in `retrieval_results`.
-
-(4) The retrieval similarities are processed to obtain a ranking of EC numbers using `tabulate_results.ipynb`. The outputs will be .csv files saved to their respective folders in `results_summary`, to be used for performance analysis.  
+1. Model trainining for CREEP, CLIPZyme. Similarity baseline can skip to step 2.
+2. Extract representations in the format of .npy files containing arrays of representations from multiple modalities (such as protein, reaction, and text).
+3. A similarity search between the train and test set is performed using `downstream_retrieval.py`. Retrieval similarites are outputed as .npy arrays under the respective method and model folder in `retrieval_results`.
+4. The retrieval similarities are processed to obtain a ranking of EC numbers using `tabulate_results.ipynb`. The outputs will be .csv files saved to their respective folders in `results_summary`, to be used for performance analysis.  
 
 Refer to each model below for details on their specific implementation:
 
