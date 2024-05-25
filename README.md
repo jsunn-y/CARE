@@ -56,9 +56,9 @@ After training, performance metrics for benchmarking can be obtained using `perf
 
 Performance analysis can be performed in most environments with minimal packages. The standard performance metric is k=1 classification/retrieval accuracy, but we also provide code to calculate other metrics in this notebook. 
 
-## Baselines for task 1 (protein to EC/reaction classification)
+## Baselines for task 1 (protein to EC classification)
 Detailed instructions for reproducing our baselines on Task 1 and general recommendations for benchmarking on Task 1 can be found [here](task1_baselines).
 
-## Baselines for task 2 (reaction to EC/protein retrieval)
+## Baselines for task 2 (reaction to EC retrieval)
 
 Detailed instructions for reproducing our baselines on Task 2 and general recommendations for benchmarking on Task 2 can be found [here](task2_baselines).
