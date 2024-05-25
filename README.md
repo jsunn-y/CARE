@@ -42,10 +42,9 @@ The table below summarizes which files should be used for each train-test split 
 |  | 70-90% Identity | `protein_train.csv` | `70-90_protein_test.csv` |
 |  | Misclassified (Price) | `protein_train.csv` | `price_protein_test.csv` |
 |  | Promiscuous | `protein_train.csv` | `promiscuous_protein_test.csv` |
-| Task 2 | Training Set | `datasetA_imputed_all.csv` `datasetAX_desc.csv` `datasetAX_fing.csv`| None | 
-|  | 1 million screening | `datasetB.csv` | `datasetBX_fing.csv` |
-| | 8 million screening | `datasetC_0.csv` | `datasetC_1-8.csv` `datasetCX_fing_0-8.csv` |
-|  | 1 thousand screening | `datasetD.csv` `datasetDX_fing.csv` | None |
+| Task 2 |  Easy | `easy_reaction_train.csv` | `easy_reaction_test.csv` |
+|  | Medium | `medium_reaction_train.csv` | `medium_reaction_test.csv` |
+| | Hard | `hard_reaction_train.csv` | `hard_reaction_test.csv` |
 
 ## Performance Evaluation
 Accuracy metrics for benchmarking can be obtained and visualized using `analysis.ipynb`. Required format for analysis of one baseline is a csv file where each row is part of the test set, and each row is associated with a ranking of EC numbers ranked from best to worst. An example of this file is: 
