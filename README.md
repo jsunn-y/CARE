@@ -35,12 +35,11 @@ The outputs from these notebooks include the complete datasets found in `process
 The table below summarizes which files should be used for each train-test split described in the work.
 
 | Task | Split |Train File | Test File |
-|:-------|:-------:|:-------:|:-------:|
+|:--------|:-------:|:-------:|:-------:|
 | Task 1 | Training Set | `datasetA_imputed_all.csv` `datasetAX_desc.csv` `datasetAX_fing.csv`| None | 
 | | 1 million screening | `datasetB.csv` | `datasetBX_fing.csv` |
 |  | 8 million screening | `datasetC_0.csv` | `datasetC_1-8.csv` `datasetCX_fing_0-8.csv` |
 |  | 1 thousand screening | `datasetD.csv` `datasetDX_fing.csv` | None |
-|:-------|:-------:|:-------:|:-------:|
 | Task 2 | Training Set | `datasetA_imputed_all.csv` `datasetAX_desc.csv` `datasetAX_fing.csv`| None | 
 |  | 1 million screening | `datasetB.csv` | `datasetBX_fing.csv` |
 | | 8 million screening | `datasetC_0.csv` | `datasetC_1-8.csv` `datasetCX_fing_0-8.csv` |
