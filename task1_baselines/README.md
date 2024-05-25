@@ -1,3 +1,5 @@
+## Baselines for task 1 (protein to EC/reaction classification)
+
 The required CSV for performance analysis using can be obtained for each method as follows:
 
 ### BLAST
