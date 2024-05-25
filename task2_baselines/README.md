@@ -1,4 +1,4 @@
-## Baselines for task 1 (protein to EC/reaction classification)
+## Baselines for task 2 (reaction to EC/protein retrieval)
 
 ### Similarity Baseline
 Run the similarity baseline by extracting fingerprints using DRFP in `task2_baselines/get_drfp.ipynb` then run `example.sh` to perform downstream retrieval.
