@@ -28,7 +28,7 @@ pip install -e .
 #pip install lxml #doesn't look like you need this
 ```
 # Dataset curation and splitting
-Code used to generates the datasets and splits for this work can be found in the jupyter notebooks in `generate_dataset_splits`.
+Code used to generates the datasets and splits for this work can be found in the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits).
 
 The outputs from these notebooks include the complete datasets found in `processed_data` and the train and test splits found in `splits`.
 
