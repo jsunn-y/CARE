@@ -39,7 +39,7 @@ Processed datasets/splits should should be downloaded from [here](link) to repla
 
 The table below summarizes which files should be used for each train-test split described in the work.
 
-| Task | Split |Train File | Test File | Other Train Files |
+| Task | Split |Train File | Test File | Optional Train Files |
 |:--------|:-------:|:-------:|:-------:|:-------:|
 | Task 1 | <30% Identity | `protein_train.csv` | `30_protein_test.csv` | `reaction2EC.csv` `text2EC.csv`|
 |  | 30-50% Identity | `protein_train.csv` | `30-50_protein_test.csv` | `reaction2EC.csv` `text2EC.csv`|
@@ -48,7 +48,7 @@ The table below summarizes which files should be used for each train-test split 
 |  | Misclassified (Price) | `protein_train.csv` | `price_protein_test.csv` | `reaction2EC.csv` `text2EC.csv`|
 |  | Promiscuous | `protein_train.csv` | `promiscuous_protein_test.csv` | `reaction2EC.csv` `text2EC.csv`|
 
-| Task | Split |Train File | Test File |  Other Train Files |
+| Task | Split |Train File | Test File |  Optional Train Files |
 |:--------|:-------:|:-------:|:-------:|:-------:| 
 | Task 2 |  Easy | `easy_reaction_train.csv` | `easy_reaction_test.csv` | `protein2EC.csv` `text2EC.csv`|
 |  | Medium | `medium_reaction_train.csv` | `medium_reaction_test.csv` |  `protein2EC.csv` `text2EC.csv`|
