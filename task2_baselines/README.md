@@ -13,7 +13,10 @@ Refer to each model below for details on their specific implementation:
 
 ### Similarity Baseline
 2. Extract fingerprints using DRFP in `task2_baselines/get_drfp.ipynb`
-3. Run `example.sh` to perform a similarity search
+3. Run `Similarity/example.sh` to perform a similarity search, for example:
+```
+python downstream_retrieval.py --pretrained_folder=Similarity/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=reaction --reference_modality=reaction
+```
 
 ### CREEP
 Contrastive Reaction-EnzymE Pretraining (CREEP)
