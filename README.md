@@ -7,7 +7,9 @@ If you are only interested in using the datasets and train-test splits in CARE, 
 ```
 git clone https://github.com/jsunn-y/CARE/
 cd CARE
+```
 
+```
 #for CARE dataset generation, splitting, BLAST, visualization
 #only install this environment if you want to reproduce the steps used to generate the datasets and splits in this work
 conda create -n CARE_processing python=3.8 -y
@@ -16,7 +18,9 @@ conda install -c rdkit rdkit=2020.03.3 -y
 conda install -c conda-forge -c bioconda mmseqs2
 pip install scipy pandas seaborn npysearch
 pip install seaborn
+```
 
+```
 #for CREEP model training and inference
 #only install this environment if you would like to run training and inference with CREEP
 cd CREEP
@@ -26,9 +30,10 @@ conda activate CREEP
 pip install pandas torch==2.2.0 transformers==4.39.1 sentencepiece
 pip install -e .
 #pip install lxml #doesn't look like you need this
-
-#instructions for CARE benchmarking using other packages is provided in more detail in the sections below
 ```
+
+Instructions for CARE benchmarking using other packages is provided in more detail in the sections below.
+
 ## Datasets and splits
 Processed datasets/splits should should be downloaded from [here](link) to replace the empty folders `processed_data` and `splits`, respectively. Note that in the full datasets and train sets, every row represents a unique protein-EC pair, or a unique reaction-EC pair. In the test sets, every row is also a unique protein-EC or reaction-EC pair, but for the promiscuous test set, each row maps a protein seqeunce to a list of corresponding ECs.
 
