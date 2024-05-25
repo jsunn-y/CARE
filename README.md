@@ -30,11 +30,23 @@ pip install -e .
 ## Dataset curation and splitting
 Code used to generates the datasets and splits for this work can be found in the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits).
 
-The outputs from these notebooks include the complete datasets found in `processed_data` and the train and test splits found in `splits`.
+The outputs from these notebooks include the complete datasets found in `processed_data` and the train and test splits found in `splits`. The processed datasets/split should should be downloaded from [here](link) to replace the empty folders `processed_data` and `splits`, respectively. 
 
 The table below summarizes which files should be used for each train-test split described in the work.
 
-## Benchmarking
+| Task | Split |Train File | Test File |
+|:-------|:-------:|:-------:|:-------:|
+| Task 1 | Training Set | `datasetA_imputed_all.csv` `datasetAX_desc.csv` `datasetAX_fing.csv`| None | 
+| | 1 million screening | `datasetB.csv` | `datasetBX_fing.csv` |
+|  | 8 million screening | `datasetC_0.csv` | `datasetC_1-8.csv` `datasetCX_fing_0-8.csv` |
+|  | 1 thousand screening | `datasetD.csv` `datasetDX_fing.csv` | None |
+|:-------|:-------:|:-------:|:-------:|
+| Task 2 | Training Set | `datasetA_imputed_all.csv` `datasetAX_desc.csv` `datasetAX_fing.csv`| None | 
+|  | 1 million screening | `datasetB.csv` | `datasetBX_fing.csv` |
+| | 8 million screening | `datasetC_0.csv` | `datasetC_1-8.csv` `datasetCX_fing_0-8.csv` |
+|  | 1 thousand screening | `datasetD.csv` `datasetDX_fing.csv` | None |
+
+## Performance Evaluation
 Accuracy metrics for benchmarking can be obtained and visualized using `analysis.ipynb`. Required format for analysis of one baseline is a csv file where each row is part of the test set, and each row is associated with a ranking of EC numbers ranked from best to worst. An example of this file is: 
 
 Accuracy analysis can be performed in most environments with minimal packages. Additional performance metrics besides k=1 accuracy from the paper can be found in this notebook. 
