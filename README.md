@@ -23,6 +23,7 @@ pip install seaborn
 cd CREEP
 conda create -n CREEP python=3.8
 conda activate CREEP
+#we recommend installing this way so that torch is compatible with your GPU and your version of CUDA
 pip install pandas torch==2.2.0 transformers==4.39.1 sentencepiece
 pip install -e .
 #pip install lxml #doesn't look like you need this
@@ -54,8 +55,8 @@ After training, performance metrics for benchmarking can be obtained using `anal
 Performance analysis can be performed in most environments with minimal packages. The standard performance metric is k=1 classification/retrieval accuracy, but we also provide code to calculate other metrics in this notebook. 
 
 ## Baselines for task 1 (protein to EC/reaction classification)
-Detailed recommendations for benchmarking on Task 1 can be found [here](task1_baselines).
+Detailed instructions for reproducing our baselines on Task 1 and general recommendations for benchmarking on Task 1 can be found [here](task1_baselines).
 
 ## Baselines for task 2 (reaction to EC/protein retrieval)
 
-Detailed instructions and recommendations for benchmarking on Task 2 can be found [here](task2_baselines).
+Detailed instructions for reproducing our baselines on Task 2 and general recommendations for benchmarking on Task 2 can be found [here](task2_baselines).
