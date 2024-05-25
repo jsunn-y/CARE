@@ -194,7 +194,7 @@ if __name__ == "__main__":
     parser.add_argument("--num_workers", type=int, default=0)
     parser.add_argument("--SSL_emb_dim", type=int, default=256)
     parser.add_argument("--dataset_path", type=str, default='../../processed_data/')
-    parser.add_argument("--train_split", type=str, default='easy_reaction_train', choices=['easy_reaction_train', 'medium_reaction_train', 'hard_reaction_train'])
+    parser.add_argument("--train_split", type=str, default='easy_reaction_train', choices=['easy_reaction_train', 'medium_reaction_train', 'hard_reaction_train', 'reaction2EC'])
     parser.add_argument("--protein_backbone_model", type=str, default="ProtT5", choices=["ProtT5"])
     parser.add_argument("--text_backbone_model", type=str, default="SciBERT")
     parser.add_argument("--reaction_backbone_model", type=str, default="rxnfp")
