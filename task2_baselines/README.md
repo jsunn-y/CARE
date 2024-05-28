@@ -44,25 +44,22 @@ python step_02_extract_CREEP.py --pretrained_folder=easy_split --dataset=easy_re
 ```
 Representations will be svaed in the output directory under `representations`.
 
-3. Run the retrieval similarity search:
-Go back a folder (retrieval similarity search can be run on any representations that are formatted in the same way as those from CREEP step 2.
+3. Go back a folder and run the retrieval similarity search:
 ```
 python downstream_retrieval.py --pretrained_folder=CREEP/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=reaction --reference_modality=protein
 python downstream_retrieval.py --pretrained_folder=CREEP/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=text --reference_modality=protein
 ```
-The outputs will be saved under `retrieval_results`.
+The outputs will similarly be saved under `retrieval_results` and can be further analyzed in `performance_evaluation.ipynb`.
 
 ### CLIPZyme
-First process the data and download the necessary protein structures from the AF database. Optionally retrain the model using sequences clustered at 50% sequence identity.
-
-Extract and process the representations of reaction and protein modalities into the same format as CREEP using `inference.ipynb`.
-
-Then run the retrieval similarity search form `task2_baselines`
+ 1. Currently retraining is not availalbe, but will be added soon.
+ 2. First process protein sequences and reactions into the correct format using `CLIPZyme/step01_preparation.ipynb`. Then retrieve structures from the AF database and extract and process the representations of proteins and reactions.
+ 3. Go back a folder and run the retrieval similarity search (commands also provided in `ClIPZyme/example.sh` :
 ```
 python downstream_retrieval.py --pretrained_folder=CLIPZyme/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=reaction --reference_modality=protein
 ```
-The outputs will similarly be saved under `retrieval_results` and can be further analyzed and visualized in `retrieval_analysis_metrics.ipynb`.
 
+The outputs will similarly be saved under `retrieval_results` and can be further analyzed in `performance_evaluation.ipynb`.
 ### Chemcrow
 
 ```pip install paperscraper```
