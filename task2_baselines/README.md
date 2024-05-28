@@ -12,6 +12,8 @@ Alternatively, these results can be reproduced at a high level by following thes
 Refer to each model below for details on their specific implementation:
 
 ### Similarity Baseline
+Reaction representations using in the Similarity Baseline are found in `Similarity`.
+
 2. Extract fingerprints using DRFP in `task2_baselines/get_drfp.ipynb`
 3. Run `Similarity/example.sh` to perform a similarity search, for example:
 ```
@@ -21,6 +23,7 @@ The outputs will similarly be saved under retrieval_results and can be further a
 
 ### CREEP
 Contrastive Reaction-EnzymE Pretraining (CREEP)
+Outputs from model training and inference in our study are found in `CREEP`.
 
 All of the terminal commands needed to run the scripts are provided in `CREEP/example.sh`, but an example is also provided here for convenience.
 
@@ -53,7 +56,8 @@ python downstream_retrieval.py --pretrained_folder=CREEP/output/easy_split --que
 The outputs will similarly be saved under `retrieval_results` and can be further analyzed in `performance_evaluation.ipynb`.
 
 ### CLIPZyme
-Running CLIPZyme requires installing the [CLIPZyme package](https://github.com/pgmikhael/clipzyme).
+Outputs from model inference in our study are found in `CLIPZyme`. Running CLIPZyme requires installing the [CLIPZyme package](https://github.com/pgmikhael/clipzyme).
+
  1. Currently retraining is not availalbe, but will be added soon.
  2. First process protein sequences and reactions into the correct format using `CLIPZyme/step01_preparation.ipynb`. Then retrieve structures from the AF database and extract and process the representations of proteins and reactions using `CLIPZyme/step02_extraction.ipynb`.
  3. Go back a folder and run the retrieval similarity search (commands also provided in `ClIPZyme/example.sh` :
