@@ -53,8 +53,9 @@ python downstream_retrieval.py --pretrained_folder=CREEP/output/easy_split --que
 The outputs will similarly be saved under `retrieval_results` and can be further analyzed in `performance_evaluation.ipynb`.
 
 ### CLIPZyme
+Running CLIPZyme requires installing the [CLIPZyme package](https://github.com/pgmikhael/clipzyme).
  1. Currently retraining is not availalbe, but will be added soon.
- 2. First process protein sequences and reactions into the correct format using `CLIPZyme/step01_preparation.ipynb`. Then retrieve structures from the AF database and extract and process the representations of proteins and reactions.
+ 2. First process protein sequences and reactions into the correct format using `CLIPZyme/step01_preparation.ipynb`. Then retrieve structures from the AF database and extract and process the representations of proteins and reactions using `CLIPZyme/step02_extraction.ipynb`.
  3. Go back a folder and run the retrieval similarity search (commands also provided in `ClIPZyme/example.sh` :
 ```
 python downstream_retrieval.py --pretrained_folder=CLIPZyme/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=reaction --reference_modality=protein
