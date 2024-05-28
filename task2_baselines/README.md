@@ -17,6 +17,7 @@ Refer to each model below for details on their specific implementation:
 ```
 python downstream_retrieval.py --pretrained_folder=Similarity/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=reaction --reference_modality=reaction
 ```
+The outputs will similarly be saved under retrieval_results and can be further analyzed in performance_evaluation.ipynb.
 
 ### CREEP
 Contrastive Reaction-EnzymE Pretraining (CREEP)
