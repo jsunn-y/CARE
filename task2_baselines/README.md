@@ -12,7 +12,7 @@ Alternatively, these results can be reproduced at a high level by following thes
 Refer to each model below for details on their specific implementation:
 
 ### Similarity Baseline
-Reaction representations using in the Similarity Baseline are found in `Similarity`.
+Reaction representations used in the Similarity Baseline are found in `Similarity`.
 
 2. Extract fingerprints using DRFP in `task2_baselines/get_drfp.ipynb`
 3. Run `Similarity/example.sh` to perform a similarity search, for example:
