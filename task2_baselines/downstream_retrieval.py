@@ -32,7 +32,7 @@ import pandas as pd
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--query_dataset", type=str, choices=['easy_reaction_test', 'medium_reaction_test', 'hard_reaction_test'])
+    parser.add_argument("--query_dataset", type=str, choices=['easy_reaction_test', 'medium_reaction_test', 'hard_reaction_test', 'bioremediation_reaction_test'])
     parser.add_argument("--reference_dataset", type=str, default='all_ECs', choices=['all_ECs', 'all_proteins', 'all_reactions'])
 
     parser.add_argument("-k", type=int, default=10) #number to evaluate

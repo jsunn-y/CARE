@@ -13,6 +13,12 @@ CREEP/data/pretrained_ProtT5/
 CREEP/data/pretrained_SciBert/
 task2_baselines/CREEP/output/
 task1_baselines/BLAST/data/
+task2_baselines/bioremediation_test.ipynb
+splits/task2/bioremediation_reaction_test.csv
+task2_baselines/Similarity/output/bioremediation_split/
+task2_baselines/CREEP/output/bioremediation_split
+task2_baselines/results_summary/CREEP/bioremediation_reaction_test_results_df.csv
+task2_baselines/results_summary/Similarity/bioremediation_reaction_test_results_df.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
