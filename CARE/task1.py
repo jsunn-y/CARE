@@ -26,7 +26,7 @@ from sciutil import SciUtil
 from processing import *
 import npysearch as npy
 from openai import OpenAI
-
+from collections import defaultdict
 
 u = SciUtil()
 seed=42
@@ -179,8 +179,8 @@ class Task1:
         return pd.read_csv(os.path.join(self.data_folder, f'{label}_protein_test.csv'))
 
     def get_test_fasta(self, label: str):
-        if label not in ['train', '30', '30-50', 'price', 'promiscuous']:
-            print(f'{label} not a valid dataset select one of ' + ' '.join(['30', '30-50', 'price', 'promiscuous']))
+        if label not in ['train', '30', '30-50', '50-70', '70-90', 'price', 'promiscuous']:
+            print(f'{label} not a valid dataset select one of ' + ' '.join(['30', '30-50', '50-70', '70-90', 'price', 'promiscuous']))
             return None
         else:
             print(os.path.join(self.data_folder, f'{label}_protein_test.fasta'))
@@ -188,11 +188,21 @@ class Task1:
 
     def get_uniprot2ec(self):
         df = pd.read_csv(os.path.join(self.data_folder, 'protein2EC.csv'))
-        return dict(zip(df['Entry'], df['EC number']))
+        entry_to_ec = defaultdict(list)
+        for entry, ec in df[['Entry', 'EC number']].values:
+            entry_to_ec[entry].append(ec)
+        for entry, ecs in entry_to_ec.items():
+            entry_to_ec[entry] = ';'.join(ecs)
+        return entry_to_ec
     
     def get_price2ec(self):
         df = pd.read_csv(os.path.join(self.data_folder, 'price_protein_test.csv'))
-        return dict(zip(df['Entry'], df['EC number']))
+        entry_to_ec = defaultdict(list)
+        for entry, ec in df[['Entry', 'EC number']].values:
+            entry_to_ec[entry].append(ec)
+        for entry, ecs in entry_to_ec.items():
+            entry_to_ec[entry] = ';'.join(ecs)
+        return entry_to_ec
 
     def get_ChatGPT(self, test_label, n=10, save=False, api_key=None, subsample=None, run_tag=''):
         """
