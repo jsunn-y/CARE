@@ -332,7 +332,9 @@ class Task1:
         entry_to_seq = dict(zip(test_df['Entry'], test_df['Sequence']))
 
         for query in test_df['Entry'].values:
-            try:
+            if query not in results['sequence_name'].values:
+                rows.append([query, entry_to_ec.get(query), entry_to_seq.get(query), None])
+            else:
                 grp = grped.get_group(query)
                 # Get all possible ECs
                 true_ec = ';'.join(set([ec for ec in grp['true_ecs'].values]))
@@ -344,11 +346,9 @@ class Task1:
                 if len(list(grp['predicted_ecs'].values)) > max_ecs:
                     max_ecs = len(list(grp['predicted_ecs'].values))
                 if len(list(grp['predicted_ecs'].values)) == 0:
-                    rows.append([query, true_ec, '', None])
+                    rows.append([query, true_ec, entry_to_seq.get(query), None])
                 else:
-                    rows.append([query, true_ec, ''] + list(grp['predicted_ecs'].values))
-            except:
-                rows.append([query, entry_to_ec[query], entry_to_seq[query]])
+                    rows.append([query, entry_to_ec.get(query), entry_to_seq.get(query)] + list(grp['predicted_ecs'].values))
 
         new_df = pd.DataFrame(rows)
         new_df.columns = ['Entry', 'EC number', 'Sequence'] + list(range(0, max_ecs))
