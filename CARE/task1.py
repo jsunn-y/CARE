@@ -102,7 +102,10 @@ def split(swissprot: pd.DataFrame, price_filepath: str, output_folder: str):
     """
     Generate the test and training splits for the dataset
     """
+    # First save the entirety of the protein file to the output folder as they will use this to map EC numbers
+    swissprot.to_csv(os.path.join(output_folder, 'protein2EC.csv'), index=False)
 
+    # Then check which ECs have dups.
     swissprot['Duplicated clusterRes30'] = swissprot['clusterRes30'].duplicated(keep=False)
     swissprot['Duplicated clusterRes50'] = swissprot['clusterRes50'].duplicated(keep=False)
     swissprot['Duplicated clusterRes70'] = swissprot['clusterRes70'].duplicated(keep=False)
