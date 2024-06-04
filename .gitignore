@@ -19,6 +19,7 @@ task2_baselines/Similarity/output/bioremediation_split/
 task2_baselines/CREEP/output/bioremediation_split
 task2_baselines/results_summary/CREEP/bioremediation_reaction_test_results_df.csv
 task2_baselines/results_summary/Similarity/bioremediation_reaction_test_results_df.csv
+generate_datasets_splits/data/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
