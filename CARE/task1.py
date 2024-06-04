@@ -18,11 +18,15 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION         #
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.               #
 #################################################################################
+
 import pandas as pd
 import numpy as np
 import random
 from sciutil import SciUtil
 from processing import *
+import npysearch as npy
+import subprocess
+
 
 u = SciUtil()
 seed=42
@@ -50,7 +54,7 @@ def get_difference_level(predicted_ECs):
             counters.append(4 - counter)
     return np.max(counters)
 
-def make_cluster_split(df: pd.DataFrame, cluster_column_name: str, ec_column_name: str):
+def make_cluster_split(df: pd.DataFrame, cluster_column_name: str, ec_column_name: str, entries_to_omit = None):
     """
     Take a sample of sequences with a certain clustering identity from the dataframe. 
 
@@ -58,10 +62,12 @@ def make_cluster_split(df: pd.DataFrame, cluster_column_name: str, ec_column_nam
     """
     np.random.seed(seed)
     random.seed(seed)
-    train_isolated = df[df['Duplicated clusterRes30'] == False]
-    train_isolated = train_isolated[train_isolated['Duplicated EC'] == True]
+    train_isolated = df[df[cluster_column_name] == False]
+    train_isolated = train_isolated[train_isolated[ec_column_name] == True]
     # Make a validation set that is completely held out.
-
+    # If we have entries to omit remove those (i.e. clusters from the previous ones)
+    if entries_to_omit is not None:
+        train_isolated = train_isolated[~train_isolated['Entry'].isin(entries_to_omit)]
     #sample a random one from each unique EC at level 3 for validation (i.e. not in training or the larger test set)
     validation = train_isolated.groupby('EC3').sample(1)
     u.dp([cluster_column_name, 'Training: ', len(train_isolated), 'Validation:', len(validation)])
@@ -96,16 +102,23 @@ def split(swissprot: pd.DataFrame, price_filepath: str, output_folder: str):
     """
     Generate the test and training splits for the dataset
     """
+
     swissprot['Duplicated clusterRes30'] = swissprot['clusterRes30'].duplicated(keep=False)
     swissprot['Duplicated clusterRes50'] = swissprot['clusterRes50'].duplicated(keep=False)
+    swissprot['Duplicated clusterRes70'] = swissprot['clusterRes70'].duplicated(keep=False)
+    swissprot['Duplicated clusterRes90'] = swissprot['clusterRes90'].duplicated(keep=False)
+
     swissprot['Duplicated EC'] = swissprot['EC number'].duplicated(keep=False)
     swissprot['Promiscuous'] = swissprot['Sequence'].duplicated(keep=False)
     not_promiscuous = swissprot[~swissprot['Promiscuous']]
 
     validation_30 = make_cluster_split(not_promiscuous, 'Duplicated clusterRes30', 'Duplicated EC')
-    validation_50 = make_cluster_split(not_promiscuous, 'Duplicated clusterRes50', 'Duplicated EC')
-    validation_70 = make_cluster_split(not_promiscuous, 'Duplicated clusterRes70', 'Duplicated EC')
-    validation_90 = make_cluster_split(not_promiscuous, 'Duplicated clusterRes90', 'Duplicated EC')
+    entries_to_omit = list(validation_30['Entry'].values)
+    validation_50 = make_cluster_split(not_promiscuous, 'Duplicated clusterRes50', 'Duplicated EC', entries_to_omit)
+    entries_to_omit += list(validation_50['Entry'].values)
+    validation_70 = make_cluster_split(not_promiscuous, 'Duplicated clusterRes70', 'Duplicated EC', entries_to_omit)
+    entries_to_omit += list(validation_70['Entry'].values)
+    validation_90 = make_cluster_split(not_promiscuous, 'Duplicated clusterRes90', 'Duplicated EC', entries_to_omit)
 
     promiscuous = make_promiscous_split(swissprot)
 
@@ -136,10 +149,201 @@ def split(swissprot: pd.DataFrame, price_filepath: str, output_folder: str):
         print(len(split))
 
     # Save all as fasta files as well
-    make_fasta(validation_30, f'{output_folder}validation_30.fasta')
-    make_fasta(validation_50, f'{output_folder}validation_50.fasta')
-    make_fasta(validation_70, f'{output_folder}validation_70.fasta')
-    make_fasta(validation_90, f'{output_folder}validation_90.fasta')
-    make_fasta(price, f'{output_folder}price.fasta')
-    make_fasta(promiscuous, f'{output_folder}promiscuous.fasta')
+    make_fasta(train_swissprot, f'{output_folder}protein_train.fasta')
+    make_fasta(validation_30, f'{output_folder}30_protein_test.fasta')
+    make_fasta(validation_50, f'{output_folder}30-50_protein_test.fasta')
+    make_fasta(validation_70, f'{output_folder}50-70_protein_test.fasta')
+    make_fasta(validation_90, f'{output_folder}70-90_protein_test.fasta')
+    make_fasta(price, f'{output_folder}price_protein_test.fasta')
+    make_fasta(promiscuous, f'{output_folder}promiscuous_protein_test.fasta')
 
+# ----------------------------------------------------------------------------------
+#                   Class that calls each tool.
+# ----------------------------------------------------------------------------------
+class Task1:
+
+    def __init__(self, data_folder, output_folder):
+        self.data_folder = data_folder
+        self.output_folder = output_folder
+
+    def get_train_fasta(self):
+        return os.path.join(self.data_folder, 'protein_train.fasta')
+    
+    def get_train_df(self):
+        return pd.read_csv(os.path.join(self.data_folder, f'protein_train.csv'))
+    
+    def get_test_df(self, label):
+        return pd.read_csv(os.path.join(self.data_folder, f'{label}_protein_test.csv'))
+
+    def get_test_fasta(self, label: str):
+        if label not in ['train', '30', '30-50', 'price', 'promiscuous']:
+            print(f'{label} not a valid dataset select one of ' + ' '.join(['30', '30-50', 'price', 'promiscuous']))
+            return None
+        else:
+            print(os.path.join(self.data_folder, f'{label}_protein_test.fasta'))
+            return os.path.join(self.data_folder, f'{label}_protein_test.fasta')
+
+    def get_uniprot2ec(self):
+        df = pd.read_csv(os.path.join(self.data_folder, 'protein2EC.csv'))
+        return dict(zip(df['Entry'], df['EC number']))
+    
+    def get_price2ec(self):
+        df = pd.read_csv(os.path.join(self.data_folder, 'price_protein_test.csv'))
+        return dict(zip(df['Entry'], df['EC number']))
+
+    def get_ChatGPT(self, test_label, n=10, save=False, api_key=None):
+        """
+        Gets the results for a series of ECs and formats it correctly for the paper
+        """
+        client = OpenAI(api_key=api_key)
+        df = self.get_test_df(test_label)
+        rows = []
+        for entry, true_ec, seq in df[['Entry', 'EC number', 'Sequence']].values:
+            text = f"Return the top {n} most likely EC numbers as a comma separated list for this enzyme sequence: {seq}"
+
+            completion = client.chat.completions.create(
+                model='gpt-4',
+                messages=[
+                    {"role": "system",
+                    "content": 
+                    "You are protein engineer capable of predicting EC numbers from a protein seqeunce alone."
+                    + "You are also a skilled programmer and able to execute the code necessary to predict an EC number when you can't use reason alone." 
+                    + "Given a protein sequence you are able to determine the most likely enzyme class for a seqeunce." 
+                    + "You don't give up when faced with a sequence you don't know, you will use tools to resolve the most likely enzyme sequence."
+                    + "You only return enzyme commission numbers in a comma separated list, no other text is returned, you have failed if you do "
+                    + " not return the EC numbers. You only return the exact number of EC numbers that a user has provided requested, ordered by their likelihood of being correct."},
+                    {"role": "user", "content": text}
+                ]
+            )
+            preds = completion.choices[0].message.content.replace(" ", "").split(',')
+            for p in preds:
+                rows.append([entry, true_ec, p, seq]) # Costs you ~1c per query
+        results = pd.DataFrame(rows)
+        results.columns = ['entry',  'true_ecs', 'predicted_ecs', 'seq']
+        grped = results.groupby('entry')
+        max_ecs = 0
+        rows = []
+        for query, grp in grped:
+            # Always will be the same for the grouped 
+            true_ec = ';'.join([c for c in grp['true_ecs'].values])
+            seq = grp['seq'].values[0] # Only returns one sequence when there could be multiple
+            # Filter to only include rows which were not null
+            grp = grp[~grp['predicted_ecs'].isna()]
+            grp = grp[grp['predicted_ecs'] != 'None']
+            grp = grp.sort_values(by='predicted_ecs', ascending=False)
+
+            if len(list(grp['predicted_ecs'].values)) > max_ecs:
+                max_ecs = len(list(grp['predicted_ecs'].values))
+            if len(list(grp['predicted_ecs'].values)) == 0:
+                rows.append([query, true_ec, seq, ''])
+            else:
+                rows.append([query, true_ec, seq] + list(grp['predicted_ecs'].values))
+        new_df = pd.DataFrame(rows)
+        new_df.columns = ['Entry', 'EC number', 'Sequence'] + list(range(0, max_ecs))
+
+        # Save to a file in the default location
+        if save:
+            new_df.to_csv(os.path.join(self.output_folder, f'{test_label}_protein_test_results_df.csv'), index=False)
+        return new_df
+    
+    
+    def get_blast(self, test_label, num_ecs=1, min_identity=0.1, save=False):
+        """
+        Gets the results for blast for a series of ECs and formats it correctly for the paper
+        """
+        # Lets also look at the protein our query is the query genome and our database is going to be ecoli.
+        
+        results_prot = npy.blast(query=self.get_test_fasta(test_label),
+                                database=self.get_train_fasta(),
+                                minIdentity=min_identity,
+                                maxAccepts=num_ecs,
+                                alphabet="protein")
+        results = pd.DataFrame(results_prot)  # Convert this into a dataframe so that we can see it more easily
+        results['predicted_ecs'] = results['TargetId'].map(self.get_uniprot2ec())
+        if test_label == 'price':
+            results['true_ecs'] = results['QueryId'].map(self.get_price2ec())
+        else:
+            results['true_ecs'] = results['QueryId'].map(self.get_uniprot2ec())
+        grped = results.groupby('QueryId')
+        rows = []
+        # Get the raw test set and then build the new dataset based on that! 
+        # Get the raw test set and then build the new dataset based on that! 
+        test_df = self.get_test_df(test_label)
+        # Now we want to iterate through and get the predicted EC numbers
+        entry_to_ec = dict(zip(test_df['Entry'], test_df['EC number']))
+        entry_to_seq = dict(zip(test_df['Entry'], test_df['Sequence']))
+
+        for query in test_df['Entry'].values:
+            try:
+                grp = grped.get_group(query)
+                # Get all the ECs for all the seqs and join them!
+                true_ec = ';'.join(set([ec for ec in grp['true_ecs'].values]))
+                rows.append([query, true_ec, grp['QueryMatchSeq'].values[0]] + list(grp['predicted_ecs'].values))
+            except:
+                u.warn_p([query, f'Had no sequences within {min_identity}.'])
+                rows.append([query, entry_to_ec[query], entry_to_seq[query]])
+
+        new_df = pd.DataFrame(rows)
+        new_df.columns = ['Entry', 'EC number', 'Sequence'] + list(range(0, num_ecs))
+        
+        # Save to a file in the default location
+        if save:
+            new_df.to_csv(os.path.join(self.output_folder, f'{test_label}_protein_test_results_df.csv'), index=False)
+        return new_df
+    
+
+    def get_proteinfer(self, test_label, proteinfer_dir: str, save=False):
+        """
+        Gets the results for a series of ECs and formats it correctly for the paper
+        """
+        # Run proteInfer NOTE! Must have ProteInfer environment already made
+        u.dp(['Warning! You must already have the proteInfer environment made'])
+
+        output_file = os.path.join(self.output_folder, test_label + "_proteInfer.tsv")
+        cwd = os.getcwd()
+        # Change to proteinfer dir to execute it
+        os.chdir(proteinfer_dir)
+        os.system(f'conda run -n proteinfer python3 {proteinfer_dir}proteinfer.py -i {self.get_test_fasta(test_label)} -o {output_file}')
+        os.chdir(cwd)
+
+        results = pd.read_csv(output_file, sep='\t')
+        results['predicted_ecs'] = [ec.split(':')[1] if 'EC:' in ec else 'None' for ec in results['predicted_label'].values]
+        if test_label == 'price':
+            results['true_ecs'] = results['sequence_name'].map(self.get_price2ec())
+        else:
+            results['true_ecs'] = results['sequence_name'].map(self.get_uniprot2ec())
+
+        grped = results.groupby('sequence_name')
+        max_ecs = 0
+        rows = []
+        # Get the raw test set and then build the new dataset based on that! 
+        test_df = self.get_test_df(test_label)
+        # Now we want to iterate through and get the predicted EC numbers
+        entry_to_ec = dict(zip(test_df['Entry'], test_df['EC number']))
+        entry_to_seq = dict(zip(test_df['Entry'], test_df['Sequence']))
+
+        for query in test_df['Entry'].values:
+            try:
+                grp = grped.get_group(query)
+                # Get all possible ECs
+                true_ec = ';'.join(set([ec for ec in grp['true_ecs'].values]))
+                # Filter to only include rows which were not null
+                grp = grp[~grp['predicted_ecs'].isna()]
+                grp = grp[grp['predicted_ecs'] != 'None']
+                grp = grp.sort_values(by='predicted_ecs', ascending=False)
+
+                if len(list(grp['predicted_ecs'].values)) > max_ecs:
+                    max_ecs = len(list(grp['predicted_ecs'].values))
+                if len(list(grp['predicted_ecs'].values)) == 0:
+                    rows.append([query, true_ec, '', None])
+                else:
+                    rows.append([query, true_ec, ''] + list(grp['predicted_ecs'].values))
+            except:
+                rows.append([query, entry_to_ec[query], entry_to_seq[query]])
+
+        new_df = pd.DataFrame(rows)
+        new_df.columns = ['Entry', 'EC number', 'Sequence'] + list(range(0, max_ecs))
+
+        if save:
+            new_df.to_csv(os.path.join(self.output_folder, f'{test_label}_protein_test_results_df.csv'), index=False)
+        return new_df

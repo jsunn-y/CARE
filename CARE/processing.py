@@ -31,20 +31,25 @@ def process_data(uniprot_path: str, ec_react_path: str, enzymemap_path: str, ec2
     protein_df = process_uniprot(uniprot_path)
     reaction_df = process_reactions(ec_react_path, enzymemap_path)
     reaction_df, protein_df = filter_for_overlapping_EC(protein_df, reaction_df)
+
     # Make fasta file, and save to the output dir
     make_fasta(protein_df, f'{output_dir}protein.fasta')
+
     cluster_mmseqs(f'{output_dir}protein.fasta', f'{output_dir}clusterRes30', cluster_resolution=0.3)
     cluster_mmseqs(f'{output_dir}protein.fasta', f'{output_dir}clusterRes50', cluster_resolution=0.5)
-    cluster_mmseqs(f'{output_dir}protein.fasta', f'{output_dir}clusterRes50', cluster_resolution=0.7)
+    cluster_mmseqs(f'{output_dir}protein.fasta', f'{output_dir}clusterRes70', cluster_resolution=0.7)
     cluster_mmseqs(f'{output_dir}protein.fasta', f'{output_dir}clusterRes90', cluster_resolution=0.9)
+
     df_30 = process_mmseqs_clustering(f'{output_dir}clusterRes30_cluster.tsv', name=f'clusterRes30')
     df_50 = process_mmseqs_clustering(f'{output_dir}clusterRes50_cluster.tsv', name=f'clusterRes50')
-    df_70 = process_mmseqs_clustering(f'{output_dir}clusterRes50_cluster.tsv', name=f'clusterRes70')
+    df_70 = process_mmseqs_clustering(f'{output_dir}clusterRes70_cluster.tsv', name=f'clusterRes70')
     df_90 = process_mmseqs_clustering(f'{output_dir}clusterRes90_cluster.tsv', name=f'clusterRes90')
+
     protein_df = pd.merge(protein_df, df_30, on='Entry', how='left')
     protein_df = pd.merge(protein_df, df_50, on='Entry', how='left')
     protein_df = pd.merge(protein_df, df_70, on='Entry', how='left')
     protein_df = pd.merge(protein_df, df_90, on='Entry', how='left')
+
     protein_df['EC3'] = protein_df['EC number'].str.split('.').str[:3].str.join('.')
     protein_df['EC2'] = protein_df['EC number'].str.split('.').str[:2].str.join('.')
     protein_df['EC1'] = protein_df['EC number'].str.split('.').str[:1].str.join('.')
