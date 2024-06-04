@@ -259,6 +259,8 @@ class Task1:
         # Save to a file in the default location
         if save:
             new_df.to_csv(os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv'), index=False)
+            u.dp(["Done: ", test_label, "\nSaved to:", os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv')])
+
         return new_df
     
     
@@ -306,6 +308,7 @@ class Task1:
         # Save to a file in the default location
         if save:
             new_df.to_csv(os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv'), index=False)
+            u.dp(["Done: ", test_label, "\nSaved to:", os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv')])
         return new_df
     
 
@@ -364,4 +367,6 @@ class Task1:
 
         if save:
             new_df.to_csv(os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv'), index=False)
+            u.dp(["Done: ", test_label, "\nSaved to:", os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv')])
+
         return new_df
