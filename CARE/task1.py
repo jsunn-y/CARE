@@ -194,7 +194,7 @@ class Task1:
         df = pd.read_csv(os.path.join(self.data_folder, 'price_protein_test.csv'))
         return dict(zip(df['Entry'], df['EC number']))
 
-    def get_ChatGPT(self, test_label, n=10, save=False, api_key=None, subsample=None):
+    def get_ChatGPT(self, test_label, n=10, save=False, api_key=None, subsample=None, run_tag=''):
         """
         Gets the results for a series of ECs and formats it correctly for the paper
         """
@@ -228,31 +228,41 @@ class Task1:
         grped = results.groupby('entry')
         max_ecs = 0
         rows = []
-        for query, grp in grped:
-            # Always will be the same for the grouped 
-            true_ec = ';'.join(set([c for c in grp['true_ecs'].values]))
-            seq = grp['seq'].values[0] # Only returns one sequence when there could be multiple
-            # Filter to only include rows which were not null
-            grp = grp[~grp['predicted_ecs'].isna()]
-            grp = grp[grp['predicted_ecs'] != 'None']
-            grp = grp.sort_values(by='predicted_ecs', ascending=False)
+        # Get the raw test set and then build the new dataset based on that! 
+        test_df = self.get_test_df(test_label)
+        # Now we want to iterate through and get the predicted EC numbers
+        entry_to_ec = dict(zip(test_df['Entry'], test_df['EC number']))
+        entry_to_seq = dict(zip(test_df['Entry'], test_df['Sequence']))
 
-            if len(list(grp['predicted_ecs'].values)) > max_ecs:
-                max_ecs = len(list(grp['predicted_ecs'].values))
-            if len(list(grp['predicted_ecs'].values)) == 0:
-                rows.append([query, true_ec, seq, ''])
-            else:
-                rows.append([query, true_ec, seq] + list(grp['predicted_ecs'].values))
+        for query in test_df['Entry'].values:
+            try:
+                grp = grped.get_group(query)
+                # Always will be the same for the grouped 
+                true_ec = ';'.join(set([c for c in grp['true_ecs'].values]))
+                seq = entry_to_seq.get(query) # Only returns one sequence when there could be multiple
+                # Filter to only include rows which were not null
+                grp = grp[~grp['predicted_ecs'].isna()]
+                grp = grp[grp['predicted_ecs'] != 'None']
+                grp = grp.sort_values(by='predicted_ecs', ascending=False)
+
+                if len(list(grp['predicted_ecs'].values)) > max_ecs:
+                    max_ecs = len(list(grp['predicted_ecs'].values))
+                if len(list(grp['predicted_ecs'].values)) == 0:
+                    rows.append([query, true_ec, seq, ''])
+                else:
+                    rows.append([query, true_ec, seq] + list(grp['predicted_ecs'].values))
+            except:
+                u.warn_p([query, ' Had no match from ChatGPT.'])
         new_df = pd.DataFrame(rows)
         new_df.columns = ['Entry', 'EC number', 'Sequence'] + list(range(0, max_ecs))
 
         # Save to a file in the default location
         if save:
-            new_df.to_csv(os.path.join(self.output_folder, f'ChatGPT_{test_label}_protein_test_results_df.csv'), index=False)
+            new_df.to_csv(os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv'), index=False)
         return new_df
     
     
-    def get_blast(self, test_label, num_ecs=1, min_identity=0.1, save=False):
+    def get_blast(self, test_label, num_ecs=1, min_identity=0.1, save=False, run_tag=''):
         """
         Gets the results for blast for a series of ECs and formats it correctly for the paper
         """
@@ -272,7 +282,6 @@ class Task1:
             results['true_ecs'] = results['QueryId'].map(uniprot_to_ec)
         grped = results.groupby('QueryId')
         rows = []
-        # Get the raw test set and then build the new dataset based on that! 
         # Get the raw test set and then build the new dataset based on that! 
         test_df = self.get_test_df(test_label)
         # Now we want to iterate through and get the predicted EC numbers
@@ -296,11 +305,11 @@ class Task1:
         
         # Save to a file in the default location
         if save:
-            new_df.to_csv(os.path.join(self.output_folder, f'BLAST_{test_label}_protein_test_results_df.csv'), index=False)
+            new_df.to_csv(os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv'), index=False)
         return new_df
     
 
-    def get_proteinfer(self, test_label, proteinfer_dir: str, save=False):
+    def get_proteinfer(self, test_label, proteinfer_dir: str, save=False, run_tag=''):
         """
         Gets the results for a series of ECs and formats it correctly for the paper
         """
@@ -354,5 +363,5 @@ class Task1:
         new_df.columns = ['Entry', 'EC number', 'Sequence'] + list(range(0, max_ecs))
 
         if save:
-            new_df.to_csv(os.path.join(self.output_folder, f'ProteInfer_{test_label}_protein_test_results_df.csv'), index=False)
+            new_df.to_csv(os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv'), index=False)
         return new_df
