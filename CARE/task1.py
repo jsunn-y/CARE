@@ -25,7 +25,7 @@ import random
 from sciutil import SciUtil
 from processing import *
 import npysearch as npy
-import subprocess
+from openai import OpenAI
 
 
 u = SciUtil()
@@ -191,12 +191,14 @@ class Task1:
         df = pd.read_csv(os.path.join(self.data_folder, 'price_protein_test.csv'))
         return dict(zip(df['Entry'], df['EC number']))
 
-    def get_ChatGPT(self, test_label, n=10, save=False, api_key=None):
+    def get_ChatGPT(self, test_label, n=10, save=False, api_key=None, subsample=None):
         """
         Gets the results for a series of ECs and formats it correctly for the paper
         """
         client = OpenAI(api_key=api_key)
         df = self.get_test_df(test_label)
+        if subsample is not None: # Just for testing so we don't run too many
+            df = df.sample(subsample)
         rows = []
         for entry, true_ec, seq in df[['Entry', 'EC number', 'Sequence']].values:
             text = f"Return the top {n} most likely EC numbers as a comma separated list for this enzyme sequence: {seq}"
@@ -225,7 +227,7 @@ class Task1:
         rows = []
         for query, grp in grped:
             # Always will be the same for the grouped 
-            true_ec = ';'.join([c for c in grp['true_ecs'].values])
+            true_ec = ';'.join(set([c for c in grp['true_ecs'].values]))
             seq = grp['seq'].values[0] # Only returns one sequence when there could be multiple
             # Filter to only include rows which were not null
             grp = grp[~grp['predicted_ecs'].isna()]
@@ -243,7 +245,7 @@ class Task1:
 
         # Save to a file in the default location
         if save:
-            new_df.to_csv(os.path.join(self.output_folder, f'{test_label}_protein_test_results_df.csv'), index=False)
+            new_df.to_csv(os.path.join(self.output_folder, f'ChatGPT_{test_label}_protein_test_results_df.csv'), index=False)
         return new_df
     
     
@@ -259,11 +261,12 @@ class Task1:
                                 maxAccepts=num_ecs,
                                 alphabet="protein")
         results = pd.DataFrame(results_prot)  # Convert this into a dataframe so that we can see it more easily
-        results['predicted_ecs'] = results['TargetId'].map(self.get_uniprot2ec())
+        uniprot_to_ec = self.get_uniprot2ec()
+        results['predicted_ecs'] = results['TargetId'].map(uniprot_to_ec)
         if test_label == 'price':
             results['true_ecs'] = results['QueryId'].map(self.get_price2ec())
         else:
-            results['true_ecs'] = results['QueryId'].map(self.get_uniprot2ec())
+            results['true_ecs'] = results['QueryId'].map(uniprot_to_ec)
         grped = results.groupby('QueryId')
         rows = []
         # Get the raw test set and then build the new dataset based on that! 
@@ -277,18 +280,20 @@ class Task1:
             try:
                 grp = grped.get_group(query)
                 # Get all the ECs for all the seqs and join them!
-                true_ec = ';'.join(set([ec for ec in grp['true_ecs'].values]))
-                rows.append([query, true_ec, grp['QueryMatchSeq'].values[0]] + list(grp['predicted_ecs'].values))
+                true_ec = ';'.join(set([uniprot_to_ec.get(target) for target in grp['TargetId'].values]))
+                targets = ';'.join([ec for ec in grp['TargetId'].values]) # Also keep track of these just incase
+                # Keep only the closest sequence 
+                rows.append([query, targets, true_ec, grp['QueryMatchSeq'].values[0]] + list(grp['predicted_ecs'].values))
             except:
                 u.warn_p([query, f'Had no sequences within {min_identity}.'])
-                rows.append([query, entry_to_ec[query], entry_to_seq[query]])
+                rows.append([query, '', entry_to_ec[query], entry_to_seq[query]])
 
         new_df = pd.DataFrame(rows)
-        new_df.columns = ['Entry', 'EC number', 'Sequence'] + list(range(0, num_ecs))
+        new_df.columns = ['Entry', 'Similar Enzymes', 'EC number', 'Sequence'] + list(range(0, num_ecs))
         
         # Save to a file in the default location
         if save:
-            new_df.to_csv(os.path.join(self.output_folder, f'{test_label}_protein_test_results_df.csv'), index=False)
+            new_df.to_csv(os.path.join(self.output_folder, f'BLAST_{test_label}_protein_test_results_df.csv'), index=False)
         return new_df
     
 
@@ -304,6 +309,7 @@ class Task1:
         # Change to proteinfer dir to execute it
         os.chdir(proteinfer_dir)
         os.system(f'conda run -n proteinfer python3 {proteinfer_dir}proteinfer.py -i {self.get_test_fasta(test_label)} -o {output_file}')
+        # Change back to cwd
         os.chdir(cwd)
 
         results = pd.read_csv(output_file, sep='\t')
@@ -345,5 +351,5 @@ class Task1:
         new_df.columns = ['Entry', 'EC number', 'Sequence'] + list(range(0, max_ecs))
 
         if save:
-            new_df.to_csv(os.path.join(self.output_folder, f'{test_label}_protein_test_results_df.csv'), index=False)
+            new_df.to_csv(os.path.join(self.output_folder, f'ProteInfer_{test_label}_protein_test_results_df.csv'), index=False)
         return new_df
