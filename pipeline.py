@@ -39,9 +39,9 @@ task2_dir = f'{care_dir}data/task2/'
 
 run_process = False
 run_split = False
-run_blast = False
+run_blast = True
 run_proteinfer = False
-run_random = True
+run_random = False
 run_chatGPT = False
 
 # Process the data

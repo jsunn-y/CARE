@@ -305,6 +305,8 @@ class Task1:
         for query in test_df['Entry'].values:
             try:
                 grp = grped.get_group(query)
+                # Sort by identity i.e. make sure the highest similarity ones are at the top
+                grp = grp.sort_values(by='Identity', ascending=False)
                 # Get all the ECs for all the seqs and join them!
                 true_ec = ';'.join(set([ec for ec in grp['true_ecs'].values]))
                 targets = ';'.join([ec for ec in grp['TargetId'].values]) # Also keep track of these just incase
