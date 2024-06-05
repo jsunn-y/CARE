@@ -38,10 +38,10 @@ task2_dir = f'{care_dir}data/task2/'
 
 run_process = False
 run_split = False
-run_blast = True
-run_proteinfer = True
+run_blast = False
+run_proteinfer = False
 run_random = True
-run_chatGPT = True
+run_chatGPT = False
 
 # Process the data
 if run_process:
@@ -73,7 +73,7 @@ if run_random:
     tasker = Task1(data_folder=task1_dir, output_folder=output_dir)
     for split in ['30', '30-50', 'price', 'promiscuous']:
         # For proteInfer you need to point where it was saved.
-        df = tasker.randomly_assign_EC(split, num_ecs=10, save=True)
+        df = tasker.randomly_assign_EC(split, num_ecs=50, save=True)
         u.dp([split])
         rows = get_k_acc(df, [1, 5, 10], rows, 'random', split)
 

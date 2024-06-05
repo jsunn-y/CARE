@@ -46,6 +46,12 @@ def find_column(df, label):
             return i
     return None
 
+def get_average_accuracy(accuracy_level_list, level):
+    """
+    returns the average accuracy at a given level
+    """
+    return np.mean([1 if x >= level else 0 for x in accuracy_level_list])
+
 def expand_list(predicted_ECs):
     """
     for every entry in predicted_ECs, split by ';' and expand the list
@@ -54,11 +60,13 @@ def expand_list(predicted_ECs):
     for entry in predicted_ECs:
         # if entry is a list
         if type(entry) == list:
+            print('ERROR: ')
+            print(entry)
             return entry
         else:
             expanded.extend(entry.split(';'))
     return expanded
-        
+
 def get_accuracy_level(predicted_ECs, true_ECs):
     """
     based on a list of predicted_ECs, calculates the highest level of accuracy achieved, against all true_ECs. Returns a list of the same length as true_ECs.
@@ -78,7 +86,6 @@ def get_accuracy_level(predicted_ECs, true_ECs):
         counters = []
         for predicted_EC in predicted_ECs:
             try:
-    
                 predicted_split = predicted_EC.split('.')
                 counter = 0
     
