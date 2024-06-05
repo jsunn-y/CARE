@@ -46,8 +46,56 @@ def find_column(df, label):
             return i
     return None
 
+def expand_list(predicted_ECs):
+    """
+    for every entry in predicted_ECs, split by ';' and expand the list
+    """
+    expanded = []
+    for entry in predicted_ECs:
+        # if entry is a list
+        if type(entry) == list:
+            return entry
+        else:
+            expanded.extend(entry.split(';'))
+    return expanded
+        
+def get_accuracy_level(predicted_ECs, true_ECs):
+    """
+    based on a list of predicted_ECs, calculates the highest level of accuracy achieved, against all true_ECs. Returns a list of the same length as true_ECs.
+    """
+    #convert true_EC to a list
+    if type(predicted_ECs) == str:
+        predicted_ECs = [predicted_ECs]
+        
+    if type(true_ECs) == str:
+        true_ECs = [true_ECs]
 
-def get_accuracy_level(true_ECs, predicted_ECs):
+    maxes = []
+    for true_EC in true_ECs:
+
+        true_split = true_EC.split('.')
+        
+        counters = []
+        for predicted_EC in predicted_ECs:
+            try:
+    
+                predicted_split = predicted_EC.split('.')
+                counter = 0
+    
+                for predicted, true in zip(predicted_split, true_split):
+                    if predicted == true:
+                        counter += 1
+                    else:
+                        break
+                counters.append(counter)
+                #print(counters)
+            except:
+                print("ERROR:", predicted_EC)
+        
+        maxes.append(np.max(counters))
+    return maxes
+
+def get_accuracy_level_v2(true_ECs, predicted_ECs):
     """
     based on a list of predicted_ECs, calculates the highest level of accuracy achieved
     """
@@ -82,8 +130,9 @@ def predict_k_accuracy(test_df, k=10):
     """ For k results, pick the one which has the best accuracy."""
     accs = np.zeros((len(test_df), 4))
     for ec_number in range(0, k, 1):
+        print(ec_number)
         try:
-            accs += get_accuracy_level(test_df[str(ec_number)].values, test_df['EC number'].values)
+            accs += get_accuracy_level_v2(test_df[str(ec_number)].values, test_df['EC number'].values)
         except:
             print("Not that many ECs in dataset.")
     # Binarise the accs
