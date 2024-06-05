@@ -44,6 +44,9 @@ class Task2:
     def get_train_df(self, label):
         return pd.read_csv(os.path.join(self.data_folder, f'{label}_reaction_train.csv'))
     
+    def get_all_ecs(self):
+        return set(pd.read_csv(os.path.join(self.data_folder, f'reaction2EC.csv'))['EC number'].values)
+
     def get_test_df(self, label):
         return pd.read_csv(os.path.join(self.data_folder, f'{label}_reaction_test.csv'))
 
@@ -138,7 +141,7 @@ class Task2:
         np.random.seed(42)
         rows = []
         df = self.get_test_df(test_label)
-        train_ecs = set(self.get_train_df(test_label)['EC number'].values)
+        train_ecs = self.get_all_ecs()
 
         for entry, seq, true_ecs in df[['Reaction Text', 'Reaction', 'EC number']].values:
             # Randomly sample without replacement an entry from the training df
