@@ -52,47 +52,40 @@ def get_accuracy_level(true_ECs, predicted_ECs):
     based on a list of predicted_ECs, calculates the highest level of accuracy achieved
     """
     rows = []
-    for i, pred_ec in enumerate(predicted_ECs):
-        # i.e. not a none type
-        if isinstance(true_ECs[i], str):
-            true_ec = [ec.strip() for ec in true_ECs[i].split(';')]
-            pred_ec = pred_ec.strip().split('.')
-            # Since there may be multiple true ECs for a given EC (i.e. if it is promiscuous we want to ensure that we're 
-            # Getting the "most accurate" one).
-            best_mean_acc = 0
-            best_acc = [0, 0, 0, 0]
-
-            for ecs in true_ec:
-                acc = [0, 0, 0, 0]
-                for j, ec in enumerate(ecs.split('.')):
-                    if pred_ec[j] == ec:
-                        acc[j] = 1
-                    else:
-                        # Break once we stop getting the correct one
-                        break
-                if np.mean(acc) > best_mean_acc:
-                    best_mean_acc = np.mean(acc)
-                    best_acc = acc
-        else:
-            best_acc = [0, 0, 0, 0]
+    for i, pred_ecs in enumerate(predicted_ECs):
+        # Since for promisc when we get it from blast it may contain ; since they are just matching, we need to check all 
+        best_mean_acc = 0
+        best_acc = [0, 0, 0, 0]
+        for pred_ec in pred_ecs.split(';'):
+            # i.e. not a none type
+            if isinstance(true_ECs[i], str):
+                true_ec = [ec.strip() for ec in true_ECs[i].split(';')]
+                pred_ec = pred_ec.strip().split('.')
+                # Since there may be multiple true ECs for a given EC (i.e. if it is promiscuous we want to ensure that we're 
+                # Getting the "most accurate" one).
+                
+                for ecs in true_ec:
+                    acc = [0, 0, 0, 0]
+                    for j, ec in enumerate(ecs.split('.')):
+                        if pred_ec[j] == ec:
+                            acc[j] = 1
+                        else:
+                            # Break once we stop getting the correct one
+                            break
+                    if np.mean(acc) > best_mean_acc:
+                        best_mean_acc = np.mean(acc)
+                        best_acc = acc
         rows.append(best_acc)
     return np.array(rows)
-
-def calculate_k1_accuracy(test_df):
-    """ Calculate the accuracy for each level for k=N for the EC dataset."""
-    accs = get_accuracy_level(test_df['0'].values, test_df['EC number'].values)
-    test_df['Level 1 acc'] = accs[:, 0]
-    test_df['Level 2 acc'] = accs[:, 1]
-    test_df['Level 3 acc'] = accs[:, 2]
-    test_df['Level 4 acc'] = accs[:, 3]
-    # Total acc
-    return np.mean(accs[:, 0], accs[:, 1], accs[:, 2], accs[:, 3])
 
 def predict_k_accuracy(test_df, k=10):
     """ For k results, pick the one which has the best accuracy."""
     accs = np.zeros((len(test_df), 4))
     for ec_number in range(0, k, 1):
-        accs += get_accuracy_level(test_df[str(ec_number)].values, test_df['EC number'].values)
+        try:
+            accs += get_accuracy_level(test_df[str(ec_number)].values, test_df['EC number'].values)
+        except:
+            print("Not that many ECs in dataset.")
     # Binarise the accs
     accs[accs > 0] = 1 
     test_df['Level 1 acc'] = accs[:, 0]
@@ -100,4 +93,14 @@ def predict_k_accuracy(test_df, k=10):
     test_df['Level 3 acc'] = accs[:, 2]
     test_df['Level 4 acc'] = accs[:, 3]
     # Total acc
-    return np.mean(test_df['Level 1 acc']), np.mean(test_df['Level 2 acc']), np.mean(test_df['Level 3 acc']), np.mean(test_df['Level 4 acc'])
+    return [np.mean(test_df['Level 4 acc']), np.mean(test_df['Level 3 acc']), np.mean(test_df['Level 2 acc']), np.mean(test_df['Level 1 acc'])]
+
+def get_k_acc(df: pd.DataFrame, list_of_ks: list, rows: list, tool_name: str, dataset_split: str):
+    """
+    Get K accuracy across a range of K's and add it to the rows that are passed
+    """
+    for k in list_of_ks:
+        k_acc = predict_k_accuracy(df, k)
+        rows.append([tool_name, dataset_split, str(k)] + k_acc)
+        print(f'K{k} accuracy: ', k_acc)
+    return rows

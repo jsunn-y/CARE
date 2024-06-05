@@ -211,7 +211,7 @@ class Task1:
         client = OpenAI(api_key=api_key)
         df = self.get_test_df(test_label)
         if subsample is not None: # Just for testing so we don't run too many
-            df = df.sample(subsample)
+            df = df[df['Entry'].isin(subsample)]
         rows = []
         for entry, true_ec, seq in df[['Entry', 'EC number', 'Sequence']].values:
             text = f"Return the top {n} most likely EC numbers as a comma separated list for this enzyme sequence: {seq}"
@@ -230,6 +230,8 @@ class Task1:
                     {"role": "user", "content": text}
                 ]
             )
+            print(len(completion.choices))
+            print(completion.choices[0].message.content)
             preds = completion.choices[0].message.content.replace(" ", "").split(',')
             for p in preds:
                 rows.append([entry, true_ec, p, seq]) # Costs you ~1c per query
@@ -264,7 +266,7 @@ class Task1:
             except:
                 u.warn_p([query, ' Had no match from ChatGPT.'])
         new_df = pd.DataFrame(rows)
-        new_df.columns = ['Entry', 'EC number', 'Sequence'] + list(range(0, max_ecs))
+        new_df.columns = ['Entry', 'EC number', 'Sequence'] +  [str(s) for s in range(0, max_ecs)]
 
         # Save to a file in the default location
         if save:
@@ -313,7 +315,7 @@ class Task1:
                 rows.append([query, '', entry_to_ec[query], entry_to_seq[query]])
 
         new_df = pd.DataFrame(rows)
-        new_df.columns = ['Entry', 'Similar Enzymes', 'EC number', 'Sequence'] + list(range(0, num_ecs))
+        new_df.columns = ['Entry', 'Similar Enzymes', 'EC number', 'Sequence'] + [str(s) for s in range(0, num_ecs)]
         
         # Save to a file in the default location
         if save:
@@ -373,7 +375,7 @@ class Task1:
                     rows.append([query, entry_to_ec.get(query), entry_to_seq.get(query)] + list(grp['predicted_ecs'].values))
 
         new_df = pd.DataFrame(rows)
-        new_df.columns = ['Entry', 'EC number', 'Sequence'] + list(range(0, max_ecs))
+        new_df.columns = ['Entry', 'EC number', 'Sequence'] + [str(s) for s in range(0, max_ecs)]
 
         if save:
             new_df.to_csv(os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv'), index=False)
@@ -395,10 +397,12 @@ class Task1:
             rows.append([entry, true_ecs, seq] + predicted_ec)
 
         new_df = pd.DataFrame(rows)
-        new_df.columns = ['Entry', 'EC number', 'Sequence'] + list(range(0, num_ecs))
+        new_df.columns = ['Entry', 'EC number', 'Sequence'] +  [str(s) for s in range(0, num_ecs)]
         
         if save:
             new_df.to_csv(os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv'), index=False)
             u.dp(["Done: ", test_label, "\nSaved to:", os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv')])
+
+        return new_df
 
     
