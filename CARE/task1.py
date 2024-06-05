@@ -380,3 +380,25 @@ class Task1:
             u.dp(["Done: ", test_label, "\nSaved to:", os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv')])
 
         return new_df
+    
+    def randomly_assign_EC(self, test_label, save=False, num_ecs=10, run_tag=''):
+        """ Randomly assign n EC numbers from the training dataset """
+        # For each test set we'll randomly set the EC classification.
+        np.random.seed(42)
+        rows = []
+        df = self.get_test_df(test_label)
+        train_ecs = set(self.get_train_df()['EC number'].values)
+
+        for entry, seq, true_ecs in df[['Entry', 'Sequence', 'EC number']].values:
+            # Randomly sample without replacement an entry from the training df
+            predicted_ec = random.sample(train_ecs, k=num_ecs)
+            rows.append([entry, true_ecs, seq] + predicted_ec)
+
+        new_df = pd.DataFrame(rows)
+        new_df.columns = ['Entry', 'EC number', 'Sequence'] + list(range(0, num_ecs))
+        
+        if save:
+            new_df.to_csv(os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv'), index=False)
+            u.dp(["Done: ", test_label, "\nSaved to:", os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv')])
+
+    

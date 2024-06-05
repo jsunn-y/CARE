@@ -37,6 +37,10 @@ class TestSplits(unittest.TestCase):
     def test_split(self):
         split(pd.read_csv(f'{output_dir}protein2EC.csv'), f'{data_dir}price.tsv', output_dir)
 
+    def test_random(self):
+        tasker = Task1(output_dir, output_dir)
+        tasker.randomly_assign_EC('promiscuous', num_ecs=10, save=True, run_tag='random_')
+
     def test_blast(self):
         tasker = Task1(output_dir, output_dir)
         tasker.get_blast('promiscuous', 10, save=True, run_tag='BLAST_')
