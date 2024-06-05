@@ -24,6 +24,7 @@ sys.path.append('/disk1/ariane/vscode/CARE/')
 
 from CARE.processing import *
 from CARE.task1 import *
+from CARE.task2 import *
 from CARE.benchmarker import *
 
 from sciutil import *
@@ -69,14 +70,22 @@ if run_blast:
 
 # Then check the results for random as well
 if run_random:
-    output_dir = f'{care_dir}task1_baselines/results_summary/random/'
-    tasker = Task1(data_folder=task1_dir, output_folder=output_dir)
-    for split in ['30', '30-50', 'price', 'promiscuous']:
+    # output_dir = f'{care_dir}task1_baselines/results_summary/random/'
+    # tasker = Task1(data_folder=task1_dir, output_folder=output_dir)
+    # for split in ['30', '30-50', 'price', 'promiscuous']:
+    #     # For proteInfer you need to point where it was saved.
+    #     df = tasker.randomly_assign_EC(split, num_ecs=50, save=True)
+    #     u.dp([split])
+    #     rows = get_k_acc(df, [1, 5, 10], rows, 'random', split)
+
+    # Also do it for the random for task 2
+    output_dir = f'{care_dir}task2_baselines/results_summary/random/'
+    tasker = Task2(data_folder=f'/disk1/ariane/vscode/CARE/splits/task2/', output_folder=output_dir, ec2text=f'/disk1/ariane/vscode/CARE/processed_data/text2EC.csv')
+    for split in ['easy', 'medium', 'hard']:
         # For proteInfer you need to point where it was saved.
         df = tasker.randomly_assign_EC(split, num_ecs=50, save=True)
         u.dp([split])
         rows = get_k_acc(df, [1, 5, 10], rows, 'random', split)
-
 
 # Then check the results for random as well
 if run_proteinfer:

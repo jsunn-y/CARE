@@ -127,8 +127,8 @@ class Task2:
 
         # Save to a file in the default location
         if save:
-            new_df.to_csv(os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv'), index=False)
-            u.dp(["Done: ", test_label, "\nSaved to:", os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv')])
+            new_df.to_csv(os.path.join(self.output_folder, f'{run_tag}{test_label}_reaction_test_results_df.csv'), index=False)
+            u.dp(["Done: ", test_label, "\nSaved to:", os.path.join(self.output_folder, f'{run_tag}{test_label}_reaction_test_results_df.csv')])
 
         return new_df
     
@@ -138,18 +138,18 @@ class Task2:
         np.random.seed(42)
         rows = []
         df = self.get_test_df(test_label)
-        train_ecs = set(self.get_train_df()['EC number'].values)
+        train_ecs = set(self.get_train_df(test_label)['EC number'].values)
 
-        for entry, seq, true_ecs in df[['Entry', 'Sequence', 'EC number']].values:
+        for entry, seq, true_ecs in df[['Reaction Text', 'Reaction', 'EC number']].values:
             # Randomly sample without replacement an entry from the training df
             predicted_ec = random.sample(train_ecs, k=num_ecs)
             rows.append([entry, true_ecs, seq] + predicted_ec)
 
         new_df = pd.DataFrame(rows)
-        new_df.columns = ['Entry', 'EC number', 'Sequence'] +  [str(s) for s in range(0, num_ecs)]
+        new_df.columns = ['Reaction Text', 'EC number', 'Reaction'] +  [str(s) for s in range(0, num_ecs)]
         
         if save:
-            new_df.to_csv(os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv'), index=False)
-            u.dp(["Done: ", test_label, "\nSaved to:", os.path.join(self.output_folder, f'{run_tag}{test_label}_protein_test_results_df.csv')])
+            new_df.to_csv(os.path.join(self.output_folder, f'{run_tag}{test_label}_reaction_test_results_df.csv'), index=False)
+            u.dp(["Done: ", test_label, "\nSaved to:", os.path.join(self.output_folder, f'{run_tag}{test_label}_reaction_test_results_df.csv')])
 
         return new_df

@@ -137,7 +137,6 @@ def predict_k_accuracy(test_df, k=10):
     """ For k results, pick the one which has the best accuracy."""
     accs = np.zeros((len(test_df), 4))
     for ec_number in range(0, k, 1):
-        print(ec_number)
         try:
             accs += get_accuracy_level_v2(test_df[str(ec_number)].values, test_df['EC number'].values)
         except:
