@@ -70,6 +70,11 @@ conda activate clean
 pip install -r clean_requirements.txt
 ```
 
+#### ChatGPT
+
+For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line.
+
+### Other information
 Instructions for CARE benchmarking using other packages is provided in more detail in the sections below.
 
 ## Datasets and splits

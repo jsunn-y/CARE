@@ -28,25 +28,34 @@ sys.path.append('/disk1/ariane/vscode/CARE/')
 from CARE.processing import *
 from CARE.task2 import *
 
-data_dir = '/disk1/ariane/vscode/CARE/data/raw/'
-test_data_dir = '/disk1/ariane/vscode/CARE/tests/data/'
-output_dir = '/disk1/ariane/vscode/CARE/tests/output/'
-task2_dir = f'/disk1/ariane/vscode/CARE/splits/task2/'
+repo_dir = '/disk1/ariane/vscode/CARE/'
+data_dir = f'{repo_dir}data/raw/'
+test_data_dir = f'{repo_dir}tests/data/'
+output_dir = f'{repo_dir}tests/output/'
+task2_dir = f'{repo_dir}splits/task2/'
+processed_dir = f'{repo_dir}processed_data/'
+
 class TestTask2(unittest.TestCase):
 
     def test_random(self):
-        tasker = Task2(task2_dir, output_dir, f'/disk1/ariane/vscode/CARE/processed_data/text2EC.csv')
+        tasker = Task2(task2_dir, output_dir, f'{processed_dir}text2EC.csv')
         tasker.randomly_assign_EC('easy', num_ecs=50, save=True, run_tag='random_')
 
     def test_chatGPT(self):
         tasker = Task2(output_dir, output_dir)
         
-        with open('/disk1/ariane/vscode/CARE/secrets.txt', 'r+') as fin:
+        with open(f'{repo_dir}secrets.txt', 'r+') as fin:
             for line in fin:
                 api_key = line.strip()
                 break
         df = tasker.get_ChatGPT('promiscuous', api_key=api_key, subsample=['Q48154', 'A0JNI4', 'Q62969'], save=True)
 
     
+    def test_similarity(self):
+        tasker = Task2(task2_dir, output_dir, f'{processed_dir}text2EC.csv')
+        df = tasker.get_test_df('easy').sample(2)
+        # Pass the DF just so that we can easily do this quickly
+        tasker.encode_similarity('easy', df=df)
+
 if __name__ == '__main__':
     unittest.main()

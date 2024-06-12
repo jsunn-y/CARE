@@ -32,6 +32,8 @@ from drfp import DrfpEncoder
 u = SciUtil()
 seed=42
 
+        
+    
 # ----------------------------------------------------------------------------------
 #                   Class that calls each tool.
 # ----------------------------------------------------------------------------------
@@ -42,6 +44,88 @@ class Task2:
         self.output_folder = output_folder
         ec_to_text = pd.read_csv(ec2text)
         self.ec_to_text = dict(zip(ec_to_text['EC number'], ec_to_text['Text']))
+        
+    def get_ec_list(self):
+        return np.loadtxt(f'{self.data_folder}EC_list.txt', dtype=str)
+
+    def get_proteins(self):
+        return pd.read_csv(f'{self.data_folder}protein2EC_clustered50.csv')
+    
+    def get_reactions(self):
+        return pd.read_csv(f'{self.data_folder}reaction2EC.csv')
+    
+    def downstream_retrieval(self, reference_dataset, query_dataset, pretrained_folder, output_folder, 
+                            reference_modality, query_modality, k=10, seed=42):
+        """ Once a model has been pretrained we can retrieve the data using a systematic and consistent format. """
+        random.seed(seed)
+        os.environ['PYTHONHASHSEED'] = str(seed)
+        np.random.seed(seed)
+
+        if reference_dataset == 'all_ECs':
+            reference_EC_list = self.get_ec_list()
+        if reference_dataset == 'all_proteins':
+            reference_df = self.get_proteins()
+            reference_EC_list = reference_df['EC number'].values
+        elif reference_dataset == 'all_reactions':
+            reference_df = self.get_reactions()
+            reference_EC_list = reference_df['EC number'].values
+        
+        root = pretrained_folder + "/representations/"
+        query_df = self.get_test_df(query_dataset)
+
+        #load the reference representations
+        if reference_dataset=='all_ECs':
+            reference_representation_file = os.path.join(root, reference_dataset + "_cluster_centers.npy")
+        else:
+            reference_representation_file = os.path.join(root, reference_dataset + "_representations.npy")
+        reference_representation_data = np.load(reference_representation_file, allow_pickle=True).item()
+        
+        #load the representations to be queried
+        query_representation_file = os.path.join(root, query_dataset + "_representations.npy")
+        query_representation_data = np.load(query_representation_file, allow_pickle=True).item()
+
+        reference_key = reference_modality + '_repr_array'
+        query_key = query_modality + '_repr_array'
+
+        reference_repr_array = reference_representation_data[reference_key]
+        query_repr_array = query_representation_data[query_key]
+
+        d = reference_repr_array.shape[1]  #dimension
+
+        ec2text = pd.read_csv('../processed_data/text2EC.csv').set_index('EC number').to_dict()['Text']
+
+        if query_modality == 'text':
+            query_df['Text'] = query_df['EC number'].map(ec2text)
+
+        modality2column_dict = {'protein': 'Sequence', 'text': 'Text', 'reaction': 'Reaction'}
+
+        query_inmodality_list = query_df[modality2column_dict[query_modality]].values #not sure if this is still used
+        query_EC_list = query_df['EC number'].values
+
+        all_indices = np.zeros((len(query_EC_list), len(reference_EC_list)))
+        all_similarities = np.zeros((len(query_EC_list), len(reference_EC_list)))
+
+        for i, (query_inmodality, query_EC) in enumerate(zip(query_inmodality_list, query_EC_list)):
+            #compute the dot product similarity between the query and the reference
+            query_repr = query_repr_array[i].reshape(1, -1)
+            normalization = np.linalg.norm(query_repr) * np.linalg.norm(reference_repr_array, axis=1)
+            #replace zeros with 1
+            normalization[normalization == 0] = 1 #normalizing to cosine similarity doesn't work when there are too many zeros
+            similarity = np.dot(query_repr, reference_repr_array.T)/normalization 
+
+            #check if the query is in the reference
+            query_EC_index = np.where(reference_EC_list == query_EC)[0]
+            if len(query_EC_index) == 0:
+                print("Query EC is not in the reference ECs.")
+            else:
+                query_EC_index = query_EC_index[0]
+            
+            sorted_indices = np.argsort(similarity, axis=1)[:, ::-1][0] #sort in descending order
+            all_indices[i] = sorted_indices
+            all_similarities[i] = similarity
+
+        np.save(os.path.join(output_folder, query_dataset + "_" + query_modality + "2" + reference_modality + "_retrieval_similarities.npy"), all_similarities)
+
 
     def get_train_df(self, label):
         return pd.read_csv(os.path.join(self.data_folder, f'{label}_reaction_train.csv'))
@@ -52,30 +136,33 @@ class Task2:
     def get_test_df(self, label):
         return pd.read_csv(os.path.join(self.data_folder, f'{label}_reaction_test.csv'))
 
-    def encode_similarity(self, test_label, df=None):
+    def get_similarity(self, test_label, encode=False, df=None):
         """
         Encode the reactions using Drfp
         """
         query_df = pd.read_csv(self.get_test_df(test_label)) if df is None else df
         query_reactions = query_df['Reaction'].values
-        fps = DrfpEncoder.encode(query_reactions, show_progress_bar=True)
+        if encode:
+            fps = DrfpEncoder.encode(query_reactions, show_progress_bar=True)
 
-        fps = np.vstack(fps)
-        os.makedirs('output/{}_split/representations/'.format(split), exist_ok=True)
+            fps = np.vstack(fps)
+            os.makedirs(f'{self.output_folder}representations/', exist_ok=True)
 
-        saved_file_path = os.path.join('output/{}_split/representations/{}_reaction_test_representations'.format(split, split))
+            saved_file_path = os.path.join(f'{self.output_folder}representations/', f'{test_label}_reaction_test_representations')
 
-        #if the file exists, load it
-        if os.path.exists(saved_file_path + ".npy"):
-            results = np.load(saved_file_path + ".npy", allow_pickle=True).item()
-        else:
-            results = {}
+            #if the file exists, load it
+            if os.path.exists(saved_file_path + ".npy"):
+                results = np.load(saved_file_path + ".npy", allow_pickle=True).item()
+            else:
+                results = {}
 
-        results["reaction_repr_array"] = fps
-            
-        np.save(saved_file_path, results)
-        return saved_file_path, results
-    
+            results["reaction_repr_array"] = fps
+                
+            np.save(saved_file_path, results)
+        
+        # Otherwise just get them and return the results
+        
+
 
     def get_ChatGPT(self, test_label, n=10, query_type='reaction', save=False, api_key=None, subsample=None, run_tag=''):
         """
