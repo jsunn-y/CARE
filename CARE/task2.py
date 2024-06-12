@@ -26,6 +26,8 @@ from tqdm import tqdm
 from sciutil import SciUtil
 import os
 import random
+from drfp import DrfpEncoder
+
 
 u = SciUtil()
 seed=42
@@ -49,6 +51,31 @@ class Task2:
 
     def get_test_df(self, label):
         return pd.read_csv(os.path.join(self.data_folder, f'{label}_reaction_test.csv'))
+
+    def encode_similarity(self, test_label, df=None):
+        """
+        Encode the reactions using Drfp
+        """
+        query_df = pd.read_csv(self.get_test_df(test_label)) if df is None else df
+        query_reactions = query_df['Reaction'].values
+        fps = DrfpEncoder.encode(query_reactions, show_progress_bar=True)
+
+        fps = np.vstack(fps)
+        os.makedirs('output/{}_split/representations/'.format(split), exist_ok=True)
+
+        saved_file_path = os.path.join('output/{}_split/representations/{}_reaction_test_representations'.format(split, split))
+
+        #if the file exists, load it
+        if os.path.exists(saved_file_path + ".npy"):
+            results = np.load(saved_file_path + ".npy", allow_pickle=True).item()
+        else:
+            results = {}
+
+        results["reaction_repr_array"] = fps
+            
+        np.save(saved_file_path, results)
+        return saved_file_path, results
+    
 
     def get_ChatGPT(self, test_label, n=10, query_type='reaction', save=False, api_key=None, subsample=None, run_tag=''):
         """

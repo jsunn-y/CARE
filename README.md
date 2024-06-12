@@ -4,22 +4,43 @@ CARE is a datasets and benchmarks suite to evaluate the performance of models to
 ## Installation
 If you are only interested in using the datasets and train-test splits in CARE, skip the installation steps below and directly download the data from [here](link). If you are interested in the reproducing the dataset curation/splitting, training and inference, and analyses in our study, then proceed to clone this repo and install the relevant environments below:
 
+## Install CARE in a new environment
+
+```
+conda create -n CARE_processing python=3.8 -y
+```
+
+```
+pip install CARE
+```
+
+### Run CARE install
+
+This will make the following conda environments:  
+1. CREEP  
+2. CLEAN
+3. ProteInfer
+
+Note you must have conda installed for this to work. It has been tested on Linux Ubuntu.
+```
+care run install
+```
+
+### Manual
 ```
 git clone https://github.com/jsunn-y/CARE/
 cd CARE
-```
-
-```
 #for CARE dataset generation, splitting, BLAST, visualization
 #only install this environment if you want to reproduce the steps used to generate the datasets and splits in this work
 conda create -n CARE_processing python=3.8 -y
+
 conda activate CARE_processing
 conda install -c rdkit rdkit=2020.03.3 -y
-conda install -c conda-forge -c bioconda mmseqs2
-pip install scipy pandas seaborn npysearch
-pip install seaborn
+conda install -c conda-forge -c bioconda mmseqs2 -y
+pip install -r requirements.txt -y
 ```
 
+#### CREEP installation
 ```
 #for CREEP model training and inference
 #only install this environment if you would like to run training and inference with CREEP
@@ -30,6 +51,23 @@ conda activate CREEP
 pip install pandas torch==2.2.0 transformers==4.39.1 sentencepiece
 pip install -e .
 #pip install lxml #doesn't look like you need this
+```
+
+#### ProteInfer installation
+```
+conda create --name proteinfer python=3.7 -y
+conda activate proteinfer
+git clone https://github.com/google-research/proteinfer
+cd ~/proteinfer
+pip3 install -r requirements.txt
+```
+
+#### CLEAN installation
+https://github.com/tttianhao/CLEAN
+```
+conda create -n clean python==3.10.4 -y
+conda activate clean
+pip install -r clean_requirements.txt
 ```
 
 Instructions for CARE benchmarking using other packages is provided in more detail in the sections below.
