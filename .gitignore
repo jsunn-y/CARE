@@ -1,3 +1,4 @@
+*.DS_
 # Remove log files
 *log.txt
 
