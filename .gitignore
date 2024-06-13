@@ -1,4 +1,4 @@
-*.DS_
+*.DS_Store
 # Remove log files
 *log.txt
 
