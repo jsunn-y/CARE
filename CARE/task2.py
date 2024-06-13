@@ -39,20 +39,21 @@ seed=42
 # ----------------------------------------------------------------------------------
 class Task2:
 
-    def __init__(self, data_folder, output_folder, ec2text):
+    def __init__(self, data_folder, output_folder, ec2text, processed_dir):
         self.data_folder = data_folder
         self.output_folder = output_folder
+        self.processed_dir = processed_dir # Where the default files processed by CARE are
         ec_to_text = pd.read_csv(ec2text)
         self.ec_to_text = dict(zip(ec_to_text['EC number'], ec_to_text['Text']))
         
     def get_ec_list(self):
-        return np.loadtxt(f'{self.data_folder}EC_list.txt', dtype=str)
+        return np.loadtxt(f'{self.processed_dir}EC_list.txt', dtype=str)
 
     def get_proteins(self):
-        return pd.read_csv(f'{self.data_folder}protein2EC_clustered50.csv')
+        return pd.read_csv(f'{self.processed_dir}protein2EC_clustered50.csv')
     
     def get_reactions(self):
-        return pd.read_csv(f'{self.data_folder}reaction2EC.csv')
+        return pd.read_csv(f'{self.processed_dir}reaction2EC.csv')
     
     def downstream_retrieval(self, reference_dataset, query_dataset, pretrained_folder, output_folder, 
                             reference_modality, query_modality, k=10, seed=42):
@@ -92,7 +93,7 @@ class Task2:
 
         d = reference_repr_array.shape[1]  #dimension
 
-        ec2text = pd.read_csv('../processed_data/text2EC.csv').set_index('EC number').to_dict()['Text']
+        ec2text = self.get_ec2text()
 
         if query_modality == 'text':
             query_df['Text'] = query_df['EC number'].map(ec2text)
@@ -136,6 +137,9 @@ class Task2:
     def get_test_df(self, label):
         return pd.read_csv(os.path.join(self.data_folder, f'{label}_reaction_test.csv'))
 
+    def encode_similarity_training(self, test_label):
+        return
+        
     def get_similarity(self, test_label, encode=False, df=None):
         """
         Encode the reactions using Drfp
@@ -160,9 +164,6 @@ class Task2:
                 
             np.save(saved_file_path, results)
         
-        # Otherwise just get them and return the results
-        
-
 
     def get_ChatGPT(self, test_label, n=10, query_type='reaction', save=False, api_key=None, subsample=None, run_tag=''):
         """

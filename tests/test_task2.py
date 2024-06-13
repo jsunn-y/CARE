@@ -52,10 +52,13 @@ class TestTask2(unittest.TestCase):
 
     
     def test_similarity(self):
-        tasker = Task2(task2_dir, output_dir, f'{processed_dir}text2EC.csv')
+        tasker = Task2(task2_dir, output_dir, f'{processed_dir}text2EC.csv', processed_dir)
         df = tasker.get_test_df('easy').sample(2)
         # Pass the DF just so that we can easily do this quickly
-        tasker.encode_similarity('easy', df=df)
+        # reference_dataset, query_dataset, pretrained_folder, output_folder, reference_modality, query_modality,
+        tasker.get_similarity('easy', encode=True, df=df)
+        tasker.downstream_retrieval('all_ECs', 'easy', f'{output_dir}', f'{output_dir}',
+                                    'reaction', 'reaction') 
 
 if __name__ == '__main__':
     unittest.main()
