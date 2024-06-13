@@ -7,27 +7,6 @@ If you are only interested in using the datasets and train-test splits in CARE, 
 ## Install CARE in a new environment
 
 ```
-conda create -n CARE_processing python=3.8 -y
-```
-
-```
-pip install CARE
-```
-
-### Run CARE install
-
-This will make the following conda environments:  
-1. CREEP  
-2. CLEAN
-3. ProteInfer
-
-Note you must have conda installed for this to work. It has been tested on Linux Ubuntu.
-```
-care run install
-```
-
-### Manual
-```
 git clone https://github.com/jsunn-y/CARE/
 cd CARE
 #for CARE dataset generation, splitting, BLAST, visualization
@@ -40,20 +19,12 @@ conda install -c conda-forge -c bioconda mmseqs2 -y
 pip install -r requirements.txt -y
 ```
 
-#### CREEP installation
-```
-#for CREEP model training and inference
-#only install this environment if you would like to run training and inference with CREEP
-cd CREEP
-conda create -n CREEP python=3.8
-conda activate CREEP
-#we recommend installing this way so that torch is compatible with your GPU and your version of CUDA
-pip install pandas torch==2.2.0 transformers==4.39.1 sentencepiece
-pip install -e .
-#pip install lxml #doesn't look like you need this
-```
+## Task 1 
 
 #### ProteInfer installation
+For ProteInfer model inference.
+** Note **: only install this environment if you would like to run training and inference with ProteInfer.
+
 ```
 conda create --name proteinfer python=3.7 -y
 conda activate proteinfer
@@ -63,7 +34,8 @@ pip3 install -r requirements.txt
 ```
 
 #### CLEAN installation
-https://github.com/tttianhao/CLEAN
+For CLEAN model inference.
+** Note **: only install this environment if you would like to run training and inference with CLEAN.
 ```
 conda create -n clean python==3.10.4 -y
 conda activate clean
@@ -71,8 +43,36 @@ pip install -r clean_requirements.txt
 ```
 
 #### ChatGPT
+For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line. This requires your OpenAI account to have an assoiated API key.
 
-For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line.
+## Running:
+
+To run task 1, simply run (from the CARE folder):
+```
+python task1.py --split "30" --tool "BLAST" --outputdir "a_path"
+```
+Where tool is one of "BLAST", "ChatGPT", "ProteInfer", "CLEAN", or "Random".
+
+**Note** you need to have downloaded the data and placed the data folder in the CARE directory. 
+
+## Task 2 installation:
+
+#### CREEP installation
+For CREEP model training and inference
+** Note **: only install this environment if you would like to run training and inference with CREEP.
+
+```
+cd CREEP
+conda create -n CREEP python=3.8
+conda activate CREEP
+#we recommend installing this way so that torch is compatible with your GPU and your version of CUDA
+pip install pandas torch==2.2.0 transformers==4.39.1 sentencepiece
+pip install -e .
+#pip install lxml #doesn't look like you need this
+```
+
+#### ChatGPT
+For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line. This requires your OpenAI account to have an assoiated API key.
 
 ### Other information
 Instructions for CARE benchmarking using other packages is provided in more detail in the sections below.
@@ -98,6 +98,9 @@ The table below summarizes which files should be used for each train-test split 
 |  | Hard | `hard_reaction_train.csv` | `hard_reaction_test.csv` |  `protein2EC.csv` `text2EC.csv`|
 
 Alteratively, the steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits).
+
+## Trained models and representations
+We provide the pretrained or retrained models for CREEP, CLEAN, ProteInfer, ClIP-Zyme and drfp encodings in the `models` folder. Each tool has an associated folder and that is the model (and or code) used in our benchmarking paper and the defaults that are used by the CARE package. We expect the `models` folder to be located within the `data` folder. 
 
 ## Performance Evaluation
 After training, performance metrics for benchmarking can be obtained using `performance_evaluation.ipynb`. Required format for analysis of each model on each split is a .csv file where each row is an entry in the test set, and each entry is associated with a ranking of EC numbers ranked from best to worst ([example](link)).
