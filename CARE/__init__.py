@@ -29,3 +29,5 @@ __license__ = 'GPL3'
 
 
 from processing import *
+from task1 import *
+from task2 import *

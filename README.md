@@ -24,8 +24,12 @@ To perform the standard benchmarking using our pretrained models and the splits 
 
 e.g. to run for BLAST on the 30% split you would run:
 ```
-care benchmark --task 1 --baseline BLAST --query_dataset blast --output_folder "path_to_output"
+care benchmark --task 1 --baseline BLAST --query_dataset "30" --output_folder "path_to_output"
 ```
+
+Where `baseline` is one of "BLAST", "ChatGPT", "ProteInfer", "CLEAN", or "Random".  
+
+`query_dataset` is "30", "30-50", "Price", or "promiscous".  
 
 ### Task 1: prediction of EC numbers from protein
 To use the task1 pretrained results to query a specific protein sequence with a specific method:
@@ -33,7 +37,6 @@ To use the task1 pretrained results to query a specific protein sequence with a 
 ```
 care benchmark --task 1 --baseline BLAST --query_protein "MASMSMAAAM" --output_folder "path_to_output"
 ```
-
 
 ### Task 2: performance evaluation 
 To perform the standard benchmarking using our pretrained models and the splits provided download the data from [here](link) and put it in a folder (we suggest the name pretrained). Then you can run any of the results for a specific tool or split:
@@ -42,18 +45,14 @@ e.g. to run for Similarity searching on the easy split you would run:
 ```
 care benchmark --task 2 --baseline Similarity --query_dataset easy --output_folder "path_to_output"
 ```
+Where `baseline` is one of "Similarity", "CREEP", "CARE", "CLIPZyme".
 
-### Task 1: prediction of EC numbers from a reaction
+Query dataset is "easy", "medium" or "hard".
+
+### Task 2: prediction of EC numbers from a reaction
 You can use the pretrained models to also query a speicfic reaction and obtain the EC number for that reaction
 ```
 care benchmark --task 2 --baseline Similarity --query_recation "CC(C)=CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)C" --output_folder "path_to_output"
-```
-
-### Task 1: prediction of EC numbers from protein
-To use the task1 pretrained results to query a specific protein sequence with a specific method:
-
-```
-care benchmark --task 1 --baseline BLAST --query_protein "MASMSMAAAM" --output_folder "path_to_output"
 ```
 
 
@@ -84,14 +83,6 @@ pip install -r clean_requirements.txt
 
 #### ChatGPT
 For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line. This requires your OpenAI account to have an assoiated API key.
-
-## Running:
-
-To run task 1, simply run (from the CARE folder):
-```
-python task1.py --split "30" --tool "BLAST" --outputdir "a_path"
-```
-Where tool is one of "BLAST", "ChatGPT", "ProteInfer", "CLEAN", or "Random".
 
 **Note** you need to have downloaded the data and placed the data folder in the CARE directory. 
 
