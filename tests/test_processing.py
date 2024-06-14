@@ -88,7 +88,6 @@ class TestProcessing(unittest.TestCase):
     def test_pipeline(self):
         process_data(f'{data_dir}uniprotkb_AND_reviewed_true_2024_05_13.tsv', f'{data_dir}ECReact.csv', f'{data_dir}EnzymeMap.csv', f'{data_dir}ECtoGO_raw.txt', '/disk1/ariane/vscode/CARE/tests/output/')
 
-
     def test_blast_pipeline(self):
         output_dir = f'{care_dir}task1_baselines/results_summary/BLAST/'
         tasker = Task1(data_folder=task1_data_dir, output_folder=output_dir)

@@ -24,16 +24,23 @@ To perform the standard benchmarking using our pretrained models and the splits 
 
 e.g. to run for BLAST on the 30% split you would run:
 ```
-care benchmark --task 1 --baseline BLAST --query_dataset "30" --output_folder "path_to_output"
+CARE task1 --baseline BLAST --query-dataset "30" --k 10 "/disk1/ariane/vscode/CARE/pretrained/" "/disk1/ariane/vscode/CARE/tmp_test/"
 ```
 
 Where `baseline` is one of "BLAST", "ChatGPT", "ProteInfer", "CLEAN", or "Random".  
 
 `query_dataset` is "30", "30-50", "Price", or "promiscous".  
 
+To get help:
+
+```
+CARE --help task1
+```
+
 ### Task 1: prediction of EC numbers from protein
 To use the task1 pretrained results to query a specific protein sequence with a specific method:
 
+**ToDo**
 ```
 care benchmark --task 1 --baseline BLAST --query_protein "MASMSMAAAM" --output_folder "path_to_output"
 ```
@@ -43,16 +50,21 @@ To perform the standard benchmarking using our pretrained models and the splits 
 
 e.g. to run for Similarity searching on the easy split you would run:
 ```
-care benchmark --task 2 --baseline Similarity --query_dataset easy --output_folder "path_to_output"
+CARE task2 --baseline Similarity --query-dataset easy --query-modality "reaction" --reference-dataset "all_ECs" --reference-modality "reaction" "/disk1/ariane/vscode/CARE/pretrained/" "/disk1/ariane/vscode/CARE/tmp_test/"
 ```
 Where `baseline` is one of "Similarity", "CREEP", "CARE", "CLIPZyme".
 
 Query dataset is "easy", "medium" or "hard".
 
+```
+CARE --help task2
+```
+
 ### Task 2: prediction of EC numbers from a reaction
 You can use the pretrained models to also query a speicfic reaction and obtain the EC number for that reaction
+
 ```
-care benchmark --task 2 --baseline Similarity --query_recation "CC(C)=CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)C" --output_folder "path_to_output"
+ToDo
 ```
 
 
@@ -152,3 +164,17 @@ Detailed instructions for reproducing our baselines on Task 2 and general recomm
 
 ### CREEP
 We introduce Contrastive Reaction-EnzymE Pretraining (CREEP), which is one of the first models that can perform Task 2 by aligning representations from different modalities (reaction, protein, and optionally textual description). The model is found under `CREEP`, while example usage is found under `task2_baselines/CREEP`.
+
+
+#### Development
+
+To build:
+```
+python setup.py sdist bdist_wheel
+```
+
+To install: 
+
+```
+pip install dist/care-0.1.0.tar.gz
+```

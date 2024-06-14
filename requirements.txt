@@ -1,0 +1,8 @@
+scipy
+pandas
+seaborn
+npysearch
+drfp
+openai
+numpy
+tqdm

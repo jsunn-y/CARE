@@ -23,7 +23,7 @@ import pandas as pd
 import numpy as np
 import random
 from sciutil import SciUtil
-from processing import *
+from CARE.processing import *
 import npysearch as npy
 from openai import OpenAI
 from collections import defaultdict

@@ -59,7 +59,7 @@ setup(name='CARE',
       packages=['CARE'],
       entry_points={
           'console_scripts': [
-              'CARE = CARE.cmd:main'
+              'CARE = CARE.main:app'
           ]
       },
       install_requires=['jupyterlab',
