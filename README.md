@@ -4,20 +4,60 @@ CARE is a datasets and benchmarks suite to evaluate the performance of models to
 ## Installation
 If you are only interested in using the datasets and train-test splits in CARE, skip the installation steps below and directly download the data from [here](link). If you are interested in the reproducing the dataset curation/splitting, training and inference, and analyses in our study, then proceed to clone this repo and install the relevant environments below:
 
-## Install CARE in a new environment
+## CARE benchmarking
 
 ```
 git clone https://github.com/jsunn-y/CARE/
 cd CARE
-#for CARE dataset generation, splitting, BLAST, visualization
-#only install this environment if you want to reproduce the steps used to generate the datasets and splits in this work
 conda create -n CARE_processing python=3.8 -y
 
 conda activate CARE_processing
 conda install -c rdkit rdkit=2020.03.3 -y
 conda install -c conda-forge -c bioconda mmseqs2 -y
-pip install -r requirements.txt -y
+pip install dist/care.0.0.1.tar.gz
 ```
+
+### Running CARE
+
+### Task 1: performance evaluation 
+To perform the standard benchmarking using our pretrained models and the splits provided download the data from [here](link) and put it in a folder (we suggest the name pretrained). Then you can run any of the results for a specific tool or split:
+
+e.g. to run for BLAST on the 30% split you would run:
+```
+care benchmark --task 1 --baseline BLAST --query_dataset blast --output_folder "path_to_output"
+```
+
+### Task 1: prediction of EC numbers from protein
+To use the task1 pretrained results to query a specific protein sequence with a specific method:
+
+```
+care benchmark --task 1 --baseline BLAST --query_protein "MASMSMAAAM" --output_folder "path_to_output"
+```
+
+
+### Task 2: performance evaluation 
+To perform the standard benchmarking using our pretrained models and the splits provided download the data from [here](link) and put it in a folder (we suggest the name pretrained). Then you can run any of the results for a specific tool or split:
+
+e.g. to run for Similarity searching on the easy split you would run:
+```
+care benchmark --task 2 --baseline Similarity --query_dataset easy --output_folder "path_to_output"
+```
+
+### Task 1: prediction of EC numbers from a reaction
+You can use the pretrained models to also query a speicfic reaction and obtain the EC number for that reaction
+```
+care benchmark --task 2 --baseline Similarity --query_recation "CC(C)=CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)C" --output_folder "path_to_output"
+```
+
+### Task 1: prediction of EC numbers from protein
+To use the task1 pretrained results to query a specific protein sequence with a specific method:
+
+```
+care benchmark --task 1 --baseline BLAST --query_protein "MASMSMAAAM" --output_folder "path_to_output"
+```
+
+
+## CARE development and retraining
 
 ## Task 1 
 

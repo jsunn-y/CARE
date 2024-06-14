@@ -69,7 +69,7 @@ def run_tasks(splits, run_blast, run_proteinfer, run_random, run_chatGPT, run_pr
 
     # Then check the results for random as well
     if run_random:
-        output_dir = f'{care_dir}results_summary/random/'
+        output_dir = f'{care_dir}results_summary/Random/'
         tasker = Task1(data_folder=task1_data_dir, output_folder=output_dir)
         for split in splits:
             # For proteInfer you need to point where it was saved.
@@ -78,7 +78,7 @@ def run_tasks(splits, run_blast, run_proteinfer, run_random, run_chatGPT, run_pr
             rows = get_k_acc(df, [1, 5, 10], rows, 'random', split)
 
         # Also do it for the random for task 2
-        output_dir = f'{care_dir}task2_baselines/results_summary/random/'
+        output_dir = f'{care_dir}task2_baselines/results_summary/Random/'
         tasker = Task2(data_folder=task2_data_dir, output_folder=output_dir, ec2text=f'{processed_data_dir}text2EC.csv')
         for split in ['easy', 'medium', 'hard']:
             # For proteInfer you need to point where it was saved.

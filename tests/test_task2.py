@@ -31,7 +31,7 @@ from CARE.task2 import *
 repo_dir = '/disk1/ariane/vscode/CARE/pretrained/'
 data_dir = f'{repo_dir}raw_data/'
 test_data_dir = f'{repo_dir}tests/data/'
-output_dir = f'{repo_dir}tests/output/'
+output_dir = f'/disk1/ariane/vscode/CARE/tests/output/'
 task2_dir = f'{repo_dir}splits/task2/'
 processed_dir = f'{repo_dir}processed_data/'
 
@@ -55,9 +55,21 @@ class TestTask2(unittest.TestCase):
         df = tasker.get_test_df('easy').sample(2)
         # Pass the DF just so that we can easily do this quickly
         # reference_dataset, query_dataset, pretrained_folder, output_folder, reference_modality, query_modality,
-        tasker.get_similarity('easy', encode=True, df=df)
+        tasker.get_similarity('Similarity', 'easy', encode=True, df=df)
         #print(tasker.downstream_retrieval('all_ECs', 'easy', 'reaction', 'reaction'))
         print(tasker.tabulate_results('Similarity', 'easy'))
+
+    def test_CREEP(self):
+        tasker = Task2(task2_dir, output_dir, processed_dir, pretrained_dir=f'{repo_dir}task2_baselines/')
+
+        print(tasker.downstream_retrieval('CREEP', 'all_ECs', 'easy', 'reaction', 'reaction'))
+        print(tasker.tabulate_results('CREEP', 'easy'))
+
+    def test_ClipZyme(self):
+        tasker = Task2(task2_dir, output_dir, processed_dir, pretrained_dir=f'{repo_dir}task2_baselines/')
+        print(tasker.downstream_retrieval('CLIPZyme', 'all_ECs', 'medium', 'protein', 'reaction'))
+        print(tasker.tabulate_results('CLIPZyme', 'medium'))
+
 
 if __name__ == '__main__':
     unittest.main()
