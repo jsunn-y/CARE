@@ -39,13 +39,71 @@ seed=42
 # ----------------------------------------------------------------------------------
 class Task2:
 
-    def __init__(self, data_folder, output_folder, ec2text, processed_dir):
+    def __init__(self, data_folder, output_folder, processed_dir, pretrained_dir=None):
         self.data_folder = data_folder
         self.output_folder = output_folder
         self.processed_dir = processed_dir # Where the default files processed by CARE are
-        ec_to_text = pd.read_csv(ec2text)
+        ec_to_text = pd.read_csv(f'{self.processed_dir}text2EC.csv')
         self.ec_to_text = dict(zip(ec_to_text['EC number'], ec_to_text['Text']))
+        self.pretrained_dir = pretrained_dir
         
+    def tabulate_results(self, baseline, split):
+        if baseline == 'Similarity':
+            reaction_similarities = np.load('{}Similarity/output/{}_split/retrieval_results/{}_reaction_test_reaction2reaction_retrieval_similarities.npy'.format(self.pretrained_dir, split, split))
+        elif 'CREEP' in baseline:
+            reaction_similarities = np.load('{}task2_baselines/CREEP/output/{}_split/retrieval_results/{}_reaction_test_reaction2protein_retrieval_similarities.npy'.format(self.pretrained_dir, split, split))
+            if 'text' in baseline:
+                text_similarities = np.load('{}CREEP/output/{}_split/retrieval_results/{}_reaction_test_text2protein_retrieval_similarities.npy'.format(self.pretrained_dir, split, split))
+        elif baseline == 'CLIPZyme':
+            reaction_similarities = np.load('{}CLIPZyme/output/{}_split/retrieval_results/{}_reaction_test_reaction2protein_retrieval_similarities.npy'.format(self.pretrained_dir, split, split))
+        
+
+        query_df = self.get_test_df(split)
+        query_EC_list = query_df['EC number'].values
+        num_cols = len(query_df.columns)
+
+        #add len(reaction_similarities) as empty columns to the query_df
+        for i in range(reaction_similarities.shape[1]):
+            query_df[i] = np.nan
+        
+        reference_EC_list = self.get_ec_list()
+
+        #get the number of columns in the query_df
+        for i, query_EC in enumerate(query_EC_list):
+            reaction_similarity = reaction_similarities[i]
+            
+            df = pd.DataFrame({'EC': reference_EC_list, 'reaction similarity': reaction_similarity})
+            df['reaction rank'] = df['reaction similarity'].rank(ascending=False)
+            if 'text' in baseline:
+                text_similarity = text_similarities[i]
+                df['text similarity'] = text_similarity
+                df['text rank'] = df['text similarity'].rank(ascending=False)
+                df['overall rank'] = (df['reaction rank'] + df['text rank'])/2
+            else:
+                df['overall rank'] = df['reaction rank']
+                
+            df.sort_values('overall rank', ascending=True, inplace=True) #need to check if this order is correct
+            #append df['EC'] to the query_df in the numerical columns
+
+            ### use this if similarity is based on euclidean distance rather than dot product ###
+            #df.sort_values('overall rank', ascending=False, inplace=True)
+            if baseline == 'Random':
+                np.random.seed(42)
+                query_df.iloc[i, num_cols:] = df['EC'].sample(frac=1).values
+            else:
+                query_df.iloc[i, num_cols:] = df['EC'].values
+        
+        #ensure the directory exists
+        
+        if not os.path.exists('{}/results_summary/{}'.format(self.output_folder, baseline)):
+            os.makedirs(f'{self.output_folder}results_summary/{baseline}')
+
+        query_df.to_csv('{}results_summary/{}/{}_reaction_test_results_df.csv'.format(self.output_folder, baseline,split), index=False)
+        return query_df
+
+    def get_ec2text(self):
+        return self.ec_to_text
+    
     def get_ec_list(self):
         return np.loadtxt(f'{self.processed_dir}EC_list.txt', dtype=str)
 
@@ -55,8 +113,7 @@ class Task2:
     def get_reactions(self):
         return pd.read_csv(f'{self.processed_dir}reaction2EC.csv')
     
-    def downstream_retrieval(self, reference_dataset, query_dataset, pretrained_folder, output_folder, 
-                            reference_modality, query_modality, k=10, seed=42):
+    def downstream_retrieval(self, reference_dataset, query_dataset, reference_modality, query_modality, k=10, seed=42):
         """ Once a model has been pretrained we can retrieve the data using a systematic and consistent format. """
         random.seed(seed)
         os.environ['PYTHONHASHSEED'] = str(seed)
@@ -70,8 +127,9 @@ class Task2:
         elif reference_dataset == 'all_reactions':
             reference_df = self.get_reactions()
             reference_EC_list = reference_df['EC number'].values
-        
-        root = pretrained_folder + "/representations/"
+
+        root = self.pretrained_dir + f"Similarity/output/{query_dataset}_split/representations/"
+
         query_df = self.get_test_df(query_dataset)
 
         #load the reference representations
@@ -82,7 +140,7 @@ class Task2:
         reference_representation_data = np.load(reference_representation_file, allow_pickle=True).item()
         
         #load the representations to be queried
-        query_representation_file = os.path.join(root, query_dataset + "_representations.npy")
+        query_representation_file = os.path.join(root, query_dataset + "_" + query_modality + "_test_representations.npy")
         query_representation_data = np.load(query_representation_file, allow_pickle=True).item()
 
         reference_key = reference_modality + '_repr_array'
@@ -102,7 +160,11 @@ class Task2:
 
         query_inmodality_list = query_df[modality2column_dict[query_modality]].values #not sure if this is still used
         query_EC_list = query_df['EC number'].values
-
+        
+        # sequence_identities = []
+        # corrects = []
+        # predicted_ECs = []
+        # rankings = [] #keeps track of rnaking where the query is in
         all_indices = np.zeros((len(query_EC_list), len(reference_EC_list)))
         all_similarities = np.zeros((len(query_EC_list), len(reference_EC_list)))
 
@@ -121,13 +183,15 @@ class Task2:
             else:
                 query_EC_index = query_EC_index[0]
             
+            #print(query_EC_index)
             sorted_indices = np.argsort(similarity, axis=1)[:, ::-1][0] #sort in descending order
             all_indices[i] = sorted_indices
             all_similarities[i] = similarity
 
-        np.save(os.path.join(output_folder, query_dataset + "_" + query_modality + "2" + reference_modality + "_retrieval_similarities.npy"), all_similarities)
+        np.save(os.path.join(self.output_folder, query_dataset + "_" + query_modality + "2" + reference_modality + "_retrieval_similarities.npy"), all_similarities)
 
-
+        return all_similarities
+    
     def get_train_df(self, label):
         return pd.read_csv(os.path.join(self.data_folder, f'{label}_reaction_train.csv'))
     

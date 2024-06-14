@@ -28,8 +28,8 @@ sys.path.append('/disk1/ariane/vscode/CARE/')
 from CARE.processing import *
 from CARE.task2 import *
 
-repo_dir = '/disk1/ariane/vscode/CARE/'
-data_dir = f'{repo_dir}data/raw/'
+repo_dir = '/disk1/ariane/vscode/CARE/pretrained/'
+data_dir = f'{repo_dir}raw_data/'
 test_data_dir = f'{repo_dir}tests/data/'
 output_dir = f'{repo_dir}tests/output/'
 task2_dir = f'{repo_dir}splits/task2/'
@@ -49,16 +49,15 @@ class TestTask2(unittest.TestCase):
                 api_key = line.strip()
                 break
         df = tasker.get_ChatGPT('promiscuous', api_key=api_key, subsample=['Q48154', 'A0JNI4', 'Q62969'], save=True)
-
     
     def test_similarity(self):
-        tasker = Task2(task2_dir, output_dir, f'{processed_dir}text2EC.csv', processed_dir)
+        tasker = Task2(task2_dir, output_dir, processed_dir, pretrained_dir=f'{repo_dir}task2_baselines/')
         df = tasker.get_test_df('easy').sample(2)
         # Pass the DF just so that we can easily do this quickly
         # reference_dataset, query_dataset, pretrained_folder, output_folder, reference_modality, query_modality,
         tasker.get_similarity('easy', encode=True, df=df)
-        tasker.downstream_retrieval('all_ECs', 'easy', f'{output_dir}', f'{output_dir}',
-                                    'reaction', 'reaction') 
+        #print(tasker.downstream_retrieval('all_ECs', 'easy', 'reaction', 'reaction'))
+        print(tasker.tabulate_results('Similarity', 'easy'))
 
 if __name__ == '__main__':
     unittest.main()
