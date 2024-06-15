@@ -21,6 +21,11 @@
 
 import unittest
 
+from CARE.processing import *
+from CARE.task1 import *
+from CARE.task2 import *
+from CARE.benchmarker import *
+
 import sys
 sys.path.append('/disk1/ariane/vscode/CARE/CARE/')
 
@@ -28,6 +33,13 @@ from CARE.processing import *
 
 data_dir = '/disk1/ariane/vscode/CARE/data/'
 test_data_dir = '/disk1/ariane/vscode/CARE/tests/data/'
+
+care_dir = '/disk1/ariane/vscode/CARE/pretrained/'
+processed_data_dir = f'{care_dir}processed_data/'
+raw_data_dir = f'{care_dir}raw_data/'
+output_dir = f'{care_dir}user_output/'
+task1_data_dir = f'{care_dir}splits/task1/'
+task2_data_dir = f'{care_dir}splits/task2/'
 
 class TestProcessing(unittest.TestCase):
 
@@ -75,6 +87,15 @@ class TestProcessing(unittest.TestCase):
 
     def test_pipeline(self):
         process_data(f'{data_dir}uniprotkb_AND_reviewed_true_2024_05_13.tsv', f'{data_dir}ECReact.csv', f'{data_dir}EnzymeMap.csv', f'{data_dir}ECtoGO_raw.txt', '/disk1/ariane/vscode/CARE/tests/output/')
+
+    def test_blast_pipeline(self):
+        output_dir = f'{care_dir}task1_baselines/results_summary/BLAST/'
+        tasker = Task1(data_folder=task1_data_dir, output_folder=output_dir)
+        split = '30-50'
+        # For proteInfer you need to point where it was saved.
+        df = tasker.get_blast(split, num_ecs=10, save=True)
+        u.dp([split])
+
 
 if __name__ == '__main__':
     unittest.main()

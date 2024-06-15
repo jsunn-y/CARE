@@ -28,4 +28,6 @@ __author_email__ = 'jyang@caltech.edu'
 __license__ = 'GPL3'
 
 
-from processing import *
+from CARE.processing import *
+from CARE.task1 import *
+from CARE.task2 import *

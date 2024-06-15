@@ -23,7 +23,7 @@ import pandas as pd
 import numpy as np
 import random
 from sciutil import SciUtil
-from processing import *
+from CARE.processing import *
 import npysearch as npy
 from openai import OpenAI
 from collections import defaultdict
@@ -165,9 +165,10 @@ def split(swissprot: pd.DataFrame, price_filepath: str, output_folder: str):
 # ----------------------------------------------------------------------------------
 class Task1:
 
-    def __init__(self, data_folder, output_folder):
+    def __init__(self, data_folder, output_folder, processed_data_folder):
         self.data_folder = data_folder
         self.output_folder = output_folder
+        self.processed_data_folder = processed_data_folder
 
     def get_train_fasta(self):
         return os.path.join(self.data_folder, 'protein_train.fasta')
@@ -187,7 +188,7 @@ class Task1:
             return os.path.join(self.data_folder, f'{label}_protein_test.fasta')
 
     def get_uniprot2ec(self):
-        df = pd.read_csv(os.path.join(self.data_folder, 'protein2EC.csv'))
+        df = pd.read_csv(os.path.join(self.processed_data_folder, 'protein2EC.csv'))
         entry_to_ec = defaultdict(list)
         for entry, ec in df[['Entry', 'EC number']].values:
             entry_to_ec[entry].append(ec)
@@ -196,7 +197,7 @@ class Task1:
         return entry_to_ec
     
     def get_price2ec(self):
-        df = pd.read_csv(os.path.join(self.data_folder, 'price_protein_test.csv'))
+        df = pd.read_csv(os.path.join(self.processed_data_folder, 'price_protein_test.csv'))
         entry_to_ec = defaultdict(list)
         for entry, ec in df[['Entry', 'EC number']].values:
             entry_to_ec[entry].append(ec)
