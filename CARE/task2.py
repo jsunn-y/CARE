@@ -109,6 +109,72 @@ class Task2:
     def get_reactions(self):
         return pd.read_csv(f'{self.processed_dir}reaction2EC.csv')
     
+    def get_ranking_for_reaction(self, reaction_smiles: str, name: str):
+        """
+        For a specific reaction get the similarities from DRFP and CREEP.
+
+        Name is the name of your reaction.
+        """
+        template = self.get_test_df("easy")
+        df = template.iloc[0:1]
+        # ToDo: potentially check the viability of the smiles
+        df['Reaction'] = reaction_smiles
+        #drop Mapped Reaction
+        df = df.drop(columns=['Mapped Reaction', 'Reaction Text', 'Duplicated EC', 'Reactions with a single EC'])
+        df['EC number'] = '0.0.0.0'
+        df['EC3'] = '0.0.0'
+        df['EC2'] = '0.0'
+        df['EC1'] = '0'
+        query_reactions = df['Reaction'].values
+
+        fps = DrfpEncoder.encode(query_reactions, show_progress_bar=True)
+
+        fps = np.vstack(fps)
+        output_folder = '{}Similarity/output/{}_split/representations/'.format(self.pretrained_dir, name)
+        os.makedirs(output_folder, exist_ok=True)
+        split = name
+        saved_file_path = os.path.join('{}/{}_reaction_test_representations'.format(output_folder, split))
+        #if the file exists, load it
+        if os.path.exists(saved_file_path + ".npy"):
+            results = np.load(saved_file_path + ".npy", allow_pickle=True).item()
+        else:
+            results = {}
+
+        results["reaction_repr_array"] = fps  
+        np.save(saved_file_path, results)
+        df = self.get_reactions()
+
+        reactions = df['Reaction'].values
+
+        fps = DrfpEncoder.encode(reactions, show_progress_bar=True)
+        repr_array = np.vstack(fps)
+
+        df['index'] = df.index
+        ec2index = df.groupby('EC number')['index'].apply(list).to_frame().to_dict()['index']
+        EClist = self.get_ec_list()
+
+        cluster_centers = np.zeros((len(EClist), repr_array.shape[1]))
+        for i, ec in enumerate(EClist):
+            #average together the embeddings for each EC number
+            if ec in ec2index.keys():
+                indices = ec2index[ec]
+                cluster_centers[i] = np.mean(repr_array[indices], axis=0)
+
+        saved_file_path = os.path.join(output_folder, "all_ECs_cluster_centers")
+        #if the file exists, load it
+        if os.path.exists(saved_file_path + ".npy"):
+            results = np.load(saved_file_path + ".npy", allow_pickle=True).item()
+        else:
+            results = {}
+
+        results["reaction_repr_array"] = cluster_centers
+
+        print(cluster_centers.shape)
+        np.save(saved_file_path, results)
+
+        # Now we can do the downstream retrieval!     
+        return self.downstream_retrieval('Similarity', 'all_ECs', name, 'reaction', 'reaction')
+    
     def downstream_retrieval(self, baseline, reference_dataset, query_dataset, reference_modality, query_modality, k=10, seed=42):
         """ Once a model has been pretrained we can retrieve the data using a systematic and consistent format. """
         random.seed(seed)

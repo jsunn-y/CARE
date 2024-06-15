@@ -70,6 +70,9 @@ class TestTask2(unittest.TestCase):
         print(tasker.downstream_retrieval('CLIPZyme', 'all_ECs', 'medium', 'protein', 'reaction'))
         print(tasker.tabulate_results('CLIPZyme', 'medium'))
 
+    def test_get_reaction(self):
+        tasker = Task2(task2_dir, output_dir, processed_dir, pretrained_dir=f'{repo_dir}task2_baselines/')
+        tasker.get_ranking_for_reaction('CCCCC(CC)COC(=O)c1ccccc1C(=O)OCC(CC)CCCC.O>>CCCCC(CC)CO.CCCCC(CC)COC(=O)c1ccccc1C(=O)O', 'DEHP')
 
 if __name__ == '__main__':
     unittest.main()

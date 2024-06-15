@@ -26,6 +26,7 @@ import typer
 from CARE.processing import *
 from CARE.task2 import *
 from CARE.task1 import *
+from CARE.benchmarker import *
 
 from typing_extensions import Annotated
 
@@ -70,7 +71,7 @@ def task2(pretrained_dir: Annotated[str, typer.Argument(help="Where the pretrain
     """ Run Task 2 """
     u.dp(["Running task 2... ", baseline, query_dataset])
 
-    baselines =["Similarity", "CARE", "CLIPZyme", "CREEP"]
+    baselines =["Similarity", "CARE", "CLIPZyme", "CREEP", 'All']
     if baseline not in baselines:
         raise typer.BadParameter(f"Invalid baseline. Choose from {baselines}.")
     
@@ -85,16 +86,65 @@ def task2(pretrained_dir: Annotated[str, typer.Argument(help="Where the pretrain
     if reference_dataset not in ['all_ECs']:
         raise typer.BadParameter(f"Invalid reference_dataset. Choose from all_ECS.")
     
-    query_datasets = ["easy", "medium", "hard"]
+    query_datasets = ["easy", "medium", "hard", 'All']
     if query_dataset not in query_datasets:
         raise typer.BadParameter(f"Invalid query_dataset. Choose from {query_datasets}.")
         
-    tasker = Task2(f'{pretrained_dir}splits/task2/', output_dir, f'{pretrained_dir}processed_data/', pretrained_dir=f'{pretrained_dir}task2_baselines/')
-    tasker.downstream_retrieval(baseline, reference_dataset, query_dataset, reference_modality, query_modality)
-    # For now print the DF
-    print(tasker.tabulate_results(baseline, query_dataset))
-    u.dp(["Done benchmark. Results are saved in: ", output_dir])
+    if baseline == 'All':
+        for baseline in baselines:
+            if query_dataset == 'All':
+                for query_dataset in query_datasets:
+                    u.dp(['Running: ', baseline, query_dataset])
+                    tasker = Task2(f'{pretrained_dir}splits/task2/', output_dir, f'{pretrained_dir}processed_data/', pretrained_dir=f'{pretrained_dir}task2_baselines/')
+                    tasker.downstream_retrieval(baseline, reference_dataset, query_dataset, reference_modality, query_modality)
+                    u.warn_p(['Done: ', baseline, query_dataset])
+                    tasker.tabulate_results(baseline, query_dataset)
 
+            else:
+                u.dp(['Running: ', baseline, query_dataset])
+                tasker = Task2(f'{pretrained_dir}splits/task2/', output_dir, f'{pretrained_dir}processed_data/', pretrained_dir=f'{pretrained_dir}task2_baselines/')
+                tasker.downstream_retrieval(baseline, reference_dataset, query_dataset, reference_modality, query_modality)
+                u.warn_p(['Done: ', baseline, query_dataset])
+                tasker.tabulate_results(baseline, query_dataset)
+
+
+    elif query_dataset == 'All':
+        for query_dataset in query_datasets:
+            u.dp(['Running: ', baseline, query_dataset])
+            tasker = Task2(f'{pretrained_dir}splits/task2/', output_dir, f'{pretrained_dir}processed_data/', pretrained_dir=f'{pretrained_dir}task2_baselines/')
+            tasker.downstream_retrieval(baseline, reference_dataset, query_dataset, reference_modality, query_modality)
+            tasker.tabulate_results(baseline, query_dataset)
+
+            u.warn_p(['Done: ', baseline, query_dataset])
+    else:
+        # Just run the single task!
+        tasker = Task2(f'{pretrained_dir}splits/task2/', output_dir, f'{pretrained_dir}processed_data/', pretrained_dir=f'{pretrained_dir}task2_baselines/')
+        tasker.downstream_retrieval(baseline, reference_dataset, query_dataset, reference_modality, query_modality)
+        df = tasker.tabulate_results(baseline, query_dataset)
+        rows = []
+        rows = get_k_acc(df, [1, 5, 10], rows, baseline, query_dataset)
+        results_df = pd.DataFrame(rows, columns=['baseline', 'split', 'k', 'level 4 accuracy', 'level 3 accuracy', 'level 2 accuracy', 'level 1 accuracy'])    
+        results_df.to_csv(f'{output_dir}results_all.csv')
+        u.dp(["Done benchmark. Results are saved in: ", output_dir])
+
+
+def run_task_1(tasker, baseline, split, rows):
+    if baseline == 'BLAST':
+        # For proteInfer you need to point where it was saved.
+        df = tasker.get_blast(split, num_ecs=10, save=True)
+        u.dp([split])
+        rows = get_k_acc(df, [1, 5, 10], rows, 'BLAST', split)
+    elif baseline == 'ProteInfer':
+        # For proteInfer you need to point where it was saved.
+        df = tasker.get_proteinfer(split, proteinfer_dir=f'{tasker.pretrained_dir}task1_baselines/ProteInfer/proteinfer/', save=True)
+        rows = get_k_acc(df, [1, 5, 10], rows, 'ProteInfer', split)
+    elif baseline == 'Random':
+        df = tasker.randomly_assign_EC(split, num_ecs=50, save=True)
+        rows = get_k_acc(df, [1, 5, 10], rows, 'random', split)
+    elif baseline == 'ChatGPT':
+        df = tasker.randomly_assign_EC(split, num_ecs=50, save=True)
+        rows = get_k_acc(df, [1, 5, 10], rows, 'random', split)
+    return rows
 
 @app.command()
 def task1(pretrained_dir: Annotated[str, typer.Argument(help="Where the pretrained data is located.")], 
@@ -116,22 +166,46 @@ def task1(pretrained_dir: Annotated[str, typer.Argument(help="Where the pretrain
                                  metavar="k")):
     
     """ Run Task 1 """
-    baselines =["BLAST", "CLEAN", "ChatGPT", "ProteInfer"]
+    rows = []
+
+    baselines =["BLAST", "CLEAN", "ChatGPT", "ProteInfer", "All"]
     if baseline not in baselines:
         raise typer.BadParameter(f"Invalid baseline. Choose from {baselines}.")
     
-    query_datasets = ["30", "30-50", "price", "promiscuous"]
+    query_datasets = ["30", "30-50", "price", "promiscuous", "All"]
     if query_dataset not in query_datasets:
         raise typer.BadParameter(f"Invalid query_dataset. Choose from {query_datasets}.")
         
-    tasker = Task1(data_folder=f'{pretrained_dir}splits/task1/', output_folder=output_dir, processed_data_folder=f'{pretrained_dir}processed_data/')
-    # For proteInfer you need to point where it was saved.
-    df = tasker.get_blast(query_dataset, num_ecs=k, save=True)
+    if baseline == 'All':
+        for baseline in baselines:
+            if query_dataset == 'All':
+                for query_dataset in query_datasets:
+                    u.dp(['Running: ', baseline, query_dataset])
+                    tasker = Task1(data_folder=f'{pretrained_dir}splits/task1/', output_folder=output_dir, processed_data_folder=f'{pretrained_dir}processed_data/')
+                    # For proteInfer you need to point where it was saved.
+                    rows = run_task_1(tasker, baseline, query_dataset, rows)
+                    u.warn_p(['Done: ', baseline, query_dataset])
+            else:
+                tasker = Task1(data_folder=f'{pretrained_dir}splits/task1/', output_folder=output_dir, processed_data_folder=f'{pretrained_dir}processed_data/')
+                # For proteInfer you need to point where it was saved.
+                rows = run_task_1(tasker, baseline, query_dataset, rows)
 
-    # For now print the DF (maybe for debugging)
-    print(df.head())
+    elif query_dataset == 'All':
+        for query_dataset in query_datasets:
+            u.dp(['Running: ', baseline, query_dataset])
+            tasker = Task1(data_folder=f'{pretrained_dir}splits/task1/', output_folder=output_dir, processed_data_folder=f'{pretrained_dir}processed_data/')
+            # For proteInfer you need to point where it was saved.
+            rows = run_task_1(tasker, baseline, query_dataset, rows)
+            u.warn_p(['Done: ', baseline, query_dataset])
+    else:
+        # Just run the single task!
+        tasker = Task1(data_folder=f'{pretrained_dir}splits/task1/', output_folder=output_dir, processed_data_folder=f'{pretrained_dir}processed_data/')
+        rows = run_task_1(tasker, baseline, query_dataset, rows)
 
+    df = pd.DataFrame(rows, columns=['baseline', 'split', 'k', 'level 4 accuracy', 'level 3 accuracy', 'level 2 accuracy', 'level 1 accuracy'])
+    df.to_csv(f'{output_dir}results_all.csv')
     u.dp(["Done benchmark. Results are saved in: ", output_dir])
+
 
 if __name__ == "__main__":
     app()
