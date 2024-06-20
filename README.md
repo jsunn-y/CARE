@@ -24,7 +24,7 @@ The table below summarizes which files should be used for each train-test split 
 Alteratively, the steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits).
 
 ## Performance Evaluation
-After training, performance metrics for benchmarking can be obtained using `performance_evaluation.ipynb`. Required format for analysis of each model on each split is a .csv file where each row is an entry in the test set, and each entry is associated with a ranking of EC numbers ranked from best to worst ([example](link)).
+After ranking EC numbers from best to worst, performance metrics for benchmarking can be obtained using `performance_evaluation.ipynb`. Required format for analysis of each model on each split is a .csv file where each row is an entry in the test set, and each entry is associated with a ranking of EC numbers ranked from best to worst ([example](link)).
 
 Performance analysis can be performed in most environments with minimal packages. The standard performance metric is k=1 classification/retrieval accuracy, but we also provide code to calculate other metrics in this notebook. The output for k=1 accuracy should look something like this:
 | Method | Level 4 Accuracy (X.X.X.X) | Level 3 Accuracy (X.X.X.-) | Level 2 Accuracy (X.X.-.-) | Level 1 Accuracy (X.-.-.-) |
@@ -51,10 +51,8 @@ pip install dist/care.0.0.1.tar.gz
 The outputs from pretrained models are provided [here](link).
 
 ### Task 1: performance evaluation 
-To perform the standard benchmarking using our pretrained models and the splits provided download the data from [here](link) and put it in a folder (we suggest the name pretrained). Then you can run any of the results for a specific tool or split:
-
+Task 1 benchmarks (excluding CLEAN) can be reproduced with a single command using the CARE package,  
 ** Note **: install this environment before running training and inference with ProteInfer.
-
 ```
 conda create --name proteinfer python=3.7 -y
 conda activate proteinfer
@@ -63,20 +61,15 @@ cd ~/proteinfer
 pip3 install -r requirements.txt
 ```
 
-e.g. to run for BLAST on the 30% split you would run:
+Run the following command to make predictions using pretrained models and automatically find the most likely ECs and calculate accuracy metrics.
 ```
-CARE task1 --baseline BLAST --query-dataset "30" --k 10 "/disk1/ariane/vscode/CARE/pretrained/" "/disk1/ariane/vscode/CARE/tmp_test/"
+CARE task1 --baseline All --query-dataset All --k 10 
 ```
+Where `baseline` is one of "All", "BLAST", "ChatGPT", "ProteInfer", or "Random" and `query_dataset` is  one of "All", "30", "30-50", "Price", or "promiscuous".  
 
-Where `baseline` is one of "BLAST", "ChatGPT", "ProteInfer", or "Random".  
+To get help: `CARE task1 --help`
 
-`query_dataset` is "30", "30-50", "Price", or "promiscous".  
-
-To get help:
-
-```
-CARE --help task1
-```
+Detailed instructions for reproducing our baselines on Task 1 and general recommendations for benchmarking on Task 1 can be found [here](task1_baselines). CLEAN requires retraining the model, which is explained in detail.
 
 ### Task 2: performance evaluation 
 To perform the standard benchmarking using our pretrained model outputs, download the data from [here](link) and replace the folder `task2_baselines`. Then you can run the CARE package any of the results for a specific tool or split:
@@ -116,7 +109,7 @@ For chatGPT you'll need your API key saved in a file called `secrets.txt` just a
 Instructions for CARE benchmarking using other packages is provided in more detail in the sections below.
 
 ## Details on Task 1
-Detailed instructions for reproducing our baselines on Task 1 and general recommendations for benchmarking on Task 1 can be found [here](task1_baselines).
+
 
 ## Details on Task 2
 
