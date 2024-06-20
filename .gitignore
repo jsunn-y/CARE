@@ -15,6 +15,7 @@ CREEP/data/pretrained_SciBert/
 task2_baselines/CREEP/output/
 task1_baselines/BLAST/data/
 task2_baselines/bioremediation_test.ipynb
+task2_baselines_pretrained/
 splits/task2/bioremediation_reaction_test.csv
 task2_baselines/Similarity/output/bioremediation_split/
 task2_baselines/CREEP/output/bioremediation_split
