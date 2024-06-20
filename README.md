@@ -60,6 +60,7 @@ git clone https://github.com/google-research/proteinfer
 cd ~/proteinfer
 pip3 install -r requirements.txt
 ```
+** Note **: For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line, from your OpenAI account.
 
 Run the following command to make predictions using pretrained models and automatically find the most likely ECs and calculate accuracy metrics.
 ```
@@ -78,42 +79,10 @@ CARE task2 --baseline All --query-dataset All
 ```
 Where `baseline` is one of "All", "Similarity", "CREEP", "CREEP_text", "CLIPZyme", and "Random". Query dataset is one of "All", "easy", "medium" or "hard".
 
+** Note **: For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line, from your OpenAI account.
 To get help: `CARE task2 --help`
 
 Detailed instructions for reproducing our baselines on Task 2 and general recommendations for benchmarking on Task 2 can be found [here](task2_baselines).
-
-## Task 1 methods installation:
-
-
-
-#### CLEAN installation
-For CLEAN model inference.
-** Note **: only install this environment if you would like to run training and inference with CLEAN.
-```
-conda create -n clean python==3.10.4 -y
-conda activate clean
-pip install -r clean_requirements.txt
-```
-
-#### ChatGPT
-For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line. This requires your OpenAI account to have an assoiated API key.
-
-**Note** you need to have downloaded the data and placed the data folder in the CARE directory. 
-
-## Task 2 installation:
-
-#### ChatGPT
-For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line. This requires your OpenAI account to have an assoiated API key.
-
-### Other information
-Instructions for CARE benchmarking using other packages is provided in more detail in the sections below.
-
-## Details on Task 1
-
-
-## Details on Task 2
-
-
 
 ### CREEP
 We introduce Contrastive Reaction-EnzymE Pretraining (CREEP), which is one of the first models that can perform Task 2 by aligning representations from different modalities (reaction, protein, and optionally textual description). The model is found under `CREEP`, while example usage is found under `task2_baselines/CREEP`.
@@ -130,17 +99,4 @@ conda activate CREEP
 pip install pandas torch==2.2.0 transformers==4.39.1 sentencepiece
 pip install -e .
 #pip install lxml #doesn't look like you need this
-```
-
-#### Development
-
-To build:
-```
-python setup.py sdist bdist_wheel
-```
-
-To install: 
-
-```
-pip install dist/care-0.1.0.tar.gz
 ```
