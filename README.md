@@ -32,7 +32,7 @@ Performance analysis can be performed in most environments with minimal packages
 | Name |  54.1 | 60.4 | 81.0 | 95.5 |
 | ... | ... | ...|  ...|  ... |
 
-### CREEP
+## CREEP
 We introduce Contrastive Reaction-EnzymE Pretraining (CREEP), which is one of the first models that can perform Task 2 by aligning representations from different modalities (reaction, protein, and optionally textual description). The model is found under `CREEP`, while example usage is found under `task2_baselines/CREEP`.
 
 #### CREEP installation
