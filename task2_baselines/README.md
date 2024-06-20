@@ -3,20 +3,22 @@ The results of EC retrieval for each method and each split is found in `results_
 
 Alternatively, these results can be reproduced at a high level (excluding ChatGPT and Random) by following these steps: 
 
-
 1. Model trainining for CREEP and CLIPZyme. Similarity baseline can skip to step 2.
 2. Extract representations in the format of .npy files containing arrays of representations from multiple modalities (such as protein, reaction, and text).
 3. A similarity search between the train and test set is performed using `downstream_retrieval.py`. Retrieval similarites are outputed as .npy arrays under the respective method and model folder in `retrieval_results`.
 4. The retrieval similarities are processed to obtain a ranking of EC numbers using `tabulate_results.ipynb`. The outputs will be .csv files saved to their respective folders in `results_summary`, to be used for performance analysis.  
 
-ChatGPT adn Random can be run in the CARE package from start to finish with a single command. Steps 3 & 4 can be run in the CARE package for all other methods with a single command, provided that the `task2_baselines` folder is replaced with the one from [here](link). 
+To execute task 2 for all methods using the CARE package:
 ```
 CARE task2 --baseline All --query-dataset All
 ```
 Where `baseline` is one of "All", "Similarity", "CREEP", "CREEP_text", "ChatGPT", "CLIPZyme", and "Random". Query dataset is one of "All", "easy", "medium" or "hard".
 
-** Note **: For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line, from your OpenAI account.
 To get help: `CARE task2 --help`
+
+Before running any of these steps `processed_data` and `splits` must be replaced with the data downloaded from [here](link). ChatGPT and Random will execute from start to finish when the above CARE package command is used. For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line, from your OpenAI account. Steps 1 & 2 are slow for the other methods and are skipped when running the CARE package with the above command. If are using one of these other methods, `task2_baselines` folder must be replaced with the one from [here](link) before running. 
+
+If are manually starting from step 2 using CREEP, pretrained models can be downloaded from [here](link).
 
 Refer to each model below for details on their specific implementation:
 
