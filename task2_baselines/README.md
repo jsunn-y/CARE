@@ -8,7 +8,7 @@ Alternatively, these results can be reproduced at a high level (excluding ChatGP
 3. A similarity search between the train and test set is performed using `downstream_retrieval.py`. Retrieval similarites are outputed as .npy arrays under the respective method and model folder in `retrieval_results`.
 4. The retrieval similarities are processed to obtain a ranking of EC numbers using `tabulate_results.ipynb`. The outputs will be .csv files saved to their respective folders in `results_summary`, to be used for performance analysis.  
 
-To execute task 2 for all methods using the CARE package:
+To reproduce our benchmarking on task 2 for all methods using the CARE package:
 ```
 CARE task2 --baseline All --query-dataset All
 ```
@@ -16,11 +16,9 @@ Where `baseline` is one of "All", "Similarity", "CREEP", "CREEP_text", "ChatGPT"
 
 To get help: `CARE task2 --help`
 
-Before running any of these steps `processed_data` and `splits` must be replaced with the data downloaded from [here](link). ChatGPT and Random will execute from start to finish when the above CARE package command is used. For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line, from your OpenAI account. Steps 1 & 2 are slow for the other methods and are skipped when running the CARE package with the above command. If are using one of these other methods, `task2_baselines` folder must be replaced with the one from [here](link) before running. 
+Before running any of these steps `processed_data` and `splits` must be replaced with the data downloaded from [here](link). ChatGPT and Random will execute from start to finish when the above command is used. For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line, from your OpenAI account. Steps 1 & 2 are slow for the other methods and are skipped when running the CARE package with the above command. If are using one of these other methods, `task2_baselines` folder must be replaced with the one from [here](link) before running. 
 
-If are manually starting from step 2 using CREEP, pretrained models can be downloaded from [here](link).
-
-Refer to each model below for details on their specific implementation:
+Refer to each model below for details on their specific implementation from earlier steps:
 
 ### Similarity Baseline
 Reaction representations used in the Similarity Baseline are found in `Similarity`.
@@ -50,7 +48,7 @@ Note that our batch size of 16 is optimized for a single 80GB GPU. Training for 
 python step_02_extract_CREEP.py --pretrained_folder=output/easy_split --dataset=all_proteins --modality=protein --get_cluster_centers
 ```
 
-Note that this will take 0.5-1 hours on a single H100 GPU.
+Note that this will take 0.5-1 hours on a single H100 GPU. If are manually starting from step 2 using CREEP, pretrained models can be downloaded from [here](link).
 
 For extracting the query reaction representations for each test set: 
 ```
