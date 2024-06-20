@@ -68,27 +68,8 @@ pip install dist/care.0.0.1.tar.gz
 The outputs from pretrained models are provided [here](link) and should replace the `task1_baselines` and `task2_baselines` folders respectively.
 
 ### Task 1: performance evaluation 
-The results of EC classification for each method and each split is found in `task1_baselines/results_summary` as .csv files, for use in downstream performance analysis. Task 1 benchmarks (excluding CLEAN) can be reproduced with a single command using the CARE package.
 
-** Note **: install this environment before running training and inference with ProteInfer.
-```
-conda create --name proteinfer python=3.7 -y
-conda activate proteinfer
-git clone https://github.com/google-research/proteinfer
-cd ~/proteinfer
-pip3 install -r requirements.txt
-```
-** Note **: For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line, from your OpenAI account.
-
-Run the following command to make predictions using pretrained models and automatically find the most likely ECs and calculate accuracy metrics.
-```
-CARE task1 --baseline All --query-dataset All --k 10 
-```
-Where `baseline` is one of "All", "BLAST", "ChatGPT", "ProteInfer", or "Random" and `query_dataset` is  one of "All", "30", "30-50", "Price", or "promiscuous".  
-
-To get help: `CARE task1 --help`
-
-Detailed instructions for reproducing our baselines on Task 1 and general recommendations for benchmarking on Task 1 can be found [here](task1_baselines). CLEAN requires retraining the model, which is explained in detail.
+Detailed instructions for reproducing our baselines on Task 1 and general recommendations for benchmarking on Task 1 can be found [here](task1_baselines).
 
 ### Task 2: performance evaluation 
 
