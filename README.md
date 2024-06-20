@@ -32,6 +32,23 @@ Performance analysis can be performed in most environments with minimal packages
 | Name |  54.1 | 60.4 | 81.0 | 95.5 |
 | ... | ... | ...|  ...|  ... |
 
+### CREEP
+We introduce Contrastive Reaction-EnzymE Pretraining (CREEP), which is one of the first models that can perform Task 2 by aligning representations from different modalities (reaction, protein, and optionally textual description). The model is found under `CREEP`, while example usage is found under `task2_baselines/CREEP`.
+
+#### CREEP installation
+For CREEP model training and inference
+** Note **: only install this environment if you would like to run training and inference with CREEP.
+
+```
+cd CREEP
+conda create -n CREEP python=3.8
+conda activate CREEP
+#we recommend installing this way so that torch is compatible with your GPU and your version of CUDA
+pip install pandas torch==2.2.0 transformers==4.39.1 sentencepiece
+pip install -e .
+#pip install lxml #doesn't look like you need this
+```
+
 ## Benchmarking pretrained models
 
 ### Installation
@@ -83,20 +100,3 @@ Where `baseline` is one of "All", "Similarity", "CREEP", "CREEP_text", "CLIPZyme
 To get help: `CARE task2 --help`
 
 Detailed instructions for reproducing our baselines on Task 2 and general recommendations for benchmarking on Task 2 can be found [here](task2_baselines).
-
-### CREEP
-We introduce Contrastive Reaction-EnzymE Pretraining (CREEP), which is one of the first models that can perform Task 2 by aligning representations from different modalities (reaction, protein, and optionally textual description). The model is found under `CREEP`, while example usage is found under `task2_baselines/CREEP`.
-
-#### CREEP installation
-For CREEP model training and inference
-** Note **: only install this environment if you would like to run training and inference with CREEP.
-
-```
-cd CREEP
-conda create -n CREEP python=3.8
-conda activate CREEP
-#we recommend installing this way so that torch is compatible with your GPU and your version of CUDA
-pip install pandas torch==2.2.0 transformers==4.39.1 sentencepiece
-pip install -e .
-#pip install lxml #doesn't look like you need this
-```
