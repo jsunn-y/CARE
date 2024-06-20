@@ -49,7 +49,7 @@ pip install -e .
 #pip install lxml #doesn't look like you need this
 ```
 
-## CARE Package: for dataset processing and benchmarking pretrained models
+## CARE Package: for dataset processing/splitting and benchmarking pretrained models
 
 ### Installation
 If you are only interested in using the datasets and train-test splits in CARE, skip the installation steps below and directly download the data from [here](link). If you are interested in the reproducing the dataset curation/splitting, training and inference, and analyses in our study, then proceed to clone this repo and install the relevant environments below:
