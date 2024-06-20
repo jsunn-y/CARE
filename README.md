@@ -65,10 +65,11 @@ conda install -c conda-forge -c bioconda mmseqs2 -y
 pip install dist/care.0.0.1.tar.gz
 ```
 
-The outputs from pretrained models are provided [here](link).
+The outputs from pretrained models are provided [here](link) and should replace the `task1_baselines` and `task2_baselines` folders respectively.
 
 ### Task 1: performance evaluation 
-Task 1 benchmarks (excluding CLEAN) can be reproduced with a single command using the CARE package,  
+The results of EC classification for each method and each split is found in `task1_baselines/results_summary` as .csv files, for use in downstream performance analysis. Task 1 benchmarks (excluding CLEAN) can be reproduced with a single command using the CARE package.
+
 ** Note **: install this environment before running training and inference with ProteInfer.
 ```
 conda create --name proteinfer python=3.7 -y
@@ -90,13 +91,5 @@ To get help: `CARE task1 --help`
 Detailed instructions for reproducing our baselines on Task 1 and general recommendations for benchmarking on Task 1 can be found [here](task1_baselines). CLEAN requires retraining the model, which is explained in detail.
 
 ### Task 2: performance evaluation 
-To perform the standard benchmarking using our pretrained model outputs, download the data from [here](link) and replace the folder `task2_baselines`. Then you can run the CARE package any of the results for a specific tool or split:
-```
-CARE task2 --baseline All --query-dataset All
-```
-Where `baseline` is one of "All", "Similarity", "CREEP", "CREEP_text", "CLIPZyme", and "Random". Query dataset is one of "All", "easy", "medium" or "hard".
-
-** Note **: For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line, from your OpenAI account.
-To get help: `CARE task2 --help`
 
 Detailed instructions for reproducing our baselines on Task 2 and general recommendations for benchmarking on Task 2 can be found [here](task2_baselines).
