@@ -48,7 +48,8 @@ conda install -c conda-forge -c bioconda mmseqs2 -y
 pip install dist/care.0.0.1.tar.gz
 ```
 
-The outputs from pretrained models are provided [here](link) and should replace the `task1_baselines` and `task2_baselines` folders respectively.
+### Dataset Processing
+**ARIANE WRITE THIS PART**
 
 ### Task 1: performance evaluation 
 
