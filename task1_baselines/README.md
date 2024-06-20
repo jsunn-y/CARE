@@ -20,6 +20,5 @@ Where `baseline` is one of "All", "BLAST", "ChatGPT", "ProteInfer", or "Random" 
 
 To get help: `CARE task1 --help`
 
-
 ### CLEAN
 Outputs from model training and inference in our study are found in `CLEAN`. Alternatively, instructions for reproducing our retraining and inference procedure can be found in `task1_baselines/CLEAN/CARE_forCLEAN.ipynb`, which is performed within the [CLEAN package](https://github.com/tttianhao/CLEAN/tree/main). For training, we did not perform any clustering, and we used the recommended training parameters with triplet margin loss.
