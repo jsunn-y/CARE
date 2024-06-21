@@ -3,7 +3,7 @@
 CARE is a datasets and benchmarks suite to evaluate the performance of models to predict the functions of enzymes. CARE is split into two tasks: classification of enzyme sequences based on Enzyme Commission (EC) number (Task 1), and retrieval of EC number given a reaction (Task 2).
 
 ## Datasets and splits
-Processed datasets/splits can be downloaded from [datasets.zip](https://zenodo.org/records/12207966), and these correspond to the same datasets as those in `processed_data` and `splits`. Note that in the full datasets and train sets, every row represents a unique protein-EC pair, or a unique reaction-EC pair. In the test sets, every row is also a unique protein-EC or reaction-EC pair, except for the promiscuous test set, where each row maps a protein seqeunce to a list of corresponding ECs.
+Processed datasets/splits can be downloaded from [datasets.zip](https://zenodo.org/records/12207966), and these correspond to the same datasets as those preloaded to `processed_data` and `splits` in this repository. Note that in the full datasets and train sets, every row represents a unique protein-EC pair, or a unique reaction-EC pair. In the test sets, every row is also a unique protein-EC or reaction-EC pair, except for the promiscuous test set, where each row maps a protein seqeunce to a list of corresponding ECs.
 
 The table below summarizes which files should be used for each train-test split described in the work.
 
