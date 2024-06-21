@@ -48,7 +48,7 @@ If you are running step 1 (training), you must have pretained ProtT5, SciBERT, a
 python step_02_extract_CREEP.py --pretrained_folder=output/easy_split --dataset=all_proteins --modality=protein --get_cluster_centers
 ```
 
-Note that this will take 0.5-1 hours on a single H100 GPU. If are manually starting from step 2 using CREEP, pretrained models can be downloaded from [here](https://zenodo.org/records/12207966).
+Note that this will take 0.5-1 hours on a single H100 GPU. If are manually starting from step 2 using CREEP, pretrained models can be downloaded from [CARE_pretrained.zip](https://zenodo.org/records/12207966).
 
 For extracting the query reaction representations for each test set: 
 ```
