@@ -16,7 +16,7 @@ Where `baseline` is one of "All", "Similarity", "CREEP", "CREEP_text", "ChatGPT"
 
 To get help: `CARE task2 --help`
 
-Before running any of these steps `processed_data` and `splits` must be replaced with the data downloaded from [datasets.zip](https://zenodo.org/records/12195378). ChatGPT and Random will execute from start to finish when the above command is used. For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line, from your OpenAI account. Steps 1 & 2 are slow for the other methods and are skipped when running the CARE package with the above command.
+Before running any of these steps `processed_data` and `splits` must be replaced with the data downloaded from [datasets.zip](https://zenodo.org/records/12207966). ChatGPT and Random will execute from start to finish when the above command is used. For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line, from your OpenAI account. Steps 1 & 2 are slow for the other methods and are skipped when running the CARE package with the above command.
 
 Refer to each model below for details on their specific implementation from earlier steps:
 
@@ -41,14 +41,14 @@ All of the terminal commands needed to run the scripts are provided in `CREEP/ex
 python step_01_train_CREEP.py --output_model_dir=output/easy_split --train_split=easy_reaction_train
 ```
 
-If you are running step 1 (training), you must have pretained ProtT5, SciBERT, and rxnfp models downloaded from [CARE_pretrained.zip](https://zenodo.org/records/12195378). Note that our batch size of 16 is optimized for a single 80GB GPU. Training for 40 epochs took about 36 hrs on a single H100 GPU. Training outputs will be saved in the `CREEP/output` directory. Various training parameters can be tuned using the argparser.
+If you are running step 1 (training), you must have pretained ProtT5, SciBERT, and rxnfp models downloaded from [CARE_pretrained.zip](https://zenodo.org/records/12207966). Note that our batch size of 16 is optimized for a single 80GB GPU. Training for 40 epochs took about 36 hrs on a single H100 GPU. Training outputs will be saved in the `CREEP/output` directory. Various training parameters can be tuned using the argparser.
 
 2. For extracting the reference protein representations and their cluster centers: 
 ```
 python step_02_extract_CREEP.py --pretrained_folder=output/easy_split --dataset=all_proteins --modality=protein --get_cluster_centers
 ```
 
-Note that this will take 0.5-1 hours on a single H100 GPU. If are manually starting from step 2 using CREEP, pretrained models can be downloaded from [here](link).
+Note that this will take 0.5-1 hours on a single H100 GPU. If are manually starting from step 2 using CREEP, pretrained models can be downloaded from [here](https://zenodo.org/records/12207966).
 
 For extracting the query reaction representations for each test set: 
 ```
