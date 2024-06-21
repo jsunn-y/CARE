@@ -10,6 +10,7 @@
 generate_datasets_splits/raw_data/
 generate_datasets_splits/fastas/
 generate_datasets_splits/clustering/
+generate_datasets_splits/figs/
 splits/task1/
 splits/task2/
 #processed_data/
@@ -17,6 +18,8 @@ data/
 generate_datasets_splits/figs/
 CREEP/data/pretrained_ProtT5/
 CREEP/data/pretrained_SciBert/
+CREEP/data/pretrained_rxnfp/
+
 #task2_baselines/CREEP/output/
 task1_baselines/BLAST/data/
 task2_baselines/bioremediation_test.ipynb
