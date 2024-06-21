@@ -1,5 +1,5 @@
 ## Baselines for task 2 (reaction to EC/protein retrieval)
-The results of EC retrieval for each method and each split is found in `results_summary` as .csv files, for use in downstream performance analysis. 
+Note: this workflow is still under construction. The results of EC retrieval for each method and each split is found in `results_summary` as .csv files, for use in downstream performance analysis. 
 
 Alternatively, these results can be reproduced at a high level (excluding ChatGPT and Random) by following these steps: 
 
