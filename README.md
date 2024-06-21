@@ -50,7 +50,7 @@ pip install dist/care.0.0.1.tar.gz
 
 ### Dataset Processing
 
-# **ARIANE WRITE THIS PART**
+Detailed instructions will be added soon!
 
 ### Task 1: performance evaluation 
 
