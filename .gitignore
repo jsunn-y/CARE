@@ -3,8 +3,8 @@
 *log.txt
 
 # adtl
-*.npy
-*.npz
+#*.npy
+#*.npz
 *.pth
 *.png
 generate_datasets_splits/raw_data/
