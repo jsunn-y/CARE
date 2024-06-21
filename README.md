@@ -48,7 +48,7 @@ pip install dist/care.0.0.1.tar.gz
 
 ### Reproducing dataset/split processing
 
-Detailed instructions on using the CARE package will be added soon! Alteratively, the steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits).
+Detailed instructions on using the CARE package will be added soon! Alteratively, the steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits). The raw data used here can be downloaded from [here](link) to replace  `generate_datasets_splits/raw_data`.
 
 ### Reproducing benchmarking on Task 1 
 
