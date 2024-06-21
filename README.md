@@ -30,7 +30,7 @@ Performance analysis can be performed in most environments with minimal packages
 | Name |  54.1 | 60.4 | 81.0 | 95.5 |
 | ... | ... | ...|  ...|  ... |
 
-## CARE Package: for dataset processing/splitting and reproducing benchmarking results
+## CARE Package: for reproducing dataset processing/splitting and reproducing benchmarking results
 
 ### Installation
 If you are only interested in using the datasets and train-test splits in CARE, skip the installation steps below and directly download the data from [here](link). If you are interested in the reproducing the dataset curation/splitting, training and inference, and analyses in our study, then proceed to clone this repo and install the CARE package below. The CARE package is capable of performing, in a single command, many of steps that are alternatively provided as scripts or jupyter notebooks. Note that the CARE package is still under construction, so please come back for working versions.
