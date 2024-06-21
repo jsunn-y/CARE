@@ -74,5 +74,4 @@ conda activate CREEP
 #we recommend installing this way so that torch is compatible with your GPU and your version of CUDA
 pip install pandas torch==2.2.0 transformers==4.39.1 sentencepiece
 pip install -e .
-#pip install lxml #doesn't look like you need this
 ```
