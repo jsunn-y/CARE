@@ -18,11 +18,12 @@ generate_datasets_splits/figs/
 #splits/task1/
 #splits/task2/
 #processed_data/
-data/
+tests/
 generate_datasets_splits/figs/
 CREEP/data/pretrained_ProtT5/
 CREEP/data/pretrained_SciBert/
 CREEP/data/pretrained_rxnfp/
+
 
 #task2_baselines/CREEP/output/
 task1_baselines/BLAST/data/
