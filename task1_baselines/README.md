@@ -1,6 +1,6 @@
 ## Baselines for task 1 (protein to EC/reaction classification)
 
-Note: this workflow is still under construction. The results of EC classification for each method and each split is found in `task1_baselines/results_summary` as .csv files, for use in downstream performance analysis. Task 1 benchmarking (excluding CLEAN) can be reproduced with a single command using the CARE package. Before running, `processed_data` and `splits` must be replaced with the data downloaded from [here](link).
+Note: this workflow is still under construction. The results of EC classification for each method and each split is found in `task1_baselines/results_summary` as .csv files, for use in downstream performance analysis. Task 1 benchmarking (excluding CLEAN) can be reproduced with a single command using the CARE package. Before running, `processed_data` and `splits` must be replaced with the data downloaded from [datasets.zip](https://zenodo.org/records/12195378).
 
 ** Note **: install this environment before running any training and inference with ProteInfer.
 ```
@@ -22,3 +22,5 @@ To get help: `CARE task1 --help`
 
 ### CLEAN
 Outputs from model training and inference in our study are found in `CLEAN`. Alternatively, instructions for reproducing our retraining and inference procedure can be found in `task1_baselines/CLEAN/CARE_forCLEAN.ipynb`, which is performed within the [CLEAN package](https://github.com/tttianhao/CLEAN/tree/main). For training, we did not perform any clustering, and we used the recommended training parameters with triplet margin loss.
+
+Our retrained CARE  model is available at [CARE_pretrained.zip](https://zenodo.org/records/12195378).
