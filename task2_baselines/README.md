@@ -16,7 +16,7 @@ Where `baseline` is one of "All", "Similarity", "CREEP", "CREEP_text", "ChatGPT"
 
 To get help: `CARE task2 --help`
 
-Before running any of these steps `processed_data` and `splits` must be replaced with the data downloaded from [here](https://zenodo.org/records/12195378) (datasets.zip). ChatGPT and Random will execute from start to finish when the above command is used. For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line, from your OpenAI account. Steps 1 & 2 are slow for the other methods and are skipped when running the CARE package with the above command.
+Before running any of these steps `processed_data` and `splits` must be replaced with the data downloaded from [datasets.zip](https://zenodo.org/records/12195378). ChatGPT and Random will execute from start to finish when the above command is used. For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line, from your OpenAI account. Steps 1 & 2 are slow for the other methods and are skipped when running the CARE package with the above command.
 
 Refer to each model below for details on their specific implementation from earlier steps:
 
