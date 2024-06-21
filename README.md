@@ -2,7 +2,7 @@
 CARE is a datasets and benchmarks suite to evaluate the performance of models to predict the functions of enzymes. CARE is split into two tasks: classification of enzyme sequences based on Enzyme Commission (EC) number (Task 1), and retrieval of EC number given a reaction (Task 2).
 
 ## Datasets and splits
-Processed datasets/splits should should be downloaded from [here](link) to replace the empty folders `processed_data` and `splits`, respectively. Note that in the full datasets and train sets, every row represents a unique protein-EC pair, or a unique reaction-EC pair. In the test sets, every row is also a unique protein-EC or reaction-EC pair, but for the promiscuous test set, each row maps a protein seqeunce to a list of corresponding ECs.
+Processed datasets/splits should should be downloaded from [here](link) to replace the empty folders `processed_data` and `splits`, respectively. Note that in the full datasets and train sets, every row represents a unique protein-EC pair, or a unique reaction-EC pair. In the test sets, every row is also a unique protein-EC or reaction-EC pair, except for the promiscuous test set, where each row maps a protein seqeunce to a list of corresponding ECs.
 
 The table below summarizes which files should be used for each train-test split described in the work.
 
@@ -21,10 +21,8 @@ The table below summarizes which files should be used for each train-test split 
 |  | Medium | `medium_reaction_train.csv` | `medium_reaction_test.csv` |  `protein2EC.csv` `text2EC.csv`|
 |  | Hard | `hard_reaction_train.csv` | `hard_reaction_test.csv` |  `protein2EC.csv` `text2EC.csv`|
 
-Alteratively, the steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits).
-
 ## Performance Evaluation
-After ranking EC numbers from best to worst, performance metrics for benchmarking can be obtained using `performance_evaluation.ipynb`. Required format for analysis of each model on each split is a .csv file where each row is an entry in the test set, and each entry is associated with a ranking of EC numbers ranked from best to worst. Examples of this format (the final reulsts of all the baselines included in our study) are provided in `task1_baselines/results_summary` and `task2_baselines/results_summary`.
+The goal for each baseline method is to ouput a ranking of EC numbers from best to worst. Afterward, performance metrics for benchmarking can be obtained using `performance_evaluation.ipynb`. Required format for analysis of each model on each split is a .csv file where each row is an entry in the test set, and each entry is associated with a ranking of EC numbers ranked from best to worst. Examples of this format (the final reulsts of all the baselines included in our study) are provided in `task1_baselines/results_summary` and `task2_baselines/results_summary`.
 
 Performance analysis can be performed in most environments with minimal packages. The standard performance metric is k=1 classification/retrieval accuracy, but we also provide code to calculate other metrics in this notebook. The output for k=1 accuracy should look something like this:
 | Method | Level 4 Accuracy (X.X.X.X) | Level 3 Accuracy (X.X.X.-) | Level 2 Accuracy (X.X.-.-) | Level 1 Accuracy (X.-.-.-) |
@@ -32,10 +30,10 @@ Performance analysis can be performed in most environments with minimal packages
 | Name |  54.1 | 60.4 | 81.0 | 95.5 |
 | ... | ... | ...|  ...|  ... |
 
-## CARE Package: for dataset processing/splitting and benchmarking pretrained models
+## CARE Package: for dataset processing/splitting and reproducing benchmarking results
 
 ### Installation
-If you are only interested in using the datasets and train-test splits in CARE, skip the installation steps below and directly download the data from [here](link). If you are interested in the reproducing the dataset curation/splitting, training and inference, and analyses in our study, then proceed to clone this repo and install the CARE package below. The CARE package is capable of performing in a single command many of steps that are alternatively provided as scripts or jupyter notebooks.
+If you are only interested in using the datasets and train-test splits in CARE, skip the installation steps below and directly download the data from [here](link). If you are interested in the reproducing the dataset curation/splitting, training and inference, and analyses in our study, then proceed to clone this repo and install the CARE package below. The CARE package is capable of performing, in a single command, many of steps that are alternatively provided as scripts or jupyter notebooks. Note that the CARE package is still under construction, so please come back for working versions.
 
 ```
 git clone https://github.com/jsunn-y/CARE/
@@ -48,15 +46,15 @@ conda install -c conda-forge -c bioconda mmseqs2 -y
 pip install dist/care.0.0.1.tar.gz
 ```
 
-### Dataset Processing
+### Reproducing dataset/split processing
 
-# **ARIANE WRITE THIS PART**
+Detailed instructions on using the CARE package will be added soon! Alteratively, the steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits).
 
-### Task 1: performance evaluation 
+### Reproducing benchmarking on Task 1 
 
 Detailed instructions for reproducing our baselines on Task 1 and general recommendations for benchmarking on Task 1 can be found [here](task1_baselines).
 
-### Task 2: performance evaluation 
+### Reproducing benchmarking on Task 2 
 
 Detailed instructions for reproducing our baselines on Task 2 and general recommendations for benchmarking on Task 2 can be found [here](task2_baselines).
 
