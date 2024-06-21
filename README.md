@@ -1,4 +1,5 @@
 # CARE:  a Benchmark Suite for the Classification and Retrieval of Enzymes
+![image](figs/workflow.png)
 CARE is a datasets and benchmarks suite to evaluate the performance of models to predict the functions of enzymes. CARE is split into two tasks: classification of enzyme sequences based on Enzyme Commission (EC) number (Task 1), and retrieval of EC number given a reaction (Task 2).
 
 ## Datasets and splits
