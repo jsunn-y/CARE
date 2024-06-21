@@ -10,8 +10,9 @@
 generate_datasets_splits/raw_data/
 generate_datasets_splits/fastas/
 generate_datasets_splits/clustering/
-splits/
-processed_data/
+splits/task1/
+splits/task2/
+#processed_data/
 data/
 generate_datasets_splits/figs/
 CREEP/data/pretrained_ProtT5/
