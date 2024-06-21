@@ -6,7 +6,6 @@
 #*.npy
 #*.npz
 *.pth
-*.png
 *.svg
 *.jpg
 
