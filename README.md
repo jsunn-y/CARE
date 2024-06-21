@@ -3,7 +3,7 @@
 CARE is a datasets and benchmarks suite to evaluate the performance of models to predict the functions of enzymes. CARE is split into two tasks: classification of enzyme sequences based on Enzyme Commission (EC) number (Task 1), and retrieval of EC number given a reaction (Task 2).
 
 ## Datasets and splits
-Processed datasets/splits should should be downloaded from [datasets.zip](https://zenodo.org/records/12195378). to replace the empty folders `processed_data` and `splits`, respectively. Note that in the full datasets and train sets, every row represents a unique protein-EC pair, or a unique reaction-EC pair. In the test sets, every row is also a unique protein-EC or reaction-EC pair, except for the promiscuous test set, where each row maps a protein seqeunce to a list of corresponding ECs.
+Processed datasets/splits should should be downloaded from [datasets.zip](https://zenodo.org/records/12207966). to replace the empty folders `processed_data` and `splits`, respectively. Note that in the full datasets and train sets, every row represents a unique protein-EC pair, or a unique reaction-EC pair. In the test sets, every row is also a unique protein-EC or reaction-EC pair, except for the promiscuous test set, where each row maps a protein seqeunce to a list of corresponding ECs.
 
 The table below summarizes which files should be used for each train-test split described in the work.
 
@@ -49,7 +49,7 @@ pip install dist/care.0.0.1.tar.gz
 
 ### Reproducing dataset/split processing
 
-Detailed instructions on using the CARE package will be added soon! Alteratively, the steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits). The raw data used here can be downloaded from [CARE_pretrained.zip](https://zenodo.org/records/12195378) to replace  `generate_datasets_splits/raw_data`.
+Detailed instructions on using the CARE package will be added soon! Alteratively, the steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits). The raw data used here can be downloaded from [CARE_pretrained.zip](https://zenodo.org/records/12207966) to replace  `generate_datasets_splits/raw_data`.
 
 ### Reproducing benchmarking on Task 1 
 
@@ -61,7 +61,7 @@ Detailed instructions for reproducing our baselines on Task 2 and general recomm
 
 ## CREEP
 ![image](figs/CREEP.png)
-We also introduce Contrastive Reaction-EnzymE Pretraining (CREEP), which is one of the first models that can perform Task 2 by aligning representations from different modalities (reaction, protein, and optionally textual description). The model is found under `CREEP`, while example usage is found under `task2_baselines/CREEP` with instructions [here](task2_baselines). CREEP involved finetuning pretrained language models, some of which can be downloaded from hugging face and are also compiled within [CARE_pretrained.zip](https://zenodo.org/records/12195378).
+We also introduce Contrastive Reaction-EnzymE Pretraining (CREEP), which is one of the first models that can perform Task 2 by aligning representations from different modalities (reaction, protein, and optionally textual description). The model is found under `CREEP`, while example usage is found under `task2_baselines/CREEP` with instructions [here](task2_baselines). CREEP involved finetuning pretrained language models, some of which can be downloaded from hugging face and are also compiled within [CARE_pretrained.zip](https://zenodo.org/records/12207966).
 
 #### CREEP installation
 For CREEP model training and inference
