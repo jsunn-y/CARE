@@ -73,6 +73,8 @@ setup(name='CARE',
                         'scikit-learn',
                         'statsmodels',
                         'drfp',
+                        'npysearch',
+                        'typer',
                         'tqdm'],
       python_requires='>=3.8',
       data_files=[("", ["LICENSE"])]

@@ -14,9 +14,9 @@ pip3 install -r requirements.txt
 
 Run the following command to make predictions using pretrained models and automatically find the most likely ECs and calculate accuracy metrics.
 ```
-CARE task1 --baseline All --query-dataset All --k 10 
+CARE task1 --baseline BLAST --query-dataset 30 --k 10 --pretrained-dir CARE_PATH --output-dir OUTPUT_PATH
 ```
-Where `baseline` is one of "All", "BLAST", "ChatGPT", "ProteInfer", or "Random" and `query_dataset` is  one of "All", "30", "30-50", "Price", or "promiscuous".  
+Where `baseline` is one of "All", "BLAST", "ChatGPT", "ProteInfer", or "Random" and `query_dataset` is  one of "All", "30", "30-50", "Price", or "promiscuous". Note `--pretrained-dir` is the path to the CARE directory on your computer where you have downloaded the data that we have provided or generated your own datasets using the same approach.
 
 To get help: `CARE task1 --help`
 

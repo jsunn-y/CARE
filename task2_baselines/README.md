@@ -10,7 +10,7 @@ Alternatively, these results can be reproduced at a high level (excluding ChatGP
 
 To reproduce our benchmarking on task 2 for all methods using the CARE package:
 ```
-CARE task2 --baseline All --query-dataset All
+CARE task2 --baseline Similarity --query-dataset easy --pretrained-dir CARE_PATH --output-dir OUTPUT_PATH --reference-dataset=all_ECs --query-modality reaction --reference-modality reaction
 ```
 Where `baseline` is one of "All", "Similarity", "CREEP", "CREEP_text", "ChatGPT", "CLIPZyme", and "Random". Query dataset is one of "All", "easy", "medium" or "hard".
 

@@ -37,8 +37,16 @@ app = typer.Typer()
 
 
 @app.command()
-def task2(pretrained_dir: Annotated[str, typer.Argument(help="Where the pretrained data is located.")], 
-          output_dir: Annotated[str, typer.Argument(help="Where you want results to be saved.")], 
+def task2(pretrained_dir: str = typer.Option(..., help="Where the pretrained data is located", 
+                                 case_sensitive=False, 
+                                 show_choices=True, 
+                                 prompt="pretrained dir", 
+                                 metavar="pretrained"), 
+          output_dir: str = typer.Option(..., help="Where you want your results.", 
+                                 case_sensitive=False, 
+                                 show_choices=True, 
+                                 prompt="Where you want your results", 
+                                 metavar="output"), 
           baseline: str = typer.Option(..., help="The baseline to run.", 
                                  case_sensitive=False, 
                                  show_choices=True, 
@@ -147,8 +155,16 @@ def run_task_1(tasker, baseline, split, rows):
     return rows
 
 @app.command()
-def task1(pretrained_dir: Annotated[str, typer.Argument(help="Where the pretrained data is located.")], 
-          output_dir: Annotated[str, typer.Argument(help="Where you want results to be saved.")], 
+def task1(pretrained_dir: str = typer.Option(..., help="Where the pretrained data is located", 
+                                 case_sensitive=False, 
+                                 show_choices=True, 
+                                 prompt="pretrained dir", 
+                                 metavar="pretrained"), 
+          output_dir: str = typer.Option(..., help="Where you want your results.", 
+                                 case_sensitive=False, 
+                                 show_choices=True, 
+                                 prompt="Where you want your results", 
+                                 metavar="output"), 
           baseline: str = typer.Option(..., help="The baseline to run.", 
                                  case_sensitive=False, 
                                  show_choices=True, 

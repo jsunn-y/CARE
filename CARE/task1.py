@@ -171,6 +171,8 @@ class Task1:
         self.processed_data_folder = processed_data_folder
 
     def get_train_fasta(self):
+        if not os.path.exists(os.path.join(self.data_folder, 'protein_train.fasta')):
+            make_fasta(self.get_train_df(), os.path.join(self.data_folder, 'protein_train.fasta'))
         return os.path.join(self.data_folder, 'protein_train.fasta')
     
     def get_train_df(self):
@@ -184,6 +186,8 @@ class Task1:
             print(f'{label} not a valid dataset select one of ' + ' '.join(['30', '30-50', '50-70', '70-90', 'price', 'promiscuous']))
             return None
         else:
+            if not os.path.exists(os.path.join(self.data_folder, f'{label}_protein_test.fasta')):
+                make_fasta(self.get_test_df(label), os.path.join(self.data_folder, f'{label}_protein_test.fasta'))
             print(os.path.join(self.data_folder, f'{label}_protein_test.fasta'))
             return os.path.join(self.data_folder, f'{label}_protein_test.fasta')
 
