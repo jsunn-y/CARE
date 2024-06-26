@@ -6,3 +6,4 @@ drfp
 openai
 numpy
 tqdm
+typer
