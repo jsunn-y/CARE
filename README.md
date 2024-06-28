@@ -57,7 +57,7 @@ Detailed instructions for reproducing our baselines on Task 1 and general recomm
 
 ### Reproducing benchmarking on Task 2 
 
-Detailed instructions for reproducing our baselines on Task 2 and general recommendations for benchmarking on Task 2 can be found .
+Detailed instructions for reproducing our baselines on Task 2 and general recommendations for benchmarking on Task 2 can be found [here](task2_baselines) .
 
 ## CREEP
 ![image](figs/CREEP.png)
