@@ -9,10 +9,29 @@ Alternatively, these results can be reproduced at a high level (excluding ChatGP
 4. The retrieval similarities are processed to obtain a ranking of EC numbers using `tabulate_results.ipynb`. The outputs will be .csv files saved to their respective folders in `results_summary`, to be used for performance analysis.  
 
 To reproduce our benchmarking on task 2 for all methods using the CARE package:
+
+#### Similarity
 ```
 CARE task2 --baseline Similarity --query-dataset easy --pretrained-dir CARE_PATH --output-dir OUTPUT_PATH --reference-dataset=all_ECs --query-modality reaction --reference-modality reaction
 ```
-Where `baseline` is one of "All", "Similarity", "CREEP", "CREEP_text", "ChatGPT", "CLIPZyme", and "Random". Query dataset is one of "All", "easy", "medium" or "hard".
+#### CREEP
+```
+CARE task2 --baseline CREEP --query-dataset easy --pretrained-dir CARE_PATH --output-dir OUTPUT_PATH --reference-dataset=all_ECs --query-modality reaction --reference-modality protein
+```
+#### CREEP_text
+```
+CARE task2 --baseline CREEP_text --query-dataset easy --pretrained-dir CARE_PATH --output-dir OUTPUT_PATH --reference-dataset=all_ECs --query-modality text --reference-modality protein
+```
+#### CLIPZyme
+```
+CARE task2 --baseline CLIPZyme --query-dataset easy --pretrained-dir CARE_PATH --output-dir OUTPUT_PATH --reference-dataset=all_ECs --query-modality text --reference-modality protein
+```
+#### random
+```
+CARE task2 --baseline random --query-dataset easy --pretrained-dir CARE_PATH --output-dir OUTPUT_PATH --reference-dataset=all_ECs --query-modality text --reference-modality protein
+```
+
+Where `baseline` is one of  "Similarity", "CREEP", "CREEP_text", "ChatGPT", "CLIPZyme", and "Random". Query dataset is one of "All", "easy", "medium" or "hard".
 
 To get help: `CARE task2 --help`
 
