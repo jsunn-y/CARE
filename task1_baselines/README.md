@@ -19,8 +19,9 @@ Run the following command to make predictions using pretrained models and automa
 CARE task1 --baseline BLAST --query-dataset 30 --k 10 --pretrained-dir CARE_PATH --output-dir OUTPUT_PATH
 ```
 Where CARE_PATH is the folder where you downloaded the CARE github repository (and saved the data in the folder `processed_data` from zeonodo), Our retrained CLEAN  model is available at [CARE_pretrained.zip]([https://zenodo.org/records/12195378](https://zenodo.org/records/12207966)).
-
+Where `baseline` is one of "All", "BLAST", "ChatGPT", "ProteInfer", or "Random" and `query_dataset` is  one of "All", "30", "30-50", "Price", or "promiscuous". Note `--pretrained-dir` is the path to the CARE directory on your computer where you have downloaded the data that we have provided or generated your own datasets using the same approach.
 ### ProteInfer
+For proteInfer, you need to first download the proteInfer directory into the proteInfer folder (https://github.com/google-research/proteinfer) into `task1_baselines/ProteInfer/proteinfer/` and create a `proteinfer` environement as per the proteinfer github. Then you can run the following command:
 ```
 CARE task1 --baseline ProteInfer --query-dataset 30 --k 10 --pretrained-dir CARE_PATH --output-dir OUTPUT_PATH
 ```
@@ -31,6 +32,7 @@ CARE task1 --baseline Random --query-dataset 30 --k 10 --pretrained-dir CARE_PAT
 ```
 
 ### CLEAN
+For CLEAN follow the specific notebook (`CARE_forCLEAN.ipynb`) as this requires more input.
 ```
 CARE task1 --baseline CLEAN --query-dataset 30 --k 10 --pretrained-dir CARE_PATH --output-dir OUTPUT_PATH
 ```
@@ -41,7 +43,7 @@ CARE task1 --baseline ChatGPT --query-dataset 30 --k 10 --pretrained-dir CARE_PA
 ```
 Note for chatGPT, you'll need to make sure your API key is saved in a secrets.txt file in the folder where you're running this from.
 
-Where `baseline` is one of "All", "BLAST", "ChatGPT", "ProteInfer", or "Random" and `query_dataset` is  one of "All", "30", "30-50", "Price", or "promiscuous". Note `--pretrained-dir` is the path to the CARE directory on your computer where you have downloaded the data that we have provided or generated your own datasets using the same approach.
+
 
 To get help: `CARE task1 --help`
 

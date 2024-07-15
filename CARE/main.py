@@ -144,7 +144,7 @@ def run_task_1(tasker, baseline, split, rows):
         rows = get_k_acc(df, [1, 5, 10], rows, 'BLAST', split)
     elif baseline == 'ProteInfer':
         # For proteInfer you need to point where it was saved.
-        df = tasker.get_proteinfer(split, proteinfer_dir=f'{tasker.data_folder}task1_baselines/ProteInfer/proteinfer/', save=True)
+        df = tasker.get_proteinfer(split, proteinfer_dir=f'{tasker.pretrained_dir}task1_baselines/ProteInfer/proteinfer/', save=True)
         rows = get_k_acc(df, [1, 5, 10], rows, 'ProteInfer', split)
     elif baseline == 'Random':
         df = tasker.randomly_assign_EC(split, num_ecs=50, save=True)
