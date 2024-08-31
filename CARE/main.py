@@ -37,8 +37,16 @@ app = typer.Typer()
 
 
 @app.command()
-def task2(pretrained_dir: Annotated[str, typer.Argument(help="Where the pretrained data is located.")], 
-          output_dir: Annotated[str, typer.Argument(help="Where you want results to be saved.")], 
+def task2(pretrained_dir: str = typer.Option(..., help="Where the pretrained data is located", 
+                                 case_sensitive=False, 
+                                 show_choices=True, 
+                                 prompt="pretrained dir", 
+                                 metavar="pretrained"), 
+          output_dir: str = typer.Option(..., help="Where you want your results.", 
+                                 case_sensitive=False, 
+                                 show_choices=True, 
+                                 prompt="Where you want your results", 
+                                 metavar="output"), 
           baseline: str = typer.Option(..., help="The baseline to run.", 
                                  case_sensitive=False, 
                                  show_choices=True, 
@@ -71,7 +79,7 @@ def task2(pretrained_dir: Annotated[str, typer.Argument(help="Where the pretrain
     """ Run Task 2 """
     u.dp(["Running task 2... ", baseline, query_dataset])
 
-    baselines =["Similarity", "CARE", "CLIPZyme", "CREEP", 'All']
+    baselines =["Similarity", "CARE", "CLIPZyme", "CREEP"]
     if baseline not in baselines:
         raise typer.BadParameter(f"Invalid baseline. Choose from {baselines}.")
     
@@ -136,19 +144,29 @@ def run_task_1(tasker, baseline, split, rows):
         rows = get_k_acc(df, [1, 5, 10], rows, 'BLAST', split)
     elif baseline == 'ProteInfer':
         # For proteInfer you need to point where it was saved.
-        df = tasker.get_proteinfer(split, proteinfer_dir=f'{tasker.pretrained_dir}task1_baselines/ProteInfer/proteinfer/', save=True)
+        df = tasker.get_proteinfer(split, proteinfer_dir=f'{tasker.processed_data_folder}task1_baselines/ProteInfer/proteinfer/', save=True)
         rows = get_k_acc(df, [1, 5, 10], rows, 'ProteInfer', split)
     elif baseline == 'Random':
         df = tasker.randomly_assign_EC(split, num_ecs=50, save=True)
         rows = get_k_acc(df, [1, 5, 10], rows, 'random', split)
     elif baseline == 'ChatGPT':
-        df = tasker.randomly_assign_EC(split, num_ecs=50, save=True)
-        rows = get_k_acc(df, [1, 5, 10], rows, 'random', split)
+        df = tasker.get_ChatGPT(split, num_ecs=50, save=True)
+        rows = get_k_acc(df, [1, 5, 10], rows, 'ChatGPT', split)
+    elif baseline == 'CLEAN':
+        u.dp(["For CLEAN please follow the instructions in the notebook."])
     return rows
 
 @app.command()
-def task1(pretrained_dir: Annotated[str, typer.Argument(help="Where the pretrained data is located.")], 
-          output_dir: Annotated[str, typer.Argument(help="Where you want results to be saved.")], 
+def task1(pretrained_dir: str = typer.Option(..., help="Where the pretrained data is located", 
+                                 case_sensitive=False, 
+                                 show_choices=True, 
+                                 prompt="pretrained dir", 
+                                 metavar="pretrained"), 
+          output_dir: str = typer.Option(..., help="Where you want your results.", 
+                                 case_sensitive=False, 
+                                 show_choices=True, 
+                                 prompt="Where you want your results", 
+                                 metavar="output"), 
           baseline: str = typer.Option(..., help="The baseline to run.", 
                                  case_sensitive=False, 
                                  show_choices=True, 
@@ -168,11 +186,11 @@ def task1(pretrained_dir: Annotated[str, typer.Argument(help="Where the pretrain
     """ Run Task 1 """
     rows = []
 
-    baselines =["BLAST", "CLEAN", "ChatGPT", "ProteInfer", "All"]
+    baselines =["BLAST", "CLEAN", "ChatGPT", "ProteInfer", "Random"]
     if baseline not in baselines:
         raise typer.BadParameter(f"Invalid baseline. Choose from {baselines}.")
     
-    query_datasets = ["30", "30-50", "price", "promiscuous", "All"]
+    query_datasets = ["30", "30-50", "price", "promiscuous", "Random"]
     if query_dataset not in query_datasets:
         raise typer.BadParameter(f"Invalid query_dataset. Choose from {query_datasets}.")
         
@@ -205,7 +223,6 @@ def task1(pretrained_dir: Annotated[str, typer.Argument(help="Where the pretrain
     df = pd.DataFrame(rows, columns=['baseline', 'split', 'k', 'level 4 accuracy', 'level 3 accuracy', 'level 2 accuracy', 'level 1 accuracy'])
     df.to_csv(f'{output_dir}results_all.csv')
     u.dp(["Done benchmark. Results are saved in: ", output_dir])
-
 
 if __name__ == "__main__":
     app()

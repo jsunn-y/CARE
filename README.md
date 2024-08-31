@@ -1,8 +1,9 @@
 # CARE:  a Benchmark Suite for the Classification and Retrieval of Enzymes
-CARE is a datasets and benchmarks suite to evaluate the performance of models to predict the functions of enzymes. CARE is split into two tasks: classification of enzyme sequences based on Enzyme Commission (EC) number (Task 1), and retrieval of EC number given a reaction (Task 2).
+![image](figs/workflow.png)
+CARE is a datasets and benchmarks suite to evaluate the performance of models to predict the functions of enzymes. CARE is split into two tasks: classification of enzyme sequences based on Enzyme Commission (EC) number (Task 1), and retrieval of EC number given a reaction (Task 2). Our study is currently under review, and we expect that the splits and benchmarking results may change during revision. We would also welcome feedback and suggestions from the community during this process!
 
 ## Datasets and splits
-Processed datasets/splits should should be downloaded from [here](link) to replace the empty folders `processed_data` and `splits`, respectively. Note that in the full datasets and train sets, every row represents a unique protein-EC pair, or a unique reaction-EC pair. In the test sets, every row is also a unique protein-EC or reaction-EC pair, except for the promiscuous test set, where each row maps a protein seqeunce to a list of corresponding ECs.
+Processed datasets/splits can be downloaded from [datasets.zip](https://zenodo.org/records/12207966), and these correspond to the same datasets as those preloaded to `processed_data` and `splits` in this repository. Note that in the full datasets and train sets, every row represents a unique protein-EC pair, or a unique reaction-EC pair. In the test sets, every row is also a unique protein-EC or reaction-EC pair, except for the promiscuous test set, where each row maps a protein seqeunce to a list of corresponding ECs.
 
 The table below summarizes which files should be used for each train-test split described in the work.
 
@@ -33,7 +34,7 @@ Performance analysis can be performed in most environments with minimal packages
 ## CARE Package: for reproducing dataset processing/splitting and reproducing benchmarking results
 
 ### Installation
-If you are only interested in using the datasets and train-test splits in CARE, skip the installation steps below and directly download the data from [here](link). If you are interested in the reproducing the dataset curation/splitting, training and inference, and analyses in our study, then proceed to clone this repo and install the CARE package below. The CARE package is capable of performing, in a single command, many of steps that are alternatively provided as scripts or jupyter notebooks. Note that the CARE package is still under construction, so please come back for working versions.
+If you are interested in the reproducing the dataset curation/splitting, training and inference, and analyses in our study, then proceed to clone this repo and install the CARE package below. The CARE package is capable of performing, in a single command, many of steps that are alternatively provided as scripts or jupyter notebooks. Note that the CARE package is still under construction, so please come back for working versions.
 
 ```
 git clone https://github.com/jsunn-y/CARE/
@@ -43,12 +44,12 @@ conda create -n CARE_processing python=3.8 -y
 conda activate CARE_processing
 conda install -c rdkit rdkit=2020.03.3 -y
 conda install -c conda-forge -c bioconda mmseqs2 -y
-pip install dist/care.0.0.1.tar.gz
+pip install dist/care.0.1.0.tar.gz
 ```
 
 ### Reproducing dataset/split processing
 
-Detailed instructions on using the CARE package will be added soon! Alteratively, the steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits). The raw data used here can be downloaded from [here](link) to replace  `generate_datasets_splits/raw_data`.
+Detailed instructions on using the CARE package will be added soon! Alteratively, the steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits). The raw data used here can be downloaded from [CARE_pretrained.zip](https://zenodo.org/records/12207966) to replace  `generate_datasets_splits/raw_data`.
 
 ### Reproducing benchmarking on Task 1 
 
@@ -56,10 +57,11 @@ Detailed instructions for reproducing our baselines on Task 1 and general recomm
 
 ### Reproducing benchmarking on Task 2 
 
-Detailed instructions for reproducing our baselines on Task 2 and general recommendations for benchmarking on Task 2 can be found [here](task2_baselines).
+Detailed instructions for reproducing our baselines on Task 2 and general recommendations for benchmarking on Task 2 can be found [here](task2_baselines) .
 
 ## CREEP
-We introduce Contrastive Reaction-EnzymE Pretraining (CREEP), which is one of the first models that can perform Task 2 by aligning representations from different modalities (reaction, protein, and optionally textual description). The model is found under `CREEP`, while example usage is found under `task2_baselines/CREEP`.
+![image](figs/CREEP.png)
+We also introduce Contrastive Reaction-EnzymE Pretraining (CREEP), which is one of the first models that can perform Task 2 by aligning representations from different modalities (reaction, protein, and optionally textual description). The model is found under `CREEP`, while example usage is found under `task2_baselines/CREEP` with instructions [here](task2_baselines). CREEP involved finetuning pretrained language models, some of which can be downloaded from hugging face and are also in [CARE_pretrained.zip](https://zenodo.org/records/12207966).
 
 #### CREEP installation
 For CREEP model training and inference
@@ -72,5 +74,4 @@ conda activate CREEP
 #we recommend installing this way so that torch is compatible with your GPU and your version of CUDA
 pip install pandas torch==2.2.0 transformers==4.39.1 sentencepiece
 pip install -e .
-#pip install lxml #doesn't look like you need this
 ```
