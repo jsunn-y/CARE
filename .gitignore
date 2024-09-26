@@ -9,6 +9,7 @@
 *.svg
 *.jpg
 
+processed_data_archived/
 generate_datasets_splits/raw_data/
 generate_datasets_splits/fastas/
 generate_datasets_splits/clustering/
