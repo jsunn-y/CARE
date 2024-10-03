@@ -22,7 +22,7 @@ tests/
 generate_datasets_splits/figs/
 CREEP/data/pretrained_ProtT5/
 CREEP/data/pretrained_SciBert/
-CREEP/data/pretrained_rxnfp/
+#CREEP/data/pretrained_rxnfp/
 
 
 #task2_baselines/CREEP/output/
@@ -31,7 +31,9 @@ task2_baselines/bioremediation_test.ipynb
 task2_baselines_pretrained/
 splits/task2/bioremediation_reaction_test.csv
 task2_baselines/Similarity/output/bioremediation_split/
-task2_baselines/CREEP/output/bioremediation_split
+task2_baselines/CREEP/output_archived/bioremediation_split
+#task2_baselines/CREEP/output_archived/
+
 task2_baselines/results_summary/CREEP/bioremediation_reaction_test_results_df.csv
 task2_baselines/results_summary/Similarity/bioremediation_reaction_test_results_df.csv
 
