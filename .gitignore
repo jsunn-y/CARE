@@ -13,6 +13,7 @@ processed_data_archived/
 generate_datasets_splits/raw_data/
 generate_datasets_splits/fastas/
 generate_datasets_splits/clustering/
+generate_datasets_splits/clustering_archived/
 generate_datasets_splits/figs/
 
 #splits/task1/
