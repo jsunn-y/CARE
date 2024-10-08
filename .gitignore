@@ -29,6 +29,7 @@ CREEP/data/pretrained_SciBert/
 
 #task2_baselines/CREEP/output/
 task1_baselines/BLAST/data/
+task1_baselines/results_summary_archived/
 task2_baselines/bioremediation_test.ipynb
 task2_baselines_pretrained/
 splits/task2/bioremediation_reaction_test.csv
