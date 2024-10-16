@@ -6,7 +6,7 @@ Alternatively, these results can be reproduced at a high level (excluding ChatGP
 1. Model trainining for CREEP and CLIPZyme. Similarity baseline can skip to step 2.
 2. Extract representations in the format of .npy files containing arrays of representations from multiple modalities (such as protein, reaction, and text).
 3. A similarity search between the train and test set is performed using `downstream_retrieval.py`. Retrieval similarites are outputed as .npy arrays under the respective method and model folder in `retrieval_results`.
-4. The retrieval similarities are processed to obtain a ranking of EC numbers using `tabulate_results.ipynb`. The outputs will be .csv files saved to their respective folders in `results_summary`, to be used for performance analysis.  
+4. The retrieval similarities are processed to obtain a ranking of EC numbers using `rank_tabulate_similarities.oy`. The outputs will be .csv files saved to their respective folders in `results_summary`, to be used for performance analysis.  
 
 ChatGPT and Random will execute from start to finish when the above command is used. For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line, from your OpenAI account. Steps 1 & 2 are slow for the other methods and are skipped when running the CARE package with the above command.
 
@@ -20,7 +20,7 @@ Reaction representations used in the Similarity Baseline are found in `Similarit
 ```
 python downstream_retrieval.py --pretrained_folder=Similarity/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=reaction --reference_modality=reaction
 ```
-The outputs will similarly be saved under retrieval_results and can be further analyzed in performance_evaluation.ipynb.
+The outputs will similarly be saved under retrieval_results.
 
 ### CREEP
 Contrastive Reaction-EnzymE Pretraining (CREEP)
@@ -54,7 +54,7 @@ Representations will be svaed in the output directory under `representations`.
 python downstream_retrieval.py --pretrained_folder=CREEP/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=reaction --reference_modality=protein
 python downstream_retrieval.py --pretrained_folder=CREEP/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=text --reference_modality=protein
 ```
-The outputs will similarly be saved under `retrieval_results` and can be further analyzed in `performance_evaluation.ipynb`.
+The outputs will similarly be saved under `retrieval_results`.
 
 ### CLIPZyme
 Outputs from model inference in our study are found in `CLIPZyme`. Running CLIPZyme requires installing the [CLIPZyme package](https://github.com/pgmikhael/clipzyme).
@@ -66,4 +66,4 @@ Outputs from model inference in our study are found in `CLIPZyme`. Running CLIPZ
 python downstream_retrieval.py --pretrained_folder=CLIPZyme/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=reaction --reference_modality=protein
 ```
 
-The outputs will similarly be saved under `retrieval_results` and can be further analyzed in `performance_evaluation.ipynb`.
+The outputs will similarly be saved under `retrieval_results`.
