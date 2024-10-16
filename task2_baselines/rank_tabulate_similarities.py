@@ -10,13 +10,13 @@ for baseline in  ['Similarity', 'CLIPZyme', 'CREEP', 'CREEP_text']:
     for split in ['easy', 'medium', 'hard']:
 
         if baseline == 'Similarity':
-            reaction_similarities = np.load('/disk1/jyang4/repos/CARE/task2_baselines/Similarity/output/{}_split/retrieval_results/{}_reaction_test_reaction2reaction_retrieval_similarities.npy'.format(split, split))
+            reaction_similarities = np.load('Similarity/output/{}_split/retrieval_results/{}_reaction_test_reaction2reaction_retrieval_similarities.npy'.format(split, split))
         elif 'CREEP' in baseline:
-            reaction_similarities = np.load('/disk1/jyang4/repos/CARE/task2_baselines/CREEP/output/{}_split/retrieval_results/{}_reaction_test_reaction2protein_retrieval_similarities.npy'.format(split, split))
+            reaction_similarities = np.load('CREEP/output/{}_split/retrieval_results/{}_reaction_test_reaction2protein_retrieval_similarities.npy'.format(split, split))
             if 'text' in baseline:
-                text_similarities = np.load('/disk1/jyang4/repos/CARE/task2_baselines/CREEP/output/{}_split/retrieval_results/{}_reaction_test_text2protein_retrieval_similarities.npy'.format(split, split))
+                text_similarities = np.load('CREEP/output/{}_split/retrieval_results/{}_reaction_test_text2protein_retrieval_similarities.npy'.format(split, split))
         elif baseline == 'CLIPZyme':
-            reaction_similarities = np.load('/disk1/jyang4/repos/CARE/task2_baselines/CLIPZyme/output/{}_split/retrieval_results/{}_reaction_test_reaction2protein_retrieval_similarities.npy'.format(split, split))
+            reaction_similarities = np.load('CLIPZyme/output/{}_split/retrieval_results/{}_reaction_test_reaction2protein_retrieval_similarities.npy'.format(split, split))
         
 
         query_df = pd.read_csv('../splits/task2/{}_reaction_test.csv'.format(split))
