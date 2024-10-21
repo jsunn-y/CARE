@@ -1,4 +1,4 @@
-for split in easy
+for split in easy medium hard
 do
 OUTPUT_DIR=output/"$split"_split
 TRAIN_SET="$split"_reaction_train
@@ -19,7 +19,7 @@ python downstream_retrieval.py --pretrained_folder=CREEP/$OUTPUT_DIR --query_dat
 python downstream_retrieval.py --pretrained_folder=CREEP/$OUTPUT_DIR --query_dataset=$TEST_SET --reference_dataset=all_ECs --query_modality=text --reference_modality=protein
 
 #similarity baseline (do this separately)
-#python downstream_exact_retrieval.py --pretrained_folder="CREEP/"$OUTPUT_DIR --query_dataset=$TEST_SET --reference_dataset=all_ECs --query_modality=reaction --reference_modality=reaction -k=10 --use_cluster_center
+#python downstream_retrieval.py --pretrained_folder=Similarity/#OUTPUT_DIR --query_dataset=$TEST_SET --reference_dataset=all_ECs --query_modality=reaction --reference_modality=reaction
 
 done
 
