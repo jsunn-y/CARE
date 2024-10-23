@@ -44,6 +44,7 @@ conda create -n CARE_processing python=3.8 -y
 conda activate CARE_processing
 conda install -c rdkit rdkit=2020.03.3 -y
 conda install -c conda-forge -c bioconda mmseqs2 -y
+conda install -c scikit-learn pandas seaborn
 pip install dist/care.0.1.0.tar.gz
 ```
 
