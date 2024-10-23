@@ -1,0 +1,19 @@
+{
+    "available_gpus": ["0"],
+    "script": "screen",
+    "cartesian_hyperparams": {
+      "dataset_file_path": ["files/hard_reaction_test.csv"],
+      "inference_dir": ["results/CARE_reaction"],
+      "save_hiddens": [true], 
+      "save_predictions": [false], 
+      "use_as_protein_encoder": [false], 
+      "use_as_reaction_encoder": [true],
+      "gpus": [1],
+      "batch_size": [128],
+      "precision": ["bf16"],
+      "checkpoint_path": ["checkpoints/99ba7bcee8dcb198c94a471604ba868b/last.ckpt"],
+      "esm_dir": ["files/esm2_dir"],
+      "num_workers": [24]
+    }
+  }
+  
