@@ -10,6 +10,7 @@
 *.jpg
 *.ckpt
 
+archived/
 processed_data_archived/
 generate_datasets_splits/raw_data/
 generate_datasets_splits/ref_databases/
