@@ -1,15 +1,22 @@
 ## Baselines for task 2 (reaction to EC/protein retrieval)
-Note: this workflow is still under construction. The results of EC retrieval for each method and each split is found in `results_summary` as .csv files, for use in downstream performance analysis. 
+The results of EC retrieval for each method and each split is found in `results_summary` as .csv files, for use in downstream performance analysis. 
 
-Alternatively, these results can be reproduced at a high level (excluding ChatGPT and Random) by following these steps: 
+### Random
+```
+python rank_tabulate_random.py
+```
+
+### ChatGPT
+For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line, from your OpenAI account.
+
+
+## Other methods:
+For the other benchmarks, results can be reproduced at a high level  by following these steps: 
 
 1. Model trainining for CREEP and CLIPZyme. Similarity baseline can skip to step 2.
 2. Extract representations in the format of .npy files containing arrays of representations from multiple modalities (such as protein, reaction, and text).
 3. A similarity search between the train and test set is performed using `downstream_retrieval.py`. Retrieval similarites are outputed as .npy arrays under the respective method and model folder in `retrieval_results`.
-4. The retrieval similarities are processed to obtain a ranking of EC numbers using `rank_tabulate_similarities.oy`. The outputs will be .csv files saved to their respective folders in `results_summary`, to be used for performance analysis.  
-
-ChatGPT and Random will execute from start to finish when the above command is used. For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line, from your OpenAI account. Steps 1 & 2 are slow for the other methods and are skipped when running the CARE package with the above command.
-
+4. The retrieval similarities are processed to obtain a ranking of EC numbers using `rank_tabulate_similarities.py`. The outputs will be .csv files saved to their respective folders in `results_summary`, to be used for performance analysis.  
 Refer to each model below for details on their specific implementation from earlier steps:
 
 ### Similarity Baseline
@@ -59,9 +66,8 @@ The outputs will similarly be saved under `retrieval_results`.
 ### CLIPZyme
 Outputs from model inference in our study are found in `CLIPZyme`. Running CLIPZyme requires installing the [CLIPZyme package](https://github.com/pgmikhael/clipzyme).
 
- 1. Currently retraining is not availalbe, but will be added soon.
- 2. First process protein sequences and reactions into the correct format using `CLIPZyme/step01_preparation.ipynb`. Then retrieve structures from the AF database and extract and process the representations of proteins and reactions using `CLIPZyme/step02_extraction.ipynb`.
- 3. Go back a folder and run the retrieval similarity search (commands also provided in `ClIPZyme/example.sh` :
+ 1. Follow the processing, retraining, and inference steps provied in `CLIPZyme/CARE_for_CLIPZyme.ipynb`.
+ 2. Go back a folder and run the retrieval similarity search (commands also provided in `ClIPZyme/example.sh` :
 ```
 python downstream_retrieval.py --pretrained_folder=CLIPZyme/output/easy_split --query_dataset=easy_reaction_test --reference_dataset=all_ECs --query_modality=reaction --reference_modality=protein
 ```
