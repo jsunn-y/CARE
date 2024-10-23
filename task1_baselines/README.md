@@ -6,13 +6,13 @@ Note: this workflow is still under construction. The results of EC classificatio
 ### Random
 Run the following script:
 ```
-rank_tabulate_random.py
+python rank_tabulate_random.py
 ```
 
 ### BLAST
 Run the following script:
 ```
-BLAST/run_diamond_blast.py
+python BLAST/run_diamond_blast.py
 ```
 
 ### ChatGPT
