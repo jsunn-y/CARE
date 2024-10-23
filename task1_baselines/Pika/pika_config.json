@@ -1,0 +1,40 @@
+{
+  "seed": 7,
+  "datamodule": {
+    "sequence_data_path": "sequences.csv",
+    "annotations_path": "annotations.csv",
+    "metrics_data_path": "metrics.csv",
+    "split_path": "split.csv",
+    "max_protein_length": 1500,
+    "max_text_length": 250,
+    "data_types_to_use": ["qa"],
+    "sequence_placeholder": "<protein sequence placeholder> ",
+    "train_batch_size": 10,
+    "eval_batch_size": 2,
+    "num_workers": 0
+  },
+  "model": {
+    "language_model": "gpt2",
+    "protein_model": "esm2_t6_8M_UR50D",
+    "multimodal_strategy": "self-pika",
+    "protein_layer_to_use": -1,
+    "perceiver_latent_size": 10,
+    "num_perceiver_layers": 4,
+    "multimodal_layers": [0],
+    "enable_gradient_checkpointing": false,
+    "lr": 1e-4,
+    "weight_decay": 1e-4
+  },
+  "checkpoint_callback": {
+    "checkpoint_path": "test_checkpoint",
+    "save_partial_checkpoints": true,
+    "checkpoint_monitors": ["loss/val_loss"],
+    "checkpoint_modes": ["min"]
+  },
+  "trainer": {
+    "max_epochs": 1000,
+    "limit_train_batches": 100,
+    "limit_val_batches": 1,
+    "limit_test_batches": 100
+  }
+}
