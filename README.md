@@ -21,7 +21,13 @@ The table below summarizes which files should be used for each train-test split 
 |  | Hard | `hard_reaction_train.csv` | `hard_reaction_test.csv` |  `protein2EC.csv` `text2EC.csv`|
 
 ## Performance Evaluation
-The goal for each baseline method is to ouput a ranking of EC numbers from best to worst. Afterward, performance metrics for benchmarking can be obtained using `performance_evaluation.ipynb`. Required format for analysis of each model on each split is a .csv file where each row is an entry in the test set, and each entry is associated with a ranking of EC numbers ranked from best to worst. Examples of this format (the final reulsts of all the baselines included in our study) are provided in `task1_baselines/results_summary` and `task2_baselines/results_summary`.
+The goal for each baseline method is to ouput a ranking of EC numbers from best to worst. Afterward, performance metrics for benchmarking can be obtained using `performance_evaluation.ipynb`. Required format for analysis of each model on each split is a .csv file where each row is an entry in the test set, and each entry is associated with a ranking of EC numbers ranked from best to worst. Examples of this format (the final reulsts of all the baselines included in our study) are provided in `task1_baselines/results_summary` and `task2_baselines/results_summary` but generally looks like this:
+
+| Test Reaction/Prpotein | EC Number | 0 | 1 | 2 | ... |
+|:--------|:-------:|:-------:|:-------:|:-------:|:-------:|
+| MSRG... |  1.1.1.1 | 1.1.1.14 | 1.1.1.1 | 1.2.1.2 |
+| ... | ... | ...|  ...|  ... |
+
 
 Performance analysis can be performed in most environments with minimal packages. The standard performance metric is k=1 classification/retrieval accuracy, but we also provide code to calculate other metrics in this notebook. The output for k=1 accuracy should look something like this:
 | Method | Level 4 Accuracy (X.X.X.X) | Level 3 Accuracy (X.X.X.-) | Level 2 Accuracy (X.X.-.-) | Level 1 Accuracy (X.-.-.-) |
@@ -42,7 +48,7 @@ conda create -n CARE_processing python=3.8 -y
 conda activate CARE_processing
 conda install -c rdkit rdkit=2020.03.3 -y
 conda install -c conda-forge -c bioconda mmseqs2 -y
-conda install -c sckit-learn pandas seaborn
+pip install -r requirements.txt
 ```
 
 ### Reproducing dataset/split processing
