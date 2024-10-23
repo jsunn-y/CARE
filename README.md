@@ -48,7 +48,7 @@ conda create -n CARE_processing python=3.8 -y
 conda activate CARE_processing
 conda install -c rdkit rdkit=2020.03.3 -y
 conda install -c conda-forge -c bioconda mmseqs2 -y
-conda install -c sckit-learn pandas seaborn
+pip install -r requirements.txt
 ```
 
 ### Reproducing dataset/split processing
