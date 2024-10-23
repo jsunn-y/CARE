@@ -1,6 +1,6 @@
 # CARE:  a Benchmark Suite for the Classification and Retrieval of Enzymes
 ![image](figs/workflow.png)
-CARE is a datasets and benchmarks suite to evaluate the performance of models to predict the functions of enzymes. CARE is split into two tasks: classification of enzyme sequences based on Enzyme Commission (EC) number (Task 1), and retrieval of EC number given a reaction (Task 2). Our study is currently under review, and we expect that the splits and benchmarking results may change during revision. We would also welcome feedback and suggestions from the community during this process!
+CARE is a datasets and benchmarks suite to evaluate the performance of models to predict the functions of enzymes. CARE is split into two tasks: classification of enzyme sequences based on Enzyme Commission (EC) number (Task 1), and retrieval of EC number given a reaction (Task 2). This is the latest version of CARE to accompany our NeurIPS Datasets and Benchmarks paper.
 
 ## Datasets and splits
 Processed datasets/splits can be downloaded from [datasets.zip](https://zenodo.org/records/12207966), and these correspond to the same datasets as those preloaded to `processed_data` and `splits` in this repository. Note that in the full datasets and train sets, every row represents a unique protein-EC pair, or a unique reaction-EC pair. In the test sets, every row is also a unique protein-EC or reaction-EC pair, except for the promiscuous test set, where each row maps a protein seqeunce to a list of corresponding ECs.
@@ -11,8 +11,6 @@ The table below summarizes which files should be used for each train-test split 
 |:--------|:-------:|:-------:|:-------:|:-------:|
 | Task 1 | <30% Identity | `protein_train.csv` | `30_protein_test.csv` | `reaction2EC.csv` `text2EC.csv`|
 |  | 30-50% Identity | `protein_train.csv` | `30-50_protein_test.csv` | `reaction2EC.csv` `text2EC.csv`|
-|  | 50-70% Identity | `protein_train.csv` | `50-70_protein_test.csv` | `reaction2EC.csv` `text2EC.csv`|
-|  | 70-90% Identity | `protein_train.csv` | `70-90_protein_test.csv` | `reaction2EC.csv` `text2EC.csv`|
 |  | Misclassified (Price) | `protein_train.csv` | `price_protein_test.csv` | `reaction2EC.csv` `text2EC.csv`|
 |  | Promiscuous | `protein_train.csv` | `promiscuous_protein_test.csv` | `reaction2EC.csv` `text2EC.csv`|
 
@@ -34,7 +32,7 @@ Performance analysis can be performed in most environments with minimal packages
 ## CARE Package: for reproducing dataset processing/splitting and reproducing benchmarking results
 
 ### Installation
-If you are interested in the reproducing the dataset curation/splitting, training and inference, and analyses in our study, then proceed to clone this repo and install the CARE package below. The CARE package is capable of performing, in a single command, many of steps that are alternatively provided as scripts or jupyter notebooks. Note that the CARE package is still under construction, so please come back for working versions.
+If you are interested in the reproducing the dataset curation/splitting, training and inference, and analyses in our study, then proceed to clone this repo and install the environment below.
 
 ```
 git clone https://github.com/jsunn-y/CARE/
@@ -44,12 +42,11 @@ conda create -n CARE_processing python=3.8 -y
 conda activate CARE_processing
 conda install -c rdkit rdkit=2020.03.3 -y
 conda install -c conda-forge -c bioconda mmseqs2 -y
-pip install dist/care.0.1.0.tar.gz
 ```
 
 ### Reproducing dataset/split processing
 
-Detailed instructions on using the CARE package will be added soon! Alteratively, the steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits). The raw data used here can be downloaded from [CARE_pretrained.zip](https://zenodo.org/records/12207966) to replace  `generate_datasets_splits/raw_data`.
+The steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits). The raw data used here can be downloaded from [CARE_pretrained.zip](https://zenodo.org/records/12207966) to replace  `generate_datasets_splits/raw_data`.
 
 ### Reproducing benchmarking on Task 1 
 
