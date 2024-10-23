@@ -8,6 +8,7 @@
 *.pth
 *.svg
 *.jpg
+*.ckpt
 
 processed_data_archived/
 generate_datasets_splits/raw_data/

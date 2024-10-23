@@ -1,0 +1,19 @@
+{
+    "available_gpus": ["1"],
+    "script": "screen",
+    "cartesian_hyperparams": {
+      "dataset_file_path": ["files/protein2EC_clustered50.csv"],
+      "inference_dir": ["results/CARE_protein"],
+      "save_hiddens": [true], 
+      "save_predictions": [false], 
+      "use_as_protein_encoder": [true], 
+      "use_as_reaction_encoder": [false],
+      "gpus": [1],
+      "batch_size": [128],
+      "precision": ["bf16"],
+      "checkpoint_path": ["checkpoints/3e0d4f640cc10ae4eb55638c16c15889/last.ckpt"],
+      "esm_dir": ["files/esm2_dir"],
+      "num_workers": [24]
+    }
+  }
+  
