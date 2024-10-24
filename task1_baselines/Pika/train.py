@@ -3,78 +3,18 @@ from pika.main import Pika
 from pika.utils.helpers import load_config
 import warnings
 import logging
+
+warnings.filterwarnings("ignore")
+logging.getLogger("transformers").setLevel(logging.ERROR)
+
+import sys
+from pika.main import Pika
+from pika.utils.helpers import load_config
+import warnings
+import logging
 import pandas as pd
 import numpy as np
 
-
-ec_column = 'EC All'
-
-df_train = pd.read_csv('../.../splits/task1/protein_train.csv')
-rows = []
-for entry, seq, ec in df_train[['Entry', 'Sequence', ec_column]].values:
-    rows.append([entry, 'qa', f"What is the EC number of this protein? {ec}"])
-    
-sample_annotations = pd.DataFrame(rows, columns=['uniprot_id', 'type', 'annotation'])
-sample_annotations.to_csv('annotations.csv', index=False)
-
-# Also split into a train test and validation set for the model training
-from sklearn.model_selection import train_test_split
-
-train, test = train_test_split(df_train, test_size=0.3)
-rows = []
-for entry, seq, ec in df_train[['Entry', 'Sequence', ec_column]].values:
-        rows.append([entry, len(seq), 'train'])
-    
-for entry, seq, ec in test[['Entry', 'Sequence', ec_column]].values[:int(0.5*(len(test)))]:
-    rows.append([entry, len(seq), 'test'])
-
-for entry, seq, ec in test[['Entry', 'Sequence', ec_column]].values[int(0.5*(len(test))):]:
-    rows.append([entry, len(seq), 'val'])
-    
-sample_split = pd.DataFrame(rows, columns=['uniprot_id' , 'protein_length', 'split'])
-
-sample_split.to_csv('split.csv', index=False)
-
-# Next we need to make the metrics
-# uniprot_id,metric,value
-# A0A068BGA5,is_enzyme,True
-
-from sklearn.model_selection import train_test_split
-# A0A084R1H6,in_membrane,False
-# A0A084R1H6,in_nucleus,False
-# A0A084R1H6,in_mitochondria,False
-# A0A084R1H6,is_enzyme,True
-# A0A084R1H6,mw,263256
-rows = []
-for entry, seq, ec in df_train[['Entry', 'Sequence', 'EC number']].values[100:]:
-    rows.append([entry, 'is_enzyme', True])
-    rows.append([entry, 'in_membrane', True])
-    rows.append([entry, 'in_mitochondria', True])
-    rows.append([entry, 'in_nucleus', True])
-    rows.append([entry, 'cofactor', "heme"])
-    rows.append([entry, 'localization', "heme"])
-    rows.append([entry, 'mw', 263256])
-    
-for entry, seq, ec in df_train[['Entry', 'Sequence', 'EC number']].values[:100]:
-    rows.append([entry, 'is_enzyme', False])
-    rows.append([entry, 'in_membrane', False])
-    rows.append([entry, 'in_mitochondria', False])
-    rows.append([entry, 'in_nucleus', False])
-    rows.append([entry, 'localization', "heme"])
-    rows.append([entry, 'mw', 23256])
-
-sample_metrics = pd.DataFrame(rows, columns=['uniprot_id' , 'metric', 'value'])
-sample_metrics.to_csv('metrics.csv', index=False)
-
-
-# Save the training sequences
-rows = []
-for entry, seq, ec in df_train[['Entry', 'Sequence', ec_column]].values:
-    rows.append([entry, '', '', seq, len(seq), 1, 1, 1, 1])
-    
-sample_seqs = pd.DataFrame(rows, columns=['uniprot_id', 'uniref_cluster', 'taxonomy', 'sequence', 'length', 'mw', 'num_fields', 'num_summary', 'num_qa'])
-
-sample_seqs.to_csv('sequences.csv', index=False)
 
 # Make the model 
 # prep config
@@ -88,7 +28,7 @@ model.train()
 splits = ['30', '30-50', 'price', 'promiscuous']
 rows = []
 for split in splits: 
-    df_test = pd.read_csv(f'../.../splits/task1/{split}_protein_test.csv')
+    df_test = pd.read_csv(f'../../splits/task1/{split}_protein_test.csv').sample(2)
     
     for entry, seq in df_test[['Entry', 'Sequence']].values:
         ec = model.enquire(
@@ -97,7 +37,7 @@ for split in splits:
         )
         rows.append([split, seq, entry, '|'.join(ec)])
 saving_df = pd.DataFrame(rows, columns=['Split', 'seq', 'Entry', 'EC'])
-saving_df.to_csv(f'../results_summary/Pika/all_test_datasets_output.csv', index=False)
+saving_df.to_csv(f'all_test_datasets_output.csv', index=False)
 
 
 ### Save the results now individually 
@@ -108,6 +48,7 @@ df = saving_df.copy()
 splits = ['30', '30-50', 'price', 'promiscuous']
 
 for split in splits:
+    
     # Entry,EC number,
     sub_df = df[df['Split'] == split]
     # Make the enrty to the EC 
@@ -119,4 +60,5 @@ for split in splits:
     # Make the EC format the same as the other datasets
     entry_to_ec = dict(zip(sub_df['Entry'], sub_df['EC number']))
     test_df['0'] = [entry_to_ec.get(e) for e in test_df['Entry'].values]
+    
     test_df.to_csv(f'../results_summary/Pika/{split}_protein_test_results_df.csv', index=False)
