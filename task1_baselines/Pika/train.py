@@ -28,7 +28,7 @@ model.train()
 splits = ['30', '30-50', 'price', 'promiscuous']
 rows = []
 for split in splits: 
-    df_test = pd.read_csv(f'../../splits/task1/{split}_protein_test.csv').sample(2)
+    df_test = pd.read_csv(f'../../splits/task1/{split}_protein_test.csv')
     
     for entry, seq in df_test[['Entry', 'Sequence']].values:
         ec = model.enquire(
@@ -37,7 +37,7 @@ for split in splits:
         )
         rows.append([split, seq, entry, '|'.join(ec)])
 saving_df = pd.DataFrame(rows, columns=['Split', 'seq', 'Entry', 'EC'])
-saving_df.to_csv(f'all_test_datasets_output.csv', index=False)
+saving_df.to_csv(f'all_test_datasets_output_EC-number.csv', index=False)
 
 
 ### Save the results now individually 
