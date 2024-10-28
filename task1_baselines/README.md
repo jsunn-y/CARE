@@ -21,6 +21,6 @@ python BLAST/run_diamond_blast.py
 ### CLEAN
 Outputs from model training and inference in our study are found in `CLEAN`. Alternatively, instructions for reproducing our retraining and inference procedure can be found in `task1_baselines/CLEAN/CARE_forCLEAN.ipynb`, which is performed within the [CLEAN package](https://github.com/tttianhao/CLEAN/tree/main). For training, we did not perform any clustering, and we used the recommended training parameters with triplet margin loss.
 
-Our retrained CLEAN  model is available at [CARE_pretrained.zip]([https://zenodo.org/records/12195378](https://zenodo.org/records/12207966)).
+Our retrained CLEAN  model is available on [huggingface](https://huggingface.co/jsunn-y/CARE_pretrained).
 
 ### Pika
