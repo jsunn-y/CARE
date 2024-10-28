@@ -23,7 +23,7 @@ The table below summarizes which files should be used for each train-test split 
 ## Performance Evaluation
 The goal for each baseline method is to ouput a ranking of EC numbers from best to worst. Afterward, performance metrics for benchmarking can be obtained using `performance_evaluation.ipynb`. Required format for analysis of each model on each split is a .csv file where each row is an entry in the test set, and each entry is associated with a ranking of EC numbers ranked from best to worst. Examples of this format (the final reulsts of all the baselines included in our study) are provided in `task1_baselines/results_summary` and `task2_baselines/results_summary` but generally looks like this:
 
-| Test Reaction/Prpotein | EC Number | 0 | 1 | 2 | ... |
+| Test Reaction/Protein | EC Number | 0 | 1 | 2 | ... |
 |:--------|:-------:|:-------:|:-------:|:-------:|:-------:|
 | MSRG... |  1.1.1.1 | 1.1.1.14 | 1.1.1.1 | 1.2.1.2 |
 | ... | ... | ...|  ...|  ... |
