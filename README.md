@@ -35,7 +35,7 @@ Performance analysis can be performed in most environments with minimal packages
 | Name |  54.1 | 60.4 | 81.0 | 95.5 |
 | ... | ... | ...|  ...|  ... |
 
-## CARE Package: for reproducing dataset processing/splitting and reproducing benchmarking results
+## CARE Package: for reproducing dataset processing/splitting
 
 ### Installation
 If you are interested in the reproducing the dataset curation/splitting, training and inference, and analyses in our study, then proceed to clone this repo and install the environment below.
@@ -55,11 +55,11 @@ pip install -r requirements.txt
 
 The steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits). The raw data used here can be downloaded from [CARE_pretrained.zip](https://zenodo.org/records/12207966) to replace  `generate_datasets_splits/raw_data`.
 
-### Reproducing benchmarking on Task 1 
+## Reproducing benchmarking on Task 1 
 
 Detailed instructions for reproducing our baselines on Task 1 and general recommendations for benchmarking on Task 1 can be found [here](task1_baselines).
 
-### Reproducing benchmarking on Task 2 
+## Reproducing benchmarking on Task 2 
 
 Detailed instructions for reproducing our baselines on Task 2 and general recommendations for benchmarking on Task 2 can be found [here](task2_baselines) .
 
