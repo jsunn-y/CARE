@@ -51,8 +51,6 @@ conda install -c conda-forge -c bioconda mmseqs2 -y
 pip install -r requirements.txt
 ```
 
-### Reproducing dataset/split processing
-
 The steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits). The raw data used here can be downloaded from [CARE_pretrained.zip](https://zenodo.org/records/12207966) to replace  `generate_datasets_splits/raw_data`.
 
 ## Reproducing benchmarking on Task 1 
@@ -65,7 +63,7 @@ Detailed instructions for reproducing our baselines on Task 2 and general recomm
 
 ## CREEP
 ![image](figs/CREEP.png)
-We also introduce Contrastive Reaction-EnzymE Pretraining (CREEP), which is one of the first models that can perform Task 2 by aligning representations from different modalities (reaction, protein, and optionally textual description). The model is found under `CREEP`, while example usage is found under `task2_baselines/CREEP` with instructions [here](task2_baselines). CREEP involved finetuning pretrained language models, some of which can be downloaded from hugging face and are also in [CARE_pretrained.zip](https://zenodo.org/records/12207966).
+We also introduce Contrastive Reaction-EnzymE Pretraining (CREEP), which is one of the first models that can perform Task 2 by aligning representations from different modalities (reaction, protein, and optionally textual description). The model is found under `CREEP`, while example usage is found under `task2_baselines/CREEP` with instructions [here](task2_baselines). CREEP involved finetuning pretrained language models, some of can be downloaded from [hugging face](https://huggingface.co/jsunn-y/CARE_pretrained).
 
 #### CREEP installation
 For CREEP model training and inference
