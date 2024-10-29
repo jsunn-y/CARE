@@ -24,3 +24,4 @@ Outputs from model training and inference in our study are found in `CLEAN`. Alt
 Our retrained CLEAN  model is available on [huggingface](https://huggingface.co/jsunn-y/CARE_pretrained).
 
 ### Pika
+The pretrained model checkpoint is available on [huggingface](https://huggingface.co/jsunn-y/CARE_pretrained).
