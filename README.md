@@ -51,7 +51,7 @@ conda install -c conda-forge -c bioconda mmseqs2 -y
 pip install -r requirements.txt
 ```
 
-The steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits). The raw data used here can be downloaded from [CARE_pretrained.zip](https://zenodo.org/records/12207966) to replace  `generate_datasets_splits/raw_data`.
+The steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits). The raw data used here can be downloaded from [CARE_raw_data.zip](https://zenodo.org/records/12207966) to replace  `generate_datasets_splits/raw_data`.
 
 ## Reproducing benchmarking on Task 1 
 
