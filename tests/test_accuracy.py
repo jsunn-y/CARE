@@ -110,21 +110,21 @@ def get_results(task):
 
     if task == 'task1':
         # baselines = ['random', 'BLAST', 'ChatGPT', 'ProteInfer',  'CLEAN']
-        baselines = ['ChatGPT', 'BLAST'] #'random', 'BLAST', 'CLEAN', 'Pika', 'ChatGPT']  # 'random', 'BLAST', 'CLEAN', 'Pika', 'ChatGPT'
-        splits = ['30', '30-50', 'price', 'promiscuous']  # ['30', '30-50', 'price', 'promiscuous']
+        baselines = ['ChatGPT', 'BLAST', 'CLEAN', 'Pika'] #'random', 'BLAST', 'CLEAN', 'Pika', 'ChatGPT']  # 'random', 'BLAST', 'CLEAN', 'Pika', 'ChatGPT'
+        splits = ['30', 'price', 'promiscuous']  # ['30', '30-50', 'price', 'promiscuous']
         modality = 'protein'
     else:
         # baselines = ['random', 'Similarity', 'ChatGPT_text', 'ChatGPT', 'CLIPZyme', 'CREEP', 'CREEP_text']
-        baselines = ['ChatGPT'] #['random', 'Similarity', 'CLIPZyme', 'CREEP', 'ChatGPT_text', 'ChatGPT', 'CREEP_text']
-        splits = ['easy', 'medium', 'hard']
+        baselines = ['Similarity', 'CLIPZyme', 'CREEP', 'ChatGPT_text', 'ChatGPT', 'CREEP_text'] #['random', 'Similarity', 'CLIPZyme', 'CREEP', 'ChatGPT_text', 'ChatGPT', 'CREEP_text']
+        splits = ['easy', 'hard']
         modality = 'reaction'
 
     for baseline in baselines:
         for split in splits:
-
+            print(baseline, split)
             query_df = pd.read_csv(
                 '{}_baselines/results_summary/{}/{}_{}_test_results_df.csv'.format(task, baseline, split,
-                                                                                   modality))  # take a different baseline and randomize it
+                                                                                   modality), encoding='latin-1')  # take a different baseline and randomize it
             num_cols = find_column(query_df, '0')
 
             # fill na for columns after num_cols with '0.0.0.0'
@@ -140,7 +140,7 @@ def get_results(task):
                     k_list = [1, 20]  # more than the maximum number of promiscuous ECs
             else:
                 k_list = [1, 3, 5, 10, 20, 30, 40, 50]
-
+            k_list = [1] # Change
             for k in k_list:
                 # collapse columns 0:3 into a single column list
                 query_df['predicted ECs'] = query_df.iloc[:, num_cols:num_cols + k].values.tolist()
@@ -181,14 +181,50 @@ class TestAccuracy(unittest.TestCase):
     def test_k1_acc(self):
         """ Test the accuracy of k=1 for task 1 """
         results = get_results('task1')
-        results['baseline'] = pd.Categorical(results['baseline'], ['ChatGPT', 'BLAST'])
-        results.to_csv('test_accuracy.csv', index=False)
+        results['baseline'] = pd.Categorical(results['baseline'], ['ChatGPT', 'BLAST', 'CLEAN', 'Pika'])
+        results.to_csv('test_accuracy_task1.csv', index=False)
+        # Also save the accs out of each file as well
+        # baselines = ['random', 'BLAST', 'ChatGPT', 'ProteInfer',  'CLEAN']
+        baselines = ['ChatGPT', 'BLAST', 'CLEAN',
+                     'Pika']  # 'random', 'BLAST', 'CLEAN', 'Pika', 'ChatGPT']  # 'random', 'BLAST', 'CLEAN', 'Pika', 'ChatGPT'
+        splits = ['30', 'price', 'promiscuous']  # ['30', '30-50', 'price', 'promiscuous']
+        modality = 'protein'
+        rows = []
+        task = 'task1'
+        columns = ['baseline', 'split', 'level 4 acc', 'level 3 acc', 'level 2 acc', 'level 1 acc']
+        for baseline in baselines:
+            for split in splits:
+                print(baseline, split)
+                query_df = pd.read_csv(
+                    '{}_baselines/results_summary/{}/{}_{}_test_results_df.csv'.format(task, baseline, split,
+                                                                                       modality),
+                    encoding='latin-1')  # take a different baseline and randomize it
+                rows.append([baseline, split] + list(query_df[['level 4 acc', 'level 3 acc', 'level 2 acc', 'level 1 acc']].values[0]))
+        df = pd.DataFrame(rows, columns=columns)
+        df.to_csv('test_accuracy_task1_true.csv')
 
     def test_task2_acc(self):
         """ Test the accuracy of k=1 for task 1 """
         results = get_results('task2')
-        results['baseline'] = pd.Categorical(results['baseline'], ['ChatGPT'])
+        results['baseline'] = pd.Categorical(results['baseline'], ['Similarity', 'CLIPZyme', 'CREEP', 'ChatGPT_text', 'ChatGPT', 'CREEP_text'])
         results.to_csv('test_accuracy_task2.csv', index=False)
+        rows = []
+        task = 'task2'
+        columns = ['baseline', 'split', 'level 4 acc', 'level 3 acc', 'level 2 acc', 'level 1 acc']
+        baselines = ['Similarity', 'CLIPZyme', 'CREEP', 'ChatGPT_text', 'ChatGPT',
+                     'CREEP_text']  # ['random', 'Similarity', 'CLIPZyme', 'CREEP', 'ChatGPT_text', 'ChatGPT', 'CREEP_text']
+        splits = ['easy', 'hard']
+        modality = 'reaction'
+        for baseline in baselines:
+            for split in splits:
+                print(baseline, split)
+                query_df = pd.read_csv(
+                    '{}_baselines/results_summary/{}/{}_{}_test_results_df.csv'.format(task, baseline, split,
+                                                                                       modality),
+                    encoding='latin-1')  # take a different baseline and randomize it
+                rows.append([baseline, split] + list(query_df[['level 4 acc', 'level 3 acc', 'level 2 acc', 'level 1 acc']].values[0]))
+        df = pd.DataFrame(rows, columns=columns)
+        df.to_csv('test_accuracy_task2_true.csv')
 
 if __name__ == '__main__':
     unittest.main()
