@@ -46,8 +46,8 @@ cd CARE
 conda create -n CARE_processing python=3.8 -y
 
 conda activate CARE_processing
-conda install -c rdkit rdkit=2020.03.3 -y
 conda install -c conda-forge -c bioconda mmseqs2 -y
+conda install -c rdkit rdkit=2020.03.3 -y
 pip install -r requirements.txt
 ```
 The steps used to generate the datasets and splits for this work can be reproduced using the jupyter notebooks in `generate_dataset_splits` with an overview [here](generate_datasets_splits). The raw data used here can be downloaded from [CARE_raw_data.zip](https://zenodo.org/records/12207966) to replace  `generate_datasets_splits/raw_data`.
