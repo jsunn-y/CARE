@@ -16,7 +16,9 @@ python BLAST/run_diamond_blast.py
 ```
 
 ### ChatGPT
-** Note **: For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line, from your OpenAI account.
+** Note **: For chatGPT you'll need your API key from your account and add it to the notebook.
+For this, run the ChatGPT notebook here and follow the instructions to insert your API key: `ChatGPT/ChatGPT.ipynb`.
+
 
 ### CLEAN
 Outputs from model training and inference in our study are found in `CLEAN`. Alternatively, instructions for reproducing our retraining and inference procedure can be found in `task1_baselines/CLEAN/CARE_forCLEAN.ipynb`, which is performed within the [CLEAN package](https://github.com/tttianhao/CLEAN/tree/main). For training, we did not perform any clustering, and we used the recommended training parameters with triplet margin loss.
@@ -25,3 +27,9 @@ Our retrained CLEAN  model is available on [huggingface](https://huggingface.co/
 
 ### Pika
 The pretrained model checkpoint is available on [huggingface](https://huggingface.co/jsunn-y/CARE_pretrained).
+To run Pika you can either run by the notebook or a python script, we recommend the notebook to have the model persist
+ since we found issues re-loading the saved checkpoint (an issue has been raised on the github of Pika). 
+To modify the hyperparameters you can change the file `Pika/pika_config.json`, for example to add epochs. 
+```
+python Pika/train.py
+```

@@ -73,3 +73,8 @@ python downstream_retrieval.py --pretrained_folder=CLIPZyme/output/easy_split --
 ```
 
 The outputs will similarly be saved under `retrieval_results`.
+
+### ChatGPT
+** Note **: For chatGPT you'll need your API key from your account and add it to the notebook.
+For this, run the ChatGPT notebook here and follow the instructions to insert your API key: `ChatGPT/ChatGPT.ipynb`.
+This contains two cells, one for reaction only, and one for reaction and text.
