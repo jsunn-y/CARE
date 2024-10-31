@@ -7,8 +7,8 @@ python rank_tabulate_random.py
 ```
 
 ### ChatGPT
-For chatGPT you'll need your API key saved in a file called `secrets.txt` just as a single line, from your OpenAI account.
-
+For this, run the ChatGPT notebook here and follow the instructions to insert your API key: `ChatGPT/ChatGPT.ipynb`.
+This contains two cells, one for reaction only, and one for reaction and text.
 
 ## Other methods:
 For the other benchmarks, results can be reproduced at a high level  by following these steps: 
@@ -73,8 +73,3 @@ python downstream_retrieval.py --pretrained_folder=CLIPZyme/output/easy_split --
 ```
 
 The outputs will similarly be saved under `retrieval_results`.
-
-### ChatGPT
-** Note **: For chatGPT you'll need your API key from your account and add it to the notebook.
-For this, run the ChatGPT notebook here and follow the instructions to insert your API key: `ChatGPT/ChatGPT.ipynb`.
-This contains two cells, one for reaction only, and one for reaction and text.
