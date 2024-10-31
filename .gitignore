@@ -8,7 +8,10 @@
 *.pth
 *.svg
 *.jpg
+*.ckpt
 
+tests/
+archived/
 processed_data_archived/
 generate_datasets_splits/raw_data/
 generate_datasets_splits/ref_databases/
