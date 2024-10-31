@@ -15,7 +15,6 @@ import logging
 import pandas as pd
 import numpy as np
 
-
 # Make the model 
 # prep config
 assets_path = "../assets/"
@@ -38,7 +37,6 @@ for split in splits:
         rows.append([split, seq, entry, '|'.join(ec)])
 saving_df = pd.DataFrame(rows, columns=['Split', 'seq', 'Entry', 'EC'])
 saving_df.to_csv(f'all_test_datasets_output_EC-number.csv', index=False)
-
 
 ### Save the results now individually 
 

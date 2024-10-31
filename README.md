@@ -1,5 +1,6 @@
 # CARE:  a Benchmark Suite for the Classification and Retrieval of Enzymes
 ![image](figs/workflow.png)
+
 CARE is a datasets and benchmarks suite to evaluate the performance of models to predict the functions of enzymes. CARE is split into two tasks: classification of enzyme sequences based on Enzyme Commission (EC) number (Task 1), and retrieval of EC number given a reaction (Task 2). This is the latest version of CARE to accompany our NeurIPS Datasets and Benchmarks paper (October 30, 2024).
 
 ## Datasets and splits
@@ -28,6 +29,7 @@ The goal for each baseline method is to ouput a ranking of EC numbers from best 
 | MSRG... |  1.1.1.1 | 1.1.1.14 | 1.1.1.1 | 1.2.1.2 |
 | ... | ... | ...|  ...|  ... |
 
+Future models should compare their performance against the models summarized in those folders.
 
 Performance analysis can be performed in most environments with minimal packages. The standard performance metric is k=1 classification/retrieval accuracy, but we also provide code to calculate other metrics in this notebook. The output for k=1 accuracy should look something like this:
 | Method | Level 4 Accuracy (X.X.X.X) | Level 3 Accuracy (X.X.X.-) | Level 2 Accuracy (X.X.-.-) | Level 1 Accuracy (X.-.-.-) |
