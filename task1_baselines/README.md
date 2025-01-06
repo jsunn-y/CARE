@@ -15,6 +15,12 @@ Run the following script:
 python BLAST/run_diamond_blast.py
 ```
 
+### Foldseek
+Follow the following notebook:
+```
+Foldseek/structure_search.ipynb
+```
+
 ### ChatGPT
 For this, run the ChatGPT notebook here and follow the instructions to insert your API key: `ChatGPT/ChatGPT.ipynb`.
 
