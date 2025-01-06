@@ -38,6 +38,7 @@ task2_baselines_pretrained/
 splits/task2/bioremediation_reaction_test.csv
 task2_baselines/Similarity/output/bioremediation_split/
 task2_baselines/CREEP/output_archived/bioremediation_split
+task1_baselines/Foldseek/
 #task2_baselines/CREEP/output_archived/
 
 task2_baselines/results_summary/CREEP/bioremediation_reaction_test_results_df.csv
