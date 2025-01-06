@@ -23,6 +23,9 @@ CREEP/data/pretrained_ProtT5/
 CREEP/data/pretrained_SciBert/
 CREEP/data/pretrained_rxnfp/
 
+task1_baselines/Foldseek/
+archived/
+task2_baselines/CLIPZyme/
 
 #task2_baselines/CREEP/output/
 task1_baselines/BLAST/data/
