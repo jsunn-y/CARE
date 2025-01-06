@@ -8,10 +8,16 @@
 *.pth
 *.svg
 *.jpg
+*.ckpt
 
+tests/
+archived/
+processed_data_archived/
 generate_datasets_splits/raw_data/
+generate_datasets_splits/ref_databases/
 generate_datasets_splits/fastas/
 generate_datasets_splits/clustering/
+generate_datasets_splits/clustering_archived/
 generate_datasets_splits/figs/
 
 #splits/task1/
@@ -21,7 +27,7 @@ tests/
 generate_datasets_splits/figs/
 CREEP/data/pretrained_ProtT5/
 CREEP/data/pretrained_SciBert/
-CREEP/data/pretrained_rxnfp/
+#CREEP/data/pretrained_rxnfp/
 
 task1_baselines/Foldseek/
 archived/
@@ -29,11 +35,15 @@ task2_baselines/CLIPZyme/
 
 #task2_baselines/CREEP/output/
 task1_baselines/BLAST/data/
+task1_baselines/results_summary_archived/
 task2_baselines/bioremediation_test.ipynb
 task2_baselines_pretrained/
 splits/task2/bioremediation_reaction_test.csv
 task2_baselines/Similarity/output/bioremediation_split/
-task2_baselines/CREEP/output/bioremediation_split
+task2_baselines/CREEP/output_archived/bioremediation_split
+task1_baselines/Foldseek/
+#task2_baselines/CREEP/output_archived/
+
 task2_baselines/results_summary/CREEP/bioremediation_reaction_test_results_df.csv
 task2_baselines/results_summary/Similarity/bioremediation_reaction_test_results_df.csv
 

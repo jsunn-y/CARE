@@ -75,6 +75,7 @@ EC number,Text,Text Incomplete
 1.1.1.209,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, NAD or NADP as acceptor; androsterone dehydrogenase",False
 1.1.1.21,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, NAD or NADP as acceptor; aldose reductase (NADPH)",False
 1.1.1.210,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, NAD or NADP as acceptor; 5alpha-androstane-3beta,17beta-diol dehydrogenase",False
+1.1.1.211,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, NAD or NADP as acceptor; long-chain-3-hydroxyacyl-CoA dehydrogenase",False
 1.1.1.212,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, NAD or NADP as acceptor; 3-oxoacyl-[acyl-carrier-protein] reductase (NADH)",False
 1.1.1.215,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, NAD or NADP as acceptor; gluconate 2-dehydrogenase",False
 1.1.1.216,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, NAD or NADP as acceptor; farnesol dehydrogenase",False
@@ -315,8 +316,10 @@ EC number,Text,Text Incomplete
 1.1.2.6,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, cytochrome as acceptor; polyvinyl alcohol dehydrogenase (cytochrome)",False
 1.1.2.7,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, cytochrome as acceptor; alcohol dehydrogenase (cytochrome c(L))",False
 1.1.2.8,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, cytochrome as acceptor; alcohol dehydrogenase (cytochrome c)",False
+1.1.2.9,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, cytochrome as acceptor",True
 1.1.3.10,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; methanol oxidase; pyranose oxidase",False
 1.1.3.12,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; methanol oxidase; pyridoxine 4-oxidase",False
+1.1.3.13,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; methanol oxidase; alcohol oxidase",False
 1.1.3.15,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; methanol oxidase; (S)-2-hydroxy-acid oxidase",False
 1.1.3.16,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; methanol oxidase; ecdysone oxidase",False
 1.1.3.17,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; methanol oxidase; choline:oxygen 1-oxidoreductase",False
@@ -337,6 +340,7 @@ EC number,Text,Text Incomplete
 1.1.3.5,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; methanol oxidase; hexose oxidase",False
 1.1.3.6,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; methanol oxidase; cholesterol oxidase",False
 1.1.3.8,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; methanol oxidase; L-gulonolactone oxidase",False
+1.1.3.9,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; methanol oxidase; galactose oxidase",False
 1.1.5.12,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, quinone or similar compound as acceptor; D-lactate dehydrogenase (quinone)",False
 1.1.5.13,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, quinone or similar compound as acceptor; (S)-2-hydroxyglutarate dehydrogenase",False
 1.1.5.14,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, quinone or similar compound as acceptor; fructose 5-dehydrogenase",False
@@ -344,12 +348,15 @@ EC number,Text,Text Incomplete
 1.1.5.3,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, quinone or similar compound as acceptor; glycerol-3-phosphate dehydrogenase (quinone)",False
 1.1.5.4,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, quinone or similar compound as acceptor; malate dehydrogenase (menaquinone)",False
 1.1.5.5,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, quinone or similar compound as acceptor",True
+1.1.5.8,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, quinone or similar compound as acceptor; quinate dehydrogenase (quinone)",False
 1.1.5.9,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; oxidoreductase, acting on the CH-OH group of donors, quinone or similar compound as acceptor; glucose dehydrogenase (FAD, quinone)",False
+1.1.9.1,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors",True
 1.1.98.3,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors",True
 1.1.98.6,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors",True
 1.1.98.7,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors",True
 1.1.99.1,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; limonene-1,2-diol dehydrogenase; choline dehydrogenase",False
 1.1.99.14,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; limonene-1,2-diol dehydrogenase; glycolate dehydrogenase",False
+1.1.99.18,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; limonene-1,2-diol dehydrogenase; cellobiose dehydrogenase (acceptor)",False
 1.1.99.2,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; limonene-1,2-diol dehydrogenase; 2-hydroxyglutarate dehydrogenase",False
 1.1.99.22,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; limonene-1,2-diol dehydrogenase; glycerol dehydrogenase (acceptor)",False
 1.1.99.24,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; limonene-1,2-diol dehydrogenase; hydroxyacid-oxoacid transhydrogenase",False
@@ -358,6 +365,7 @@ EC number,Text,Text Incomplete
 1.1.99.3,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; limonene-1,2-diol dehydrogenase; gluconate 2-dehydrogenase (acceptor)",False
 1.1.99.31,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; limonene-1,2-diol dehydrogenase; (S)-mandelate dehydrogenase",False
 1.1.99.32,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; limonene-1,2-diol dehydrogenase",True
+1.1.99.35,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; limonene-1,2-diol dehydrogenase; glucose dehydrogenase",False
 1.1.99.36,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; limonene-1,2-diol dehydrogenase",True
 1.1.99.37,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; limonene-1,2-diol dehydrogenase",True
 1.1.99.38,"oxidoreductase; oxidoreductase, acting on CH-OH group of donors; limonene-1,2-diol dehydrogenase",True
@@ -397,8 +405,10 @@ EC number,Text,Text Incomplete
 1.11.1.5,"oxidoreductase; oxidoreductase, acting on peroxide as acceptor; peroxidase; cytochrome-c peroxidase",False
 1.11.1.6,"oxidoreductase; oxidoreductase, acting on peroxide as acceptor; peroxidase; catalase",False
 1.11.1.7,"oxidoreductase; oxidoreductase, acting on peroxide as acceptor; peroxidase; lactoperoxidase",False
+1.11.1.8,"oxidoreductase; oxidoreductase, acting on peroxide as acceptor; peroxidase; iodide peroxidase",False
 1.11.1.9,"oxidoreductase; oxidoreductase, acting on peroxide as acceptor; peroxidase; glutathione peroxidase",False
 1.11.2.1,"oxidoreductase; oxidoreductase, acting on peroxide as acceptor",True
+1.11.2.2,"oxidoreductase; oxidoreductase, acting on peroxide as acceptor",True
 1.11.2.3,"oxidoreductase; oxidoreductase, acting on peroxide as acceptor; plant seed peroxidase",False
 1.11.2.4,"oxidoreductase; oxidoreductase, acting on peroxide as acceptor",True
 1.11.2.5,"oxidoreductase; oxidoreductase, acting on peroxide as acceptor",True
@@ -428,6 +438,9 @@ EC number,Text,Text Incomplete
 1.13.11.27,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase; 4-hydroxyphenylpyruvate dioxygenase",False
 1.13.11.29,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase; stizolobate synthase",False
 1.13.11.3,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase; protocatechuate 3,4-dioxygenase",False
+1.13.11.31,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase; arachidonate 12(S)-lipoxygenase",False
+1.13.11.33,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase; arachidonate 15-lipoxygenase",False
+1.13.11.34,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase; arachidonate 5-lipoxygenase",False
 1.13.11.37,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase; 4-hydroxycatechol 1,2-dioxygenase",False
 1.13.11.38,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase; 1-hydroxy-2-naphthoate 1,2-dioxygenase",False
 1.13.11.39,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase; biphenyl-2,3-diol 1,2-dioxygenase",False
@@ -449,6 +462,7 @@ EC number,Text,Text Incomplete
 1.13.11.58,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase; linoleate 9S-lipoxygenase",False
 1.13.11.59,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase",True
 1.13.11.6,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase; 3-hydroxyanthranilate 3,4-dioxygenase",False
+1.13.11.61,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase; linoleate 9R-lipoxygenase",False
 1.13.11.63,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase; beta-carotene 15,15'-dioxygenase",False
 1.13.11.64,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase",True
 1.13.11.65,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase; carotenoid isomerooxygenase",False
@@ -461,6 +475,7 @@ EC number,Text,Text Incomplete
 1.13.11.74,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase",True
 1.13.11.75,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase; all-trans-8'-apo-beta-carotenal 15,15'-oxygenase",False
 1.13.11.76,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase",True
+1.13.11.77,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase",True
 1.13.11.78,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase",True
 1.13.11.8,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase; protocatechuate 4,5-dioxygenase",False
 1.13.11.80,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; diphenyl ether 1,2-dioxygenase",True
@@ -484,6 +499,7 @@ EC number,Text,Text Incomplete
 1.13.12.5,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; hexadecyltrimethylammonium chloride monooxygenase; Renilla-luciferin 2-monooxygenase",False
 1.13.12.6,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; hexadecyltrimethylammonium chloride monooxygenase; Cypridina-luciferin 2-monooxygenase",False
 1.13.12.7,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; hexadecyltrimethylammonium chloride monooxygenase; Photinus-luciferin 4-monooxygenase (ATP-hydrolyzing)",False
+1.13.12.9,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; hexadecyltrimethylammonium chloride monooxygenase; phenylalanine 2-monooxygenase",False
 1.13.99.1,"oxidoreductase; oxidoreductase, acting on single donors with incorporation of molecular oxygen; 2,4,5-trichlorophenoxyacetic acid oxygenase; inositol oxygenase",False
 1.14.11.1,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 2-oxoglutarate-dependent dioxygenase; gamma-butyrobetaine dioxygenase",False
 1.14.11.11,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 2-oxoglutarate-dependent dioxygenase; hyoscyamine (6S)-dioxygenase",False
@@ -505,6 +521,7 @@ EC number,Text,Text Incomplete
 1.14.11.33,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 2-oxoglutarate-dependent dioxygenase; broad specificity oxidative DNA demethylase",False
 1.14.11.37,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 2-oxoglutarate-dependent dioxygenase",True
 1.14.11.39,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 2-oxoglutarate-dependent dioxygenase",True
+1.14.11.4,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 2-oxoglutarate-dependent dioxygenase; procollagen-lysine 5-dioxygenase",False
 1.14.11.40,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 2-oxoglutarate-dependent dioxygenase",True
 1.14.11.41,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 2-oxoglutarate-dependent dioxygenase; 2-oxoglutarate, L-arginine oxygenase (succinate-forming)",False
 1.14.11.42,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 2-oxoglutarate-dependent dioxygenase; tRNA(Phe) (7-(3-amino-3-carboxypropyl)wyosine37-C2)-hydroxylase",False
@@ -520,6 +537,7 @@ EC number,Text,Text Incomplete
 1.14.11.55,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 2-oxoglutarate-dependent dioxygenase",True
 1.14.11.56,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 2-oxoglutarate-dependent dioxygenase",True
 1.14.11.57,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 2-oxoglutarate-dependent dioxygenase",True
+1.14.11.6,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 2-oxoglutarate-dependent dioxygenase; thymine dioxygenase",False
 1.14.11.60,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 2-oxoglutarate-dependent dioxygenase; scopoletin 8-hydroxylase",False
 1.14.11.61,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 2-oxoglutarate-dependent dioxygenase",True
 1.14.11.62,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 2-oxoglutarate-dependent dioxygenase; 4-coumaroyl 2'-hydroxylase",False
@@ -614,6 +632,7 @@ EC number,Text,Text Incomplete
 1.14.13.240,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; thalianol hydroxylase",True
 1.14.13.244,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; thalianol hydroxylase",True
 1.14.13.246,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; thalianol hydroxylase",True
+1.14.13.248,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; thalianol hydroxylase",True
 1.14.13.249,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; thalianol hydroxylase",True
 1.14.13.25,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; thalianol hydroxylase; methane monooxygenase NADPH",False
 1.14.13.29,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; thalianol hydroxylase; 4-nitrophenol 2-monooxygenase",False
@@ -770,7 +789,6 @@ EC number,Text,Text Incomplete
 1.14.14.85,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; pyrrole-2-carboxylate monooxygenase; 7-deoxyloganate 7-hydroxylase",False
 1.14.14.86,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; pyrrole-2-carboxylate monooxygenase; ent-kaur-16-en-19-al oxidase",False
 1.14.14.87,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; pyrrole-2-carboxylate monooxygenase; 2-hydroxyisoflavanone synthase",False
-1.14.14.88,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; pyrrole-2-carboxylate monooxygenase; isoflavone 3'-hydroxylase",False
 1.14.14.89,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; pyrrole-2-carboxylate monooxygenase; 4'-methoxyisoflavone 2'-hydroxylase",False
 1.14.14.9,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; pyrrole-2-carboxylate monooxygenase; 4-hydroxyphenylacetate 3-monooxygenase",False
 1.14.14.90,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; pyrrole-2-carboxylate monooxygenase; isoflavone 2'-hydroxylase",False
@@ -791,6 +809,7 @@ EC number,Text,Text Incomplete
 1.14.15.17,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 4-AD 9alpha-hydroxylase; pheophorbide a oxygenase",False
 1.14.15.18,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 4-AD 9alpha-hydroxylase; calcidiol 1-monooxygenase",False
 1.14.15.19,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 4-AD 9alpha-hydroxylase",True
+1.14.15.21,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 4-AD 9alpha-hydroxylase; zeaxanthin epoxidase",False
 1.14.15.22,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 4-AD 9alpha-hydroxylase",True
 1.14.15.24,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 4-AD 9alpha-hydroxylase",True
 1.14.15.26,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 4-AD 9alpha-hydroxylase",True
@@ -830,7 +849,6 @@ EC number,Text,Text Incomplete
 1.14.18.7,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 6-hydroxy pseudo-oxynicotine monooxygenase",True
 1.14.18.9,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; 6-hydroxy pseudo-oxynicotine monooxygenase; C-4 methylsterol oxidase",False
 1.14.19.1,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; oxidoreductase, acting on paired donors, with oxidation of a pair of donors resulting in the reduction of molecular oxygen to two molecules of water; stearoyl-CoA 9-desaturase",False
-1.14.19.10,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; oxidoreductase, acting on paired donors, with oxidation of a pair of donors resulting in the reduction of molecular oxygen to two molecules of water",True
 1.14.19.11,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; oxidoreductase, acting on paired donors, with oxidation of a pair of donors resulting in the reduction of molecular oxygen to two molecules of water",True
 1.14.19.12,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; oxidoreductase, acting on paired donors, with oxidation of a pair of donors resulting in the reduction of molecular oxygen to two molecules of water; acyl-lipid omega-(9-4) desaturase",False
 1.14.19.13,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; oxidoreductase, acting on paired donors, with oxidation of a pair of donors resulting in the reduction of molecular oxygen to two molecules of water",True
@@ -876,6 +894,7 @@ EC number,Text,Text Incomplete
 1.14.19.51,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; oxidoreductase, acting on paired donors, with oxidation of a pair of donors resulting in the reduction of molecular oxygen to two molecules of water; (S)-corytuberine synthase",False
 1.14.19.52,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; oxidoreductase, acting on paired donors, with oxidation of a pair of donors resulting in the reduction of molecular oxygen to two molecules of water",True
 1.14.19.53,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; oxidoreductase, acting on paired donors, with oxidation of a pair of donors resulting in the reduction of molecular oxygen to two molecules of water",True
+1.14.19.54,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; oxidoreductase, acting on paired donors, with oxidation of a pair of donors resulting in the reduction of molecular oxygen to two molecules of water",True
 1.14.19.55,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; oxidoreductase, acting on paired donors, with oxidation of a pair of donors resulting in the reduction of molecular oxygen to two molecules of water",True
 1.14.19.56,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; oxidoreductase, acting on paired donors, with oxidation of a pair of donors resulting in the reduction of molecular oxygen to two molecules of water",True
 1.14.19.57,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; oxidoreductase, acting on paired donors, with oxidation of a pair of donors resulting in the reduction of molecular oxygen to two molecules of water",True
@@ -931,10 +950,12 @@ EC number,Text,Text Incomplete
 1.14.99.63,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen",True
 1.14.99.64,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen",True
 1.14.99.65,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen",True
+1.14.99.66,"oxidoreductase; oxidoreductase, acting on paired donors, with incorporation or reduction of molecular oxygen; FAD-dependent H3K4me/H3K4me3 demethylase",False
 1.16.1.1,"oxidoreductase; oxidoreductase, acting on metal ions; oxidoreductase, acting on metal ions, NAD or NADP as acceptor; mercury (II) reductase",False
 1.16.1.10,"oxidoreductase; oxidoreductase, acting on metal ions; oxidoreductase, acting on metal ions, NAD or NADP as acceptor",True
 1.16.1.6,"oxidoreductase; oxidoreductase, acting on metal ions; oxidoreductase, acting on metal ions, NAD or NADP as acceptor; cyanocobalamin reductase (cyanide-eliminating)",False
 1.16.1.7,"oxidoreductase; oxidoreductase, acting on metal ions; oxidoreductase, acting on metal ions, NAD or NADP as acceptor; ferric-chelate reductase (NADH)",False
+1.16.1.8,"oxidoreductase; oxidoreductase, acting on metal ions; oxidoreductase, acting on metal ions, NAD or NADP as acceptor; [methionine synthase] reductase",False
 1.16.1.9,"oxidoreductase; oxidoreductase, acting on metal ions; oxidoreductase, acting on metal ions, NAD or NADP as acceptor; ferric-chelate reductase (NADPH)",False
 1.16.3.1,"oxidoreductase; oxidoreductase, acting on metal ions; oxidoreductase, acting on metal ions, oxygen as acceptor; ferroxidase",False
 1.17.1.3,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups; oxidoreductase, acting on CH or CH2 groups, NAD or NADP as acceptor; leucoanthocyanidin reductase",False
@@ -943,9 +964,13 @@ EC number,Text,Text Incomplete
 1.17.1.8,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups; oxidoreductase, acting on CH or CH2 groups, NAD or NADP as acceptor; 4-hydroxy-tetrahydrodipicolinate reductase",False
 1.17.1.9,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups; oxidoreductase, acting on CH or CH2 groups, NAD or NADP as acceptor; formate dehydrogenase (NAD+)",False
 1.17.2.1,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups",True
+1.17.2.2,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups",True
+1.17.2.3,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups; formate dehydrogenase (cytochrome-c-553)",False
 1.17.4.1,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups; CTP reductase; ribonucleoside-diphosphate reductase, thioredoxin disulfide as acceptor",False
+1.17.4.2,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups; CTP reductase; ribonucleoside-triphosphate reductase",False
 1.17.4.4,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups; CTP reductase; vitamin-K-epoxide reductase (warfarin-sensitive)",False
 1.17.5.2,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups; oxidoreductase, acting on CH or CH2 groups, quinone or similar compound as acceptor; caffeine oxidase",False
+1.17.5.3,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups; oxidoreductase, acting on CH or CH2 groups, quinone or similar compound as acceptor; formate dehydrogenase (quinone)",False
 1.17.7.1,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups; oxidoreductase, acting on CH or CH2 groups, with an iron-sulfur protein as acceptor; 4-hydroxy-3-methylbut-2-en-1-yl diphosphate synthase",False
 1.17.7.2,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups; oxidoreductase, acting on CH or CH2 groups, with an iron-sulfur protein as acceptor",True
 1.17.7.3,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups; oxidoreductase, acting on CH or CH2 groups, with an iron-sulfur protein as acceptor",True
@@ -953,6 +978,7 @@ EC number,Text,Text Incomplete
 1.17.8.1,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups",True
 1.17.9.1,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups; 4-cresol dehydrogenase (hydroxylating)",False
 1.17.98.2,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups",True
+1.17.99.3,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups; 4-isopropylaniline dehydrogenase; 3alpha,7alpha,12alpha-trihydroxy-5beta-cholestanoyl-CoA 24-hydroxylase",False
 1.17.99.6,"oxidoreductase; oxidoreductase, acting on CH or CH2 groups; 4-isopropylaniline dehydrogenase; epoxyqueuosine reductase",False
 1.18.1.1,"oxidoreductase; oxidoreductase, acting on iron-sulfur proteins as donors; oxidoreductase, acting on iron-sulfur proteins as donors, NAD or NADP as acceptor; rubredoxin-NAD+ reductase",False
 1.18.1.2,"oxidoreductase; oxidoreductase, acting on iron-sulfur proteins as donors; oxidoreductase, acting on iron-sulfur proteins as donors, NAD or NADP as acceptor; ferredoxin-NADP+ reductase",False
@@ -965,6 +991,7 @@ EC number,Text,Text Incomplete
 1.19.1.1,"oxidoreductase; oxidoreductase, acting on reduced flavodoxin as donor",True
 1.2.1.10,oxidoreductase; alpha-keto ester reductase; medium-chain-aldehyde dehydrogenase; acetaldehyde dehydrogenase (acetylating),False
 1.2.1.100,oxidoreductase; alpha-keto ester reductase; medium-chain-aldehyde dehydrogenase,True
+1.2.1.101,oxidoreductase; alpha-keto ester reductase; medium-chain-aldehyde dehydrogenase,True
 1.2.1.103,oxidoreductase; alpha-keto ester reductase; medium-chain-aldehyde dehydrogenase,True
 1.2.1.11,oxidoreductase; alpha-keto ester reductase; medium-chain-aldehyde dehydrogenase; aspartate-semialdehyde dehydrogenase,False
 1.2.1.12,oxidoreductase; alpha-keto ester reductase; medium-chain-aldehyde dehydrogenase; glyceraldehyde-3-phosphate dehydrogenase (NAD+) (phosphorylating),False
@@ -1024,6 +1051,7 @@ EC number,Text,Text Incomplete
 1.2.1.89,oxidoreductase; alpha-keto ester reductase; medium-chain-aldehyde dehydrogenase; glyceraldehyde dehydrogenase (NADP+),False
 1.2.1.9,oxidoreductase; alpha-keto ester reductase; medium-chain-aldehyde dehydrogenase; glyceraldehyde-3-phosphate dehydrogenase (NADP+) (non-phosphorylating),False
 1.2.1.90,oxidoreductase; alpha-keto ester reductase; medium-chain-aldehyde dehydrogenase,True
+1.2.1.91,oxidoreductase; alpha-keto ester reductase; medium-chain-aldehyde dehydrogenase,True
 1.2.1.92,oxidoreductase; alpha-keto ester reductase; medium-chain-aldehyde dehydrogenase,True
 1.2.1.94,oxidoreductase; alpha-keto ester reductase; medium-chain-aldehyde dehydrogenase,True
 1.2.1.96,oxidoreductase; alpha-keto ester reductase; medium-chain-aldehyde dehydrogenase,True
@@ -1037,6 +1065,7 @@ EC number,Text,Text Incomplete
 1.2.4.2,"oxidoreductase; alpha-keto ester reductase; oxidoreductase, acting on the aldehyde or oxo group of donors, disulfide as acceptor; oxoglutarate dehydrogenase (succinyl-transferring)",False
 1.2.4.4,"oxidoreductase; alpha-keto ester reductase; oxidoreductase, acting on the aldehyde or oxo group of donors, disulfide as acceptor; 3-methyl-2-oxobutanoate dehydrogenase (2-methylpropanoyl-transferring)",False
 1.2.5.1,"oxidoreductase; alpha-keto ester reductase; oxidoreductase, acting on the aldehyde or oxo group of donors, with a quinone or similar compound as acceptor; pyruvate dehydrogenase (quinone)",False
+1.2.5.2,"oxidoreductase; alpha-keto ester reductase; oxidoreductase, acting on the aldehyde or oxo group of donors, with a quinone or similar compound as acceptor; aldehyde dehydrogenase (quinone)",False
 1.2.5.3,"oxidoreductase; alpha-keto ester reductase; oxidoreductase, acting on the aldehyde or oxo group of donors, with a quinone or similar compound as acceptor; carbon-monoxide oxygenase",False
 1.2.7.1,"oxidoreductase; alpha-keto ester reductase; oxidoreductase, acting on the aldehyde or oxo group of donors, iron-sulfur protein as acceptor; pyruvate synthase",False
 1.2.7.10,"oxidoreductase; alpha-keto ester reductase; oxidoreductase, acting on the aldehyde or oxo group of donors, iron-sulfur protein as acceptor",True
@@ -1045,6 +1074,7 @@ EC number,Text,Text Incomplete
 1.2.7.3,"oxidoreductase; alpha-keto ester reductase; oxidoreductase, acting on the aldehyde or oxo group of donors, iron-sulfur protein as acceptor; 2-oxoglutarate synthase",False
 1.2.7.4,"oxidoreductase; alpha-keto ester reductase; oxidoreductase, acting on the aldehyde or oxo group of donors, iron-sulfur protein as acceptor; carbon-monoxide dehydrogenase (ferredoxin)",False
 1.2.7.5,"oxidoreductase; alpha-keto ester reductase; oxidoreductase, acting on the aldehyde or oxo group of donors, iron-sulfur protein as acceptor; aldehyde ferredoxin oxidoreductase",False
+1.2.7.6,"oxidoreductase; alpha-keto ester reductase; oxidoreductase, acting on the aldehyde or oxo group of donors, iron-sulfur protein as acceptor; glyceraldehyde-3-phosphate dehydrogenase (ferredoxin)",False
 1.2.7.7,"oxidoreductase; alpha-keto ester reductase; oxidoreductase, acting on the aldehyde or oxo group of donors, iron-sulfur protein as acceptor; 3-methyl-2-oxobutanoate dehydrogenase (ferredoxin)",False
 1.2.7.8,"oxidoreductase; alpha-keto ester reductase; oxidoreductase, acting on the aldehyde or oxo group of donors, iron-sulfur protein as acceptor; indolepyruvate ferredoxin oxidoreductase",False
 1.2.98.1,oxidoreductase; alpha-keto ester reductase; formaldehyde dismutase,False
@@ -1062,6 +1092,7 @@ EC number,Text,Text Incomplete
 1.21.4.1,"oxidoreductase; oxidoreductase, acting on X-H and Y-H to form an X-Y bond; oxidoreductase, acting on X-H and Y-H to form an X-Y bond, with a disulfide as acceptor; D-proline reductase (dithiol)",False
 1.21.4.5,"oxidoreductase; oxidoreductase, acting on X-H and Y-H to form an X-Y bond; oxidoreductase, acting on X-H and Y-H to form an X-Y bond, with a disulfide as acceptor",True
 1.21.98.1,"oxidoreductase; oxidoreductase, acting on X-H and Y-H to form an X-Y bond",True
+1.21.98.2,"oxidoreductase; oxidoreductase, acting on X-H and Y-H to form an X-Y bond",True
 1.21.99.1,"oxidoreductase; oxidoreductase, acting on X-H and Y-H to form an X-Y bond; beta-cyclopiazonate dehydrogenase",False
 1.21.99.3,"oxidoreductase; oxidoreductase, acting on X-H and Y-H to form an X-Y bond; thyroxine 5-deiodinase",False
 1.21.99.4,"oxidoreductase; oxidoreductase, acting on X-H and Y-H to form an X-Y bond; thyroxine 5'-deiodinase",False
@@ -1085,6 +1116,7 @@ EC number,Text,Text Incomplete
 1.3.1.113,"oxidoreductase; oxidoreductase, acting on the CH-CH group of donors; oxidoreductase, acting on the CH-CH group of donors, NAD or NADP as acceptor",True
 1.3.1.114,"oxidoreductase; oxidoreductase, acting on the CH-CH group of donors; oxidoreductase, acting on the CH-CH group of donors, NAD or NADP as acceptor",True
 1.3.1.115,"oxidoreductase; oxidoreductase, acting on the CH-CH group of donors; oxidoreductase, acting on the CH-CH group of donors, NAD or NADP as acceptor",True
+1.3.1.116,"oxidoreductase; oxidoreductase, acting on the CH-CH group of donors; oxidoreductase, acting on the CH-CH group of donors, NAD or NADP as acceptor",True
 1.3.1.119,"oxidoreductase; oxidoreductase, acting on the CH-CH group of donors; oxidoreductase, acting on the CH-CH group of donors, NAD or NADP as acceptor",True
 1.3.1.12,"oxidoreductase; oxidoreductase, acting on the CH-CH group of donors; oxidoreductase, acting on the CH-CH group of donors, NAD or NADP as acceptor; prephenate dehydrogenase (NAD+)",False
 1.3.1.120,"oxidoreductase; oxidoreductase, acting on the CH-CH group of donors; oxidoreductase, acting on the CH-CH group of donors, NAD or NADP as acceptor",True
@@ -1191,6 +1223,7 @@ EC number,Text,Text Incomplete
 1.3.8.6,"oxidoreductase; oxidoreductase, acting on the CH-CH group of donors; oxidoreductase, acting on the CH-CH group of donors, with a flavin as acceptor; glutaryl-CoA dehydrogenase",False
 1.3.8.7,"oxidoreductase; oxidoreductase, acting on the CH-CH group of donors; oxidoreductase, acting on the CH-CH group of donors, with a flavin as acceptor; medium-chain fatty acyl-CoA dehydrogenase",False
 1.3.8.8,"oxidoreductase; oxidoreductase, acting on the CH-CH group of donors; oxidoreductase, acting on the CH-CH group of donors, with a flavin as acceptor; long-chain fatty acyl-CoA dehydrogenase",False
+1.3.8.9,"oxidoreductase; oxidoreductase, acting on the CH-CH group of donors; oxidoreductase, acting on the CH-CH group of donors, with a flavin as acceptor; very-long-chain fatty acyl-CoA dehydrogenase",False
 1.3.98.1,"oxidoreductase; oxidoreductase, acting on the CH-CH group of donors; dihydroorotate dehydrogenase (fumarate)",False
 1.3.98.5,"oxidoreductase; oxidoreductase, acting on the CH-CH group of donors",True
 1.3.99.23,"oxidoreductase; oxidoreductase, acting on the CH-CH group of donors; coenzyme F420-dependent 2,4-dinitrophenol reductase; all-trans-retinol 13,14-reductase",False
@@ -1222,11 +1255,14 @@ EC number,Text,Text Incomplete
 1.4.1.9,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; oxidoreductase, acting on the CH-NH2 group of donors, NAD or NADP as acceptor; L-leucine dehydrogenase",False
 1.4.3.1,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; D-lysine oxidase; D-aspartate oxidase",False
 1.4.3.10,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; D-lysine oxidase; putrescine oxidase",False
+1.4.3.11,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; D-lysine oxidase; L-glutamate oxidase",False
 1.4.3.13,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; D-lysine oxidase; protein-lysine 6-oxidase",False
 1.4.3.16,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; D-lysine oxidase; L-aspartate:fumarate oxidoreductase",False
 1.4.3.19,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; D-lysine oxidase; glycine oxidase",False
 1.4.3.2,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; D-lysine oxidase; L-amino-acid oxidase",False
+1.4.3.20,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; D-lysine oxidase; L-lysine 6-oxidase",False
 1.4.3.21,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; D-lysine oxidase; aliphatic amine oxidase",False
+1.4.3.22,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; D-lysine oxidase; propane-1,3-diamine oxidase",False
 1.4.3.23,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; D-lysine oxidase",True
 1.4.3.25,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; D-lysine oxidase",True
 1.4.3.26,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; D-lysine oxidase",True
@@ -1234,7 +1270,6 @@ EC number,Text,Text Incomplete
 1.4.3.4,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; D-lysine oxidase; monoamine oxidase",False
 1.4.3.5,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; D-lysine oxidase; pyridoxamine phosphate oxidase",False
 1.4.4.2,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; oxidoreductase, acting on the CH-NH2 group of donors, disulfide as acceptor; glycine dehydrogenase (decarboxylating)",False
-1.4.7.1,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; oxidoreductase, acting on the CH-NH2 group of donors, iron-sulfur protein as acceptor; glutamate synthase (ferredoxin)",False
 1.4.9.1,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors; oxidoreductase, acting on the CH-NH2 group of donors, with a copper protein as acceptor; methylamine dehydrogenase (amicyanin)",False
 1.4.99.6,"oxidoreductase; oxidoreductase, acting on the CH-NH2 group of donors",True
 1.5.1.1,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, NAD or NADP as acceptor; pyrroline-2-carboxylate reductase",False
@@ -1249,6 +1284,7 @@ EC number,Text,Text Incomplete
 1.5.1.23,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, NAD or NADP as acceptor; tauropine dehydrogenase",False
 1.5.1.24,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, NAD or NADP as acceptor; N5-(carboxyethyl)ornithine synthase",False
 1.5.1.25,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, NAD or NADP as acceptor; thiomorpholine-carboxylate dehydrogenase",False
+1.5.1.27,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, NAD or NADP as acceptor; 1,2-dehydroreticulinium reductase (NADPH)",False
 1.5.1.3,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, NAD or NADP as acceptor; dihydrofolate reductase",False
 1.5.1.30,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, NAD or NADP as acceptor; riboflavin reductase (NADPH)",False
 1.5.1.33,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, NAD or NADP as acceptor; pteridine reductase",False
@@ -1272,13 +1308,18 @@ EC number,Text,Text Incomplete
 1.5.1.52,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, NAD or NADP as acceptor",True
 1.5.1.53,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, NAD or NADP as acceptor",True
 1.5.1.54,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, NAD or NADP as acceptor",True
+1.5.1.6,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, NAD or NADP as acceptor; formyltetrahydrofolate dehydrogenase",False
 1.5.1.7,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, NAD or NADP as acceptor; saccharopine dehydrogenase (NAD+, L-lysine-forming)",False
+1.5.1.8,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, NAD or NADP as acceptor; saccharopine dehydrogenase (NADP+, L-lysine-forming)",False
+1.5.1.9,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, NAD or NADP as acceptor; saccharopine dehydrogenase (NAD+, L-glutamate-forming)",False
 1.5.3.1,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, oxygen as acceptor; sarcosine oxidase",False
+1.5.3.10,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, oxygen as acceptor; dimethylglycine oxidase",False
 1.5.3.13,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, oxygen as acceptor; N1-acetylspermidine:oxygen oxidoreductase (3-acetamidopropanal-forming)",False
 1.5.3.14,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, oxygen as acceptor; spermine oxidase (propane-1,3-diamine-forming)",False
 1.5.3.16,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, oxygen as acceptor; spermine:oxygen oxidoreductase (spermidine-forming)",False
 1.5.3.17,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, oxygen as acceptor; N1-acetylspermidine:oxygen oxidoreductase (3-acetamidopropanal-forming)",False
 1.5.3.18,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, oxygen as acceptor",True
+1.5.3.19,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, oxygen as acceptor; 4-methylaminobutyrate oxidase (demethylating)",False
 1.5.3.21,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, oxygen as acceptor",True
 1.5.3.22,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, oxygen as acceptor",True
 1.5.3.5,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, oxygen as acceptor; (S)-6-hydroxynicotine oxidase",False
@@ -1288,6 +1329,10 @@ EC number,Text,Text Incomplete
 1.5.5.2,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, quinone or similar compound as acceptor; proline dehydrogenase",False
 1.5.5.3,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, quinone or similar compound as acceptor",True
 1.5.7.2,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, iron-sulfur protein as acceptor",True
+1.5.8.1,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, flavin as acceptor; dimethylamine dehydrogenase",False
+1.5.8.2,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, flavin as acceptor; trimethylamine dehydrogenase",False
+1.5.8.3,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, flavin as acceptor; sarcosine dehydrogenase",False
+1.5.8.4,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; oxidoreductase, acting on the CH-NH group of donors, flavin as acceptor; dimethylglycine dehydrogenase",False
 1.5.99.13,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; monodemethylisoproturon dimethylaminedehydrogenase",True
 1.5.99.14,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; monodemethylisoproturon dimethylaminedehydrogenase; 6-hydroxypseudooxynicotine dehydrogenase",False
 1.5.99.15,"oxidoreductase; oxidoreductase, acting on the CH-NH group of donors; monodemethylisoproturon dimethylaminedehydrogenase; dihydromethanopterin reductase",False
@@ -1316,12 +1361,14 @@ EC number,Text,Text Incomplete
 1.7.1.16,"oxidoreductase; oxidoreductase, acting on other nitrogenous compounds as donors; oxidoreductase, acting on other nitrogenous compounds as donors, with NAD or NADP as acceptor; nitrobenzene nitroreductase",False
 1.7.1.17,"oxidoreductase; oxidoreductase, acting on other nitrogenous compounds as donors; oxidoreductase, acting on other nitrogenous compounds as donors, with NAD or NADP as acceptor",True
 1.7.1.2,"oxidoreductase; oxidoreductase, acting on other nitrogenous compounds as donors; oxidoreductase, acting on other nitrogenous compounds as donors, with NAD or NADP as acceptor; nitrate reductase [NAD(P)H]",False
+1.7.1.3,"oxidoreductase; oxidoreductase, acting on other nitrogenous compounds as donors; oxidoreductase, acting on other nitrogenous compounds as donors, with NAD or NADP as acceptor; nitrate reductase (NADPH)",False
 1.7.1.4,"oxidoreductase; oxidoreductase, acting on other nitrogenous compounds as donors; oxidoreductase, acting on other nitrogenous compounds as donors, with NAD or NADP as acceptor; nitrite reductase [NAD(P)H]",False
 1.7.1.6,"oxidoreductase; oxidoreductase, acting on other nitrogenous compounds as donors; oxidoreductase, acting on other nitrogenous compounds as donors, with NAD or NADP as acceptor; azobenzene reductase",False
 1.7.1.7,"oxidoreductase; oxidoreductase, acting on other nitrogenous compounds as donors; oxidoreductase, acting on other nitrogenous compounds as donors, with NAD or NADP as acceptor; GMP reductase",False
 1.7.1.9,"oxidoreductase; oxidoreductase, acting on other nitrogenous compounds as donors; oxidoreductase, acting on other nitrogenous compounds as donors, with NAD or NADP as acceptor; nitroquinoline-N-oxide reductase",False
 1.7.2.1,"oxidoreductase; oxidoreductase, acting on other nitrogenous compounds as donors; oxidoreductase, acting on other nitrogenous compounds as donors, cytochrome as acceptor; nitrite reductase (NO-forming)",False
 1.7.2.2,"oxidoreductase; oxidoreductase, acting on other nitrogenous compounds as donors; oxidoreductase, acting on other nitrogenous compounds as donors, cytochrome as acceptor; nitrite reductase (cytochrome, ammonia-forming)",False
+1.7.2.3,"oxidoreductase; oxidoreductase, acting on other nitrogenous compounds as donors; oxidoreductase, acting on other nitrogenous compounds as donors, cytochrome as acceptor; trimethylamine-N-oxide reductase (cytochrome c)",False
 1.7.2.4,"oxidoreductase; oxidoreductase, acting on other nitrogenous compounds as donors; oxidoreductase, acting on other nitrogenous compounds as donors, cytochrome as acceptor; nitrous-oxide reductase",False
 1.7.2.5,"oxidoreductase; oxidoreductase, acting on other nitrogenous compounds as donors; oxidoreductase, acting on other nitrogenous compounds as donors, cytochrome as acceptor; nitric oxide reductase",False
 1.7.2.6,"oxidoreductase; oxidoreductase, acting on other nitrogenous compounds as donors; oxidoreductase, acting on other nitrogenous compounds as donors, cytochrome as acceptor",True
@@ -1332,6 +1379,7 @@ EC number,Text,Text Incomplete
 1.7.5.1,"oxidoreductase; oxidoreductase, acting on other nitrogenous compounds as donors; oxidoreductase, acting on other nitrogenous compounds as donors, with a quinone or similar compound as acceptor",True
 1.7.6.1,"oxidoreductase; oxidoreductase, acting on other nitrogenous compounds as donors",True
 1.7.7.1,"oxidoreductase; oxidoreductase, acting on other nitrogenous compounds as donors; oxidoreductase, acting on other nitrogenous compounds as donors, iron-sulfur protein as acceptor; ferredoxin-nitrite reductase",False
+1.7.7.2,"oxidoreductase; oxidoreductase, acting on other nitrogenous compounds as donors; oxidoreductase, acting on other nitrogenous compounds as donors, iron-sulfur protein as acceptor; ferredoxin-nitrate reductase",False
 1.8.1.12,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, NAD(P) as acceptor; trypanothione-disulfide reductase (NADPH)",False
 1.8.1.14,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, NAD(P) as acceptor; CoA-disulfide reductase (NADPH)",False
 1.8.1.15,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, NAD(P) as acceptor; mycothione reductase",False
@@ -1347,6 +1395,7 @@ EC number,Text,Text Incomplete
 1.8.1.9,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, NAD(P) as acceptor; thioredoxin-disulfide reductase (NADPH)",False
 1.8.2.2,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, cytochrome as acceptor; thiosulfate dehydrogenase",False
 1.8.2.3,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, cytochrome as acceptor; sulfide dehydrogenase",False
+1.8.2.4,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, cytochrome as acceptor",True
 1.8.3.1,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, oxygen as acceptor; sulfite oxidase",False
 1.8.3.2,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, oxygen as acceptor; thiol oxidase",False
 1.8.3.4,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, oxygen as acceptor; methanethiol oxidase",False
@@ -1355,11 +1404,13 @@ EC number,Text,Text Incomplete
 1.8.3.7,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, oxygen as acceptor; formylglycine-generating oxidase",False
 1.8.4.10,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, disulfide as acceptor; adenylyl-sulfate reductase (thioredoxin)",False
 1.8.4.11,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, disulfide as acceptor; peptide-methionine (S)-S-oxide reductase",False
+1.8.4.13,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, disulfide as acceptor; L-methionine:thioredoxin-disulfide S-oxidoreductase",False
 1.8.4.2,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, disulfide as acceptor; protein-disulfide reductase (glutathione)",False
 1.8.4.8,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, disulfide as acceptor; phosphoadenylyl-sulfate reductase (thioredoxin)",False
 1.8.4.9,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, disulfide as acceptor; adenylyl-sulfate reductase (glutathione)",False
 1.8.5.1,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, quinone or similar compound as acceptor; glutathione dehydrogenase (ascorbate)",False
 1.8.5.2,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, quinone or similar compound as acceptor; thiosulfate dehydrogenase (quinone)",False
+1.8.5.3,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, quinone or similar compound as acceptor",True
 1.8.5.4,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, quinone or similar compound as acceptor; sulfide:quinone oxidoreductase",False
 1.8.5.7,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, quinone or similar compound as acceptor",True
 1.8.5.8,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; oxidoreductase, acting on a sulfur group of donors, quinone or similar compound as acceptor; glutathione-dependent sulfide quinone oxidoreductase",False
@@ -1371,7 +1422,10 @@ EC number,Text,Text Incomplete
 1.8.98.5,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors",True
 1.8.98.6,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors",True
 1.8.98.7,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors",True
+1.8.99.2,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; adenylyl-sulfate reductase",False
 1.8.99.5,"oxidoreductase; oxidoreductase, acting on a sulfur group of donors; dissimilatory sulfite reductase",False
+1.9.6.1,"oxidoreductase; oxidoreductase, acting on a heme group of donors; oxidoreductase, acting on a heme group of donors, nitrogenous group as acceptor; nitrate reductase (cytochrome)",False
+1.97.1.1,oxidoreductase; glycyl-radical enzyme activating; chlorate reductase,False
 1.97.1.12,oxidoreductase; glycyl-radical enzyme activating,True
 1.97.1.2,oxidoreductase; glycyl-radical enzyme activating; pyrogallol hydroxytransferase,False
 1.97.1.9,oxidoreductase; glycyl-radical enzyme activating; selenate reductase,False
@@ -1398,13 +1452,13 @@ EC number,Text,Text Incomplete
 2.1.1.127,"transferase; transferase, transferring one-carbon groups; methyltransferase; [ribulose-bisphosphate carboxylase]-lysine N-methyltransferase",False
 2.1.1.128,"transferase; transferase, transferring one-carbon groups; methyltransferase; (RS)-norcoclaurine 6-O-methyltransferase",False
 2.1.1.129,"transferase; transferase, transferring one-carbon groups; methyltransferase; inositol 4-methyltransferase",False
-2.1.1.13,"transferase; transferase, transferring one-carbon groups; methyltransferase; methionine synthase",False
 2.1.1.130,"transferase; transferase, transferring one-carbon groups; methyltransferase; precorrin-2 C20-methyltransferase",False
 2.1.1.131,"transferase; transferase, transferring one-carbon groups; methyltransferase; precorrin-3B C17-methyltransferase",False
 2.1.1.132,"transferase; transferase, transferring one-carbon groups; methyltransferase; precorrin-6Y C5,15-methyltransferase (decarboxylating)",False
 2.1.1.133,"transferase; transferase, transferring one-carbon groups; methyltransferase; precorrin-4 C11-methyltransferase",False
 2.1.1.136,"transferase; transferase, transferring one-carbon groups; methyltransferase; chlorophenol O-methyltransferase",False
 2.1.1.137,"transferase; transferase, transferring one-carbon groups; methyltransferase; arsenite methyltransferase",False
+2.1.1.14,"transferase; transferase, transferring one-carbon groups; methyltransferase; 5-methyltetrahydropteroyltriglutamate-homocysteine S-methyltransferase",False
 2.1.1.140,"transferase; transferase, transferring one-carbon groups; methyltransferase; (S)-coclaurine-N-methyltransferase",False
 2.1.1.141,"transferase; transferase, transferring one-carbon groups; methyltransferase; methyl jasmonate methylesterase",False
 2.1.1.143,"transferase; transferase, transferring one-carbon groups; methyltransferase; 24-methylenesterol C-methyltransferase",False
@@ -1426,6 +1480,7 @@ EC number,Text,Text Incomplete
 2.1.1.163,"transferase; transferase, transferring one-carbon groups; methyltransferase; S-adenosylmethionine:2-demethylmenaquinol-7 methyltransferase",False
 2.1.1.164,"transferase; transferase, transferring one-carbon groups; methyltransferase; demethylrebeccamycin--D-glucose O-methyltransferase",False
 2.1.1.166,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
+2.1.1.167,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
 2.1.1.168,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
 2.1.1.169,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
 2.1.1.17,"transferase; transferase, transferring one-carbon groups; methyltransferase; phosphatidylethanolamine N-methyltransferase",False
@@ -1461,6 +1516,8 @@ EC number,Text,Text Incomplete
 2.1.1.20,"transferase; transferase, transferring one-carbon groups; methyltransferase; glycine N-methyltransferase",False
 2.1.1.200,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
 2.1.1.201,"transferase; transferase, transferring one-carbon groups; methyltransferase; 2-polyprenyl-6-methoxy-1,4-benzoquinone methyltransferase",False
+2.1.1.202,"transferase; transferase, transferring one-carbon groups; methyltransferase; tRNA (cytidine-5-)-methyltransferase",False
+2.1.1.203,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
 2.1.1.204,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
 2.1.1.205,"transferase; transferase, transferring one-carbon groups; methyltransferase; tRNA (guanine(34)-2'-O)-methyltransferase",False
 2.1.1.206,"transferase; transferase, transferring one-carbon groups; methyltransferase; tRNA (cytidine(56)-2'-O)-methyltransferase",False
@@ -1545,10 +1602,13 @@ EC number,Text,Text Incomplete
 2.1.1.287,"transferase; transferase, transferring one-carbon groups; methyltransferase; rRNA (adenine-N1-)-methyltransferase",False
 2.1.1.288,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
 2.1.1.289,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
+2.1.1.290,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
 2.1.1.291,"transferase; transferase, transferring one-carbon groups; methyltransferase; (R)-reticuline 7-O-methyltransferase",False
 2.1.1.292,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
 2.1.1.293,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
+2.1.1.294,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
 2.1.1.295,"transferase; transferase, transferring one-carbon groups; methyltransferase; 2-methyl-6-geranylgeranyl-1,4-benzoquinol methyltransferase",False
+2.1.1.296,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
 2.1.1.297,"transferase; transferase, transferring one-carbon groups; methyltransferase; protein-(glutamine-N5) methyltransferase",False
 2.1.1.298,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
 2.1.1.299,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
@@ -1572,6 +1632,7 @@ EC number,Text,Text Incomplete
 2.1.1.318,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
 2.1.1.319,"transferase; transferase, transferring one-carbon groups; methyltransferase; protein-arginine omega-N asymmetric methyltransferase",False
 2.1.1.320,"transferase; transferase, transferring one-carbon groups; methyltransferase; protein-arginine omega-N symmetric methyltransferase",False
+2.1.1.321,"transferase; transferase, transferring one-carbon groups; methyltransferase; protein-arginine omega-N monomethyltransferase",False
 2.1.1.323,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
 2.1.1.324,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
 2.1.1.325,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
@@ -1602,7 +1663,9 @@ EC number,Text,Text Incomplete
 2.1.1.352,"transferase; transferase, transferring one-carbon groups; methyltransferase",True
 2.1.1.354,"transferase; transferase, transferring one-carbon groups; methyltransferase; histone H3K4 trimethyltransferase",False
 2.1.1.355,"transferase; transferase, transferring one-carbon groups; methyltransferase; histone H3K9 trimethyltransferase",False
+2.1.1.356,"transferase; transferase, transferring one-carbon groups; methyltransferase; histone H3K27 trimethyltransferase",False
 2.1.1.357,"transferase; transferase, transferring one-carbon groups; methyltransferase; histone H3K36 dimethyltransferase",False
+2.1.1.359,"transferase; transferase, transferring one-carbon groups; methyltransferase; histone H3K36 trimethyltransferase",False
 2.1.1.360,"transferase; transferase, transferring one-carbon groups; methyltransferase; histone H3K79 trimethyltransferase",False
 2.1.1.361,"transferase; transferase, transferring one-carbon groups; methyltransferase; histone H4K20 monomethyltransferase",False
 2.1.1.362,"transferase; transferase, transferring one-carbon groups; methyltransferase; histone H4K20me methyltransferase",False
@@ -1630,6 +1693,7 @@ EC number,Text,Text Incomplete
 2.1.1.6,"transferase; transferase, transferring one-carbon groups; methyltransferase; catechol O-methyltransferase",False
 2.1.1.60,"transferase; transferase, transferring one-carbon groups; methyltransferase; calmodulin-lysine N-methyltransferase",False
 2.1.1.61,"transferase; transferase, transferring one-carbon groups; methyltransferase; tRNA (5-methylaminomethyl-2-thiouridylate)(34)-methyltransferase",False
+2.1.1.62,"transferase; transferase, transferring one-carbon groups; methyltransferase; mRNA (2'-O-methyladenosine-N6-)-methyltransferase",False
 2.1.1.64,"transferase; transferase, transferring one-carbon groups; methyltransferase; 3-demethylubiquinol-n 3-O-methyltransferase",False
 2.1.1.65,"transferase; transferase, transferring one-carbon groups; methyltransferase; licodione 2'-O-methyltransferase",False
 2.1.1.67,"transferase; transferase, transferring one-carbon groups; methyltransferase; thiopurine S-methyltransferase",False
@@ -1674,6 +1738,7 @@ EC number,Text,Text Incomplete
 2.1.3.1,"transferase; transferase, transferring one-carbon groups; carboxyl- or carbamoyltransferase; methylmalonyl-CoA carboxytransferase",False
 2.1.3.10,"transferase; transferase, transferring one-carbon groups; carboxyl- or carbamoyltransferase",True
 2.1.3.11,"transferase; transferase, transferring one-carbon groups; carboxyl- or carbamoyltransferase",True
+2.1.3.12,"transferase; transferase, transferring one-carbon groups; carboxyl- or carbamoyltransferase",True
 2.1.3.15,"transferase; transferase, transferring one-carbon groups; carboxyl- or carbamoyltransferase",True
 2.1.3.2,"transferase; transferase, transferring one-carbon groups; carboxyl- or carbamoyltransferase; aspartate carbamoyltransferase",False
 2.1.3.3,"transferase; transferase, transferring one-carbon groups; carboxyl- or carbamoyltransferase; ornithine carbamoyltransferase",False
@@ -1687,9 +1752,11 @@ EC number,Text,Text Incomplete
 2.2.1.1,transferase; transketolase or transaldolase; transketolase,False
 2.2.1.10,transferase; transketolase or transaldolase,True
 2.2.1.11,transferase; transketolase or transaldolase,True
+2.2.1.12,transferase; transketolase or transaldolase,True
 2.2.1.13,transferase; transketolase or transaldolase,True
 2.2.1.14,transferase; transketolase or transaldolase,True
 2.2.1.2,transferase; transketolase or transaldolase; transaldolase,False
+2.2.1.3,transferase; transketolase or transaldolase; formaldehyde transketolase,False
 2.2.1.6,transferase; transketolase or transaldolase; acetolactate synthase,False
 2.2.1.7,transferase; transketolase or transaldolase; 1-deoxy-D-xylulose-5-phosphate synthase,False
 2.2.1.8,transferase; transketolase or transaldolase; fluorothreonine transaldolase,False
@@ -1773,11 +1840,11 @@ EC number,Text,Text Incomplete
 2.3.1.207,transferase; acyltransferase; keto acid formate lyase,True
 2.3.1.208,transferase; acyltransferase; keto acid formate lyase,True
 2.3.1.209,transferase; acyltransferase; keto acid formate lyase,True
+2.3.1.21,transferase; acyltransferase; keto acid formate lyase; carnitine O-palmitoyltransferase,False
 2.3.1.210,transferase; acyltransferase; keto acid formate lyase,True
 2.3.1.211,transferase; acyltransferase; keto acid formate lyase; bisdemethoxycurcumin synthase,False
 2.3.1.212,transferase; acyltransferase; keto acid formate lyase,True
 2.3.1.214,transferase; acyltransferase; keto acid formate lyase; anthocyanin 5-O-glucoside-4'''-O-malonyltransferase,False
-2.3.1.215,transferase; acyltransferase; keto acid formate lyase; anthocyanidin 3-O-glucoside 6''-O-acyltransferase,False
 2.3.1.216,transferase; acyltransferase; keto acid formate lyase,True
 2.3.1.217,transferase; acyltransferase; keto acid formate lyase; curcumin synthase,False
 2.3.1.218,transferase; acyltransferase; keto acid formate lyase,True
@@ -1793,6 +1860,7 @@ EC number,Text,Text Incomplete
 2.3.1.229,transferase; acyltransferase; keto acid formate lyase,True
 2.3.1.23,transferase; acyltransferase; keto acid formate lyase; 1-acylglycerophosphocholine O-acyltransferase,False
 2.3.1.230,transferase; acyltransferase; keto acid formate lyase,True
+2.3.1.231,transferase; acyltransferase; keto acid formate lyase,True
 2.3.1.232,transferase; acyltransferase; keto acid formate lyase,True
 2.3.1.233,transferase; acyltransferase; keto acid formate lyase,True
 2.3.1.235,transferase; acyltransferase; keto acid formate lyase,True
@@ -1852,7 +1920,9 @@ EC number,Text,Text Incomplete
 2.3.1.4,transferase; acyltransferase; keto acid formate lyase; glucosamine 6-phosphate N-acetyltransferase,False
 2.3.1.40,transferase; acyltransferase; keto acid formate lyase; acyl-[acyl-carrier-protein]-phospholipid O-acyltransferase,False
 2.3.1.41,transferase; acyltransferase; keto acid formate lyase; 3-oxoacyl-[acyl-carrier-protein] synthase,False
+2.3.1.42,transferase; acyltransferase; keto acid formate lyase; glycerone-phosphate O-acyltransferase,False
 2.3.1.43,transferase; acyltransferase; keto acid formate lyase; phosphatidylcholine-sterol O-acyltransferase,False
+2.3.1.45,transferase; acyltransferase; keto acid formate lyase; N-acetylneuraminate 7-O(or 9-O)-acetyltransferase,False
 2.3.1.46,transferase; acyltransferase; keto acid formate lyase; homoserine O-succinyltransferase,False
 2.3.1.47,transferase; acyltransferase; keto acid formate lyase; 8-amino-7-oxononanoate synthase,False
 2.3.1.48,transferase; acyltransferase; keto acid formate lyase; histone acetyltransferase,False
@@ -1876,14 +1946,13 @@ EC number,Text,Text Incomplete
 2.3.1.74,transferase; acyltransferase; keto acid formate lyase; chalcone synthase,False
 2.3.1.75,transferase; acyltransferase; keto acid formate lyase; arachidoyl-CoA:1-dodecanol O-acyltransferase,False
 2.3.1.76,transferase; acyltransferase; keto acid formate lyase; retinol O-fatty-acyltransferase,False
+2.3.1.78,transferase; acyltransferase; keto acid formate lyase; heparan-alpha-glucosaminide N-acetyltransferase,False
 2.3.1.79,transferase; acyltransferase; keto acid formate lyase; maltose O-acetyltransferase,False
 2.3.1.8,transferase; acyltransferase; keto acid formate lyase; phosphate acetyltransferase,False
 2.3.1.80,transferase; acyltransferase; keto acid formate lyase; cysteine-S-conjugate N-acetyltransferase,False
 2.3.1.81,transferase; acyltransferase; keto acid formate lyase; aminoglycoside 3-N-acetyltransferase,False
 2.3.1.82,transferase; acyltransferase; keto acid formate lyase; aminoglycoside 6'-N-acetyltransferase,False
 2.3.1.84,transferase; acyltransferase; keto acid formate lyase; alcohol O-acetyltransferase,False
-2.3.1.85,transferase; acyltransferase; keto acid formate lyase; fatty acid synthase,False
-2.3.1.86,transferase; acyltransferase; keto acid formate lyase; fatty-acyl-CoA synthase,False
 2.3.1.87,transferase; acyltransferase; keto acid formate lyase; aralkylamine N-acetyltransferase,False
 2.3.1.89,transferase; acyltransferase; keto acid formate lyase; tetrahydrodipicolinate N-acetyltransferase,False
 2.3.1.9,transferase; acyltransferase; keto acid formate lyase; acetyl-CoA C-acetyltransferase,False
@@ -1908,6 +1977,7 @@ EC number,Text,Text Incomplete
 2.3.2.21,transferase; acyltransferase; aminoacyltransferase,True
 2.3.2.22,transferase; acyltransferase; aminoacyltransferase,True
 2.3.2.29,transferase; acyltransferase; aminoacyltransferase,True
+2.3.2.3,transferase; acyltransferase; aminoacyltransferase; phosphatidylglycerol lysyltransferase,False
 2.3.2.30,transferase; acyltransferase; aminoacyltransferase; ornithine-acyl [acyl carrier protein] N-acyltransferase,False
 2.3.2.35,transferase; acyltransferase; aminoacyltransferase,True
 2.3.2.5,transferase; acyltransferase; aminoacyltransferase; glutaminyl-peptide cyclotransferase,False
@@ -1966,12 +2036,14 @@ EC number,Text,Text Incomplete
 2.4.1.150,"transferase; glycosyltransferase; hexosyltransferase; N-acetyllactosaminide beta-1,6-N-acetylglucosaminyltransferase",False
 2.4.1.152,transferase; glycosyltransferase; hexosyltransferase; 4-galactosyl-N-acetylglucosaminide 3-alpha-L-fucosyltransferase,False
 2.4.1.153,transferase; glycosyltransferase; hexosyltransferase; dolichyl-phosphate alpha-N-acetylglucosaminyltransferase,False
+2.4.1.155,"transferase; glycosyltransferase; hexosyltransferase; alpha-1,6-mannosylglycoprotein 6-beta-N-acetylglucosaminyltransferase",False
 2.4.1.159,transferase; glycosyltransferase; hexosyltransferase; flavonol-3-O-glucoside L-rhamnosyltransferase,False
 2.4.1.16,transferase; glycosyltransferase; hexosyltransferase; chitin synthase,False
 2.4.1.17,transferase; glycosyltransferase; hexosyltransferase; glucuronosyltransferase,False
 2.4.1.170,transferase; glycosyltransferase; hexosyltransferase; isoflavone 7-O-glucosyltransferase,False
 2.4.1.173,transferase; glycosyltransferase; hexosyltransferase; cholesterol alpha-glucosyltransferase,False
 2.4.1.174,transferase; glycosyltransferase; hexosyltransferase; glucuronylgalactosylproteoglycan 4-beta-N-acetylgalactosaminyltransferase,False
+2.4.1.175,transferase; glycosyltransferase; hexosyltransferase; glucuronosyl-N-acetylgalactosaminyl-proteoglycan 4-beta-N-acetylgalactosaminyltransferase,False
 2.4.1.177,transferase; glycosyltransferase; hexosyltransferase; cinnamate beta-D-glucosyltransferase,False
 2.4.1.18,"transferase; glycosyltransferase; hexosyltransferase; 1,4-alpha-glucan branching enzyme (using a glucosylated glycogenin as primer for glycogen synthesis)",False
 2.4.1.180,transferase; glycosyltransferase; hexosyltransferase; lipopolysaccharide N-acetylmannosaminouronosyltransferase,False
@@ -1979,10 +2051,12 @@ EC number,Text,Text Incomplete
 2.4.1.185,transferase; glycosyltransferase; hexosyltransferase; flavanone 7-O-beta-glucosyltransferase,False
 2.4.1.186,transferase; glycosyltransferase; hexosyltransferase; UDP-alpha-D-glucose:glucosyl-glycogenin alpha-D-glucosyltransferase,False
 2.4.1.187,transferase; glycosyltransferase; hexosyltransferase; N-acetylglucosaminyldiphosphoundecaprenol N-acetyl-beta-D-mannosaminyltransferase,False
+2.4.1.19,transferase; glycosyltransferase; hexosyltransferase; cyclomaltodextrin glucanotransferase,False
 2.4.1.192,transferase; glycosyltransferase; hexosyltransferase; nuatigenin 3-beta-glucosyltransferase,False
 2.4.1.194,transferase; glycosyltransferase; hexosyltransferase; 4-hydroxybenzoate 4-O-beta-D-glucosyltransferase,False
 2.4.1.195,transferase; glycosyltransferase; hexosyltransferase; UDP-glucose: 9-methylthiononylhydroximate S-glucosyltransferase,False
 2.4.1.198,transferase; glycosyltransferase; hexosyltransferase; phosphatidylinositol N-acetylglucosaminyltransferase,False
+2.4.1.20,transferase; glycosyltransferase; hexosyltransferase; cellobiose phosphorylase,False
 2.4.1.201,"transferase; glycosyltransferase; hexosyltransferase; alpha-1,6-mannosylglycoprotein 4-beta-N-acetylglucosaminyltransferase",False
 2.4.1.202,"transferase; glycosyltransferase; hexosyltransferase; 2,4-dihydroxy-7-methoxy-2H-1,4-benzoxazin-3(4H)-one 2-D-glucosyltransferase",False
 2.4.1.203,transferase; glycosyltransferase; hexosyltransferase; trans-zeatin O-beta-D-glucosyltransferase,False
@@ -1990,19 +2064,26 @@ EC number,Text,Text Incomplete
 2.4.1.208,transferase; glycosyltransferase; hexosyltransferase; diglucosyl diacylglycerol synthase,False
 2.4.1.21,"transferase; glycosyltransferase; hexosyltransferase; alpha-1,4-glucan synthase",False
 2.4.1.210,transferase; glycosyltransferase; hexosyltransferase; limonoid glucosyltransferase,False
+2.4.1.211,"transferase; glycosyltransferase; hexosyltransferase; 1,3-beta-galactosyl-N-acetylhexosamine phosphorylase",False
 2.4.1.212,transferase; glycosyltransferase; hexosyltransferase; hyaluronan synthase,False
 2.4.1.213,transferase; glycosyltransferase; hexosyltransferase; glucosylglycerol-phosphate synthase,False
 2.4.1.214,transferase; glycosyltransferase; hexosyltransferase; glycoprotein 3-alpha-L-fucosyltransferase,False
 2.4.1.215,transferase; glycosyltransferase; hexosyltransferase; cis-zeatin O-beta-D-glucosyltransferase,False
+2.4.1.216,transferase; glycosyltransferase; hexosyltransferase; trehalose 6-phosphate phosphorylase,False
 2.4.1.217,transferase; glycosyltransferase; hexosyltransferase; mannosyl-3-phosphoglycerate synthase,False
 2.4.1.218,transferase; glycosyltransferase; hexosyltransferase; hydroquinone glucosyltransferase,False
 2.4.1.219,transferase; glycosyltransferase; hexosyltransferase; vomilenine glucosyltransferase,False
 2.4.1.22,transferase; glycosyltransferase; hexosyltransferase; lactose synthase,False
 2.4.1.221,transferase; glycosyltransferase; hexosyltransferase; peptide-O-fucosyltransferase,False
 2.4.1.223,transferase; glycosyltransferase; hexosyltransferase; glucuronyl-galactosyl-proteoglycan 4-alpha-N-acetylglucosaminyltransferase,False
+2.4.1.224,transferase; glycosyltransferase; hexosyltransferase; glucuronosyl-N-acetylglucosaminyl-proteoglycan 4-alpha-N-acetylglucosaminyltransferase,False
+2.4.1.225,transferase; glycosyltransferase; hexosyltransferase; N-acetylglucosaminyl-proteoglycan 4-beta-glucuronosyltransferase,False
+2.4.1.226,transferase; glycosyltransferase; hexosyltransferase; N-acetylgalactosaminyl-proteoglycan 3-beta-glucuronosyltransferase,False
 2.4.1.227,"transferase; glycosyltransferase; hexosyltransferase; UDP-N-acetyl-D-glucosamine:N-acetylmuramoyl-L-alanyl-D-glutamyl-meso-2,6-diaminopimelyl-D-alanyl-D-alanine-diphosphoundecaprenol 4-beta-N-acetylglucosaminlytransferase",False
 2.4.1.228,transferase; glycosyltransferase; hexosyltransferase; lactosylceramide 4-alpha-galactosyltransferase,False
 2.4.1.229,transferase; glycosyltransferase; hexosyltransferase; Skp1-protein-hydroxyproline N-acetylglucosaminyltransferase,False
+2.4.1.230,transferase; glycosyltransferase; hexosyltransferase; kojibiose phosphorylase,False
+2.4.1.231,transferase; glycosyltransferase; hexosyltransferase,True
 2.4.1.232,"transferase; glycosyltransferase; hexosyltransferase; glycolipid 1,6-alpha-mannosyltransferase",False
 2.4.1.234,transferase; glycosyltransferase; hexosyltransferase; quercetin 3-O-beta:-D-galactosyltransferase,False
 2.4.1.236,transferase; glycosyltransferase; hexosyltransferase; flavanone 7-O-glucoside 2''-O-beta-L-rhamnosyltransferase,False
@@ -2012,8 +2093,10 @@ EC number,Text,Text Incomplete
 2.4.1.241,transferase; glycosyltransferase; hexosyltransferase; digalactosyldiacylglycerol synthase,False
 2.4.1.242,transferase; glycosyltransferase; hexosyltransferase; ADP-glucose-starch glucosyltransferase,False
 2.4.1.243,transferase; glycosyltransferase; hexosyltransferase; 6G-fructosyltransferase,False
+2.4.1.244,transferase; glycosyltransferase; hexosyltransferase; N-acetyl-beta-glucosaminyl-glycoprotein 4-beta-N-acetylgalactosaminyltransferase,False
 2.4.1.245,transferase; glycosyltransferase; hexosyltransferase; trehalose synthase,False
 2.4.1.246,transferase; glycosyltransferase; hexosyltransferase; mannosylfructose-phosphate synthase,False
+2.4.1.247,transferase; glycosyltransferase; hexosyltransferase,True
 2.4.1.25,transferase; glycosyltransferase; hexosyltransferase; beta-maltose 4-alpha-glucanotransferase,False
 2.4.1.250,transferase; glycosyltransferase; hexosyltransferase; D-inositol-3-phosphate glycosyltransferase,False
 2.4.1.251,transferase; glycosyltransferase; hexosyltransferase,True
@@ -2038,7 +2121,10 @@ EC number,Text,Text Incomplete
 2.4.1.276,transferase; glycosyltransferase; hexosyltransferase,True
 2.4.1.277,transferase; glycosyltransferase; hexosyltransferase,True
 2.4.1.278,transferase; glycosyltransferase; hexosyltransferase,True
+2.4.1.279,transferase; glycosyltransferase; hexosyltransferase,True
+2.4.1.280,transferase; glycosyltransferase; hexosyltransferase,True
 2.4.1.281,transferase; glycosyltransferase; hexosyltransferase,True
+2.4.1.282,transferase; glycosyltransferase; hexosyltransferase,True
 2.4.1.283,transferase; glycosyltransferase; hexosyltransferase; 2-deoxystreptamine N-acetyl-D-glucosaminyltransferase,False
 2.4.1.284,transferase; glycosyltransferase; hexosyltransferase; 2-deoxystreptamine glucosyltransferase,False
 2.4.1.285,transferase; glycosyltransferase; hexosyltransferase,True
@@ -2073,6 +2159,7 @@ EC number,Text,Text Incomplete
 2.4.1.319,transferase; glycosyltransferase; hexosyltransferase,True
 2.4.1.32,transferase; glycosyltransferase; hexosyltransferase; glucomannan 4-beta-mannosyltransferase,False
 2.4.1.320,transferase; glycosyltransferase; hexosyltransferase,True
+2.4.1.321,transferase; glycosyltransferase; hexosyltransferase,True
 2.4.1.322,transferase; glycosyltransferase; hexosyltransferase,True
 2.4.1.323,transferase; glycosyltransferase; hexosyltransferase; 7-deoxyloganetic acid glucosyltransferase,False
 2.4.1.324,transferase; glycosyltransferase; hexosyltransferase,True
@@ -2083,6 +2170,7 @@ EC number,Text,Text Incomplete
 2.4.1.33,transferase; glycosyltransferase; hexosyltransferase; alginate synthase,False
 2.4.1.330,transferase; glycosyltransferase; hexosyltransferase,True
 2.4.1.331,transferase; glycosyltransferase; hexosyltransferase,True
+2.4.1.332,transferase; glycosyltransferase; hexosyltransferase,True
 2.4.1.335,transferase; glycosyltransferase; hexosyltransferase,True
 2.4.1.336,transferase; glycosyltransferase; hexosyltransferase,True
 2.4.1.337,transferase; glycosyltransferase; hexosyltransferase,True
@@ -2119,6 +2207,7 @@ EC number,Text,Text Incomplete
 2.4.1.369,transferase; glycosyltransferase; hexosyltransferase,True
 2.4.1.37,transferase; glycosyltransferase; hexosyltransferase; fucosylgalactoside 3-alpha-galactosyltransferase,False
 2.4.1.370,transferase; glycosyltransferase; hexosyltransferase; inositol phosphorylceramide mannosyltransferase,False
+2.4.1.371,transferase; glycosyltransferase; hexosyltransferase,True
 2.4.1.38,"transferase; glycosyltransferase; hexosyltransferase; beta-N-acetylglucosaminylglycopeptide beta-1,4-galactosyltransferase",False
 2.4.1.384,transferase; glycosyltransferase; hexosyltransferase,True
 2.4.1.4,transferase; glycosyltransferase; hexosyltransferase; amylosucrase,False
@@ -2128,8 +2217,8 @@ EC number,Text,Text Incomplete
 2.4.1.44,transferase; glycosyltransferase; hexosyltransferase; lipopolysaccharide 3-alpha-galactosyltransferase,False
 2.4.1.46,"transferase; glycosyltransferase; hexosyltransferase; 1,2-diacylglycerol 3-beta-galactosyltransferase",False
 2.4.1.47,transferase; glycosyltransferase; hexosyltransferase; N-acylsphingosine galactosyltransferase,False
-2.4.1.5,transferase; glycosyltransferase; hexosyltransferase; dextransucrase,False
 2.4.1.50,transferase; glycosyltransferase; hexosyltransferase; procollagen galactosyltransferase,False
+2.4.1.52,transferase; glycosyltransferase; hexosyltransferase; poly(glycerol-phosphate) alpha-glucosyltransferase,False
 2.4.1.53,transferase; glycosyltransferase; hexosyltransferase; poly(ribitol-phosphate) beta-glucosyltransferase,False
 2.4.1.54,transferase; glycosyltransferase; hexosyltransferase; undecaprenyl-phosphate mannosyltransferase,False
 2.4.1.56,transferase; glycosyltransferase; hexosyltransferase; lipopolysaccharide N-acetylglucosaminyltransferase,False
@@ -2137,23 +2226,30 @@ EC number,Text,Text Incomplete
 2.4.1.60,transferase; glycosyltransferase; hexosyltransferase; abequosyltransferase,False
 2.4.1.62,transferase; glycosyltransferase; hexosyltransferase; ganglioside galactosyltransferase,False
 2.4.1.63,transferase; glycosyltransferase; hexosyltransferase; linamarin synthase,False
+2.4.1.64,"transferase; glycosyltransferase; hexosyltransferase; alpha,alpha-trehalose phosphorylase",False
 2.4.1.65,transferase; glycosyltransferase; hexosyltransferase; 3-galactosyl-N-acetylglucosaminide 4-alpha-L-fucosyltransferase,False
+2.4.1.66,transferase; glycosyltransferase; hexosyltransferase; procollagen glucosyltransferase,False
+2.4.1.67,transferase; glycosyltransferase; hexosyltransferase; galactinol-raffinose galactosyltransferase,False
 2.4.1.68,transferase; glycosyltransferase; hexosyltransferase; glycoprotein 6-alpha-L-fucosyltransferase,False
 2.4.1.69,transferase; glycosyltransferase; hexosyltransferase; galactoside 2-alpha-L-fucosyltransferase,False
 2.4.1.7,transferase; glycosyltransferase; hexosyltransferase; sucrose phosphorylase,False
 2.4.1.70,transferase; glycosyltransferase; hexosyltransferase; poly(ribitol-phosphate) N-acetylglucosaminyltransferase,False
 2.4.1.73,transferase; glycosyltransferase; hexosyltransferase; lipopolysaccharide glucosyltransferase II,False
 2.4.1.79,transferase; glycosyltransferase; hexosyltransferase; galactosylgalactosylglucosylceramide beta-D-acetylgalactosaminyltransferase,False
+2.4.1.8,transferase; glycosyltransferase; hexosyltransferase; maltose phosphorylase,False
 2.4.1.80,transferase; glycosyltransferase; hexosyltransferase; dihydroceramide glucosyltransferase,False
 2.4.1.81,transferase; glycosyltransferase; hexosyltransferase; flavone 7-O-beta-glucosyltransferase,False
+2.4.1.82,transferase; glycosyltransferase; hexosyltransferase; galactinol-sucrose galactosyltransferase,False
 2.4.1.83,transferase; glycosyltransferase; hexosyltransferase; dolichyl-phosphate beta-D-mannosyltransferase,False
 2.4.1.85,transferase; glycosyltransferase; hexosyltransferase; cyanohydrin beta-glucosyltransferase,False
 2.4.1.86,transferase; glycosyltransferase; hexosyltransferase; glucosaminylgalactosylglucosylceramide beta-galactosyltransferase,False
 2.4.1.87,transferase; glycosyltransferase; hexosyltransferase; N-acetyllactosaminide 3-alpha-galactosyltransferase,False
 2.4.1.88,transferase; glycosyltransferase; hexosyltransferase; globoside alpha-N-acetylgalactosaminyltransferase,False
+2.4.1.9,transferase; glycosyltransferase; hexosyltransferase; inulosucrase,False
 2.4.1.90,transferase; glycosyltransferase; hexosyltransferase; N-acetyllactosamine synthase,False
 2.4.1.91,transferase; glycosyltransferase; hexosyltransferase; myricetin 3-O-glucosyltransferase,False
 2.4.1.92,transferase; glycosyltransferase; hexosyltransferase; (N-acetylneuraminyl)-galactosylglucosylceramide N-acetylgalactosaminyltransferase,False
+2.4.1.99,transferase; glycosyltransferase; hexosyltransferase; sucrose 1F-fructosyltransferase,False
 2.4.2.1,transferase; glycosyltransferase; pentosyltransferase; purine-nucleoside phosphorylase,False
 2.4.2.10,transferase; glycosyltransferase; pentosyltransferase; orotate phosphoribosyltransferase,False
 2.4.2.12,transferase; glycosyltransferase; pentosyltransferase; nicotinamide phosphoribosyltransferase,False
@@ -2165,6 +2261,7 @@ EC number,Text,Text Incomplete
 2.4.2.21,transferase; glycosyltransferase; pentosyltransferase; nicotinate-nucleotide-dimethylbenzimidazole phosphoribosyltransferase,False
 2.4.2.22,transferase; glycosyltransferase; pentosyltransferase; xanthine phosphoribosyltransferase,False
 2.4.2.24,"transferase; glycosyltransferase; pentosyltransferase; 1,4-beta-D-xylan synthase",False
+2.4.2.26,transferase; glycosyltransferase; pentosyltransferase; protein xylosyltransferase,False
 2.4.2.27,transferase; glycosyltransferase; pentosyltransferase; dTDP-dihydrostreptose-streptidine-6-phosphate dihydrostreptosyltransferase,False
 2.4.2.28,transferase; glycosyltransferase; pentosyltransferase; S-methyl-5-thioadenosine phosphorylase,False
 2.4.2.29,transferase; glycosyltransferase; pentosyltransferase,True
@@ -2466,6 +2563,7 @@ EC number,Text,Text Incomplete
 2.7.1.178,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, alcohol group as acceptor",True
 2.7.1.179,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, alcohol group as acceptor",True
 2.7.1.180,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, alcohol group as acceptor",True
+2.7.1.181,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, alcohol group as acceptor",True
 2.7.1.182,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, alcohol group as acceptor; phytol kinase",False
 2.7.1.183,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, alcohol group as acceptor",True
 2.7.1.184,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, alcohol group as acceptor; 6-deoxy-6-sulfofructose kinase",False
@@ -2556,18 +2654,23 @@ EC number,Text,Text Incomplete
 2.7.1.90,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, alcohol group as acceptor; diphosphate-fructose-6-phosphate 1-phosphotransferase",False
 2.7.1.91,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, alcohol group as acceptor; D-erythro-sphingosine kinase",False
 2.7.1.92,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, alcohol group as acceptor; 5-dehydro-2-deoxygluconokinase",False
+2.7.1.93,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, alcohol group as acceptor; alkylglycerol kinase",False
 2.7.1.94,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, alcohol group as acceptor; acylglycerol kinase",False
 2.7.1.95,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, alcohol group as acceptor; kanamycin kinase",False
 2.7.10.1,"transferase; transferase, transferring phosphorus-containing groups; transmembrane receptor protein tyrosine kinase",False
 2.7.10.2,"transferase; transferase, transferring phosphorus-containing groups; non-membrane spanning protein tyrosine kinase",False
 2.7.11.1,"transferase; transferase, transferring phosphorus-containing groups; protein serine/threonine kinase",False
+2.7.11.10,"transferase; transferase, transferring phosphorus-containing groups; IkappaB kinase",False
 2.7.11.11,"transferase; transferase, transferring phosphorus-containing groups; cAMP-dependent protein kinase",False
+2.7.11.12,"transferase; transferase, transferring phosphorus-containing groups; cGMP-dependent protein kinase",False
 2.7.11.13,"transferase; transferase, transferring phosphorus-containing groups; diacylglycerol-dependent serine/threonine kinase",False
 2.7.11.14,"transferase; transferase, transferring phosphorus-containing groups; rhodopsin kinase",False
+2.7.11.15,"transferase; transferase, transferring phosphorus-containing groups; beta-adrenergic receptor kinase",False
 2.7.11.17,"transferase; transferase, transferring phosphorus-containing groups; calmodulin-dependent protein kinase",False
 2.7.11.18,"transferase; transferase, transferring phosphorus-containing groups; myosin light chain kinase",False
 2.7.11.19,"transferase; transferase, transferring phosphorus-containing groups; phosphorylase kinase",False
 2.7.11.2,"transferase; transferase, transferring phosphorus-containing groups; pyruvate dehydrogenase (acetyl-transferring) kinase",False
+2.7.11.20,"transferase; transferase, transferring phosphorus-containing groups; elongation factor-2 kinase",False
 2.7.11.21,"transferase; transferase, transferring phosphorus-containing groups",True
 2.7.11.22,"transferase; transferase, transferring phosphorus-containing groups; cyclin-dependent protein serine/threonine kinase",False
 2.7.11.23,"transferase; transferase, transferring phosphorus-containing groups; RNA polymerase II CTD heptapeptide repeat kinase",False
@@ -2580,6 +2683,7 @@ EC number,Text,Text Incomplete
 2.7.11.33,"transferase; transferase, transferring phosphorus-containing groups",True
 2.7.11.4,"transferase; transferase, transferring phosphorus-containing groups; [3-methyl-2-oxobutanoate dehydrogenase (acetyl-transferring)] kinase",False
 2.7.11.5,"transferase; transferase, transferring phosphorus-containing groups; [isocitrate dehydrogenase (NADP+)] kinase",False
+2.7.11.7,"transferase; transferase, transferring phosphorus-containing groups; myosin heavy chain kinase",False
 2.7.12.1,"transferase; transferase, transferring phosphorus-containing groups; protein serine/threonine/tyrosine kinase",False
 2.7.12.2,"transferase; transferase, transferring phosphorus-containing groups; MAP kinase kinase",False
 2.7.13.3,"transferase; transferase, transferring phosphorus-containing groups; protein histidine kinase",False
@@ -2595,8 +2699,10 @@ EC number,Text,Text Incomplete
 2.7.2.7,"transferase; transferase, transferring phosphorus-containing groups; 2-phosphoglycerate kinase; butyrate kinase",False
 2.7.2.8,"transferase; transferase, transferring phosphorus-containing groups; 2-phosphoglycerate kinase; acetylglutamate kinase",False
 2.7.3.1,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, nitrogenous group as acceptor; guanidinoacetate kinase",False
+2.7.3.13,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, nitrogenous group as acceptor",True
 2.7.3.2,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, nitrogenous group as acceptor; creatine kinase",False
 2.7.3.3,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, nitrogenous group as acceptor; arginine kinase",False
+2.7.3.4,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, nitrogenous group as acceptor; taurocyamine kinase",False
 2.7.3.5,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, nitrogenous group as acceptor; lombricine kinase",False
 2.7.3.9,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, nitrogenous group as acceptor; phosphoenolpyruvate-protein phosphotransferase",False
 2.7.4.1,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, phosphate group as acceptor; polyphosphate kinase",False
@@ -2608,6 +2714,7 @@ EC number,Text,Text Incomplete
 2.7.4.21,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, phosphate group as acceptor; inositol hexakisphosphate 3-kinase",False
 2.7.4.22,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, phosphate group as acceptor; UMP kinase",False
 2.7.4.23,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, phosphate group as acceptor; ribose 1,5-bisphosphate phosphokinase",False
+2.7.4.24,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, phosphate group as acceptor; diphosphoinositol-pentakisphosphate kinase",False
 2.7.4.25,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, phosphate group as acceptor",True
 2.7.4.26,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, phosphate group as acceptor; isopentenyl phosphate kinase",False
 2.7.4.27,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, phosphate group as acceptor",True
@@ -2649,6 +2756,7 @@ EC number,Text,Text Incomplete
 2.7.7.4,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; sulfate adenylyltransferase (ATP)",False
 2.7.7.40,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; D-ribitol-5-phosphate cytidylyltransferase",False
 2.7.7.41,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; phosphatidate cytidylyltransferase",False
+2.7.7.42,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; [glutamate-ammonia-ligase] adenylyltransferase",False
 2.7.7.43,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; N-acylneuraminate cytidylyltransferase",False
 2.7.7.46,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; aminoglycoside 2''-nucleotidyltransferase",False
 2.7.7.47,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; aminoglycoside 3''-adenylyltransferase",False
@@ -2659,6 +2767,7 @@ EC number,Text,Text Incomplete
 2.7.7.51,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; adenylylsulfate-ammonia adenylyltransferase",False
 2.7.7.52,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; RNA uridylyltransferase",False
 2.7.7.53,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; ATP adenylyltransferase",False
+2.7.7.59,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; [protein-PII] uridylyltransferase",False
 2.7.7.6,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; DNA-directed 5'-3' RNA polymerase",False
 2.7.7.60,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; 2-C-methyl-D-erythritol 4-phosphate cytidylyltransferase",False
 2.7.7.61,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; holo-citrate lyase synthase",False
@@ -2680,6 +2789,7 @@ EC number,Text,Text Incomplete
 2.7.7.77,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; molybdenum cofactor guanylyltransferase",False
 2.7.7.78,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; GDP-D-glucose phosphorylase",False
 2.7.7.79,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; tRNA guanylyltransferase",False
+2.7.7.8,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; polyribonucleotide nucleotidyltransferase",False
 2.7.7.80,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; molybdopterin-synthase adenylyltransferase",False
 2.7.7.81,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase",True
 2.7.7.82,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase",True
@@ -2688,6 +2798,7 @@ EC number,Text,Text Incomplete
 2.7.7.85,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; diadenylate cyclase",False
 2.7.7.86,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; 2',3'-cyclic GMP-AMP synthase",False
 2.7.7.87,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; L-threonylcarbamoyladenylate synthase",False
+2.7.7.89,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; [glutamine synthetase]-adenylyl-L-tyrosine phosphorylase",False
 2.7.7.9,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase; UTP:glucose-1-phosphate uridylyltransferase",False
 2.7.7.90,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase",True
 2.7.7.91,"transferase; transferase, transferring phosphorus-containing groups; nucleotidyltransferase",True
@@ -2725,7 +2836,10 @@ EC number,Text,Text Incomplete
 2.7.8.6,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, for other substituted phosphate groups; undecaprenyl-phosphate galactose phosphotransferase",False
 2.7.8.7,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, for other substituted phosphate groups; holo-[acyl-carrier-protein] synthase",False
 2.7.8.8,"transferase; transferase, transferring phosphorus-containing groups; phosphotransferase, for other substituted phosphate groups; CDP-diacylglycerol-serine O-phosphatidyltransferase",False
+2.7.9.1,"transferase; transferase, transferring phosphorus-containing groups; phenol, water dikinase; pyruvate, phosphate dikinase",False
+2.7.9.2,"transferase; transferase, transferring phosphorus-containing groups; phenol, water dikinase; pyruvate, water dikinase",False
 2.7.9.3,"transferase; transferase, transferring phosphorus-containing groups; phenol, water dikinase; selenide, water dikinase",False
+2.7.9.6,"transferase; transferase, transferring phosphorus-containing groups; phenol, water dikinase",True
 2.8.1.1,"transferase; transferase, transferring sulphur-containing groups; sulfurtransferase; thiosulfate sulfurtransferase",False
 2.8.1.12,"transferase; transferase, transferring sulphur-containing groups; sulfurtransferase; molybdopterin synthase",False
 2.8.1.13,"transferase; transferase, transferring sulphur-containing groups; sulfurtransferase",True
@@ -2735,6 +2849,7 @@ EC number,Text,Text Incomplete
 2.8.1.4,"transferase; transferase, transferring sulphur-containing groups; sulfurtransferase; tRNA-uracil-4 sulfurtransferase",False
 2.8.1.6,"transferase; transferase, transferring sulphur-containing groups; sulfurtransferase; biotin synthase",False
 2.8.1.7,"transferase; transferase, transferring sulphur-containing groups; sulfurtransferase; cysteine desulfurase",False
+2.8.1.9,"transferase; transferase, transferring sulphur-containing groups; sulfurtransferase; molybdenum cofactor sulfurtransferase",False
 2.8.2.1,"transferase; transferase, transferring sulphur-containing groups; sulfotransferase; aryl sulfotransferase",False
 2.8.2.11,"transferase; transferase, transferring sulphur-containing groups; sulfotransferase; galactosylceramide sulfotransferase",False
 2.8.2.14,"transferase; transferase, transferring sulphur-containing groups; sulfotransferase; bile-salt sulfotransferase",False
@@ -2759,6 +2874,7 @@ EC number,Text,Text Incomplete
 2.8.2.39,"transferase; transferase, transferring sulphur-containing groups; sulfotransferase; 11-hydroxyjasmonate sulfotransferase",False
 2.8.2.4,"transferase; transferase, transferring sulphur-containing groups; sulfotransferase; estrone sulfotransferase",False
 2.8.2.5,"transferase; transferase, transferring sulphur-containing groups; sulfotransferase; chondroitin 4-sulfotransferase",False
+2.8.2.8,"transferase; transferase, transferring sulphur-containing groups; sulfotransferase; [heparan sulfate]-glucosamine N-sulfotransferase",False
 2.8.2.n2,"transferase; transferase, transferring sulphur-containing groups; sulfotransferase",True
 2.8.3.10,"transferase; transferase, transferring sulphur-containing groups; CoA-transferase; citrate CoA-transferase",False
 2.8.3.12,"transferase; transferase, transferring sulphur-containing groups; CoA-transferase; glutaconate CoA-transferase",False
@@ -2816,6 +2932,7 @@ EC number,Text,Text Incomplete
 3.1.1.17,"hydrolase; hydrolase, acting on ester bonds; carboxylic ester hydrolase; gluconolactonase",False
 3.1.1.2,"hydrolase; hydrolase, acting on ester bonds; carboxylic ester hydrolase; arylesterase",False
 3.1.1.20,"hydrolase; hydrolase, acting on ester bonds; carboxylic ester hydrolase; tannase",False
+3.1.1.22,"hydrolase; hydrolase, acting on ester bonds; carboxylic ester hydrolase; hydroxybutyrate-dimer hydrolase",False
 3.1.1.23,"hydrolase; hydrolase, acting on ester bonds; carboxylic ester hydrolase; acylglycerol lipase",False
 3.1.1.24,"hydrolase; hydrolase, acting on ester bonds; carboxylic ester hydrolase; 3-oxoadipate enol-lactonase",False
 3.1.1.25,"hydrolase; hydrolase, acting on ester bonds; carboxylic ester hydrolase; 1,4-lactonase",False
@@ -2936,6 +3053,7 @@ EC number,Text,Text Incomplete
 3.1.3.29,"hydrolase; hydrolase, acting on ester bonds; phosphatase; N-acylneuraminate-9-phosphatase",False
 3.1.3.3,"hydrolase; hydrolase, acting on ester bonds; phosphatase; L-phosphoserine phosphatase",False
 3.1.3.32,"hydrolase; hydrolase, acting on ester bonds; phosphatase; polynucleotide 3'-phosphatase",False
+3.1.3.33,"hydrolase; hydrolase, acting on ester bonds; phosphatase; polynucleotide 5'-phosphatase",False
 3.1.3.34,"hydrolase; hydrolase, acting on ester bonds; phosphatase; deoxynucleotide 3'-phosphatase",False
 3.1.3.35,"hydrolase; hydrolase, acting on ester bonds; phosphatase; thymidylate 5'-phosphatase",False
 3.1.3.36,"hydrolase; hydrolase, acting on ester bonds; phosphatase; phosphatidylinositol-4,5-bisphosphate 5-phosphatase",False
@@ -2959,6 +3077,7 @@ EC number,Text,Text Incomplete
 3.1.3.62,"hydrolase; hydrolase, acting on ester bonds; phosphatase; inositol hexakisphosphate 2-phosphatase",False
 3.1.3.63,"hydrolase; hydrolase, acting on ester bonds; phosphatase; 2-carboxy-D-arabinitol-1-phosphatase",False
 3.1.3.64,"hydrolase; hydrolase, acting on ester bonds; phosphatase; phosphatidylinositol-3-phosphate phosphatase",False
+3.1.3.66,"hydrolase; hydrolase, acting on ester bonds; phosphatase; phosphatidylinositol-3,4-bisphosphate 4-phosphatase",False
 3.1.3.67,"hydrolase; hydrolase, acting on ester bonds; phosphatase; phosphatidylinositol-3,4,5-trisphosphate 3-phosphatase",False
 3.1.3.68,"hydrolase; hydrolase, acting on ester bonds; phosphatase; 2-deoxyglucose-6-phosphatase",False
 3.1.3.69,"hydrolase; hydrolase, acting on ester bonds; phosphatase; glucosylglycerol 3-phosphatase",False
@@ -3004,12 +3123,14 @@ EC number,Text,Text Incomplete
 3.1.4.35,"hydrolase; hydrolase, acting on ester bonds; phosphoric diester hydrolase; 3',5'-cyclic-GMP phosphodiesterase",False
 3.1.4.37,"hydrolase; hydrolase, acting on ester bonds; phosphoric diester hydrolase; 2',3'-cyclic-nucleotide 3'-phosphodiesterase",False
 3.1.4.38,"hydrolase; hydrolase, acting on ester bonds; phosphoric diester hydrolase; glycerophosphocholine cholinephosphodiesterase",False
+3.1.4.39,"hydrolase; hydrolase, acting on ester bonds; phosphoric diester hydrolase; alkylglycerophosphoethanolamine phosphodiesterase",False
 3.1.4.4,"hydrolase; hydrolase, acting on ester bonds; phosphoric diester hydrolase; N-acylphosphatidylethanolamine-specific phospholipase D",False
 3.1.4.41,"hydrolase; hydrolase, acting on ester bonds; phosphoric diester hydrolase; sphingomyelin phosphodiesterase D",False
 3.1.4.43,"hydrolase; hydrolase, acting on ester bonds; phosphoric diester hydrolase; glycerophosphoinositol inositolphosphodiesterase",False
 3.1.4.44,"hydrolase; hydrolase, acting on ester bonds; phosphoric diester hydrolase; glycerophosphoinositol glycerophosphodiesterase",False
 3.1.4.45,"hydrolase; hydrolase, acting on ester bonds; phosphoric diester hydrolase; N-acetylglucosamine-1-phosphodiester alpha-N-acetylglucosaminidase",False
 3.1.4.46,"hydrolase; hydrolase, acting on ester bonds; phosphoric diester hydrolase; glycerophosphodiester phosphodiesterase",False
+3.1.4.50,"hydrolase; hydrolase, acting on ester bonds; phosphoric diester hydrolase; glycosylphosphatidylinositol phospholipase D",False
 3.1.4.52,"hydrolase; hydrolase, acting on ester bonds; phosphoric diester hydrolase; cyclic-guanylate-specific phosphodiesterase",False
 3.1.4.53,"hydrolase; hydrolase, acting on ester bonds; phosphoric diester hydrolase; 3',5'-cyclic-AMP phosphodiesterase",False
 3.1.4.54,"hydrolase; hydrolase, acting on ester bonds; phosphoric diester hydrolase; N-acetylphosphatidylethanolamine-hydrolysing phospholipase",False
@@ -3017,6 +3138,7 @@ EC number,Text,Text Incomplete
 3.1.4.56,"hydrolase; hydrolase, acting on ester bonds; phosphoric diester hydrolase",True
 3.1.4.57,"hydrolase; hydrolase, acting on ester bonds; phosphoric diester hydrolase; D-ribose 2,5-bisphosphate 2-phosphohydrolase",False
 3.1.4.58,"hydrolase; hydrolase, acting on ester bonds; phosphoric diester hydrolase",True
+3.1.4.59,"hydrolase; hydrolase, acting on ester bonds; phosphoric diester hydrolase; cyclic-di-AMP phosphodiesterase",False
 3.1.5.1,"hydrolase; hydrolase, acting on ester bonds; triphosphoric monoester hydrolase; dGTPase",False
 3.1.6.1,"hydrolase; hydrolase, acting on ester bonds; sulfuric ester hydrolase; arylsulfatase",False
 3.1.6.12,"hydrolase; hydrolase, acting on ester bonds; sulfuric ester hydrolase; N-acetylgalactosamine-4-sulfatase",False
@@ -3024,11 +3146,13 @@ EC number,Text,Text Incomplete
 3.1.6.14,"hydrolase; hydrolase, acting on ester bonds; sulfuric ester hydrolase; N-acetylglucosamine-6-sulfatase",False
 3.1.6.15,"hydrolase; hydrolase, acting on ester bonds; sulfuric ester hydrolase; N-sulfoglucosamine-3-sulfatase",False
 3.1.6.18,"hydrolase; hydrolase, acting on ester bonds; sulfuric ester hydrolase; glucuronate-2-sulfatase",False
+3.1.6.19,"hydrolase; hydrolase, acting on ester bonds; sulfuric ester hydrolase",True
 3.1.6.2,"hydrolase; hydrolase, acting on ester bonds; sulfuric ester hydrolase; steryl-sulfatase",False
 3.1.6.21,"hydrolase; hydrolase, acting on ester bonds; sulfuric ester hydrolase; linear primary-alkylsulfatase",False
 3.1.6.4,"hydrolase; hydrolase, acting on ester bonds; sulfuric ester hydrolase; N-acetylgalactosamine-6-sulfatase",False
 3.1.6.6,"hydrolase; hydrolase, acting on ester bonds; sulfuric ester hydrolase; choline-sulfatase",False
 3.1.6.8,"hydrolase; hydrolase, acting on ester bonds; sulfuric ester hydrolase; cerebroside-sulfatase",False
+3.1.7.10,"hydrolase; hydrolase, acting on ester bonds; diphosphoric monoester hydrolase; (13E)-labda-7,13-dien-15-ol synthase",False
 3.1.7.11,"hydrolase; hydrolase, acting on ester bonds; diphosphoric monoester hydrolase",True
 3.1.7.12,"hydrolase; hydrolase, acting on ester bonds; diphosphoric monoester hydrolase",True
 3.1.7.13,"hydrolase; hydrolase, acting on ester bonds; diphosphoric monoester hydrolase",True
@@ -3050,37 +3174,47 @@ EC number,Text,Text Incomplete
 3.2.1.1,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; alpha-amylase",False
 3.2.1.10,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; oligo-1,6-glucosidase",False
 3.2.1.101,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; mannan endo-1,6-alpha-mannosidase",False
+3.2.1.102,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; blood-group-substance endo-1,4-beta-galactosidase",False
 3.2.1.103,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; keratan-sulfate endo-1,4-beta-galactosidase",False
 3.2.1.105,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; strictosidine beta-glucosidase",False
+3.2.1.106,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; Glc3Man9GlcNAc2 oligosaccharide glucosidase",False
+3.2.1.107,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; protein-glucosylgalactosylhydroxylysine glucosidase",False
 3.2.1.11,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; dextranase",False
 3.2.1.113,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; mannosyl-oligosaccharide 1,2-alpha-mannosidase",False
-3.2.1.119,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; vicianin beta-glucosidase",False
 3.2.1.122,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; maltose-6'-phosphate glucosidase",False
 3.2.1.123,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; endoglycosylceramidase",False
 3.2.1.125,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; raucaffricine beta-glucosidase",False
 3.2.1.126,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; coniferin beta-glucosidase",False
+3.2.1.129,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; endo-alpha-(2,8)-sialidase",False
 3.2.1.130,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; glycoprotein endo-alpha-1,2-mannosidase",False
+3.2.1.131,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; xylan alpha-1,2-glucuronosidase",False
 3.2.1.132,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; chitosanase",False
 3.2.1.133,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; glucan 1,4-alpha-maltohydrolase",False
 3.2.1.135,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; neopullulanase",False
 3.2.1.136,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; glucuronoarabinoxylan endo-1,4-beta-xylanase",False
+3.2.1.139,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; alpha-glucuronidase",False
 3.2.1.14,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; chitinase",False
 3.2.1.141,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; 4-alpha-D-(1",False
 3.2.1.143,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; poly(ADP-ribose) glycohydrolase",False
 3.2.1.147,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; glucosinolate glucohydrolase",False
 3.2.1.15,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; polygalacturonase",False
 3.2.1.151,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; xyloglucan-specific endo-beta-1,4-glucanase",False
+3.2.1.152,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; mannosylglycoprotein endo-beta-mannosidase",False
 3.2.1.153,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; fructan beta-(2,1)-fructosidase",False
 3.2.1.154,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; fructan beta-(2,6)-fructosidase",False
 3.2.1.156,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; oligosaccharide reducing-end xylanase",False
 3.2.1.161,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; beta-apiosyl-beta-glucosidase",False
+3.2.1.162,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; neo-lambda-carrahexaose hydrolase",False
 3.2.1.164,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds",True
+3.2.1.165,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; exo-1,4-beta-D-glucosaminidase",False
 3.2.1.166,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds",True
 3.2.1.167,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; baicalin beta-D-glucuronidase",False
 3.2.1.169,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; [protein]-3-O-(N-acetyl-D-glucosaminyl)-L-serine/L-threonine O-N-acetyl-alpha-D-glucosaminase",False
 3.2.1.17,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; lysozyme",False
 3.2.1.170,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds",True
 3.2.1.175,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; abscisic acid glucose ester beta-glucosidase",False
+3.2.1.176,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; cellulose 1,4-beta-cellobiosidase (reducing end)",False
+3.2.1.177,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; alpha-D-xyloside xylohydrolase",False
 3.2.1.179,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds",True
 3.2.1.18,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; exo-alpha-(2",False
 3.2.1.180,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; unsaturated chondroitin disaccharide hydrolase",False
@@ -3088,19 +3222,24 @@ EC number,Text,Text Incomplete
 3.2.1.182,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; DIMBOA glucoside beta-D-glucosidase",False
 3.2.1.183,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds",True
 3.2.1.184,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; UDP-N,N'-diacetylbacillosamine 2-epimerase",False
+3.2.1.185,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; beta-L-arabinofuranosidase",False
 3.2.1.186,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds",True
 3.2.1.188,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds",True
+3.2.1.199,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds",True
 3.2.1.2,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; amylopectin maltohydrolase",False
 3.2.1.20,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; alpha-glucosidase",False
 3.2.1.200,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds",True
+3.2.1.204,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds",True
 3.2.1.205,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds",True
 3.2.1.206,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds",True
+3.2.1.207,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds",True
 3.2.1.208,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds",True
 3.2.1.209,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds",True
 3.2.1.21,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; scopolin beta-glucosidase",False
 3.2.1.22,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; alpha-galactosidase",False
 3.2.1.23,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; beta-galactosidase",False
 3.2.1.24,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; alpha-mannosidase",False
+3.2.1.25,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; beta-mannosidase",False
 3.2.1.26,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; beta-fructofuranosidase",False
 3.2.1.28,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; alpha,alpha-trehalase",False
 3.2.1.3,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; glucan 1,4-alpha-glucosidase",False
@@ -3113,9 +3252,11 @@ EC number,Text,Text Incomplete
 3.2.1.39,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; glucan endo-1,3-beta-D-glucosidase",False
 3.2.1.4,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; cellulase",False
 3.2.1.40,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; alpha-L-rhamnosidase",False
+3.2.1.41,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; pullulanase",False
 3.2.1.45,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; glucosylceramidase",False
 3.2.1.46,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; galactosylceramidase",False
 3.2.1.49,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; alpha-N-acetylgalactosaminidase",False
+3.2.1.50,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; alpha-N-acetylglucosaminidase",False
 3.2.1.51,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; alpha-L-fucosidase",False
 3.2.1.52,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; N-acetyl-beta-D-galactosaminidase",False
 3.2.1.54,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; cyclomaltodextrinase",False
@@ -3127,6 +3268,7 @@ EC number,Text,Text Incomplete
 3.2.1.60,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; glucan 1,4-alpha-maltotetraohydrolase",False
 3.2.1.64,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; 2,6-beta-fructan 6-levanbiohydrolase",False
 3.2.1.67,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; galacturan 1,4-alpha-galacturonidase",False
+3.2.1.68,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; isoamylase",False
 3.2.1.7,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; inulinase",False
 3.2.1.70,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; glucan 1,6-alpha-glucosidase",False
 3.2.1.72,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; xylan 1,3-beta-xylosidase",False
@@ -3139,6 +3281,7 @@ EC number,Text,Text Incomplete
 3.2.1.80,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; fructan beta-fructosidase",False
 3.2.1.81,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; beta-agarase",False
 3.2.1.82,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; exo-poly-alpha-galacturonosidase",False
+3.2.1.84,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; glucan 1,3-alpha-glucosidase",False
 3.2.1.85,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; 6-phospho-beta-galactosidase",False
 3.2.1.86,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; methyl beta-D-glucoside 6-phosphate glucohydrolase",False
 3.2.1.89,"hydrolase; hydrolase, acting on glycosyl bonds; hydrolase, hydrolyzing O-glycosyl compounds; arabinogalactan endo-1,4-beta-galactosidase",False
@@ -3162,6 +3305,7 @@ EC number,Text,Text Incomplete
 3.3.2.1,"hydrolase; hydrolase, acting on ether bonds; ether hydrolase; isochorismatase",False
 3.3.2.10,"hydrolase; hydrolase, acting on ether bonds; ether hydrolase; epoxide hydrolase",False
 3.3.2.11,"hydrolase; hydrolase, acting on ether bonds; ether hydrolase; cholesterol-5,6-oxide hydrolase",False
+3.3.2.12,"hydrolase; hydrolase, acting on ether bonds; ether hydrolase",True
 3.3.2.13,"hydrolase; hydrolase, acting on ether bonds; ether hydrolase",True
 3.3.2.14,"hydrolase; hydrolase, acting on ether bonds; ether hydrolase",True
 3.3.2.15,"hydrolase; hydrolase, acting on ether bonds; ether hydrolase",True
@@ -3171,11 +3315,13 @@ EC number,Text,Text Incomplete
 3.3.2.9,"hydrolase; hydrolase, acting on ether bonds; ether hydrolase; cis-stilbene-oxide hydrolase",False
 3.4.11.1,hydrolase; peptidase; aminopeptidase,True
 3.4.11.10,hydrolase; peptidase; aminopeptidase,True
+3.4.11.14,hydrolase; peptidase; aminopeptidase,True
 3.4.11.15,hydrolase; peptidase; aminopeptidase,True
 3.4.11.17,hydrolase; peptidase; aminopeptidase,True
 3.4.11.18,hydrolase; peptidase; aminopeptidase; initiator methionyl aminopeptidase,False
 3.4.11.19,hydrolase; peptidase; aminopeptidase,True
 3.4.11.2,hydrolase; peptidase; aminopeptidase,True
+3.4.11.20,hydrolase; peptidase; aminopeptidase,True
 3.4.11.21,hydrolase; peptidase; aminopeptidase; aminopeptidase,False
 3.4.11.22,hydrolase; peptidase; aminopeptidase,True
 3.4.11.23,hydrolase; peptidase; aminopeptidase,True
@@ -3198,10 +3344,14 @@ EC number,Text,Text Incomplete
 3.4.14.1,hydrolase; peptidase; dipeptidyl-peptidase,False
 3.4.14.10,hydrolase; peptidase; tripeptidyl-peptidase,False
 3.4.14.11,hydrolase; peptidase; dipeptidyl-peptidase,False
+3.4.14.12,hydrolase; peptidase,True
 3.4.14.13,hydrolase; peptidase,True
 3.4.14.2,hydrolase; peptidase; dipeptidyl-peptidase,False
+3.4.14.4,hydrolase; peptidase; dipeptidyl-peptidase,False
+3.4.14.5,hydrolase; peptidase; dipeptidyl-peptidase,False
 3.4.14.9,hydrolase; peptidase; tripeptidyl-peptidase,False
 3.4.15.1,hydrolase; peptidase; peptidyl-dipeptidase,True
+3.4.15.5,hydrolase; peptidase; peptidyl-dipeptidase,True
 3.4.15.6,hydrolase; peptidase; peptidyl-dipeptidase,True
 3.4.16.2,hydrolase; peptidase; serine-type carboxypeptidase; serine-type carboxypeptidase,False
 3.4.16.4,hydrolase; peptidase; serine-type carboxypeptidase; serine-type D-Ala-D-Ala carboxypeptidase,False
@@ -3218,7 +3368,8 @@ EC number,Text,Text Incomplete
 3.4.17.19,hydrolase; peptidase; metallocarboxypeptidase,True
 3.4.17.2,hydrolase; peptidase; metallocarboxypeptidase; metallocarboxypeptidase,False
 3.4.17.20,hydrolase; peptidase; metallocarboxypeptidase,True
-3.4.17.22,hydrolase; peptidase; metallocarboxypeptidase; metallocarboxypeptidase,False
+3.4.17.21,hydrolase; peptidase; metallocarboxypeptidase; metallocarboxypeptidase,False
+3.4.17.23,hydrolase; peptidase; metallocarboxypeptidase,True
 3.4.17.24,hydrolase; peptidase; metallocarboxypeptidase,True
 3.4.17.3,hydrolase; peptidase; metallocarboxypeptidase; metallocarboxypeptidase,False
 3.4.17.4,hydrolase; peptidase; metallocarboxypeptidase; metallocarboxypeptidase,False
@@ -3234,22 +3385,27 @@ EC number,Text,Text Incomplete
 3.4.21.1,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.10,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.100,hydrolase; peptidase; serine-type endopeptidase,True
+3.4.21.101,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.102,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.103,hydrolase; peptidase; serine-type endopeptidase,True
+3.4.21.104,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.106,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.107,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.108,hydrolase; peptidase; serine-type endopeptidase,True
+3.4.21.109,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.111,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.117,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.118,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.119,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.12,hydrolase; peptidase; serine-type endopeptidase,True
+3.4.21.120,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.121,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.19,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.2,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.20,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.21,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.22,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
+3.4.21.25,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.26,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.27,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.32,hydrolase; peptidase; serine-type endopeptidase,True
@@ -3260,6 +3416,8 @@ EC number,Text,Text Incomplete
 3.4.21.38,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.39,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.4,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
+3.4.21.41,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
+3.4.21.42,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.45,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.46,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.47,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
@@ -3271,6 +3429,7 @@ EC number,Text,Text Incomplete
 3.4.21.54,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.59,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.6,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
+3.4.21.61,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.62,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.63,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.64,hydrolase; peptidase; serine-type endopeptidase,True
@@ -3282,6 +3441,7 @@ EC number,Text,Text Incomplete
 3.4.21.71,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.73,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.74,hydrolase; peptidase; serine-type endopeptidase,True
+3.4.21.75,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.76,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.77,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.78,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
@@ -3289,9 +3449,13 @@ EC number,Text,Text Incomplete
 3.4.21.80,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.81,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.82,hydrolase; peptidase; serine-type endopeptidase,True
+3.4.21.83,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.86,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.89,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
+3.4.21.9,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
+3.4.21.90,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.92,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
+3.4.21.93,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.94,hydrolase; peptidase; serine-type endopeptidase; serine-type endopeptidase,False
 3.4.21.95,hydrolase; peptidase; serine-type endopeptidase,True
 3.4.21.97,hydrolase; peptidase; serine-type endopeptidase,True
@@ -3304,7 +3468,6 @@ EC number,Text,Text Incomplete
 3.4.22.2,hydrolase; peptidase; cysteine-type endopeptidase,True
 3.4.22.25,hydrolase; peptidase; cysteine-type endopeptidase,True
 3.4.22.27,hydrolase; peptidase; cysteine-type endopeptidase; cysteine-type endopeptidase,False
-3.4.22.28,hydrolase; peptidase; cysteine-type endopeptidase; cysteine-type endopeptidase,False
 3.4.22.30,hydrolase; peptidase; cysteine-type endopeptidase,True
 3.4.22.31,hydrolase; peptidase; cysteine-type endopeptidase,True
 3.4.22.32,hydrolase; peptidase; cysteine-type endopeptidase,True
@@ -3312,6 +3475,7 @@ EC number,Text,Text Incomplete
 3.4.22.34,hydrolase; peptidase; cysteine-type endopeptidase; cysteine-type endopeptidase,False
 3.4.22.35,hydrolase; peptidase; cysteine-type endopeptidase,True
 3.4.22.36,hydrolase; peptidase; cysteine-type endopeptidase,True
+3.4.22.37,hydrolase; peptidase; cysteine-type endopeptidase,True
 3.4.22.38,hydrolase; peptidase; cysteine-type endopeptidase; cysteine-type endopeptidase,False
 3.4.22.39,hydrolase; peptidase; cysteine-type endopeptidase,True
 3.4.22.40,hydrolase; peptidase; cysteine-type endopeptidase; cysteine-type endopeptidase,False
@@ -3323,6 +3487,7 @@ EC number,Text,Text Incomplete
 3.4.22.51,hydrolase; peptidase; cysteine-type endopeptidase,True
 3.4.22.52,hydrolase; peptidase; cysteine-type endopeptidase,True
 3.4.22.53,hydrolase; peptidase; cysteine-type endopeptidase,True
+3.4.22.54,hydrolase; peptidase; cysteine-type endopeptidase,True
 3.4.22.55,hydrolase; peptidase; cysteine-type endopeptidase,True
 3.4.22.56,hydrolase; peptidase; cysteine-type endopeptidase,True
 3.4.22.57,hydrolase; peptidase; cysteine-type endopeptidase,True
@@ -3341,7 +3506,6 @@ EC number,Text,Text Incomplete
 3.4.23.1,"hydrolase; peptidase; aspartic endopeptidase, intramembrane cleaving; aspartic-type endopeptidase",False
 3.4.23.12,"hydrolase; peptidase; aspartic endopeptidase, intramembrane cleaving",True
 3.4.23.15,"hydrolase; peptidase; aspartic endopeptidase, intramembrane cleaving; aspartic-type endopeptidase",False
-3.4.23.16,"hydrolase; peptidase; aspartic endopeptidase, intramembrane cleaving",True
 3.4.23.18,"hydrolase; peptidase; aspartic endopeptidase, intramembrane cleaving",True
 3.4.23.19,"hydrolase; peptidase; aspartic endopeptidase, intramembrane cleaving",True
 3.4.23.2,"hydrolase; peptidase; aspartic endopeptidase, intramembrane cleaving",True
@@ -3369,24 +3533,32 @@ EC number,Text,Text Incomplete
 3.4.23.5,"hydrolase; peptidase; aspartic endopeptidase, intramembrane cleaving; aspartic-type endopeptidase",False
 3.4.23.50,"hydrolase; peptidase; aspartic endopeptidase, intramembrane cleaving",True
 3.4.23.52,"hydrolase; peptidase; aspartic endopeptidase, intramembrane cleaving",True
-3.4.24.1,hydrolase; peptidase; metalloendopeptidase,True
+3.4.24.11,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
 3.4.24.12,hydrolase; peptidase; metalloendopeptidase,True
+3.4.24.15,hydrolase; peptidase; metalloendopeptidase,True
+3.4.24.16,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.17,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
+3.4.24.18,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
+3.4.24.19,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
 3.4.24.20,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.21,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
 3.4.24.22,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
 3.4.24.23,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
+3.4.24.24,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
 3.4.24.25,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.26,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.27,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.28,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.29,hydrolase; peptidase; metalloendopeptidase,True
+3.4.24.3,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
 3.4.24.30,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.31,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.32,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.33,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.34,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
+3.4.24.35,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
 3.4.24.36,hydrolase; peptidase; metalloendopeptidase,True
+3.4.24.37,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
 3.4.24.38,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.39,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.40,hydrolase; peptidase; metalloendopeptidase,True
@@ -3398,20 +3570,27 @@ EC number,Text,Text Incomplete
 3.4.24.48,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.49,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.53,hydrolase; peptidase; metalloendopeptidase,True
+3.4.24.55,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
+3.4.24.56,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
+3.4.24.59,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
+3.4.24.63,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.64,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
 3.4.24.65,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.66,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.67,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.7,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
+3.4.24.70,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
 3.4.24.72,hydrolase; peptidase; metalloendopeptidase; metalloendopeptidase,False
-3.4.24.73,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.74,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.75,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.76,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.77,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.78,hydrolase; peptidase; metalloendopeptidase,True
+3.4.24.81,hydrolase; peptidase; metalloendopeptidase,True
+3.4.24.83,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.84,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.85,hydrolase; peptidase; metalloendopeptidase,True
+3.4.24.86,hydrolase; peptidase; metalloendopeptidase,True
 3.4.24.89,hydrolase; peptidase; metalloendopeptidase,True
 3.4.25.1,hydrolase; peptidase; threonine-type endopeptidase,True
 3.4.25.2,hydrolase; peptidase; threonine-type endopeptidase,True
@@ -3503,6 +3682,7 @@ EC number,Text,Text Incomplete
 3.5.1.93,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; chitooligosaccharide deacetylase; glutaryl-7-aminocephalosporanic-acid acylase",False
 3.5.1.94,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; chitooligosaccharide deacetylase; gamma-glutamyl-gamma-aminobutyrate hydrolase",False
 3.5.1.96,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; chitooligosaccharide deacetylase; succinylglutamate desuccinylase",False
+3.5.1.97,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; chitooligosaccharide deacetylase",True
 3.5.1.98,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; chitooligosaccharide deacetylase; histone deacetylase",False
 3.5.1.99,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; chitooligosaccharide deacetylase; fatty acid amide hydrolase",False
 3.5.1.n3,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; chitooligosaccharide deacetylase",True
@@ -3525,6 +3705,7 @@ EC number,Text,Text Incomplete
 3.5.3.11,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; hydrolase, acting on carbon-nitrogen (but not peptide) bonds, in linear amidines; agmatinase",False
 3.5.3.12,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; hydrolase, acting on carbon-nitrogen (but not peptide) bonds, in linear amidines; agmatine deiminase",False
 3.5.3.13,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; hydrolase, acting on carbon-nitrogen (but not peptide) bonds, in linear amidines; formimidoylglutamate deiminase",False
+3.5.3.15,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; hydrolase, acting on carbon-nitrogen (but not peptide) bonds, in linear amidines; protein-arginine deiminase",False
 3.5.3.17,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; hydrolase, acting on carbon-nitrogen (but not peptide) bonds, in linear amidines; guanidinopropionase",False
 3.5.3.18,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; hydrolase, acting on carbon-nitrogen (but not peptide) bonds, in linear amidines; dimethylargininase",False
 3.5.3.22,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; hydrolase, acting on carbon-nitrogen (but not peptide) bonds, in linear amidines; proclavaminate amidinohydrolase",False
@@ -3573,6 +3754,7 @@ EC number,Text,Text Incomplete
 3.5.4.45,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; hydrolase, acting on carbon-nitrogen (but not peptide) bonds, in cyclic amidines",True
 3.5.4.46,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; hydrolase, acting on carbon-nitrogen (but not peptide) bonds, in cyclic amidines; cAMP deaminase",False
 3.5.4.5,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; hydrolase, acting on carbon-nitrogen (but not peptide) bonds, in cyclic amidines; cytidine deaminase",False
+3.5.4.6,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; hydrolase, acting on carbon-nitrogen (but not peptide) bonds, in cyclic amidines; AMP deaminase",False
 3.5.4.9,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; hydrolase, acting on carbon-nitrogen (but not peptide) bonds, in cyclic amidines; methenyltetrahydrofolate cyclohydrolase",False
 3.5.5.1,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; hydrolase, acting on carbon-nitrogen (but not peptide) bonds, in nitriles; indole-3-acetonitrile nitrilase",False
 3.5.5.4,"hydrolase; hydrolase, acting on carbon-nitrogen (but not peptide) bonds; hydrolase, acting on carbon-nitrogen (but not peptide) bonds, in nitriles; cyanoalanine nitrilase",False
@@ -3643,6 +3825,7 @@ EC number,Text,Text Incomplete
 3.6.5.2,"hydrolase; hydrolase, acting on acid anhydrides; G protein",False
 3.6.5.3,"hydrolase; hydrolase, acting on acid anhydrides",True
 3.6.5.4,"hydrolase; hydrolase, acting on acid anhydrides",True
+3.6.5.5,"hydrolase; hydrolase, acting on acid anhydrides",True
 3.6.5.n1,"hydrolase; hydrolase, acting on acid anhydrides",True
 3.7.1.1,"hydrolase; hydrolase, acting on acid carbon-carbon bonds; 2,6-dihydroxypseudooxynicotine hydrolase; oxaloacetase",False
 3.7.1.11,"hydrolase; hydrolase, acting on acid carbon-carbon bonds; 2,6-dihydroxypseudooxynicotine hydrolase",True
@@ -3692,6 +3875,7 @@ EC number,Text,Text Incomplete
 4.1.1.112,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase; oxaloacetate decarboxylase,False
 4.1.1.113,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase,True
 4.1.1.114,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase,True
+4.1.1.115,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase,True
 4.1.1.116,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase,True
 4.1.1.117,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase,True
 4.1.1.12,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase; aspartate 4-decarboxylase,False
@@ -3748,11 +3932,13 @@ EC number,Text,Text Incomplete
 4.1.1.80,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase; 4-hydroxyphenylpyruvate decarboxylase,False
 4.1.1.81,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase; threonine-phosphate decarboxylase,False
 4.1.1.82,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase; phosphonopyruvate decarboxylase,False
+4.1.1.83,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase; 4-hydroxyphenylacetate decarboxylase,False
 4.1.1.84,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase; D-dopachrome decarboxylase,False
 4.1.1.85,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase; 3-dehydro-L-gulonate-6-phosphate decarboxylase,False
 4.1.1.86,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase; diaminobutyrate decarboxylase,False
 4.1.1.87,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase,True
 4.1.1.9,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase; malonyl-CoA decarboxylase,False
+4.1.1.90,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase; gamma-glutamyl carboxylase,False
 4.1.1.91,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase,True
 4.1.1.93,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase; pyrrole-2-carboxylate decarboxylase,False
 4.1.1.94,lyase; carbon-carbon lyase; 2-keto-4-methylthiobutyrate aminotransferase; methyl/ethyl malonyl-CoA decarboxylase,False
@@ -3769,6 +3955,7 @@ EC number,Text,Text Incomplete
 4.1.2.19,lyase; carbon-carbon lyase; aldehyde-lyase; rhamnulose-1-phosphate aldolase,False
 4.1.2.20,lyase; carbon-carbon lyase; aldehyde-lyase; 2-dehydro-3-deoxyglucarate aldolase,False
 4.1.2.21,lyase; carbon-carbon lyase; aldehyde-lyase; 2-dehydro-3-deoxy-6-phosphogalactonate aldolase,False
+4.1.2.22,lyase; carbon-carbon lyase; aldehyde-lyase; fructose-6-phosphate phosphoketolase,False
 4.1.2.25,lyase; carbon-carbon lyase; aldehyde-lyase; dihydroneopterin aldolase,False
 4.1.2.27,lyase; carbon-carbon lyase; aldehyde-lyase; sphinganine-1-phosphate aldolase,False
 4.1.2.28,lyase; carbon-carbon lyase; aldehyde-lyase; 2-dehydro-3-deoxy-D-pentonate aldolase,False
@@ -3798,6 +3985,7 @@ EC number,Text,Text Incomplete
 4.1.2.62,lyase; carbon-carbon lyase; aldehyde-lyase,True
 4.1.2.63,lyase; carbon-carbon lyase; aldehyde-lyase; 2-hydroxyacyl-CoA lyase,False
 4.1.2.8,lyase; carbon-carbon lyase; aldehyde-lyase; indole-3-glycerol-phosphate lyase,False
+4.1.2.9,lyase; carbon-carbon lyase; aldehyde-lyase; phosphoketolase,False
 4.1.3.1,lyase; carbon-carbon lyase; 5-chloro-4-hydroxy-2-oxopentanate aldolase; isocitrate lyase,False
 4.1.3.16,lyase; carbon-carbon lyase; 5-chloro-4-hydroxy-2-oxopentanate aldolase; 4-hydroxy-2-oxoglutarate aldolase,False
 4.1.3.17,lyase; carbon-carbon lyase; 5-chloro-4-hydroxy-2-oxopentanate aldolase; 4-hydroxy-4-methyl-2-oxoglutarate aldolase,False
@@ -3820,6 +4008,7 @@ EC number,Text,Text Incomplete
 4.1.3.46,lyase; carbon-carbon lyase; 5-chloro-4-hydroxy-2-oxopentanate aldolase; (3R)-citramalyl-CoA lyase,False
 4.1.3.6,lyase; carbon-carbon lyase; 5-chloro-4-hydroxy-2-oxopentanate aldolase; citrate (pro-3S)-lyase,False
 4.1.99.1,lyase; carbon-carbon lyase; tryptophanase,False
+4.1.99.11,lyase; carbon-carbon lyase; benzylsuccinate synthase,False
 4.1.99.12,"lyase; carbon-carbon lyase; 3,4-dihydroxy-2-butanone-4-phosphate synthase",False
 4.1.99.13,lyase; carbon-carbon lyase; DNA (6-4) photolyase,False
 4.1.99.14,lyase; carbon-carbon lyase,True
@@ -3835,24 +4024,32 @@ EC number,Text,Text Incomplete
 4.2.1.104,lyase; carbon-oxygen lyase; hydro-lyase; cyanate hydratase,False
 4.2.1.105,lyase; carbon-oxygen lyase; hydro-lyase; 2-hydroxyisoflavanone dehydratase,False
 4.2.1.106,lyase; carbon-oxygen lyase; hydro-lyase; bile-acid 7alpha-dehydratase,False
+4.2.1.107,"lyase; carbon-oxygen lyase; hydro-lyase; 3alpha,7alpha,12alpha-trihydroxy-5beta-cholest-24-enoyl-CoA hydratase",False
 4.2.1.108,lyase; carbon-oxygen lyase; hydro-lyase; ectoine synthase,False
 4.2.1.109,lyase; carbon-oxygen lyase; hydro-lyase; methylthioribulose 1-phosphate dehydratase,False
 4.2.1.11,lyase; carbon-oxygen lyase; hydro-lyase; phosphopyruvate hydratase,False
+4.2.1.110,lyase; carbon-oxygen lyase; hydro-lyase; aldos-2-ulose dehydratase,False
+4.2.1.112,lyase; carbon-oxygen lyase; hydro-lyase; acetylene hydratase,False
 4.2.1.113,lyase; carbon-oxygen lyase; hydro-lyase; O-succinylbenzoate synthase,False
 4.2.1.114,lyase; carbon-oxygen lyase; hydro-lyase,True
 4.2.1.115,lyase; carbon-oxygen lyase; hydro-lyase,True
 4.2.1.116,lyase; carbon-oxygen lyase; hydro-lyase; 3-hydroxypropionyl-CoA dehydratase,False
+4.2.1.117,lyase; carbon-oxygen lyase; hydro-lyase,True
 4.2.1.118,lyase; carbon-oxygen lyase; hydro-lyase; 3-dehydroshikimate dehydratase,False
 4.2.1.119,lyase; carbon-oxygen lyase; hydro-lyase,True
 4.2.1.12,lyase; carbon-oxygen lyase; hydro-lyase; phosphogluconate dehydratase,False
 4.2.1.120,lyase; carbon-oxygen lyase; hydro-lyase; 4-hydroxybutanoyl-CoA dehydratase,False
 4.2.1.121,lyase; carbon-oxygen lyase; hydro-lyase; colneleate synthase,False
+4.2.1.123,lyase; carbon-oxygen lyase; hydro-lyase,True
+4.2.1.125,lyase; carbon-oxygen lyase; hydro-lyase,True
 4.2.1.126,lyase; carbon-oxygen lyase; hydro-lyase,True
 4.2.1.127,lyase; carbon-oxygen lyase; hydro-lyase,True
+4.2.1.128,"lyase; carbon-oxygen lyase; hydro-lyase; lupan-3beta,20-diol synthase",False
 4.2.1.129,lyase; carbon-oxygen lyase; hydro-lyase,True
 4.2.1.130,lyase; carbon-oxygen lyase; hydro-lyase; glyoxalase III,False
 4.2.1.131,lyase; carbon-oxygen lyase; hydro-lyase,True
 4.2.1.132,"lyase; carbon-oxygen lyase; hydro-lyase; 2-hydroxyhexa-2,4-dienoate hydratase",False
+4.2.1.133,lyase; carbon-oxygen lyase; hydro-lyase; copal-8-ol diphosphate synthase,False
 4.2.1.134,lyase; carbon-oxygen lyase; hydro-lyase; very-long-chain (3R)-3-hydroxyacyl-CoA dehydratase,False
 4.2.1.135,lyase; carbon-oxygen lyase; hydro-lyase,True
 4.2.1.136,lyase; carbon-oxygen lyase; hydro-lyase; ADP-dependent NAD(P)H-hydrate dehydratase,False
@@ -3885,7 +4082,11 @@ EC number,Text,Text Incomplete
 4.2.1.17,lyase; carbon-oxygen lyase; hydro-lyase; enoyl-CoA hydratase,False
 4.2.1.170,lyase; carbon-oxygen lyase; hydro-lyase,True
 4.2.1.171,lyase; carbon-oxygen lyase; hydro-lyase,True
+4.2.1.172,lyase; carbon-oxygen lyase; hydro-lyase,True
+4.2.1.173,lyase; carbon-oxygen lyase; hydro-lyase,True
+4.2.1.174,lyase; carbon-oxygen lyase; hydro-lyase; peregrinol diphosphate synthase,False
 4.2.1.175,lyase; carbon-oxygen lyase; hydro-lyase,True
+4.2.1.177,lyase; carbon-oxygen lyase; hydro-lyase,True
 4.2.1.18,lyase; carbon-oxygen lyase; hydro-lyase; methylglutaconyl-CoA hydratase,False
 4.2.1.19,lyase; carbon-oxygen lyase; hydro-lyase; imidazoleglycerol-phosphate dehydratase,False
 4.2.1.2,lyase; carbon-oxygen lyase; hydro-lyase; fumarate hydratase,False
@@ -3916,7 +4117,6 @@ EC number,Text,Text Incomplete
 4.2.1.50,lyase; carbon-oxygen lyase; hydro-lyase; pyrazolylalanine synthase,False
 4.2.1.51,lyase; carbon-oxygen lyase; hydro-lyase; prephenate dehydratase,False
 4.2.1.53,lyase; carbon-oxygen lyase; hydro-lyase; oleate hydratase,False
-4.2.1.54,lyase; carbon-oxygen lyase; hydro-lyase; lactoyl-CoA dehydratase,False
 4.2.1.55,lyase; carbon-oxygen lyase; hydro-lyase,True
 4.2.1.56,lyase; carbon-oxygen lyase; hydro-lyase; itaconyl-CoA hydratase,False
 4.2.1.59,lyase; carbon-oxygen lyase; hydro-lyase; (3R)-hydroxyacyl-[acyl-carrier-protein] dehydratase,False
@@ -3929,6 +4129,7 @@ EC number,Text,Text Incomplete
 4.2.1.7,lyase; carbon-oxygen lyase; hydro-lyase; altronate dehydratase,False
 4.2.1.70,lyase; carbon-oxygen lyase; hydro-lyase; pseudouridylate synthase,False
 4.2.1.75,lyase; carbon-oxygen lyase; hydro-lyase; uroporphyrinogen-III synthase,False
+4.2.1.76,"lyase; carbon-oxygen lyase; hydro-lyase; UDP-glucose 4,6-dehydratase",False
 4.2.1.77,lyase; carbon-oxygen lyase; hydro-lyase; trans-L-3-hydroxyproline dehydratase,False
 4.2.1.78,lyase; carbon-oxygen lyase; hydro-lyase; (S)-norcoclaurine synthase,False
 4.2.1.79,lyase; carbon-oxygen lyase; hydro-lyase; 2-methylcitrate dehydratase,False
@@ -3947,13 +4148,16 @@ EC number,Text,Text Incomplete
 4.2.1.94,lyase; carbon-oxygen lyase; hydro-lyase; scytalone dehydratase,False
 4.2.1.95,lyase; carbon-oxygen lyase; hydro-lyase; kievitone hydratase,False
 4.2.1.96,lyase; carbon-oxygen lyase; hydro-lyase; 4-alpha-hydroxytetrahydrobiopterin dehydratase,False
+4.2.1.99,lyase; carbon-oxygen lyase; hydro-lyase; 2-methylisocitrate dehydratase,False
 4.2.2.1,"lyase; carbon-oxygen lyase; carbon-oxygen lyase, acting on polysaccharides; hyaluronate lyase",False
 4.2.2.14,"lyase; carbon-oxygen lyase; carbon-oxygen lyase, acting on polysaccharides; glucuronan lyase",False
+4.2.2.15,"lyase; carbon-oxygen lyase; carbon-oxygen lyase, acting on polysaccharides; anhydrosialidase",False
 4.2.2.19,"lyase; carbon-oxygen lyase; carbon-oxygen lyase, acting on polysaccharides; chondroitin B lyase",False
 4.2.2.2,"lyase; carbon-oxygen lyase; carbon-oxygen lyase, acting on polysaccharides; pectate lyase",False
 4.2.2.20,"lyase; carbon-oxygen lyase; carbon-oxygen lyase, acting on polysaccharides; chondroitin-sulfate-ABC endolyase",False
-4.2.2.25,"lyase; carbon-oxygen lyase; carbon-oxygen lyase, acting on polysaccharides; gellan lyase",False
+4.2.2.26,"lyase; carbon-oxygen lyase; carbon-oxygen lyase, acting on polysaccharides; exo-oligoalginate lyase",False
 4.2.2.3,"lyase; carbon-oxygen lyase; carbon-oxygen lyase, acting on polysaccharides; poly(beta-D-mannuronate) lyase",False
+4.2.2.5,"lyase; carbon-oxygen lyase; carbon-oxygen lyase, acting on polysaccharides; chondroitin AC lyase",False
 4.2.2.6,"lyase; carbon-oxygen lyase; carbon-oxygen lyase, acting on polysaccharides; oligogalacturonide lyase",False
 4.2.2.7,"lyase; carbon-oxygen lyase; carbon-oxygen lyase, acting on polysaccharides; heparin lyase",False
 4.2.2.8,"lyase; carbon-oxygen lyase; carbon-oxygen lyase, acting on polysaccharides; heparin-sulfate lyase",False
@@ -3962,6 +4166,7 @@ EC number,Text,Text Incomplete
 4.2.3.100,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.101,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.102,lyase; carbon-oxygen lyase; sabinene synthase; sesquithujene synthase,False
+4.2.3.103,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.104,lyase; carbon-oxygen lyase; sabinene synthase; alpha-humulene synthase,False
 4.2.3.105,lyase; carbon-oxygen lyase; sabinene synthase; tricyclene synthase,False
 4.2.3.106,lyase; carbon-oxygen lyase; sabinene synthase; (E)-beta-ocimene synthase,False
@@ -3991,6 +4196,7 @@ EC number,Text,Text Incomplete
 4.2.3.13,lyase; carbon-oxygen lyase; sabinene synthase; (+)-delta-cadinene synthase,False
 4.2.3.130,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.131,lyase; carbon-oxygen lyase; sabinene synthase; miltiradiene synthase,False
+4.2.3.132,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.133,lyase; carbon-oxygen lyase; sabinene synthase; alpha-copaene synthase,False
 4.2.3.134,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.135,lyase; carbon-oxygen lyase; sabinene synthase,True
@@ -3998,10 +4204,13 @@ EC number,Text,Text Incomplete
 4.2.3.137,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.138,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.139,"lyase; carbon-oxygen lyase; sabinene synthase; valerena-4,7(11)-diene synthase",False
+4.2.3.140,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.141,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.143,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.144,lyase; carbon-oxygen lyase; sabinene synthase,True
+4.2.3.145,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.146,lyase; carbon-oxygen lyase; sabinene synthase,True
+4.2.3.147,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.148,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.149,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.15,lyase; carbon-oxygen lyase; sabinene synthase; myrcene synthase,False
@@ -4026,17 +4235,25 @@ EC number,Text,Text Incomplete
 4.2.3.167,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.168,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.169,lyase; carbon-oxygen lyase; sabinene synthase,True
+4.2.3.17,lyase; carbon-oxygen lyase; sabinene synthase; taxadiene synthase,False
 4.2.3.170,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.171,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.172,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.173,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.174,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.175,lyase; carbon-oxygen lyase; sabinene synthase,True
+4.2.3.176,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.177,lyase; carbon-oxygen lyase; sabinene synthase,True
+4.2.3.178,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.179,lyase; carbon-oxygen lyase; sabinene synthase,True
+4.2.3.18,lyase; carbon-oxygen lyase; sabinene synthase; abietadiene synthase,False
+4.2.3.180,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.181,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.182,lyase; carbon-oxygen lyase; sabinene synthase,True
+4.2.3.183,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.184,lyase; carbon-oxygen lyase; sabinene synthase,True
+4.2.3.185,lyase; carbon-oxygen lyase; sabinene synthase,True
+4.2.3.186,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.187,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.188,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.189,"lyase; carbon-oxygen lyase; sabinene synthase; 9,13-epoxylabda-14-ene synthase",False
@@ -4047,6 +4264,7 @@ EC number,Text,Text Incomplete
 4.2.3.193,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.194,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.195,lyase; carbon-oxygen lyase; sabinene synthase,True
+4.2.3.196,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.197,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.198,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.199,lyase; carbon-oxygen lyase; sabinene synthase,True
@@ -4061,20 +4279,34 @@ EC number,Text,Text Incomplete
 4.2.3.25,lyase; carbon-oxygen lyase; sabinene synthase; S-linalool synthase,False
 4.2.3.26,lyase; carbon-oxygen lyase; sabinene synthase; R-linalool synthase,False
 4.2.3.27,lyase; carbon-oxygen lyase; sabinene synthase; isoprene synthase,False
+4.2.3.28,"lyase; carbon-oxygen lyase; sabinene synthase; ent-cassa-12,15-diene synthase",False
+4.2.3.29,lyase; carbon-oxygen lyase; sabinene synthase; ent-sandaracopimaradiene synthase,False
 4.2.3.3,lyase; carbon-oxygen lyase; sabinene synthase; methylglyoxal synthase,False
+4.2.3.30,"lyase; carbon-oxygen lyase; sabinene synthase; ent-pimara-8(14),15-diene synthase",False
 4.2.3.31,"lyase; carbon-oxygen lyase; sabinene synthase; ent-pimara-9(11),15-diene synthase",False
+4.2.3.32,lyase; carbon-oxygen lyase; sabinene synthase; levopimaradiene synthase,False
+4.2.3.33,lyase; carbon-oxygen lyase; sabinene synthase; stemar-13-ene synthase,False
+4.2.3.34,lyase; carbon-oxygen lyase; sabinene synthase; syn-stemod-13(17)-ene synthase,False
+4.2.3.35,"lyase; carbon-oxygen lyase; sabinene synthase; syn-pimara-7,15-diene synthase",False
 4.2.3.36,lyase; carbon-oxygen lyase; sabinene synthase; terpentetriene synthase,False
 4.2.3.37,lyase; carbon-oxygen lyase; sabinene synthase; epi-isozizaene synthase,False
 4.2.3.38,lyase; carbon-oxygen lyase; sabinene synthase; alpha-bisabolene synthase,False
 4.2.3.39,lyase; carbon-oxygen lyase; sabinene synthase; epi-cedrol synthase,False
 4.2.3.4,lyase; carbon-oxygen lyase; sabinene synthase; 3-dehydroquinate synthase,False
 4.2.3.40,lyase; carbon-oxygen lyase; sabinene synthase; (Z)-gamma-bisabolene synthase,False
+4.2.3.42,lyase; carbon-oxygen lyase; sabinene synthase; aphidicolan-16 beta-ol synthase,False
+4.2.3.43,lyase; carbon-oxygen lyase; sabinene synthase,True
+4.2.3.44,lyase; carbon-oxygen lyase; sabinene synthase,True
+4.2.3.45,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.46,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.47,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.48,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.49,lyase; carbon-oxygen lyase; sabinene synthase; (3R)-(E)-nerolidol synthase,False
 4.2.3.5,lyase; carbon-oxygen lyase; sabinene synthase; chorismate synthase,False
+4.2.3.50,lyase; carbon-oxygen lyase; sabinene synthase; alpha-santalene synthase,False
+4.2.3.51,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.52,lyase; carbon-oxygen lyase; sabinene synthase,True
+4.2.3.53,lyase; carbon-oxygen lyase; sabinene synthase; endo-beta-bergamotene synthase,False
 4.2.3.54,lyase; carbon-oxygen lyase; sabinene synthase; endo-alpha-bergamotene synthase,False
 4.2.3.55,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.56,lyase; carbon-oxygen lyase; sabinene synthase,True
@@ -4121,6 +4353,7 @@ EC number,Text,Text Incomplete
 4.2.3.96,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.97,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.3.98,lyase; carbon-oxygen lyase; sabinene synthase,True
+4.2.3.99,lyase; carbon-oxygen lyase; sabinene synthase,True
 4.2.99.18,lyase; carbon-oxygen lyase; class I DNA-(apurinic or apyrimidinic site) endonuclease,False
 4.2.99.20,"lyase; carbon-oxygen lyase; 2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carboxylate synthase",False
 4.2.99.21,lyase; carbon-oxygen lyase; isochorismate pyruvate lyase,False
@@ -4138,6 +4371,7 @@ EC number,Text,Text Incomplete
 4.3.1.2,lyase; carbon-nitrogen lyase; ammonia-lyase; methylaspartate ammonia-lyase,False
 4.3.1.23,lyase; carbon-nitrogen lyase; ammonia-lyase; tyrosine ammonia-lyase,False
 4.3.1.24,lyase; carbon-nitrogen lyase; ammonia-lyase; phenylalanine ammonia-lyase,False
+4.3.1.25,lyase; carbon-nitrogen lyase; ammonia-lyase; tyrosine ammonia-lyase,False
 4.3.1.27,lyase; carbon-nitrogen lyase; ammonia-lyase,True
 4.3.1.28,lyase; carbon-nitrogen lyase; ammonia-lyase,True
 4.3.1.29,lyase; carbon-nitrogen lyase; ammonia-lyase,True
@@ -4159,6 +4393,7 @@ EC number,Text,Text Incomplete
 4.3.3.6,lyase; carbon-nitrogen lyase; amine-lyase; pyridoxal 5'-phosphate synthase (glutamine hydrolysing),False
 4.3.3.7,lyase; carbon-nitrogen lyase; amine-lyase; 4-hydroxy-tetrahydrodipicolinate synthase,False
 4.3.99.3,lyase; carbon-nitrogen lyase,True
+4.3.99.4,lyase; carbon-nitrogen lyase,True
 4.4.1.1,lyase; carbon-sulfur lyase; sulfoacetaldehyde lyase; L-cysteine desulfhydrase,False
 4.4.1.11,lyase; carbon-sulfur lyase; sulfoacetaldehyde lyase; methionine gamma-lyase,False
 4.4.1.13,lyase; carbon-sulfur lyase; sulfoacetaldehyde lyase; cysteine-S-conjugate beta-lyase,False
@@ -4180,7 +4415,9 @@ EC number,Text,Text Incomplete
 4.4.1.34,lyase; carbon-sulfur lyase; sulfoacetaldehyde lyase,True
 4.4.1.35,lyase; carbon-sulfur lyase; sulfoacetaldehyde lyase,True
 4.4.1.37,lyase; carbon-sulfur lyase; sulfoacetaldehyde lyase,True
+4.4.1.38,lyase; carbon-sulfur lyase; sulfoacetaldehyde lyase,True
 4.4.1.4,lyase; carbon-sulfur lyase; sulfoacetaldehyde lyase; alliin lyase,False
+4.4.1.41,lyase; carbon-sulfur lyase; sulfoacetaldehyde lyase,True
 4.4.1.5,lyase; carbon-sulfur lyase; sulfoacetaldehyde lyase; lactoylglutathione lyase,False
 4.4.1.9,lyase; carbon-sulfur lyase; sulfoacetaldehyde lyase; L-3-cyanoalanine synthase,False
 4.5.1.1,"lyase; carbon-halide lyase; 5-chloro-1,2,4-trihydroxybenzene dechlorinase; DDT-dehydrochlorinase",False
@@ -4232,6 +4469,7 @@ EC number,Text,Text Incomplete
 5.1.1.8,"isomerase; racemase and epimerase; racemase and epimerase, acting on amino acids and derivatives; 4-hydroxyproline epimerase",False
 5.1.2.1,"isomerase; racemase and epimerase; racemase and epimerase, acting on hydroxy acids and derivatives; lactate racemase",False
 5.1.2.2,"isomerase; racemase and epimerase; racemase and epimerase, acting on hydroxy acids and derivatives; mandelate racemase",False
+5.1.2.3,"isomerase; racemase and epimerase; racemase and epimerase, acting on hydroxy acids and derivatives; 3-hydroxybutyryl-CoA epimerase",False
 5.1.2.7,"isomerase; racemase and epimerase; racemase and epimerase, acting on hydroxy acids and derivatives",True
 5.1.3.1,"isomerase; racemase and epimerase; racemase and epimerase, acting on carbohydrates and derivatives; D-ribulose-phosphate 3-epimerase",False
 5.1.3.10,"isomerase; racemase and epimerase; racemase and epimerase, acting on carbohydrates and derivatives; CDP-abequose epimerase",False
@@ -4241,6 +4479,7 @@ EC number,Text,Text Incomplete
 5.1.3.15,"isomerase; racemase and epimerase; racemase and epimerase, acting on carbohydrates and derivatives; glucose-6-phosphate 1-epimerase",False
 5.1.3.17,"isomerase; racemase and epimerase; racemase and epimerase, acting on carbohydrates and derivatives; heparosan-N-sulfate-glucuronate 5-epimerase",False
 5.1.3.18,"isomerase; racemase and epimerase; racemase and epimerase, acting on carbohydrates and derivatives; GDP-mannose 3,5-epimerase",False
+5.1.3.19,"isomerase; racemase and epimerase; racemase and epimerase, acting on carbohydrates and derivatives; chondroitin-glucuronate 5-epimerase",False
 5.1.3.2,"isomerase; racemase and epimerase; racemase and epimerase, acting on carbohydrates and derivatives; UDP-glucose 4-epimerase",False
 5.1.3.20,"isomerase; racemase and epimerase; racemase and epimerase, acting on carbohydrates and derivatives; ADP-glyceromanno-heptose 6-epimerase",False
 5.1.3.21,"isomerase; racemase and epimerase; racemase and epimerase, acting on carbohydrates and derivatives; maltose epimerase",False
@@ -4356,6 +4595,7 @@ EC number,Text,Text Incomplete
 5.4.2.7,isomerase; intramolecular transferase; intramolecular phosphotransferase; phosphopentomutase,False
 5.4.2.8,isomerase; intramolecular transferase; intramolecular phosphotransferase; phosphomannomutase,False
 5.4.2.9,isomerase; intramolecular transferase; intramolecular phosphotransferase; phosphoenolpyruvate mutase,False
+5.4.3.10,isomerase; intramolecular transferase; intramolecular aminotransferase,True
 5.4.3.2,"isomerase; intramolecular transferase; intramolecular aminotransferase; lysine 2,3-aminomutase",False
 5.4.3.3,isomerase; intramolecular transferase; intramolecular aminotransferase,True
 5.4.3.5,"isomerase; intramolecular transferase; intramolecular aminotransferase; D-ornithine 4,5-aminomutase",False
@@ -4370,6 +4610,7 @@ EC number,Text,Text Incomplete
 5.4.4.8,isomerase; intramolecular transferase; intramolecular hydroxytransferase,True
 5.4.99.1,isomerase; intramolecular transferase; beta-amyrin synthase; methylaspartate mutase,False
 5.4.99.12,isomerase; intramolecular transferase; beta-amyrin synthase; tRNA pseudouridine(38-40) synthase,False
+5.4.99.15,"isomerase; intramolecular transferase; beta-amyrin synthase; (1,4)-alpha-D-glucan 1-alpha-D-glucosylmutase",False
 5.4.99.16,isomerase; intramolecular transferase; beta-amyrin synthase; maltose alpha-D-glucosyltransferase,False
 5.4.99.17,isomerase; intramolecular transferase; beta-amyrin synthase; squalene-hopene cyclase,False
 5.4.99.18,isomerase; intramolecular transferase; beta-amyrin synthase; 5-(carboxyamino)imidazole ribonucleotide mutase,False
@@ -4386,22 +4627,45 @@ EC number,Text,Text Incomplete
 5.4.99.28,isomerase; intramolecular transferase; beta-amyrin synthase; tRNA pseudouridine(32) synthase,False
 5.4.99.29,isomerase; intramolecular transferase; beta-amyrin synthase; 23S rRNA pseudouridine(746) synthase,False
 5.4.99.30,isomerase; intramolecular transferase; beta-amyrin synthase; UDP-arabinopyranose mutase,False
+5.4.99.31,isomerase; intramolecular transferase; beta-amyrin synthase; thalianol synthase,False
+5.4.99.32,isomerase; intramolecular transferase; beta-amyrin synthase,True
+5.4.99.33,isomerase; intramolecular transferase; beta-amyrin synthase,True
+5.4.99.34,isomerase; intramolecular transferase; beta-amyrin synthase,True
+5.4.99.35,isomerase; intramolecular transferase; beta-amyrin synthase,True
+5.4.99.36,isomerase; intramolecular transferase; beta-amyrin synthase,True
+5.4.99.37,isomerase; intramolecular transferase; beta-amyrin synthase,True
+5.4.99.38,isomerase; intramolecular transferase; beta-amyrin synthase,True
+5.4.99.39,isomerase; intramolecular transferase; beta-amyrin synthase,True
 5.4.99.4,isomerase; intramolecular transferase; beta-amyrin synthase; 2-methyleneglutarate mutase,False
+5.4.99.40,isomerase; intramolecular transferase; beta-amyrin synthase,True
+5.4.99.41,isomerase; intramolecular transferase; beta-amyrin synthase; lupeol synthase,False
 5.4.99.42,isomerase; intramolecular transferase; beta-amyrin synthase; tRNA pseudouridine(31) synthase,False
 5.4.99.43,isomerase; intramolecular transferase; beta-amyrin synthase; 21S rRNA pseudouridine(2819) synthase,False
 5.4.99.45,isomerase; intramolecular transferase; beta-amyrin synthase; tRNA pseudouridine(38/39) synthase,False
+5.4.99.47,isomerase; intramolecular transferase; beta-amyrin synthase,True
+5.4.99.49,isomerase; intramolecular transferase; beta-amyrin synthase,True
 5.4.99.5,isomerase; intramolecular transferase; beta-amyrin synthase; chorismate mutase,False
+5.4.99.50,isomerase; intramolecular transferase; beta-amyrin synthase,True
+5.4.99.51,isomerase; intramolecular transferase; beta-amyrin synthase,True
+5.4.99.53,isomerase; intramolecular transferase; beta-amyrin synthase,True
+5.4.99.56,isomerase; intramolecular transferase; beta-amyrin synthase,True
 5.4.99.58,isomerase; intramolecular transferase; beta-amyrin synthase,True
 5.4.99.59,isomerase; intramolecular transferase; beta-amyrin synthase,True
 5.4.99.60,isomerase; intramolecular transferase; beta-amyrin synthase; cobalt-precorrin-8 methylmutase,False
 5.4.99.61,isomerase; intramolecular transferase; beta-amyrin synthase; precorrin-8X methylmutase,False
 5.4.99.62,isomerase; intramolecular transferase; beta-amyrin synthase; D-ribose pyranase,False
+5.4.99.63,isomerase; intramolecular transferase; beta-amyrin synthase,True
 5.4.99.64,isomerase; intramolecular transferase; beta-amyrin synthase,True
+5.4.99.65,isomerase; intramolecular transferase; beta-amyrin synthase,True
+5.4.99.66,isomerase; intramolecular transferase; beta-amyrin synthase,True
 5.4.99.67,isomerase; intramolecular transferase; beta-amyrin synthase,True
+5.4.99.7,isomerase; intramolecular transferase; beta-amyrin synthase; lanosterol synthase,False
+5.4.99.8,isomerase; intramolecular transferase; beta-amyrin synthase; cycloartenol synthase,False
 5.4.99.9,isomerase; intramolecular transferase; beta-amyrin synthase; UDP-galactopyranose mutase,False
 5.5.1.1,isomerase; cyclopropanecarboxyl-CoA decyclase; muconate cycloisomerase,False
 5.5.1.12,isomerase; cyclopropanecarboxyl-CoA decyclase; copalyl diphosphate synthase,False
 5.5.1.13,isomerase; cyclopropanecarboxyl-CoA decyclase; ent-copalyl diphosphate synthase,False
+5.5.1.14,isomerase; cyclopropanecarboxyl-CoA decyclase; syn-copalyl diphosphate synthase,False
 5.5.1.15,isomerase; cyclopropanecarboxyl-CoA decyclase,True
 5.5.1.16,isomerase; cyclopropanecarboxyl-CoA decyclase; halimadienyl-diphosphate synthase,False
 5.5.1.17,isomerase; cyclopropanecarboxyl-CoA decyclase,True
@@ -4414,6 +4678,7 @@ EC number,Text,Text Incomplete
 5.5.1.25,isomerase; cyclopropanecarboxyl-CoA decyclase,True
 5.5.1.26,isomerase; cyclopropanecarboxyl-CoA decyclase,True
 5.5.1.27,isomerase; cyclopropanecarboxyl-CoA decyclase,True
+5.5.1.28,isomerase; cyclopropanecarboxyl-CoA decyclase,True
 5.5.1.29,isomerase; cyclopropanecarboxyl-CoA decyclase; kolavenyl diphosphate synthase,False
 5.5.1.30,isomerase; cyclopropanecarboxyl-CoA decyclase,True
 5.5.1.34,isomerase; cyclopropanecarboxyl-CoA decyclase,True
@@ -4462,6 +4727,7 @@ EC number,Text,Text Incomplete
 6.2.1.13,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming); acetate-CoA ligase (ADP-forming)",False
 6.2.1.14,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming); 6-carboxyhexanoate-CoA ligase",False
 6.2.1.15,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming); arachidonate-CoA ligase",False
+6.2.1.16,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming); acetoacetate-CoA ligase",False
 6.2.1.17,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming); propionate-CoA ligase",False
 6.2.1.19,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming); long-chain fatty acid--protein ligase",False
 6.2.1.2,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming); butyrate-CoA ligase",False
@@ -4477,6 +4743,7 @@ EC number,Text,Text Incomplete
 6.2.1.33,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming); 4-chlorobenzoate-CoA ligase",False
 6.2.1.34,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming); trans-feruloyl-CoA synthase",False
 6.2.1.35,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming)",True
+6.2.1.36,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming); 3-hydroxypropionyl-CoA synthetase",False
 6.2.1.37,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming)",True
 6.2.1.39,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming)",True
 6.2.1.4,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming); succinate-CoA ligase (GDP-forming)",False
@@ -4491,11 +4758,14 @@ EC number,Text,Text Incomplete
 6.2.1.48,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming)",True
 6.2.1.49,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming)",True
 6.2.1.5,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming); succinate-CoA ligase (ADP-forming)",False
+6.2.1.50,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming)",True
 6.2.1.51,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming)",True
 6.2.1.53,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming)",True
 6.2.1.54,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming)",True
+6.2.1.56,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming)",True
 6.2.1.57,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming)",True
 6.2.1.59,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming)",True
+6.2.1.60,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming)",True
 6.2.1.61,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming)",True
 6.2.1.62,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming)",True
 6.2.1.65,"ligase; ligase, forming carbon-sulfur bonds; perillic acid-CoA ligase (ADP-forming)",True
@@ -4523,6 +4793,7 @@ EC number,Text,Text Incomplete
 6.3.1.9,"ligase; ligase, forming carbon-nitrogen bonds; cyanophycin synthetase; trypanothione synthase",False
 6.3.2.1,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase; pantoate-beta-alanine ligase",False
 6.3.2.10,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase; UDP-N-acetylmuramoyl-tripeptide-D-alanyl-D-alanine ligase",False
+6.3.2.11,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase; homocarnosine synthase",False
 6.3.2.12,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase; dihydrofolate synthase",False
 6.3.2.13,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase; UDP-N-acetylmuramoylalanyl-D-glutamate-2,6-diaminopimelate ligase",False
 6.3.2.14,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase; 2,3-dihydroxybenzoate-serine ligase",False
@@ -4530,7 +4801,9 @@ EC number,Text,Text Incomplete
 6.3.2.2,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase; glutamate-cysteine ligase",False
 6.3.2.20,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase; indoleacetate-lysine synthetase",False
 6.3.2.25,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase; tubulin-tyrosine ligase",False
+6.3.2.29,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase; cyanophycin synthetase (L-aspartate-adding)",False
 6.3.2.3,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase; glutathione synthase",False
+6.3.2.30,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase; cyanophycin synthetase (L-arginine-adding)",False
 6.3.2.31,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase; coenzyme F420-0:L-glutamate ligase",False
 6.3.2.32,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase; coenzyme F420-2 alpha-glutamyl ligase",False
 6.3.2.33,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase",True
@@ -4556,6 +4829,7 @@ EC number,Text,Text Incomplete
 6.3.2.55,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase",True
 6.3.2.56,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase",True
 6.3.2.57,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase",True
+6.3.2.58,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase",True
 6.3.2.6,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase; phosphoribosylaminoimidazolesuccinocarboxamide synthase",False
 6.3.2.7,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase; UDP-N-acetylmuramoyl-L-alanyl-D-glutamate-L-lysine ligase",False
 6.3.2.8,"ligase; ligase, forming carbon-nitrogen bonds; acid-amino acid ligase; UDP-N-acetylmuramate-L-alanine ligase",False
@@ -4625,13 +4899,21 @@ EC number,Text,Text Incomplete
 7.2.2.1,"primary active transmembrane transporter; ATPase-coupled transmembrane transporter; sodium-transporting ATPase, rotational mechanism",False
 7.2.2.10,primary active transmembrane transporter; ATPase-coupled transmembrane transporter; P-type calcium transporter,False
 7.2.2.11,primary active transmembrane transporter; ATPase-coupled transmembrane transporter; ABC-type nickel transporter,False
+7.2.2.12,primary active transmembrane transporter; ATPase-coupled transmembrane transporter; P-type zinc transporter,False
+7.2.2.13,primary active transmembrane transporter; ATPase-coupled transmembrane transporter; P-type sodium:potassium-exchanging transporter,False
+7.2.2.14,primary active transmembrane transporter; ATPase-coupled transmembrane transporter; P-type magnesium transporter,False
+7.2.2.15,primary active transmembrane transporter; ATPase-coupled transmembrane transporter; P-type silver transporter,False
 7.2.2.17,primary active transmembrane transporter; ATPase-coupled transmembrane transporter; ABC-type ferric-enterobactin transporter,False
 7.2.2.18,primary active transmembrane transporter; ATPase-coupled transmembrane transporter,True
 7.2.2.20,primary active transmembrane transporter; ATPase-coupled transmembrane transporter; ABC-type zinc transporter,False
+7.2.2.21,primary active transmembrane transporter; ATPase-coupled transmembrane transporter; P-type cadmium transporter,False
+7.2.2.3,primary active transmembrane transporter; ATPase-coupled transmembrane transporter; P-type sodium transporter,False
 7.2.2.4,primary active transmembrane transporter; ATPase-coupled transmembrane transporter; ABC-type sodium transporter,False
 7.2.2.5,primary active transmembrane transporter; ATPase-coupled transmembrane transporter; ABC-type manganese transporter,False
 7.2.2.6,primary active transmembrane transporter; ATPase-coupled transmembrane transporter; P-type potassium transmembrane transporter,False
 7.2.2.7,primary active transmembrane transporter; ATPase-coupled transmembrane transporter; ABC-type ferric iron transporter,False
+7.2.2.8,primary active transmembrane transporter; ATPase-coupled transmembrane transporter; P-type monovalent copper transporter,False
+7.2.2.9,primary active transmembrane transporter; ATPase-coupled transmembrane transporter; P-type divalent copper transporter,False
 7.2.4.1,primary active transmembrane transporter; decarboxylation-driven active transmembrane transporter,False
 7.2.4.2,primary active transmembrane transporter; decarboxylation-driven active transmembrane transporter,False
 7.2.4.3,primary active transmembrane transporter; decarboxylation-driven active transmembrane transporter,False
@@ -4648,6 +4930,9 @@ EC number,Text,Text Incomplete
 7.4.2.11,primary active transmembrane transporter; ABC-type D-methionine transporter,False
 7.4.2.12,primary active transmembrane transporter,True
 7.4.2.13,primary active transmembrane transporter,True
+7.4.2.4,primary active transmembrane transporter; chloroplast protein-transporting ATPase,False
+7.4.2.5,primary active transmembrane transporter; ABC-type protein transporter,False
+7.4.2.6,primary active transmembrane transporter; ABC-type oligopeptide transporter,False
 7.4.2.8,primary active transmembrane transporter; protein-exporting ATPase,False
 7.4.2.9,primary active transmembrane transporter,True
 7.5.2.1,primary active transmembrane transporter; ABC-type monosaccharide transporter; ABC-type maltose transporter,False
@@ -4668,7 +4953,9 @@ EC number,Text,Text Incomplete
 7.6.2.16,primary active transmembrane transporter; ABC-type putrescine transporter,False
 7.6.2.2,primary active transmembrane transporter; ABC-type xenobiotic transporter,False
 7.6.2.3,primary active transmembrane transporter; ABC-type glutathione S-conjugate transporter,False
+7.6.2.4,primary active transmembrane transporter; ABC-type fatty-acyl-CoA transporter,False
 7.6.2.5,primary active transmembrane transporter; ABC-type heme transporter,False
+7.6.2.6,primary active transmembrane transporter; ABC-type guanine transporter,False
 7.6.2.7,primary active transmembrane transporter; ABC-type taurine transporter transporter,False
 7.6.2.8,primary active transmembrane transporter; ABC-type vitamin B12 transporter,False
 7.6.2.9,primary active transmembrane transporter; ABC-type quaternary ammonium compound transporting,False
