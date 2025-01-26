@@ -51,8 +51,8 @@ Note that this will take 0.5-1 hours on a single H100 GPU. If are manually start
 
 For extracting the query reaction representations for each test set: 
 ```
-python step_02_extract_CREEP.py --pretrained_folder=easy_split --dataset=easy_reaction_test --modality=reaction
-python step_02_extract_CREEP.py --pretrained_folder=easy_split --dataset=easy_reaction_test --modality=text
+python step_02_extract_CREEP.py --pretrained_folder=output/easy_split --dataset=easy_reaction_test --modality=reaction
+python step_02_extract_CREEP.py --pretrained_folder=output/easy_split --dataset=easy_reaction_test --modality=text
 ```
 Representations will be svaed in the output directory under `representations`.
 
